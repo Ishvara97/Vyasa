@@ -33,6 +33,20 @@ int main() {
 
             std::cout << "\n";
         }
+        std::cout << "\nLetter Frequency:\n";
+        auto freq = verse.getLetterFrequency();
+
+        for (const auto& pair : freq) {
+        	std::cout << pair.first << " : " << pair.second << "\n";
+        }
+
+        std::cout << "\n=== Hymn Letter Frequency ===\n";
+
+		auto hymnFreq = hymn.getLetterFrequency();
+
+		for (const auto& pair : hymnFreq) {
+    		std::cout << pair.first << " : " << pair.second << "\n";
+		}
 
         std::cout << "------------------\n";
     }

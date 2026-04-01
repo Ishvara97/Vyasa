@@ -5,6 +5,7 @@
 
 #include <string>
 #include <vector>
+#include <map>
 //#include <sstream>
 //#include <regex>
 
@@ -76,6 +77,18 @@ public:
     const std::vector<Word>& getWords() const {
     	return words;
     }
+
+    // Letter Frequency
+    std::map<std::string, int> getLetterFrequency() const {
+    	std::map<std::string, int> freq;
+
+    	for (const auto& word : words) {
+    		for (const auto& letter : word.getLetters()) {
+    			freq[letter.getValue()]++;
+    		}
+    	}
+    	return freq;
+    }
 };
 
 //Hymn - Summation of Verses
@@ -91,6 +104,21 @@ public:
 	const std::vector<Verse>& getVerses() const {
 		return verses;
 	}
+	// Total Hymn Letter Frequency
+	std::map<std::string, int> getLetterFrequency() const {
+        std::map<std::string, int> totalFreq;
+
+        for (const auto& verse : verses) {
+            auto verseFreq = verse.getLetterFrequency();
+
+            for (const auto& pair : verseFreq) {
+                totalFreq[pair.first] += pair.second;
+            }
+        }
+
+        return totalFreq;
+    }
+
 };
 
 #endif
