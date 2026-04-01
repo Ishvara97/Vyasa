@@ -34,7 +34,9 @@ public:
     Word(const std::string& r) : raw(r) {} //Paramterized Constructor for raw input
 
     void addLetter(const Letter& l) {
-        letters.push_back(l);
+    	if (l.getValue() == "|"||l.getValue() =="।" || l.getValue() == "॥") {
+    		return;}   
+    	else letters.push_back(l);
     }
 
     std::string getRaw() const { return raw; }
@@ -85,7 +87,12 @@ public:
 
     	for (const auto& word : words) {
     		for (const auto& letter : word.getLetters()) {
-    			freq[letter.getValue()]++;
+    			
+    			std::string val = letter.getValue();
+				if (val == "|"||val =="।" || val == "॥") {
+                continue;
+            }
+            	freq[val]++;
     		}
     	}
     	return freq;

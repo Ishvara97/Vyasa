@@ -29,8 +29,8 @@ int main() {
         for (const auto& word : verse.getWords()) {
            // std::cout << letter.getLetters(word.getRaw()) << " \n";
 
-            for (co7nst auto& letter : word.getLetters()) {
-                std::cout << letter.getValue() << " ";
+            for (const auto& letter : word.getLetters()) {
+                    std::cout << letter.getValue() << " ";
             }
 
             std::cout << "\n";
