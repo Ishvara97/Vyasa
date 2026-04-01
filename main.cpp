@@ -6,7 +6,7 @@
 
 int main() {
 	SetConsoleOutputCP(CP_UTF8);
-    std::ifstream file("[Hymn 1.1].txt");
+    std::ifstream file("Hymns/[Hymn 10.125].txt");
 
     if (!file) {
         std::cerr << "Error opening file\n";
@@ -25,7 +25,7 @@ int main() {
         std::cout << "ENG:  " << verse.getEng() << "\n";
         std::cout << "Words: " << "\n";
         for (const auto& word : verse.getWords()) {
-            std::cout << word.getRaw() << " -> Letters: ";
+           // std::cout << letter.getLetters(word.getRaw()) << " \n";
 
             for (const auto& letter : word.getLetters()) {
                 std::cout << letter.getValue() << " ";
