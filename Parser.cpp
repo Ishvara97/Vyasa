@@ -69,7 +69,7 @@ Hymn parseHymn(const std::string& text) {
         size_t end_pos = (i + 1 < positions.size()) ? positions[i + 1] : text.size();
 
         std::string block = text.substr(start, end_pos - start);
-        hymn.verses.push_back(parseVerseBlock(block));
+        hymn.addVerse(parseVerseBlock(block));
     }
 
     return hymn;

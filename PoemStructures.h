@@ -24,24 +24,25 @@ public:
 //Word
 class Word {
 private:
-	std::string raw;
-	std::vector<Letter> letters;
+    std::string raw;
+    std::vector<Letter> letters;
 
 public:
-	Word() = default;
-	Word(const std::string& r) : raw(r) {}
+    Word() = default;
+    Word(const std::string& r) : raw(r) {}
 
-	void addLetter(const Letter& 1) {
-		letters.push_back(1);
-	}
+    void addLetter(const Letter& l) {
+        letters.push_back(l);
+    }
 
-	std::string getRaw() const { return raw; }
-	void setRaw(const std::string& r) {	raw = r; }
+    std::string getRaw() const { return raw; }
+    void setRaw(const std::string& r) { raw = r; }
 
-	const std::vector<Letter>& getletters() const {
-		return letters;
-	}
+    const std::vector<Letter>& getLetters() const {
+        return letters;
+    }
 };
+
 
 //Verses
 class Verse {

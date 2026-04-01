@@ -6,7 +6,7 @@
 // Split by char delimiters
 std::vector<std::string> split(const std::string& s, char delimiter) {
 	std::vector<std::string> tokens;
-	std:;stringstream ss(s);
+	std::stringstream ss(s);
 	std::string item;
 
 	while (getline(ss, item, delimiter)) {
