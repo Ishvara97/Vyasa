@@ -5,16 +5,15 @@
 #include <regex>
 
 Word buildWord(const std::string& raw) {
-	Word w;
-	w.raw = raw;
+	Word w(raw);
 
-	auto letters = splitUTF8(raw);
+    auto letters = splitUTF8(raw);
 
-	for (auto& 1 : letters) {
-		w.letters.push_back({1});
-	}
+    for (auto& l : letters) {
+        w.addLetter(Letter(l));
+    }
 
-	return w;
+    return w;
 }
 
 Verse parseVerseBlock(const std::string& block) {
@@ -28,26 +27,25 @@ Verse parseVerseBlock(const std::string& block) {
     std::smatch match;
 
     if (std::regex_search(block, match, verse_num_re)) {
-    	v.number = std::stoi(match[1]);
+        v.setNumber(std::stoi(match[1]));
     }
 
     if (std::regex_search(block, match, dev_re)) {
-        v.dev = match[1];
+        v.setDev(match[1]);
     }
 
     if (std::regex_search(block, match, iast_re)) {
-        v.iast = match[1];
+        v.setIAST(match[1]);
     }
 
     if (std::regex_search(block, match, eng_re)) {
-        v.eng = match[1];
+        v.setEng(match[1]);
     }
 
-    //IAST Tokenization
-    auto words = splitWords(v.iast);
+    auto words = splitWords(v.getIAST());
 
-    for (auto& w : words) {
-        v.words.push_back(buildWord(w));
+    for (auto& wstr : words) {
+        v.addWord(buildWord(wstr));
     }
 
     return v;
