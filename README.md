@@ -34,4 +34,4 @@ Attributions:
 
 
 
-[^1]: Watkins, Calvert. _How to Kill a Dragon: Aspects of Indo-European Poetics_. Oxford University Press, 1995.
+[^1]: Calvert Watkins, _How to Kill a Dragon: Aspects of Indo-European Poetics_. (New York, Oxford University Press, 1995), 111.
