@@ -3,6 +3,8 @@
 #include <sstream>
 #include "Parser.h"
 #include <windows.h> //To render Devanagari and IAST properly
+#include "json.hpp"
+using json = nlohmann::json;
 
 int main() {
 	SetConsoleOutputCP(CP_UTF8);
@@ -27,7 +29,7 @@ int main() {
         for (const auto& word : verse.getWords()) {
             std::cout << word.getRaw() << " -> Letters: ";
 
-            for (const auto& letter : word.getLetters()) {
+            for (co7nst auto& letter : word.getLetters()) {
                 std::cout << letter.getValue() << " ";
             }
 
@@ -53,4 +55,5 @@ int main() {
         std::cout << "------------------\n";
 
     return 0;
+
 }

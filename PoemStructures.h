@@ -6,8 +6,9 @@
 #include <string>
 #include <vector>
 #include <map>
-//#include <sstream>
-//#include <regex>
+
+#include "json.hpp"
+using json = nlohmann::json;
 
 //Letter
 class Letter {
