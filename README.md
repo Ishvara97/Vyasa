@@ -25,7 +25,9 @@ Within the bolded hemistich is contained:
 - Swara Frequency and Weight Analysis
 - Sandhi Evaluation
 
-This is in very preliminary stages at the moment.
+Attributions:
+
+- Lohmann, N. (2025). JSON for Modern C++ (Version 3.12.0) [Computer software]. https://github.com/nlohmann
 
 
 
