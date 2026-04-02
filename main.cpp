@@ -41,10 +41,10 @@ int main() {
         for (const auto& pair : freq) {
         	std::cout << pair.first << " : " << pair.second << "\n";
         }
-
+        std::cout << "\n";
     }
 
-    std::cout << "\n=== Hymn Letter Frequency ===\n";
+    std::cout << "\nHymn Total Letter Frequency\n";
 
         auto hymnFreq = hymn.getLetterFrequency();
 
