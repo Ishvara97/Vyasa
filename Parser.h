@@ -4,6 +4,6 @@
 #include "PoemStructures.h"
 #include <string>
 
-Hymn parseHymn(const std::string& text);
+Hymn parseHymn(const std::string& filename);
 
 #endif

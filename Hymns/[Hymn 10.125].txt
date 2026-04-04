@@ -1,3 +1,9 @@
+Mandala: 10
+Sukta: 125
+Devatas: Vac Devi
+Rishis: Vagambrhni Prajaptim
+Categories: Atmastuti
+
 [Verse 1]
 
 DEV: अहं रुद्रेभिर्वसुभिश्चरामि । अहमादित्यैरुत विश्वदेवैः । अहं मित्रावरुणोभा बिभर्मि । अहमिन्द्राग्नी अहमश्विनोभा ॥

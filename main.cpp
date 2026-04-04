@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <fstream>
 #include <sstream>
 #include "Parser.h"
@@ -7,53 +8,31 @@
 using json = nlohmann::json;
 
 int main() {
-	SetConsoleOutputCP(CP_UTF8);
-    std::ifstream file("Hymns/[Hymn 10.125].txt");
+    //Ensure Devanagari Inputs/Outputs Properly
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
 
-    if (!file) {
-        std::cerr << "Error opening file\n";
-        return 1;
-    }
+	Hymn hymn = parseHymn("Hymns/[Hymn 10.125].txt"); //Parse Hymn on File
 
-    std::stringstream buffer;
-    buffer << file.rdbuf();
+    std::cout << "Mandala: " << hymn.getMandala() << "\n"; //Output Mandala#
+    std::cout << "Sukta: " << hymn.getSukta() << "\n\n"; //Output Sukta#
+    for (const auto& rishi : hymn.getRishis()){
+        std::cout <<"Rishis:" << rishi << ", "; } std::cout << "\n";
 
-    Hymn hymn = parseHymn(buffer.str());
+    for (const auto& devata : hymn.getDevatas()){
+        std::cout <<"Devatas:" << devata << ", "; } std::cout << "\n";
 
-    for (const auto& verse : hymn.getVerses()) {
-        std::cout << "Verse " << verse.getNumber() << "\n";
+    for (const auto& category : hymn.getCategories()){
+        std::cout <<"Categories:" << category << ", "; } std::cout << "\n\n";
+
+    for (const auto& verse : hymn.getVerses()) { //For every verse in Hymn, output Verse #, Dev, IAST, ENG.
+    
+
+        std::cout << "[Verse " << verse.getVerseNumber() << "]\n";
         std::cout << "DEV: " << verse.getDev() << "\n";
         std::cout << "IAST: " << verse.getIAST() << "\n";
-        std::cout << "ENG:  " << verse.getEng() << "\n";
-        std::cout << "Words: " << "\n";
-        for (const auto& word : verse.getWords()) {
-           // std::cout << letter.getLetters(word.getRaw()) << " \n";
-
-            for (co7nst auto& letter : word.getLetters()) {
-                std::cout << letter.getValue() << " ";
-            }
-
-            std::cout << "\n";
-        }
-        std::cout << "\nLetter Frequency:\n";
-        auto freq = verse.getLetterFrequency();
-
-        for (const auto& pair : freq) {
-        	std::cout << pair.first << " : " << pair.second << "\n";
-        }
-
+        std::cout << "ENG: " << verse.getENG() << "\n\n";
     }
 
-    std::cout << "\n=== Hymn Letter Frequency ===\n";
-
-        auto hymnFreq = hymn.getLetterFrequency();
-
-        for (const auto& pair : hymnFreq) {
-            std::cout << pair.first << " : " << pair.second << "\n";
-        }
-
-        std::cout << "------------------\n";
-
     return 0;
-
 }

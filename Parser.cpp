@@ -1,75 +1,71 @@
 #include "Parser.h"
 #include "CleanUp.h"
 
-#include <sstream>
+#include <fstream>
 #include <regex>
 
-Word buildWord(const std::string& raw) {
-	Word w(raw);
-
-    auto letters = splitUTF8(raw);
-
-    for (auto& l : letters) {
-        w.addLetter(Letter(l));
-    }
-
-    return w;
-}
-
-Verse parseVerseBlock(const std::string& block) {
-    Verse v;
-
-    std::regex verse_num_re("\\[Verse (\\d+)\\]");
-    std::regex dev_re("DEV:\\s*(.*)");
-    std::regex iast_re("IAST:\\s*(.*)");
-    std::regex eng_re("ENG:\\s*(.*)");
-
-    std::smatch match;
-
-    if (std::regex_search(block, match, verse_num_re)) {
-        v.setNumber(std::stoi(match[1]));
-    }
-
-    if (std::regex_search(block, match, dev_re)) {
-        v.setDev(match[1]);
-    }
-
-    if (std::regex_search(block, match, iast_re)) {
-        v.setIAST(match[1]);
-    }
-
-    if (std::regex_search(block, match, eng_re)) {
-        v.setEng(match[1]);
-    }
-
-    auto words = splitWords(v.getIAST());
-
-    for (auto& wstr : words) {
-        v.addWord(buildWord(wstr));
-    }
-
-    return v;
-}
-
-Hymn parseHymn(const std::string& text) {
+Hymn parseHymn(const std::string& filename) {
     Hymn hymn;
 
-    std::regex verse_split("\\[Verse \\d+\\]");
-    std::sregex_iterator it(text.begin(), text.end(), verse_split);
-    std::sregex_iterator end;
+    // Read file
+    std::ifstream file(filename);
+    std::string text((std::istreambuf_iterator<char>(file)),
+                      std::istreambuf_iterator<char>());
 
-    std::vector<size_t> positions;
+    auto lines = splitLines(text);//Perform SplitLines on File (CleanUp)
 
-    for (; it != end; ++it) {
-        positions.push_back(it->position());
+    Verse currentVerse; //Create a Verse called currentVerse
+    //Establish Regular Expression for Hymn Properties
+    std::regex mandala_re("Mandala:\\s*(\\d+)");
+    std::regex sukta_re("Sukta:\\s*(\\d+)");
+    std::regex rishi_re("Rishis:\\s*(.*)");
+    std::regex devata_re("Devatas:\\s*(.*)");
+    std::regex category_re("Categories:\\s*(.*)");
+    std::regex verse_re("\\[Verse\\s*(\\d+)\\]");
+    //
+    std::smatch match;
+    //For every line in lines (CleanUp) match initial text (above) property to regex and place it in.
+    for (const auto& line : lines) {
+
+        if (std::regex_search(line, match, mandala_re)) { //e.g. if line starts with "Mandala:\\s*(\\d+)" then set that Mandala String ("1") as the Mandala Integer 1 for the Hymn
+            hymn.setMandala(std::stoi(match[1]));
+        }
+        else if (std::regex_search(line, match, sukta_re)) {
+            hymn.setSukta(std::stoi(match[1]));
+        }
+        else if (std::regex_search(line, match, rishi_re)) {
+            hymn.addRishi(match[1]);
+        }
+        else if (std::regex_search(line, match, devata_re)) {
+            hymn.addDevata(match[1]);
+        }
+        else if (std::regex_search(line, match, category_re)) {
+            hymn.addCategory(match[1]);
+        }
+        else if (std::regex_search(line, match, verse_re)) {
+
+            // Save previous verse if exists
+            if (currentVerse.getVerseNumber() != 0) {
+                hymn.addVerse(currentVerse);
+                currentVerse = Verse();
+            }
+
+            currentVerse.setVerseNumber(std::stoi(match[1]));//Convert String to Integer
+        }
+        else if (line.rfind("DEV:", 0) == 0) { //When DEV: found, set current VerseDev to it, substring starting with 4th character on line.
+            currentVerse.setDev(line.substr(4));
+        }
+        else if (line.rfind("IAST:", 0) == 0) {
+            currentVerse.setIAST(line.substr(5)); //5th Character for IAST
+        }
+        else if (line.rfind("ENG:", 0) == 0) {
+            currentVerse.setENG(line.substr(4)); //4th Character for ENG:
+        }
     }
 
-    for (size_t i = 0; i < positions.size(); ++i) {
-        size_t start = positions[i];
-        size_t end_pos = (i + 1 < positions.size()) ? positions[i + 1] : text.size();
-
-        std::string block = text.substr(start, end_pos - start);
-        hymn.addVerse(parseVerseBlock(block));
+    // Add last verse
+    if (currentVerse.getVerseNumber() != 0) {
+        hymn.addVerse(currentVerse);
     }
 
     return hymn;

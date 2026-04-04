@@ -3,45 +3,36 @@
 #include "CleanUp.h"
 #include <sstream>
 
-// Split by char delimiters
-std::vector<std::string> split(const std::string& s, char delimiter) {
-	std::vector<std::string> tokens;
-	std::stringstream ss(s);
-	std::string item;
+//UTF8 Splitting for Unicode/Grapheme Normalization
+std::vector<std::string> splitUTF8(const std::string& s) {
+    std::vector<std::string> result;
 
-	while (getline(ss, item, delimiter)) {
-		tokens.push_back(item);
-	}
+    for (size_t i = 0; i < s.size();) {
+        unsigned char c = s[i];
 
-	return tokens;
-}
+        size_t charLen = 0;
 
-// Split words by spaces
-std::vector<std::string> splitWords(const std::string& line) {
-	return split(line, ' ');
-}
+        if ((c & 0x80) == 0x00) charLen = 1;          // 1-byte (ASCII)
+        else if ((c & 0xE0) == 0xC0) charLen = 2;     // 2-byte
+        else if ((c & 0xF0) == 0xE0) charLen = 3;     // 3-byte (most Sanskrit)
+        else if ((c & 0xF8) == 0xF0) charLen = 4;     // 4-byte
+        else charLen = 1; // fallback
 
-//UTF-& Splitting for Devanagari
-std::vector<std::string> splitUTF8(const std::string& str) {
-	std::vector<std::string> result;
-
-	for (size_t i = 0; i < str.size();) {
-		unsigned char c = str[i];
-		size_t len = 1;
-
-		if ((c & 0x80) == 0) len = 1;
-		else if ((c & 0xE0) == 0xC0) len = 2;
-        else if ((c & 0xF0) == 0xE0) len = 3;
-        else if ((c & 0xF8) == 0xF0) len = 4;
-
-        result.push_back(str.substr(i, len));
-        i += len;
+        result.push_back(s.substr(i, charLen));
+        i += charLen;
     }
 
     return result;
 }
 
-//Swara Detection for udātta / anudātta
-bool isSwara(const std::string& ch) {
-	return (ch == "॑" || ch == "॒");
+std::vector<std::string> splitLines(const std::string& text) {
+	std::vector<std::string> lines;
+	std::stringstream ss(text);
+	std::string line;
+
+	while (std::getline(ss, line)){
+		lines.push_back(line);
+	}
+
+	return lines;
 }

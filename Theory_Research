@@ -1,0 +1,193 @@
+//Theory & Research
+
+
+//Internal Model - Need to know if something is a vowel/cons, if has swara and what swara, whether long or short vowel, need to know for DEV and IAST.
+
+enum class Script { DEV, IAST, ENG };
+
+enum class Swara { noSwara, Udatta, Anudatta, Svarita };
+
+enum class letterType { Vowel, Consonant, Other };
+
+enum class consonantClass {Velar, Palatal, Retroflex, Dental, Labial, Semivowel, Sibilant, Aspirate, None }; //Sanskrit Consonant Classes
+
+//DEV IAST Alignment Mapping
+
+// Dev and IAST both in Phoneme Splits:
+// DEV:  अ ग् नि म्
+// IAST: a g n i m
+
+// Store them in their own object
+	struct AlignedDevIAST {
+
+		std::string dev;
+		std::string iast;
+	};
+
+// Find way to store them as Syllable Level:
+// DEV:  अग् नि  म्
+// IAST: ag  ni  m
+
+// Letters make Syllables now:
+
+class Letter {
+private:
+ string value, base;
+
+ LetterType type; //Vowel or Consonant
+ consonantClass cclass; 
+
+ Swara swara;
+ bool hasSwara;
+
+public: //Getters/Setters
+	Letter() = default;
+	Letter(const std::string& val) : value(val) {} //Construct Value
+	Letter(const std::string& lbase) : base(lbase) {} //Construct Base
+
+	Letter(const std::LetterType& ltype) : type(ltype) {}//Construct Type
+	Letter(const std::consonantClass& lclass) : cclass(lclass) {}//Construct CClass
+
+	Letter(const std::Swara& lswara) : swara(lswara) {} //Construct Swara
+
+	Letter(bool std::hasSwara& lhasSwara) : hasSwara(lhasSwara) {} //Construct if HasSwara/Not
+
+
+	//Read Write Values
+	std::string getValue() const {return value;}
+	void setValue(const std::string& val) { value = val; }
+	//Read Write Bases
+	std::string getBase() const {return base;}
+	void setBase(const std::string& lbase) { base = lbase;}
+	//R/W LetterType
+	std::LetterType getLType() const {return type;}
+	void setLType(const std::LetterType& ltype) { type = ltype;}
+	//R/W Class
+	std::consonantClass getcClass() const {return cclass;}
+	void setcClass(const std::consonantClass& lclass) { cclass = lclass;}
+	//R/W Swara
+	std::Swara getSwara() const {return swara;}
+	void setSwara(const std::Swara& lswara) { swara = lswara;}
+	//R/W Bool
+	std::bool isHasSwara() const {return hasSwara;}
+	void setHasSwara(const std::bool& nullSwara) { hasSwara = nullSwara;}
+
+}
+
+//Syllables (Kill Me)
+
+class Syllable {
+
+private:
+    std::vector<Letter> onset;//Vector of Letters in Syllable
+    Letter nucleus; //Nucleus of Letter
+    std::vector<Letter> coda;//Vector of Letter Codas
+
+    std::vector<Swara> swaras;//Vector of Letter Swaras
+    int weight; // light/heavy (you can encode later)
+
+public:
+
+};
+
+//Words
+
+class Word {
+private:
+    std::string dev; //Devanagari Word
+    std::string iast;//IAST Word
+
+    std::vector<Syllable> syllables;//Syllables of the Word
+
+public:
+};
+
+//Verse
+
+class Verse {
+private:
+    int verseNumber; //V#
+
+    std::string dev; //Dev Verse
+    std::string iast; //IAST Verse
+    std::string eng; //ENGLISH Verse
+
+    std::vector<Word> words; //Vector of Words in Verse
+
+public:
+    int countSyllables() const;
+    int countSwaras() const;
+};
+
+//Total Hymn
+
+class Hymn {
+private:
+    int mandala;
+    int sukta;
+
+    std::vector<std::string> rishis;
+    std::vector<std::string> devatas;
+    std::vector<std::string> categories;
+
+    std::vector<Verse> verses;
+};
+
+/*Sanskrit Syllable Rules:
+
+(Onset) + Vowel (Nucleus) + (Optional Consonants)
+
+अग्निम्
+
+a | gni | m
+
+*/
+
+//JSON Format
+// Hymn -> Verses -> Words -> Syllables -> Letters.
+//CSV Format
+//lol
+//Mandala | Sukta | Rishis | Devatas | 		Categories | Verses |<Verse Properties | and so on...
+// 1		1		Angiras  Agni, Indra	Atmastuti	 10		
+
+//JSON to CSV
+// Go through JSON Tree, flatten
+//CSV to JSON
+//Recreate Tree, group by verse/word indexes
+
+/*
+Goal:
+
+Parse file → store Hymn → print verses
+
+Implement:
+Hymn
+Verse
+Basic parser
+🟡 Phase 2
+
+Add:
+
+Word splitting (DEV + IAST separately)
+🟠 Phase 3
+
+Add:
+
+Letter parsing
+Swara detection (DEV only)
+🔴 Phase 4
+
+Add:
+
+Syllable generation (big step)
+🔵 Phase 5
+
+Add:
+
+DEV ↔ IAST alignment
+🟣 Phase 6
+
+Add:
+
+JSON export/import
+*/
