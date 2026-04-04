@@ -14,7 +14,7 @@ int main() {
 
 	Hymn hymn = parseHymn("Hymns/[Hymn 10.125].txt"); //Parse Hymn on File
 
-    std::cout << "Mandala: " << hymn.getMandala() << "\n"; //Output Mandala#
+    std::cout << "\nMandala: " << hymn.getMandala() << "\n"; //Output Mandala#
     std::cout << "Sukta: " << hymn.getSukta() << "\n\n"; //Output Sukta#
     for (const auto& rishi : hymn.getRishis()){
         std::cout <<"Rishis:" << rishi << ", "; } std::cout << "\n";
