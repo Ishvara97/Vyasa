@@ -1,0 +1,4615 @@
+{
+    "deity": "Vāk",
+    "mandala": 10,
+    "rishi": "Vāc Āmbṛṇa",
+    "sukta": 125,
+    "theme": "Ātmastuti",
+    "verses": [
+        {
+            "dev": "अ॒ग्नि॑म् अहं रुद्रेभिर्वसुभिश्चरामि । अहमा॑दित्यैरु॒त विश्वदे॑वैः । अहं मित्रावरुणो॒भा बि॑भर्मि । अहमेन्द्रा॒ग्नी अ॒हमश्वि॑नो॒भा ॥",
+            "eng": "I move with the Rudras and the Vasus, I wander with the Ādityas and all the Gods. I bear Mitra and Varuṇa, both, I bear Indra and Agni, I bear the Aśvins both.",
+            "iast": "अ॒ग्नि॑म् ahaṃ rudrebhir vasubhiś carāmi । ahamā̍dityairu̱ta viśvade̍vaiḥ । ahaṃ mitrāvaruṇo̱bhā bi̍bharmi । ahamendrā̱gnī a̱hamaśvi̍no̱bhā ॥",
+            "meter": "",
+            "number": 1,
+            "words": [
+                {
+                    "letters": [
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ग"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        }
+                    ],
+                    "raw": "अ॒ग्नि॑म्",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "अहं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "े"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "श"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "च"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "रुद्रेभिर्वसुभिश्चरामि",
+                    "swaraCount": 0
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ै"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        }
+                    ],
+                    "raw": "अहमा॑दित्यैरु॒त",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "श"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "े"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ै"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ः"
+                        }
+                    ],
+                    "raw": "विश्वदे॑वैः",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "अहं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ण"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ो"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "मित्रावरुणो॒भा",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ब"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "बि॑भर्मि",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "े"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ग"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ी"
+                        }
+                    ],
+                    "raw": "अहमेन्द्रा॒ग्नी",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "श"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ो"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "अ॒हमश्वि॑नो॒भा",
+                    "swaraCount": 3
+                },
+                {
+                    "raw": "॥",
+                    "swaraCount": 0
+                }
+            ]
+        },
+        {
+            "dev": "अहं सोम॑माहन॒सं बि॑भर्मि । अहं त्वष्टा॑रमु॒त पू॒षणं भग॑म् । अहं दधा॑मि द्रवि॒णं ह॑विष्म॒ते । सुप्रा॒व्ये यज॑माना॒य सु॑न्व॒ते ॥",
+            "eng": "I bear the pressed Soma, I bear Tvaṣṭṛ, Pūṣan, and Bhaga. I bestow wealth upon the offerer of oblation, upon the sacrificer who presses Soma.",
+            "iast": "ahaṃ soma̍māhanasa̱ṃ bi̍bharmi । ahaṃ tvaṣṭā̍ramu̱ta pū̱ṣaṇaṃ bhaga̍m । ahaṃ dadhā̍mi dravi̱ṇaṃ ha̍viṣmate । suprā̱vye yaja̍mānā̱ya su̍nva̱te ॥",
+            "meter": "",
+            "number": 2,
+            "words": [
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "अहं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ो"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "सोम॑माहन॒सं",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ब"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "बि॑भर्मि",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "अहं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ष"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ट"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        }
+                    ],
+                    "raw": "त्वष्टा॑रमु॒त",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ू"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ष"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ण"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "पू॒षणं",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ग"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        }
+                    ],
+                    "raw": "भग॑म्",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "अहं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ध"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "दधा॑मि",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ण"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "द्रवि॒णं",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ष"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "े"
+                        }
+                    ],
+                    "raw": "ह॑विष्म॒ते",
+                    "swaraCount": 2
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "े"
+                        }
+                    ],
+                    "raw": "सुप्रा॒व्ये",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ज"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        }
+                    ],
+                    "raw": "यज॑माना॒य",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "े"
+                        }
+                    ],
+                    "raw": "सु॑न्व॒ते",
+                    "swaraCount": 2
+                },
+                {
+                    "raw": "॥",
+                    "swaraCount": 0
+                }
+            ]
+        },
+        {
+            "dev": "अहं रा॒ष्ट्री सं॒गम॑नी व॒सूनाम् । चि॒कितु॑षी प्रथ॒मा यज्ञि॑यानाम् । तां मा॑ दे॒वा व्य॑दधुः पु॒रुत्रा । भू॒रिस्था॑त्रां भू॒र्यावे॑शयन्तीम् ॥",
+            "eng": "I am the Queen, the gatherer of treasures, knowing, the first of those worthy of worship. The Gods have distributed me in many places, making me abide in many homes.",
+            "iast": "ahaṃ rā̱ṣṭrī sa̱ṃgama̍nī va̱sūnām । ciki̱tu̍ṣī pratha̱mā yajñi̍yānām । tāṃ mā̍ de̱vā vya̍dadhuḥ pu̱rutrā । bhū̱risthā̍trāṃ bhū̱ryāve̍śayantīm ॥",
+            "meter": "",
+            "number": 3,
+            "words": [
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "अहं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ष"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ट"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ी"
+                        }
+                    ],
+                    "raw": "रा॒ष्ट्री",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ं"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ग"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ी"
+                        }
+                    ],
+                    "raw": "सं॒गम॑नी",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ू"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        }
+                    ],
+                    "raw": "व॒सूनाम्",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "च"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "क"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ष"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ी"
+                        }
+                    ],
+                    "raw": "चि॒कितु॑षी",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "थ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "प्रथ॒मा",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ज"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ञ"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        }
+                    ],
+                    "raw": "यज्ञि॑यानाम्",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "तां",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "मा॑",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "े"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "दे॒वा",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ध"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ः"
+                        }
+                    ],
+                    "raw": "व्य॑दधुः",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "पु॒रुत्रा",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ू"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "थ"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "भू॒रिस्था॑त्रां",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ू"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "े"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "श"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ी"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        }
+                    ],
+                    "raw": "भू॒र्यावे॑शयन्तीम्",
+                    "swaraCount": 2
+                },
+                {
+                    "raw": "॥",
+                    "swaraCount": 0
+                }
+            ]
+        },
+        {
+            "dev": "मया॒ सोऽन्न॑मत्ति॒ यो वि॒पश्य॑ति । यः प्रा॒णिति॒ य ईं॑ शृ॒णोत्यु॒क्तम् । अ॒मन्त॑वो मां त उप॒ क्षिय॑न्ति । श्रु॒धि श्रु॑त श्रद्दि॒वं ते॑ वदामि ॥",
+            "eng": "Through me alone all eat the food that feeds them, each man who sees, breathes, and hears the spoken word. They know it not, yet they dwell beside me. Hear, thou who hearest, I tell thee what is worthy of belief.",
+            "iast": "mayā̱ so’nna̍matti̱ yo vi̱paśya̍ti । yaḥ prā̱ṇiti̱ ya ī̍ṃ śṛ̱ṇotyu̱ktam । a̱manta̍vo māṃ ta upa̱ kṣiya̍nti । śru̱dhi śru̍ta śraddi̱vaṃ te̍ vadāmi ॥",
+            "meter": "",
+            "number": 4,
+            "words": [
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "मया॒",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ो"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ऽ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "सोऽन्न॑मत्ति॒",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ो"
+                        }
+                    ],
+                    "raw": "यो",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "श"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "वि॒पश्य॑ति",
+                    "swaraCount": 2
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ः"
+                        }
+                    ],
+                    "raw": "यः",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ण"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "प्रा॒णिति॒",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        }
+                    ],
+                    "raw": "य",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ई"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "ईं॑",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "श"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ृ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ण"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ो"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "क"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        }
+                    ],
+                    "raw": "शृ॒णोत्यु॒क्तम्",
+                    "swaraCount": 2
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ो"
+                        }
+                    ],
+                    "raw": "अ॒मन्त॑वो",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "मां",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        }
+                    ],
+                    "raw": "त",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "उ"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "प"
+                        }
+                    ],
+                    "raw": "उप॒",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "क"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ष"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "क्षिय॑न्ति",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "श"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ध"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "श्रु॒धि",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "श"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        }
+                    ],
+                    "raw": "श्रु॑त",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "श"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "श्रद्दि॒वं",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "े"
+                        }
+                    ],
+                    "raw": "ते॑",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "वदामि",
+                    "swaraCount": 0
+                },
+                {
+                    "raw": "॥",
+                    "swaraCount": 0
+                }
+            ]
+        },
+        {
+            "dev": "अहमे॒व स्व॒यमिदं॑ वदामि । जु॒ष्टं दे॒वेभि॑रु॒त मानु॑षेभिः । यं का॒मये॒ तं त॑मु॒ग्रं कृ॑णोमि । तं ब्र॒ह्माणं॒ तं ऋ॑षिं॒ तं सु॑मे॒धाम् ॥",
+            "eng": "I, verily, myself declare this which Gods and men alike shall welcome. I make him whom I love mighty; I make him a priest, a seer, a wise man.",
+            "iast": "ahame̱va sva̱yamidaṃ̍ vadāmi । ju̱ṣṭaṃ de̱vebhi̍ru̱ta mānu̍ṣebhiḥ । yaṃ kā̱maye̱ taṃ ta̍mu̱graṃ kṛ̍ṇomi । taṃ bra̱hmāṇaṃ̱ taṃ ṛ̍ṣiṃ̱ taṃ su̍medhām ॥",
+            "meter": "",
+            "number": 5,
+            "words": [
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "े"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        }
+                    ],
+                    "raw": "अहमे॒व",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "स्व॒यमिदं॑",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "वदामि",
+                    "swaraCount": 0
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ज"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ष"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ट"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "जु॒ष्टं",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "े"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "े"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        }
+                    ],
+                    "raw": "दे॒वेभि॑रु॒त",
+                    "swaraCount": 3
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ष"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "े"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ः"
+                        }
+                    ],
+                    "raw": "मानु॑षेभिः",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "यं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "क"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "े"
+                        }
+                    ],
+                    "raw": "का॒मये॒",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "तं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ग"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "त॑मु॒ग्रं",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "क"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ृ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ण"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ो"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "कृ॑णोमि",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "तं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ब"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ण"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "ब्र॒ह्माणं॒",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "तं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ऋ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ष"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "ऋ॑षिं॒",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "तं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "े"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ध"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        }
+                    ],
+                    "raw": "सु॑मे॒धाम्",
+                    "swaraCount": 2
+                },
+                {
+                    "raw": "॥",
+                    "swaraCount": 0
+                }
+            ]
+        },
+        {
+            "dev": "अहं रु॒द्राय॒ धनु॒रात॑नोमि । ब्रह्म॒द्विषे॒ शर॑वे॒ हन्त॑वा उ । अहं ज॒नाय॒ सम॑दं कृणोमि । अहं द्या॒वापृ॑थि॒वी आ वि॑वेश ॥",
+            "eng": "I bend the bow for Rudra, that his arrow may strike and slay the hater of devotion. I rouse and order battle for the people, I have entered Heaven and Earth.",
+            "iast": "ahaṃ ru̱drāya̱ dhanu̱rāta̍nomi । brahma̱dviṣe̱ śara̍ve̱ hanta̍vā u । ahaṃ ja̱nāya̱ sama̍daṃ kṛṇomi । ahaṃ dyā̱vā pṛ̍thi̱vī ā vi̍veśa ॥",
+            "meter": "",
+            "number": 6,
+            "words": [
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "अहं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "य"
+                        }
+                    ],
+                    "raw": "रु॒द्राय॒",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ध"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ो"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "धनु॒रात॑नोमि",
+                    "swaraCount": 2
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ब"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ष"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "े"
+                        }
+                    ],
+                    "raw": "ब्रह्म॒द्विषे॒",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "श"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "े"
+                        }
+                    ],
+                    "raw": "शर॑वे॒",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "हन्त॑वा",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "उ"
+                        }
+                    ],
+                    "raw": "उ",
+                    "swaraCount": 0
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "अहं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ज"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "य"
+                        }
+                    ],
+                    "raw": "ज॒नाय॒",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "सम॑दं",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "क"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ृ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ण"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ो"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "कृणोमि",
+                    "swaraCount": 0
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "अहं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ृ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "थ"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ी"
+                        }
+                    ],
+                    "raw": "द्या॒वापृ॑थि॒वी",
+                    "swaraCount": 3
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "आ"
+                        }
+                    ],
+                    "raw": "आ",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "े"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "श"
+                        }
+                    ],
+                    "raw": "वि॑वेश",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "॥",
+                    "swaraCount": 0
+                }
+            ]
+        },
+        {
+            "dev": "अहं सु॒वे पि॒तर॑मस्य मू॒र्धन् । मम॒ योनि॒रप्स्व॑न्तः समु॒द्रे । ततो॒ वि ति॑ष्ठे भुव॒नानु॒ विश्वा । उ॒तामूं द्यां॒ वर्ष्म॑णो॒प स्पृ॑शामि ॥",
+            "eng": "I bring forth the Father on the head of this world. My origin is in the waters, in the ocean. Thence I extend over all beings; even to yonder heaven I reach with my body.",
+            "iast": "ahaṃ su̱ve pi̱tara̍masya mū̱rdhan । mama̱ yoni̱rapsva̍ntaḥ samu̱dre । tato̱ vi ti̍ṣṭhe bhuva̱nānu̱ viśvā । utā̱mūṃ dyāṃ̱ varṣma̍ṇo̱pa spṛ̍śāmi ॥",
+            "meter": "",
+            "number": 7,
+            "words": [
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "अहं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "े"
+                        }
+                    ],
+                    "raw": "सु॒वे",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        }
+                    ],
+                    "raw": "पि॒तर॑मस्य",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ू"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ध"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        }
+                    ],
+                    "raw": "मू॒र्धन्",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "म"
+                        }
+                    ],
+                    "raw": "मम॒",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ो"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ः"
+                        }
+                    ],
+                    "raw": "योनि॒रप्स्व॑न्तः",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "े"
+                        }
+                    ],
+                    "raw": "समु॒द्रे",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ो"
+                        }
+                    ],
+                    "raw": "ततो॒",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "वि",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ष"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ठ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "े"
+                        }
+                    ],
+                    "raw": "ति॑ष्ठे",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ु"
+                        }
+                    ],
+                    "raw": "भुव॒नानु॒",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "श"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "विश्वा",
+                    "swaraCount": 0
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "उ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ू"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "उ॒तामूं",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "द्यां॒",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ष"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ण"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ो"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        }
+                    ],
+                    "raw": "वर्ष्म॑णो॒प",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ृ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "श"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "स्पृ॑शामि",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "॥",
+                    "swaraCount": 0
+                }
+            ]
+        },
+        {
+            "dev": "अहमे॒व वा॒त इ॑व प्रवा॒मि । आ॒रभ॑माणा भुव॒नानि॒ विश्वा । परो॒ दिवा॒ पर॑ एना पृथि॒व्या । ए॒ताव॑ती महि॒ना सं ब॑भूव ॥",
+            "eng": "I blow like the wind, setting all the worlds in motion. I transcend the heaven and this earth; so vast am I in my greatness.",
+            "iast": "ahame̱va vā̱ta i̍va pravā̱mi । ārabha̱māṇā bhuva̱nāni̱ viśvā । paro̱ divā̱ para̍ enā pṛthi̱vyā । etā̱vatī mahi̱nā saṃ ba̍bhūva ॥",
+            "meter": "",
+            "number": 8,
+            "words": [
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "अ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "े"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        }
+                    ],
+                    "raw": "अहमे॒व",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        }
+                    ],
+                    "raw": "वा॒त",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "इ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        }
+                    ],
+                    "raw": "इ॑व",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "प्रवा॒मि",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "आ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ण"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "आ॒रभ॑माणा",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ु"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ि"
+                        }
+                    ],
+                    "raw": "भुव॒नानि॒",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "श"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "विश्वा",
+                    "swaraCount": 0
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "र"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ो"
+                        }
+                    ],
+                    "raw": "परो॒",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "द"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "दिवा॒",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "र"
+                        }
+                    ],
+                    "raw": "पर॑",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ए"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "एना",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "प"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ृ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "थ"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "्"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "य"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "पृथि॒व्या",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "।",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ए"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "व"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "त"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ी"
+                        }
+                    ],
+                    "raw": "ए॒ताव॑ती",
+                    "swaraCount": 2
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "म"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ह"
+                        },
+                        {
+                            "hasSwara": true,
+                            "swaraType": "anudatta",
+                            "value": "ि"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "न"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ा"
+                        }
+                    ],
+                    "raw": "महि॒ना",
+                    "swaraCount": 1
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "स"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ं"
+                        }
+                    ],
+                    "raw": "सं",
+                    "swaraCount": 0
+                },
+                {
+                    "letters": [
+                        {
+                            "hasSwara": true,
+                            "swaraType": "svarita",
+                            "value": "ब"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "भ"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "ू"
+                        },
+                        {
+                            "hasSwara": false,
+                            "swaraType": "udatta",
+                            "value": "व"
+                        }
+                    ],
+                    "raw": "ब॑भूव",
+                    "swaraCount": 1
+                },
+                {
+                    "raw": "॥",
+                    "swaraCount": 0
+                }
+            ]
+        }
+    ]
+}

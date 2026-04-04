@@ -1,7 +1,13 @@
+Mandala: 10
+Sukta: 125
+Deity: Vāk
+Rishi: Vāc Āmbṛṇa
+Theme: Ātmastuti
+
 [Verse 1]
 
-DEV: अहं रुद्रेभिर्वसुभिश्चरामि । अहमा॑दित्यैरु॒त विश्वदे॑वैः । अहं मित्रावरुणो॒भा बि॑भर्मि । अहमेन्द्रा॒ग्नी अ॒हमश्वि॑नो॒भा ॥
-IAST: ahaṃ rudrebhir vasubhiś carāmi । ahamā̍dityairu̱ta viśvade̍vaiḥ । ahaṃ mitrāvaruṇo̱bhā bi̍bharmi । ahamendrā̱gnī a̱hamaśvi̍no̱bhā ॥
+DEV: अ॒ग्नि॑म् अहं रुद्रेभिर्वसुभिश्चरामि । अहमा॑दित्यैरु॒त विश्वदे॑वैः । अहं मित्रावरुणो॒भा बि॑भर्मि । अहमेन्द्रा॒ग्नी अ॒हमश्वि॑नो॒भा ॥
+IAST: अ॒ग्नि॑म् ahaṃ rudrebhir vasubhiś carāmi । ahamā̍dityairu̱ta viśvade̍vaiḥ । ahaṃ mitrāvaruṇo̱bhā bi̍bharmi । ahamendrā̱gnī a̱hamaśvi̍no̱bhā ॥
 ENG: I move with the Rudras and the Vasus, I wander with the Ādityas and all the Gods. I bear Mitra and Varuṇa, both, I bear Indra and Agni, I bear the Aśvins both.
 
 [Verse 2]

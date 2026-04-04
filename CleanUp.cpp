@@ -45,3 +45,12 @@ std::vector<std::string> splitUTF8(const std::string& str) {
 bool isSwara(const std::string& ch) {
 	return (ch == "॑" || ch == "॒");
 }
+
+//Ignorable Dandas
+bool isIgnorableSymbol(const std::string& ch) {
+    return (
+        ch == "|" ||
+        ch == "।" ||
+        ch == "॥"
+    );
+}

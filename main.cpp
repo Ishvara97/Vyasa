@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+
 #include "Parser.h"
 #include <windows.h> //To render Devanagari and IAST properly
 #include "json.hpp"
@@ -8,7 +9,7 @@ using json = nlohmann::json;
 
 int main() {
 	SetConsoleOutputCP(CP_UTF8);
-    std::ifstream file("Hymns/[Hymn 10.125].txt");
+    std::ifstream file("Hymns/[Hymn 10.125 Svaras].txt");
 
     if (!file) {
         std::cerr << "Error opening file\n";
@@ -35,16 +36,24 @@ int main() {
 
             std::cout << "\n";
         }
-        std::cout << "\nLetter Frequency:\n";
-        auto freq = verse.getLetterFrequency();
+        //DEV/IAST Letter Frequency
+        std::cout << "\nDevanagari Letter Frequency:\n";
+        auto devFreq = verse.getDev();
 
-        for (const auto& pair : freq) {
+        for (const auto& pair : devFreq) {
         	std::cout << pair.first << " : " << pair.second << "\n";
         }
         std::cout << "\n";
-    }
 
-    std::cout << "\nHymn Total Letter Frequency\n";
+        auto iastFreq = verse.getIAST();
+
+        for (const auto& pair : iastFreq) {
+            std::cout << pair.first << " : " << pair.second << "\n";
+        }
+        std::cout << "\n";
+    }
+        //DEV/IAST Total Letter Frequency
+        std::cout << "\nHymn Total Letter Frequency\n";
 
         auto hymnFreq = hymn.getLetterFrequency();
 
@@ -54,6 +63,19 @@ int main() {
 
         std::cout << "------------------\n";
 
+        //IAST Letter Frequency
+
+        //IAST Total Letter Frequency
+    //JSON Import
+        //std::ifstream in("hymn.json");
+        //json j;
+        //in >> j;
+
+        //Hymn hymn = Hymn::fromJson(j);
+    //JSON Export
+        std::ofstream out("hymn.json");
+        out << hymn.toJson().dump(4);
+        out.close();
     return 0;
 
 }

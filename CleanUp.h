@@ -11,5 +11,5 @@ std::vector<std::string> splitUTF8(const std::string& str);
 
 //Swara Testing
 bool isSwara(const std::string& ch);
-
+bool isIgnorableSymbol(const std::string& ch);
 #endif
