@@ -47,14 +47,6 @@ Word buildWord(const std::string& raw) {
 
         if (isIgnorableSymbol(ch)) continue;
 
-        std::cout << "Char: " << ch << " | size: " << ch.size() << "\n";
-
-        for (unsigned char c : ch) {
-            printf("%02X ", c);
-        }
-        std::cout << "\n";
-
-        
         if (ch == DEV_SVARITA || ch == COMB_SVARITA || ch == DEV_ANUDATTA || ch == COMB_ANUDATTA) {
 
             if (hasPendingLetter) {
@@ -125,7 +117,9 @@ Verse parseVerseBlock(const std::string& block) {
 auto devWords = splitWords(v.getDev());
 
 for (auto& wstr : devWords) {
-    v.addDevWord(buildWord(wstr));
+    Word word = buildWord(wstr);
+    v.addDevWord(word);
+    v.addWord(word);
 }
 
 // IAST parsing

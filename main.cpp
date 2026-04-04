@@ -27,32 +27,46 @@ int main() {
         std::cout << "IAST: " << verse.getIAST() << "\n";
         std::cout << "ENG:  " << verse.getEng() << "\n";
         std::cout << "Words: " << "\n";
-        for (const auto& word : verse.getWords()) {
-           // std::cout << letter.getLetters(word.getRaw()) << " \n";
-
+        for (const auto& word : verse.getIASTWords()) {
             for (const auto& letter : word.getLetters()) {
-                    std::cout << letter.getValue() << " ";
+                std::cout << letter.getValue() << " ";
             }
 
             std::cout << "\n";
         }
-        //DEV/IAST Letter Frequency
+
         std::cout << "\nDevanagari Letter Frequency:\n";
-        auto devFreq = verse.getDev();
+        auto devFreq = verse.getDevLetterFrequency();
 
         for (const auto& pair : devFreq) {
         	std::cout << pair.first << " : " << pair.second << "\n";
         }
         std::cout << "\n";
 
-        auto iastFreq = verse.getIAST();
+        std::cout << "IAST Letter Frequency:\n";
+        auto iastFreq = verse.getIASTLetterFrequency();
 
         for (const auto& pair : iastFreq) {
             std::cout << pair.first << " : " << pair.second << "\n";
         }
         std::cout << "\n";
     }
-        //DEV/IAST Total Letter Frequency
+        std::cout << "\nHymn Total Devanagari Letter Frequency\n";
+
+        auto hymnDevFreq = hymn.getDevLetterFrequency();
+
+        for (const auto& pair : hymnDevFreq) {
+            std::cout << pair.first << " : " << pair.second << "\n";
+        }
+
+        std::cout << "\nHymn Total IAST Letter Frequency\n";
+
+        auto hymnIastFreq = hymn.getIASTLetterFrequency();
+
+        for (const auto& pair : hymnIastFreq) {
+            std::cout << pair.first << " : " << pair.second << "\n";
+        }
+
         std::cout << "\nHymn Total Letter Frequency\n";
 
         auto hymnFreq = hymn.getLetterFrequency();
