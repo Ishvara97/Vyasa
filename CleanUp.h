@@ -16,4 +16,7 @@ std::vector<std::string> splitWords(const std::string& line);
 //Vowel Detection
 bool isVowel(const std::string& ch);
 
+//LongVowel Detection
+bool isLongVowel(const std::string& ch);
+
 #endif

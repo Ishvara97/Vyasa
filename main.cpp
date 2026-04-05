@@ -62,6 +62,34 @@ int main() {
             std::cout << "\n";
         }
 
+        //Debug Vowel Weight
+        std::cout << "Syllables:\n";
+
+        for (const auto& w : verse.getDevWords()) {
+            std::cout << w.getText() << " → ";
+
+            for (const auto& s : w.getSyllables()) {
+
+                std::cout << "[";
+                
+                for (const auto& l : s.getOnset())
+                    std::cout << l.getValue();
+
+                std::cout << "|";
+
+                std::cout << s.getNucleus().getValue();
+
+                std::cout << "|";
+
+                for (const auto& l : s.getCoda())
+                    std::cout << l.getValue();
+
+                std::cout << ":" << s.getWeight() << "] ";
+            }
+
+            std::cout << "\n";
+        }
+
         /*Letter Frequency Goes Here
         
 

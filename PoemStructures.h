@@ -33,14 +33,15 @@ public:
 //Syllable
 class Syllable {
 private:
-    std::vector<Letter> onset;//Onset Letters in Word
     Letter nucleus; //Nucleus Letter in Word
+    std::vector<Letter> onset;//Onset Letters in Word
     std::vector<Letter> coda;//Coda letters in Word
 
     std::vector<std::string> swaras;//Swaras
     std::string weight; // light/heavy
 
 public:
+    Syllable() : nucleus("") {}
     void addOnset(const Letter& l) { onset.push_back(l); }
     void setNucleus(const Letter& l) { nucleus = l; }
     void addCoda(const Letter& l) { coda.push_back(l); }
