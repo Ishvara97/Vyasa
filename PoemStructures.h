@@ -10,12 +10,28 @@
 //#include "json.hpp"
 //using json = nlohmann::json;
 
+//Word
+
+class Word {
+private:
+    std::string text;
+
+public:
+    Word(const std::string& t) : text(t) {}
+
+    std::string getText() const { return text; }
+};
+
 //Verse
 
 class Verse {
 private:
     int verseNumber;
     std::string dev, iast, eng;
+
+    //Store devWords and iastWords for split pipeline
+    std::vector<Word> devWords;
+    std::vector<Word> iastWords;
 
 public:
     Verse() : verseNumber(0){}
@@ -30,6 +46,12 @@ public:
     std::string getIAST() const { return iast; }
     void setENG(const std::string& e) { eng = e; }
     std::string getENG() const { return eng; }
+    //Dev/IAST Pipeline construction
+    void addDevWord(const Word& w) { devWords.push_back(w); }
+    void addIASTWord(const Word& w) { iastWords.push_back(w); }
+
+    const std::vector<Word>& getDevWords() const { return devWords; }
+    const std::vector<Word>& getIASTWords() const { return iastWords; }
 
 };
 

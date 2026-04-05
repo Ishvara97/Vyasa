@@ -53,10 +53,26 @@ Hymn parseHymn(const std::string& filename) {
             currentVerse.setVerseNumber(std::stoi(match[1]));//Convert String to Integer
         }
         else if (line.rfind("DEV:", 0) == 0) { //When DEV: found, set current VerseDev to it, substring starting with 4th character on line.
-            currentVerse.setDev(line.substr(4));
+            std::string devLine = line.substr(4);
+            currentVerse.setDev(devLine);
+
+            // Split into words
+            auto devWords = splitWords(devLine);
+
+            for (const auto& w : devWords) {
+                currentVerse.addDevWord(Word(w));
+            }
         }
         else if (line.rfind("IAST:", 0) == 0) {
-            currentVerse.setIAST(line.substr(5)); //5th Character for IAST
+            std::string iastLine = line.substr(5);
+            currentVerse.setIAST(iastLine);
+
+            // Split into words
+            auto iastWords = splitWords(iastLine);
+
+            for (const auto& w : iastWords) {
+                currentVerse.addIASTWord(Word(w));
+            } //5th Character for IAST
         }
         else if (line.rfind("ENG:", 0) == 0) {
             currentVerse.setENG(line.substr(4)); //4th Character for ENG:

@@ -12,10 +12,11 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-	Hymn hymn = parseHymn("Hymns/[Hymn 10.125].txt"); //Parse Hymn on File
+	Hymn hymn = parseHymn("Hymns/[Hymn 10.125 Svaras].txt"); //Parse Hymn on File
 
     std::cout << "\nMandala: " << hymn.getMandala() << "\n"; //Output Mandala#
     std::cout << "Sukta: " << hymn.getSukta() << "\n\n"; //Output Sukta#
+    //Output Metadata from Vectors
     for (const auto& rishi : hymn.getRishis()){
         std::cout <<"Rishis:" << rishi << ", "; } std::cout << "\n";
 
@@ -32,6 +33,23 @@ int main() {
         std::cout << "DEV: " << verse.getDev() << "\n";
         std::cout << "IAST: " << verse.getIAST() << "\n";
         std::cout << "ENG: " << verse.getENG() << "\n\n";
+
+        std::cout << "DEV Words:\n";
+        for (const auto& w : verse.getDevWords()) {
+            std::cout << "[" << w.getText() << "] ";
+        }
+        std::cout << "\n";
+        
+        std::cout << "IAST Words:\n";
+        for (const auto& w : verse.getIASTWords()) {
+            std::cout << "[" << w.getText() << "] ";
+        }
+        std::cout << "\n\n";
+
+        /*Letter Frequency Goes Here
+
+
+        */
     }
 
     return 0;

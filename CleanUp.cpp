@@ -25,6 +25,22 @@ std::vector<std::string> splitUTF8(const std::string& s) {
     return result;
 }
 
+//Split Words
+#include <sstream>
+
+std::vector<std::string> splitWords(const std::string& line) {
+    std::vector<std::string> words;
+    std::stringstream ss(line);
+    std::string word;
+
+    while (ss >> word) {
+        words.push_back(word);
+    }
+
+    return words;
+}
+
+//Split Lines
 std::vector<std::string> splitLines(const std::string& text) {
 	std::vector<std::string> lines;
 	std::stringstream ss(text);
