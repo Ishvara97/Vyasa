@@ -6,20 +6,49 @@
 #include <string>
 #include <vector>
 #include <map>
-
+#include <optional>
 //#include "json.hpp"
 //using json = nlohmann::json;
+
+//Letter
+class Letter {
+private:
+    std::string value;
+
+    bool hasSwara; //SwaraCheck
+    std::optional<std::string> swaraType; //Vector for swaraType (udatta anudatta svarita)
+
+public:
+    Letter(const std::string& v) : value(v), hasSwara(false), swaraType(std::nullopt) {}
+
+    void setSwara(bool has, const std::optional<std::string>& type) {
+        hasSwara = has;
+        swaraType = type; }
+    std::string getValue() const { return value; }
+
+    bool getHasSwara() const { return hasSwara; }
+    std::optional<std::string> getSwaraType() const { return swaraType; }
+};
 
 //Word
 
 class Word {
 private:
     std::string text;
+    std::vector<Letter> letters; //Letters in Word
 
 public:
     Word(const std::string& t) : text(t) {}
 
     std::string getText() const { return text; }
+
+
+    void addLetter(const Letter& l) {
+        letters.push_back(l); }
+
+    const std::vector<Letter>& getLetters() const {
+        return letters; }
+
 };
 
 //Verse

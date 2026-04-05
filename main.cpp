@@ -33,21 +33,37 @@ int main() {
         std::cout << "DEV: " << verse.getDev() << "\n";
         std::cout << "IAST: " << verse.getIAST() << "\n";
         std::cout << "ENG: " << verse.getENG() << "\n\n";
-
+        //Split Stream for DEV Words Only
         std::cout << "DEV Words:\n";
         for (const auto& w : verse.getDevWords()) {
             std::cout << "[" << w.getText() << "] ";
         }
-        std::cout << "\n";
-        
+        std::cout << "\n\n";
+        //Split Stream for IAST Words Only
         std::cout << "IAST Words:\n";
         for (const auto& w : verse.getIASTWords()) {
             std::cout << "[" << w.getText() << "] ";
         }
         std::cout << "\n\n";
 
-        /*Letter Frequency Goes Here
+        //Debug Dev Letters
+        std::cout << "DEV Letters:\n";
+        for (const auto& w : verse.getDevWords()) {
+            std::cout << w.getText() << " → ";
+        for (const auto& l : w.getLetters()) {
+            std::cout << l.getValue();
 
+        if (l.getSwaraType().has_value())
+            std::cout << "(" << l.getSwaraType().value() << ") ";
+
+        else
+            std::cout << "(none) ";
+            }
+            std::cout << "\n";
+        }
+
+        /*Letter Frequency Goes Here
+        
 
         */
     }

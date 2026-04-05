@@ -3,6 +3,75 @@
 
 #include <fstream>
 #include <regex>
+//SWARA DETECTORS
+const std::string DEV_SVARITA    = u8"॑";
+const std::string DEV_ANUDATTA   = u8"॒";
+
+const std::string COMB_SVARITA   = u8"\u030D";
+const std::string COMB_ANUDATTA  = u8"\u0331";
+
+//Dev WordBuilder w/ Swaras
+Word buildWordDEV(const std::string& raw) {
+    Word w(raw);//Raw Word Input
+
+    auto chars = splitUTF8(raw);//Split UTF8 Raw
+
+    Letter currentLetter("");
+    bool hasPending = false;
+
+    for (const auto& ch : chars) {
+
+        // Swara marks (attach to previous letter) see top of file
+        if (ch == DEV_SVARITA || ch == COMB_SVARITA || ch == DEV_ANUDATTA || ch == COMB_ANUDATTA) {
+
+            if (hasPending) {
+                if (ch == DEV_SVARITA || ch == COMB_SVARITA) {
+                    currentLetter.setSwara(true, "svarita");
+                } else {
+                    currentLetter.setSwara(true, "anudatta");
+                }
+            }
+            continue;
+        }
+
+            // New base character, finalize previous
+            if (hasPending) {
+                if (!currentLetter.getHasSwara()) {//If no Svarita or Anudatta assign Udatta
+                    currentLetter.setSwara(false, "udatta");
+                }
+         w.addLetter(currentLetter);//After Swara evaluation add letter to Word
+       }
+
+        // Start next letter
+        currentLetter = Letter(ch);
+        hasPending = true;
+    }
+
+    // Final letter
+    if (hasPending) {
+        if (!currentLetter.getHasSwara()) {
+            currentLetter.setSwara(false, "udatta");
+        }
+        w.addLetter(currentLetter);
+    }
+
+    return w;
+}
+
+//WordBuilder IAST (No  SwaraChecks)
+Word buildWordIAST(const std::string& raw) {
+    Word w(raw);
+
+    auto chars = splitUTF8(raw);
+
+    for (const auto& ch : chars) {
+        Letter l(ch);
+        l.setSwara(false, std::nullopt);//Swara set to False for IAST every letter
+        w.addLetter(l);
+    }
+
+    return w;
+}
 
 Hymn parseHymn(const std::string& filename) {
     Hymn hymn;
@@ -56,22 +125,22 @@ Hymn parseHymn(const std::string& filename) {
             std::string devLine = line.substr(4);
             currentVerse.setDev(devLine);
 
-            // Split into words
+            // Split into Dev words
             auto devWords = splitWords(devLine);
 
             for (const auto& w : devWords) {
-                currentVerse.addDevWord(Word(w));
-            }
+                currentVerse.addDevWord(buildWordDEV(w));
+                }
         }
         else if (line.rfind("IAST:", 0) == 0) {
             std::string iastLine = line.substr(5);
             currentVerse.setIAST(iastLine);
 
-            // Split into words
+            // Split into IAST words
             auto iastWords = splitWords(iastLine);
 
             for (const auto& w : iastWords) {
-                currentVerse.addIASTWord(Word(w));
+                currentVerse.addIASTWord(buildWordIAST(w));
             } //5th Character for IAST
         }
         else if (line.rfind("ENG:", 0) == 0) {
@@ -86,3 +155,4 @@ Hymn parseHymn(const std::string& filename) {
 
     return hymn;
 }
+
