@@ -63,7 +63,7 @@ int main() {
         }
 
         //Debug Vowel Weight
-        std::cout << "Syllables:\n";
+        std::cout << "\nSyllables:\n\n";
 
         for (const auto& w : verse.getDevWords()) {
             std::cout << w.getText() << " → ";
