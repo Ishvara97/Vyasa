@@ -10,6 +10,8 @@ const std::string DEV_ANUDATTA   = u8"॒";
 const std::string COMB_SVARITA   = u8"\u030D";
 const std::string COMB_ANUDATTA  = u8"\u0331";
 
+
+
 //Dev WordBuilder w/ Swaras
 Word buildWordDEV(const std::string& raw) {
     Word w(raw);//Raw Word Input
@@ -54,6 +56,11 @@ Word buildWordDEV(const std::string& raw) {
         }
         w.addLetter(currentLetter);
     }
+        auto sylls = buildSyllables(w);
+
+        for (const auto& s : sylls) {
+            w.addSyllable(s);
+        }
 
     return w;
 }
@@ -73,6 +80,60 @@ Word buildWordIAST(const std::string& raw) {
     return w;
 }
 
+//Syllable Parser
+std::vector<Syllable> buildSyllables(const Word& word) {
+    std::vector<Syllable> syllables;
+
+    const auto& letters = word.getLetters();
+
+    Syllable current;
+    bool hasNucleus = false;
+
+    for (size_t i = 0; i < letters.size(); ++i) {
+        const Letter& l = letters[i];
+        std::string val = l.getValue();
+
+        if (isVowel(val)) {
+            //If already had nucleus, new syllable
+            if (hasNucleus) {
+                syllables.push_back(current);
+                current = Syllable();
+            }
+
+            current.setNucleus(l);
+            hasNucleus = true;
+            //Collect Vowel Weight now that Nucleus obtained
+            if (isLongVowel(val)) {
+                current.setWeight("heavy");
+            } else {
+                current.setWeight("light");
+            }
+            //Collect swara
+            if (l.getSwaraType().has_value()) {
+                current.addSwara(l.getSwaraType().value());
+            }
+        }
+
+        else { if (!hasNucleus) { //If no Nucleus present, add as Onset, if, add as Coda
+                current.addOnset(l);
+            } else {
+                current.addCoda(l);
+            }
+        }
+    }
+    //If has Nucleus, pushback to syllables.
+    if (hasNucleus) {
+            //If current is not Coda then set to Heavy
+        if (!current.getCoda().empty()) {
+            current.setWeight("heavy");
+        }
+
+        syllables.push_back(current);
+    }
+
+    return syllables;
+}
+//Hymn Parse
 Hymn parseHymn(const std::string& filename) {
     Hymn hymn;
 

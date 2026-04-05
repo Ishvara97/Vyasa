@@ -13,4 +13,7 @@ std::vector<std::string> splitUTF8(const std::string& s);
 //splitWords
 std::vector<std::string> splitWords(const std::string& line);
 
+//Vowel Detection
+bool isVowel(const std::string& ch);
+
 #endif

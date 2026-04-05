@@ -52,3 +52,31 @@ std::vector<std::string> splitLines(const std::string& text) {
 
 	return lines;
 }
+
+//Vowel Detection
+bool isVowel(const std::string& ch) {
+    static std::vector<std::string> vowels = {
+        u8"अ", u8"आ", u8"इ", u8"ई", u8"उ", u8"ऊ",
+        u8"ऋ", u8"ॠ", u8"ऌ",
+        u8"ए", u8"ऐ", u8"ओ", u8"औ"
+    };
+
+    for (const auto& v : vowels) {
+        if (ch == v) return true;
+    }
+
+    return false;
+}
+
+//VowelWeight, if not Long then automatically short.
+bool isLongVowel(const std::string& ch) {
+    static std::vector<std::string> longVowels = {
+        u8"आ", u8"ई", u8"ऊ", u8"ॠ", u8"ए", u8"ऐ", u8"ओ", u8"औ"
+    };
+
+    for (const auto& v : longVowels) {
+        if (ch == v) return true;
+    }
+
+    return false;
+}

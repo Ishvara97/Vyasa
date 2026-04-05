@@ -30,21 +30,54 @@ public:
     std::optional<std::string> getSwaraType() const { return swaraType; }
 };
 
+//Syllable
+class Syllable {
+private:
+    std::vector<Letter> onset;//Onset Letters in Word
+    Letter nucleus; //Nucleus Letter in Word
+    std::vector<Letter> coda;//Coda letters in Word
+
+    std::vector<std::string> swaras;//Swaras
+    std::string weight; // light/heavy
+
+public:
+    void addOnset(const Letter& l) { onset.push_back(l); }
+    void setNucleus(const Letter& l) { nucleus = l; }
+    void addCoda(const Letter& l) { coda.push_back(l); }
+
+    void addSwara(const std::string& s) { swaras.push_back(s); }
+    void setWeight(const std::string& w) { weight = w; }
+
+    const std::vector<Letter>& getOnset() const { return onset; }
+    const Letter& getNucleus() const { return nucleus; }
+    const std::vector<Letter>& getCoda() const { return coda; }
+
+    const std::vector<std::string>& getSwaras() const { return swaras; }
+    std::string getWeight() const { return weight; }
+};
+
 //Word
 
 class Word {
 private:
     std::string text;
+    std::vector<Syllable> syllables;//Syllables in Word
     std::vector<Letter> letters; //Letters in Word
+
 
 public:
     Word(const std::string& t) : text(t) {}
 
     std::string getText() const { return text; }
 
+    void addSyllable(const Syllable& s) {
+        syllables.push_back(s); }
 
     void addLetter(const Letter& l) {
         letters.push_back(l); }
+
+    const std::vector<Syllable>& getSyllables() const {
+    return syllables;   }
 
     const std::vector<Letter>& getLetters() const {
         return letters; }
