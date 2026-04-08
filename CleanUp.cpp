@@ -3,14 +3,12 @@
 #include "CleanUp.h"
 #include <sstream>
 
-
-
 //UTF8 Splitting for Unicode/Grapheme Normalization
 std::vector<std::string> splitUTF8(const std::string& s) {
     std::vector<std::string> result;
 
     for (size_t i = 0; i < s.size();) {
-        unsigned char c = s[i];
+        unsigned char c = static_cast<unsigned char>(s[i]);
 
         size_t charLen = 0;
 
@@ -28,8 +26,6 @@ std::vector<std::string> splitUTF8(const std::string& s) {
 }
 
 //Split Words
-#include <sstream>
-
 std::vector<std::string> splitWords(const std::string& line) {
     std::vector<std::string> words;
     std::stringstream ss(line);
@@ -44,23 +40,22 @@ std::vector<std::string> splitWords(const std::string& line) {
 
 //Split Lines
 std::vector<std::string> splitLines(const std::string& text) {
-	std::vector<std::string> lines;
-	std::stringstream ss(text);
-	std::string line;
+    std::vector<std::string> lines;
+    std::stringstream ss(text);
+    std::string line;
 
-	while (std::getline(ss, line)){
-		lines.push_back(line);
-	}
+    while (std::getline(ss, line)) {
+        lines.push_back(line);
+    }
 
-	return lines;
+    return lines;
 }
 
 //Vowel Detection
 bool isVowel(const std::string& ch) {
-    static std::vector<std::string> vowels = {
+    static const std::vector<std::string> vowels = {
         u8"अ", u8"आ", u8"इ", u8"ई", u8"उ", u8"ऊ",
-        u8"ऋ", u8"ॠ", u8"ऌ",
-        u8"ए", u8"ऐ", u8"ओ", u8"औ"
+        u8"ऋ", u8"ॠ", u8"ऌ", u8"ॡ", u8"ए", u8"ऐ", u8"ओ", u8"औ"
     };
 
     for (const auto& v : vowels) {
@@ -72,8 +67,8 @@ bool isVowel(const std::string& ch) {
 
 //VowelWeight, if not Long then automatically short.
 bool isLongVowel(const std::string& ch) {
-    static std::vector<std::string> longVowels = {
-        u8"आ", u8"ई", u8"ऊ", u8"ॠ", u8"ए", u8"ऐ", u8"ओ", u8"औ"
+    static const std::vector<std::string> longVowels = {
+        u8"आ", u8"ई", u8"ऊ", u8"ॠ", u8"ॡ", u8"ए", u8"ऐ", u8"ओ", u8"औ"
     };
 
     for (const auto& v : longVowels) {
@@ -84,11 +79,9 @@ bool isLongVowel(const std::string& ch) {
 }
 
 //Check if IAST char is Vowel
-
 bool isIASTVowel(const std::string& ch) {
-    static std::vector<std::string> vowels = {
-        "a","ā","i","ī","u","ū","ṛ","ṝ","ḷ",
-        "e","ai","o","au"
+    static const std::vector<std::string> vowels = {
+        "a", u8"ā", "i", u8"ī", "u", u8"ū", u8"ṛ", u8"ṝ", u8"ḷ", u8"ḹ", "e", "o", "ai", "au"
     };
 
     for (const auto& v : vowels) {
@@ -101,23 +94,31 @@ bool isIASTVowel(const std::string& ch) {
 //Check if Danda
 bool isIgnorableSymbol(const std::string& s) {
     return (
-        s == u8"।"  ||  // danda
-        s == u8"॥" ||  // double danda
-        s == "|"   ||  // IAST danda
+        s == u8"।"  ||
+        s == u8"॥" ||
+        s == "|"   ||
         s == "||"
     );
 }
 
 //CleanWords
 std::string cleanWord(const std::string& w) {
-    if (w == u8"।" || w == u8"॥") return "";
+    if (isIgnorableSymbol(w)) return "";
 
-    // remove trailing danda
-    if (w.size() >= 3) {
-        if (w.substr(w.size()-3) == u8"।") {
-            return w.substr(0, w.size()-3);
+    std::string cleaned = w;
+
+    while (!cleaned.empty()) {
+        auto chars = splitUTF8(cleaned);
+        if (chars.empty()) break;
+
+        const std::string& tail = chars.back();
+        if (tail == u8"।" || tail == u8"॥" || tail == "|" || tail == "||") {
+            cleaned.erase(cleaned.size() - tail.size());
+            continue;
         }
+
+        break;
     }
 
-    return w;
+    return cleaned;
 }

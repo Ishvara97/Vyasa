@@ -92,6 +92,9 @@ public:
     void addAlignment(const SyllableAlignment& a) {
     alignment.push_back(a); }
 
+    void clearAlignment() {
+    alignment.clear(); }
+
     const std::vector<Syllable>& getSyllables() const {
     return syllables;   }
 
