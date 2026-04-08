@@ -90,6 +90,56 @@ int main() {
             std::cout << "\n";
         }
 
+        //Debug for Alignment
+
+
+        for (const auto& verse : hymn.getVerses()) {
+
+    for (const auto& w : verse.getDevWords()) {
+
+        std::cout << "Word: " << w.getText() << "\n";
+        std::cout << "Alignment size: " << w.getAlignment().size() << "\n";
+
+        for (const auto& a : w.getAlignment()) {
+
+            std::cout << "[DEV: ";
+
+            // Onset
+            for (const auto& l : a.dev.getOnset())
+                std::cout << l.getValue();
+
+            // Nucleus
+            std::cout << a.dev.getNucleus().getValue();
+
+            // Coda
+            for (const auto& l : a.dev.getCoda())
+                std::cout << l.getValue();
+
+            std::cout << " ↔ IAST: ";
+
+            // Onset
+            for (const auto& l : a.iast.getOnset())
+                std::cout << l.getValue();
+
+            // Nucleus
+            std::cout << a.iast.getNucleus().getValue();
+
+            // Coda
+            for (const auto& l : a.iast.getCoda())
+                std::cout << l.getValue();
+
+            std::cout << "] ";
+        }
+
+        std::cout << "\n\n";
+
+        std::cout << w.getText() << " → " << w.getAlignedIAST() << "\n";
+    }
+
+}
+
+
+
         /*Letter Frequency Goes Here
         
 

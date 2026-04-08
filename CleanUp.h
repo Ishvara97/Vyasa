@@ -19,4 +19,14 @@ bool isVowel(const std::string& ch);
 //LongVowel Detection
 bool isLongVowel(const std::string& ch);
 
+//IAST Vowel Detection
+bool isIASTVowel(const std::string& ch);
+
+//DandaFilter
+bool isIgnorableSymbol(const std::string& s);
+
+//CleanWords
+std::string cleanWord(const std::string& w);
+
+
 #endif

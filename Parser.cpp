@@ -1,6 +1,6 @@
 #include "Parser.h"
 #include "CleanUp.h"
-
+#include <iostream>
 #include <fstream>
 #include <regex>
 //SWARA DETECTORS
@@ -64,6 +64,9 @@ std::vector<Syllable> buildSyllables(const Word& word) {
     return syllables;
 }
 
+
+
+
 //Dev WordBuilder w/ Swaras
 Word buildWordDEV(const std::string& raw) {
     Word w(raw);//Raw Word Input
@@ -117,6 +120,42 @@ Word buildWordDEV(const std::string& raw) {
     return w;
 }
 
+//Build IAST Syllables
+std::vector<Syllable> buildSyllablesIAST(const Word& word) {
+    std::vector<Syllable> syllables;
+
+    const auto& letters = word.getLetters();
+
+    Syllable current;
+    bool hasNucleus = false;
+
+    for (const auto& l : letters) {
+        std::string val = l.getValue();
+
+        if (isIASTVowel(val)) {
+
+         if (hasNucleus) {
+                syllables.push_back(current);
+                current = Syllable();
+            }
+
+            current.setNucleus(l);
+            hasNucleus = true;
+        }
+        else {
+            if (!hasNucleus)
+                current.addOnset(l);
+            else
+                current.addCoda(l);
+        }
+    }
+
+    if (hasNucleus)
+        syllables.push_back(current);
+
+    return syllables;
+}
+
 //WordBuilder IAST (No  SwaraChecks)
 Word buildWordIAST(const std::string& raw) {
     Word w(raw);
@@ -129,9 +168,35 @@ Word buildWordIAST(const std::string& raw) {
         w.addLetter(l);
     }
 
+    auto sylls = buildSyllablesIAST(w);
+
+    for (const auto& s : sylls) {
+    w.addIASTSyllable(s); 
+        }
+    
     return w;
 }
 
+
+
+//AlignWords
+void alignWord(Word& devWord, Word& iastWord) {
+
+    const auto& devSylls = devWord.getSyllables();
+    const auto& iastSylls = iastWord.getIASTSyllables();
+
+    size_t n = std::min(devSylls.size(), iastSylls.size());
+
+    std::cout << "ALIGNING WORD...\n";
+
+    for (size_t i = 0; i < n; ++i) {
+        SyllableAlignment a;
+        a.dev = devSylls[i];
+        a.iast = iastSylls[i];
+
+        devWord.addAlignment(a);
+    }
+}
 
 //Hymn Parse
 Hymn parseHymn(const std::string& filename) {
@@ -152,6 +217,8 @@ Hymn parseHymn(const std::string& filename) {
     std::regex devata_re("Devatas:\\s*(.*)");
     std::regex category_re("Categories:\\s*(.*)");
     std::regex verse_re("\\[Verse\\s*(\\d+)\\]");
+
+
     //
     std::smatch match;
     //For every line in lines (CleanUp) match initial text (above) property to regex and place it in.
@@ -176,9 +243,21 @@ Hymn parseHymn(const std::string& filename) {
 
             // Save previous verse if exists
             if (currentVerse.getVerseNumber() != 0) {
-                hymn.addVerse(currentVerse);
-                currentVerse = Verse();
+
+            // Alignment
+            auto& devWords = currentVerse.getDevWordsMutable();
+            auto& iastWords = currentVerse.getIASTWordsMutable();
+
+            size_t n = std::min(devWords.size(), iastWords.size());
+
+            for (size_t i = 0; i < n; ++i) {
+                alignWord(devWords[i], iastWords[i]);
+                devWords[i].setAlignedIAST(iastWords[i].getText());
             }
+
+            hymn.addVerse(currentVerse);
+            currentVerse = Verse();
+        }
 
             currentVerse.setVerseNumber(std::stoi(match[1]));//Convert String to Integer
         }
@@ -190,6 +269,9 @@ Hymn parseHymn(const std::string& filename) {
             auto devWords = splitWords(devLine);
 
             for (const auto& w : devWords) {
+                auto cleaned = cleanWord(w);
+                if (cleaned.empty()) continue;
+                if (isIgnorableSymbol(w)) continue;
                 currentVerse.addDevWord(buildWordDEV(w));
                 }
         }
@@ -201,6 +283,9 @@ Hymn parseHymn(const std::string& filename) {
             auto iastWords = splitWords(iastLine);
 
             for (const auto& w : iastWords) {
+                auto cleaned = cleanWord(w);
+                if (cleaned.empty()) continue;
+                if (isIgnorableSymbol(w)) continue;
                 currentVerse.addIASTWord(buildWordIAST(w));
             } //5th Character for IAST
         }
@@ -211,8 +296,28 @@ Hymn parseHymn(const std::string& filename) {
 
     // Add last verse
     if (currentVerse.getVerseNumber() != 0) {
-        hymn.addVerse(currentVerse);
+
+    auto& devWords = currentVerse.getDevWordsMutable();
+    auto& iastWords = currentVerse.getIASTWordsMutable();
+
+    size_t n = std::min(devWords.size(), iastWords.size());
+
+    for (size_t i = 0; i < n; ++i) {
+        alignWord(devWords[i], iastWords[i]);
     }
+
+    hymn.addVerse(currentVerse);
+    }
+
+    auto& devWords = currentVerse.getDevWordsMutable();
+    auto& iastWords = currentVerse.getIASTWordsMutable();
+
+    size_t n = std::min(devWords.size(), iastWords.size());
+
+    for (size_t i = 0; i < n; ++i) {
+    alignWord(devWords[i], iastWords[i]);
+    }
+
 
     return hymn;
 }

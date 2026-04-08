@@ -57,13 +57,22 @@ public:
     std::string getWeight() const { return weight; }
 };
 
+//Line Up DEV and IAST Syllables
+struct SyllableAlignment {
+    Syllable dev;
+    Syllable iast;
+};
+
 //Word
 
 class Word {
 private:
     std::string text;
     std::vector<Syllable> syllables;//Syllables in Word
+    std::vector<Syllable> iastSyllables; //IAST Syllables only
     std::vector<Letter> letters; //Letters in Word
+    std::vector<SyllableAlignment> alignment;//Align Syllables per Word
+    std::string alignedIAST;
 
 
 public:
@@ -77,11 +86,33 @@ public:
     void addLetter(const Letter& l) {
         letters.push_back(l); }
 
+    void addIASTSyllable(const Syllable& s) {
+    iastSyllables.push_back(s); }
+
+    void addAlignment(const SyllableAlignment& a) {
+    alignment.push_back(a); }
+
     const std::vector<Syllable>& getSyllables() const {
     return syllables;   }
 
     const std::vector<Letter>& getLetters() const {
         return letters; }
+
+    const std::vector<Syllable>& getIASTSyllables() const {
+    return iastSyllables; }
+
+    const std::vector<SyllableAlignment>& getAlignment() const {
+    return alignment; }
+
+
+
+void setAlignedIAST(const std::string& s) {
+    alignedIAST = s;
+}
+
+std::string getAlignedIAST() const {
+    return alignedIAST;
+}
 
 };
 
@@ -116,6 +147,14 @@ public:
     const std::vector<Word>& getDevWords() const { return devWords; }
     const std::vector<Word>& getIASTWords() const { return iastWords; }
 
+    std::vector<Word>& getDevWordsMutable() {
+    return devWords;
+}
+
+std::vector<Word>& getIASTWordsMutable() {
+    return iastWords;
+}
+
 };
 
 //Hymn
@@ -144,7 +183,6 @@ public:
     void addVerse(const Verse& v) { verses.push_back(v); }
     const std::vector<Verse>& getVerses() const { return verses; }
 };
-
 
 
 

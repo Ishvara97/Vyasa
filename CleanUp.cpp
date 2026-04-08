@@ -82,3 +82,42 @@ bool isLongVowel(const std::string& ch) {
 
     return false;
 }
+
+//Check if IAST char is Vowel
+
+bool isIASTVowel(const std::string& ch) {
+    static std::vector<std::string> vowels = {
+        "a","ā","i","ī","u","ū","ṛ","ṝ","ḷ",
+        "e","ai","o","au"
+    };
+
+    for (const auto& v : vowels) {
+        if (ch == v) return true;
+    }
+
+    return false;
+}
+
+//Check if Danda
+bool isIgnorableSymbol(const std::string& s) {
+    return (
+        s == u8"।"  ||  // danda
+        s == u8"॥" ||  // double danda
+        s == "|"   ||  // IAST danda
+        s == "||"
+    );
+}
+
+//CleanWords
+std::string cleanWord(const std::string& w) {
+    if (w == u8"।" || w == u8"॥") return "";
+
+    // remove trailing danda
+    if (w.size() >= 3) {
+        if (w.substr(w.size()-3) == u8"।") {
+            return w.substr(0, w.size()-3);
+        }
+    }
+
+    return w;
+}
