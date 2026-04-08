@@ -7,8 +7,8 @@
 #include <vector>
 #include <map>
 #include <optional>
-//#include "json.hpp"
-//using json = nlohmann::json;
+#include "json.hpp"
+using json = nlohmann::json;
 
 //Letter
 class Letter {
@@ -28,6 +28,7 @@ public:
 
     bool getHasSwara() const { return hasSwara; }
     std::optional<std::string> getSwaraType() const { return swaraType; }
+
 };
 
 //Syllable
@@ -55,6 +56,7 @@ public:
 
     const std::vector<std::string>& getSwaras() const { return swaras; }
     std::string getWeight() const { return weight; }
+
 };
 
 //Line Up DEV and IAST Syllables
@@ -107,15 +109,9 @@ public:
     const std::vector<SyllableAlignment>& getAlignment() const {
     return alignment; }
 
+    void setAlignedIAST(const std::string& s) { alignedIAST = s; }
 
-
-void setAlignedIAST(const std::string& s) {
-    alignedIAST = s;
-}
-
-std::string getAlignedIAST() const {
-    return alignedIAST;
-}
+    std::string getAlignedIAST() const { return alignedIAST;}
 
 };
 
@@ -151,12 +147,10 @@ public:
     const std::vector<Word>& getIASTWords() const { return iastWords; }
 
     std::vector<Word>& getDevWordsMutable() {
-    return devWords;
-}
+        return devWords; }
 
-std::vector<Word>& getIASTWordsMutable() {
-    return iastWords;
-}
+    std::vector<Word>& getIASTWordsMutable() {
+    return iastWords; }
 
 };
 
@@ -185,6 +179,7 @@ public:
 
     void addVerse(const Verse& v) { verses.push_back(v); }
     const std::vector<Verse>& getVerses() const { return verses; }
+
 };
 
 

@@ -1,8 +1,8 @@
 Mandala: 10
 Sukta: 125
-Devatas: Vac Devi
-Rishis: Vagambrhni Prajaptim
-Categories: Atmastuti
+Devatas: Vāc Devi
+Rishis: Vāc Āmbhṛṇī
+Categories: Ātmastuti
 
 [Verse 1]
 

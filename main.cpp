@@ -2,7 +2,10 @@
 #include <string>
 #include "Parser.h"
 #include <windows.h>
+#include <fstream>
 #include "json.hpp"
+#include "PoemStructures.h"
+#include "jsonserialization.h"
 using json = nlohmann::json;
 
 namespace {
@@ -26,6 +29,7 @@ std::string syllableToText(const Syllable& s) {
 int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
+
 
     Hymn hymn = parseHymn("Hymns/[Hymn 10.125 Svaras].txt");
 
@@ -112,6 +116,13 @@ int main() {
             std::cout << "\n\n";
         }
     }
+
+    //JSON Export
+
+    json jHymn = hymnToJson(hymn);
+
+    std::ofstream out("HymnsJSON/Hymn_10_125.json");
+    out << jHymn.dump(2); 
 
     return 0;
 }
