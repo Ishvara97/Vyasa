@@ -1,11 +1,13 @@
 #include <iostream>
 #include <string>
 #include "Parser.h"
+#include "PoemStructures.h"
+#include "jsonserialization.h"
+#include "CleanUp.h"
 #include <windows.h>
 #include <fstream>
 #include "json.hpp"
-#include "PoemStructures.h"
-#include "jsonserialization.h"
+
 using json = nlohmann::json;
 
 namespace {
@@ -123,6 +125,11 @@ int main() {
 
     std::ofstream out("HymnsJSON/Hymn_10_125.json");
     out << jHymn.dump(2); 
+
+   // Hymn h2 = jsonToHymn(jHymn);
+   // for (auto& v : h.getVersesMutable()) {
+    //ExportCSV
+    exportFullCSV(hymn, "Hymn_10_125_CSV.csv");
 
     return 0;
 }

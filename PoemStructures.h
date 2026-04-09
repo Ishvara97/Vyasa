@@ -179,6 +179,7 @@ public:
 
     void addVerse(const Verse& v) { verses.push_back(v); }
     const std::vector<Verse>& getVerses() const { return verses; }
+    const std::vector<Verse>& getVersesMutable() const { return verses; }
 
 };
 

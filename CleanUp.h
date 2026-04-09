@@ -3,7 +3,9 @@
 #define CLEANUP_H
 
 #include <string>
-#include<vector>
+#include <vector>
+#include <sstream>
+#include "PoemStructures.h"
 
 std::vector<std::string> splitLines(const std::string& text);
 
@@ -27,6 +29,10 @@ bool isIgnorableSymbol(const std::string& s);
 
 //CleanWords
 std::string cleanWord(const std::string& w);
-
+//
+std::string join(const std::vector<std::string>& vec, const std::string& delim);
+std::string lettersToString(const std::vector<Letter>& letters);
+//ExportCSV
+void exportFullCSV(const Hymn& h, const std::string& filename);
 
 #endif

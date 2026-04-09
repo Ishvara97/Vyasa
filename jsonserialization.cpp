@@ -14,6 +14,17 @@ json letterToJson(const Letter& l) {
     return j;
 }
 
+//Reverse
+Letter jsonToLetter(const json& j) {
+    Letter l(j["value"]);
+
+    if (!j["swaraType"].is_null()) {
+        l.setSwara(true, j["swaraType"]);
+    }
+
+    return l;
+}
+
 //Syllable
 json syllableToJson(const Syllable& s) {
     json j;
@@ -30,6 +41,27 @@ json syllableToJson(const Syllable& s) {
     j["swaras"] = s.getSwaras();
 
     return j;
+}
+
+
+//Reverse
+Syllable jsonToSyllable(const json& j) {
+    Syllable s;
+
+    for (const auto& l : j["onset"])
+        s.addOnset(jsonToLetter(l));
+
+    s.setNucleus(jsonToLetter(j["nucleus"]));
+
+    for (const auto& l : j["coda"])
+        s.addCoda(jsonToLetter(l));
+
+    s.setWeight(j["weight"]);
+
+    for (const auto& sw : j["swaras"])
+        s.addSwara(sw);
+
+    return s;
 }
 
 //Word
@@ -50,6 +82,10 @@ json wordToJson(const Word& w) {
     return j;
 }
 
+//Reverse
+Word jsonToWord(const json& j) {
+    return Word(j["text"]);
+}
 //Verse
 json verseToJson(const Verse& v) {
     json j;
@@ -68,6 +104,18 @@ json verseToJson(const Verse& v) {
     return j;
 }
 
+//Reverse
+Verse jsonToVerse(const json& j) {
+    Verse v;
+
+    v.setVerseNumber(j["verseNumber"]);
+    v.setDev(j["dev"]);
+    v.setIAST(j["iast"]);
+    v.setENG(j["eng"]);
+
+    return v;
+}
+
 //Hymn
 json hymnToJson(const Hymn& h) {
     json j;
@@ -82,4 +130,26 @@ json hymnToJson(const Hymn& h) {
         j["verses"].push_back(verseToJson(v));
 
     return j;
+}
+
+//Reverse
+Hymn jsonToHymn(const json& j) {
+    Hymn h;
+
+    h.setMandala(j["mandala"]);
+    h.setSukta(j["sukta"]);
+
+    for (const auto& r : j["rishis"])
+        h.addRishi(r);
+
+    for (const auto& d : j["devatas"])
+        h.addDevata(d);
+
+    for (const auto& c : j["categories"])
+        h.addCategory(c);
+
+    for (const auto& vj : j["verses"])
+        h.addVerse(jsonToVerse(vj));
+
+    return h;
 }

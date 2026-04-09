@@ -1,7 +1,9 @@
 //CleanUp
 
 #include "CleanUp.h"
+#include <iostream>
 #include <sstream>
+#include <fstream>
 
 //UTF8 Splitting for Unicode/Grapheme Normalization
 std::vector<std::string> splitUTF8(const std::string& s) {
@@ -121,4 +123,113 @@ std::string cleanWord(const std::string& w) {
     }
 
     return cleaned;
+}
+
+//
+std::string join(const std::vector<std::string>& vec, const std::string& delim) {
+    std::ostringstream oss;
+    for (size_t i = 0; i < vec.size(); ++i) {
+        oss << vec[i];
+        if (i != vec.size() - 1)
+            oss << delim;
+    }
+    return oss.str();
+}
+
+std::string lettersToString(const std::vector<Letter>& letters) {
+    std::string result;
+    for (const auto& l : letters)
+        result += l.getValue();
+    return result;
+}
+
+//CSV Export
+void exportFullCSV(const Hymn& h, const std::string& filename) {
+    std::ofstream file(filename);
+    file << "\xEF\xBB\xBF";
+    // Header
+    file <<
+    "Mandala,Sukta,Rishis,Devatas,Categories,"
+    "Verse,Verse_DEV,Verse_IAST,"
+    "Word_Index,Word_DEV,Word_IAST,"
+    "Syllable_Index,Syllable_Onset,Syllable_Nucleus,Syllable_Coda,"
+    "Syllable_Weight,Syllable_Swaras,"
+    "Letter_Index,Letter_Value,Letter_HasSwara,Letter_SwaraType\n";
+
+    std::string rishis = join(h.getRishis(), "|");
+    std::string devatas = join(h.getDevatas(), "|");
+    std::string categories = join(h.getCategories(), "|");
+
+    for (const auto& v : h.getVerses()) {
+
+        const auto& devWords = v.getDevWords();
+        const auto& iastWords = v.getIASTWords();
+
+        for (size_t wi = 0; wi < devWords.size(); ++wi) {
+
+            const auto& wDev = devWords[wi];
+            std::string wIAST = (wi < iastWords.size()) ? iastWords[wi].getText() : "";
+
+            const auto& sylls = wDev.getSyllables();
+
+            for (size_t si = 0; si < sylls.size(); ++si) {
+
+                const auto& s = sylls[si];
+
+                std::string onset = lettersToString(s.getOnset());
+                std::string nucleus = s.getNucleus().getValue();
+                std::string coda = lettersToString(s.getCoda());
+
+                std::string swaras = join(s.getSwaras(), "|");
+
+                // Build full syllable letter list
+                std::vector<Letter> allLetters;
+
+                for (const auto& l : s.getOnset()) allLetters.push_back(l);
+                allLetters.push_back(s.getNucleus());
+                for (const auto& l : s.getCoda()) allLetters.push_back(l);
+
+                for (size_t li = 0; li < allLetters.size(); ++li) {
+
+                    const auto& l = allLetters[li];
+
+                    file
+                    << h.getMandala() << ","
+                    << h.getSukta() << ","
+                    << "\"" << rishis << "\","
+                    << "\"" << devatas << "\","
+                    << "\"" << categories << "\","
+
+                    << v.getVerseNumber() << ","
+                    << "\"" << v.getDev() << "\","
+                    << "\"" << v.getIAST() << "\","
+
+                    << wi << ","
+                    << "\"" << wDev.getText() << "\","
+                    << "\"" << wIAST << "\","
+
+                    << si << ","
+                    << "\"" << onset << "\","
+                    << "\"" << nucleus << "\","
+                    << "\"" << coda << "\","
+
+                    << s.getWeight() << ","
+                    << "\"" << swaras << "\","
+
+                    << li << ","
+                    << "\"" << l.getValue() << "\","
+                    << (l.getHasSwara() ? "true" : "false") << ",";
+
+                    if (l.getSwaraType().has_value())
+                        file << l.getSwaraType().value();
+                    else
+                        file << "";
+
+                    file << "\n";
+                //std::cout << "Syllable count: " << wDev.getSyllables().size() << "\n";
+
+                }
+            }
+        }
+    }
 }

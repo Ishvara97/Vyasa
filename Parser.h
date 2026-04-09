@@ -5,5 +5,5 @@
 #include <string>
 
 Hymn parseHymn(const std::string& filename);
-
+void enrichVerse(Verse& v);
 #endif
