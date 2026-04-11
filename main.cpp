@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <windows.h>
 #include "Parser.h"
 #include "PoemStructures.h"
 #include "jsonserialization.h"
 #include "CleanUp.h"
-#include <windows.h>
-#include <fstream>
+#include "analysis.h"
 #include "json.hpp"
 
 using json = nlohmann::json;
@@ -117,19 +118,52 @@ int main() {
 
             std::cout << "\n\n";
         }
+        std::cout << "[Verse " << verse.getVerseNumber() << "]\n";
+
+        // Letter Frequency
+        auto lf = getLetterFrequency(verse);
+        std::cout << "Letter Frequency:\n";
+        for (auto& [k,v] : lf)
+            std::cout << k << ": " << v << "\n";
+
+        // Swara Frequency
+        auto sf = getSwaraFrequency(verse);
+        std::cout << "\nSwara Frequency:\n";
+        for (auto& [k,v] : sf)
+            std::cout << k << ": " << v << "\n";
+
+        // Syllable Pattern
+        auto pattern = getSyllablePattern(verse);
+        std::cout << "\nSyllable Pattern:\n";
+        for (const auto& p : pattern)
+            std::cout << p << " ";
+
+        std::cout << "\n\n";
     }
+
+    auto hymnLetterFreq = getHymnLetterFrequency(hymn);
+        std::cout << "\nHYMN LETTER FREQUENCY\n";
+    for (auto& [k, v] : hymnLetterFreq)
+        std::cout << k << ": " << v << "\n";
+
+    auto hymnSwaraFreq = getHymnSwaraFrequency(hymn);
+        std::cout << "\nHYMN SWARA FREQUENCY \n";
+    for (auto& [k, v] : hymnSwaraFreq)
+        std::cout << k << ": " << v << "\n";
+
 
     //JSON Export
 
     json jHymn = hymnToJson(hymn);
 
-    std::ofstream out("HymnsJSON/Hymn_10_125.json");
+    std::ofstream out("HymnExports/Hymn_10_125.json");
     out << jHymn.dump(2); 
 
    // Hymn h2 = jsonToHymn(jHymn);
    // for (auto& v : h.getVersesMutable()) {
     //ExportCSV
-    exportFullCSV(hymn, "Hymn_10_125_CSV.csv");
+    exportFullCSV(hymn, "HymnExports/Hymn_10_125_CSV.csv");
+    exportHymnAnalysisCSV(hymn, "HymnExports/Hymn_10_125_Analysis.csv");
 
     return 0;
 }

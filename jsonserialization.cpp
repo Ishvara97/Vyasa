@@ -95,11 +95,28 @@ json verseToJson(const Verse& v) {
     j["iast"] = v.getIAST();
     j["eng"] = v.getENG();
 
+    // Words
     for (const auto& w : v.getDevWords())
         j["devWords"].push_back(wordToJson(w));
 
     for (const auto& w : v.getIASTWords())
         j["iastWords"].push_back(wordToJson(w));
+
+    auto lf = getLetterFrequency(v);
+    auto sf = getSwaraFrequency(v);
+
+    json lf_json = json::object();
+    for (const auto& [key, value] : lf) {
+        lf_json[key] = value;
+    }
+
+    json sf_json = json::object();
+    for (const auto& [key, value] : sf) {
+        sf_json[key] = value;
+    }
+
+    j["analysis"]["letterFrequency"] = lf_json;
+    j["analysis"]["swaraFrequency"] = sf_json;
 
     return j;
 }
@@ -113,12 +130,16 @@ Verse jsonToVerse(const json& j) {
     v.setIAST(j["iast"]);
     v.setENG(j["eng"]);
 
+   
     return v;
+
 }
 
 //Hymn
 json hymnToJson(const Hymn& h) {
     json j;
+    auto letterFreq = getHymnLetterFrequency(h);
+    auto swaraFreq = getHymnSwaraFrequency(h);
 
     j["mandala"] = h.getMandala();
     j["sukta"] = h.getSukta();
@@ -128,6 +149,9 @@ json hymnToJson(const Hymn& h) {
 
     for (const auto& v : h.getVerses())
         j["verses"].push_back(verseToJson(v));
+
+    j["analysis"]["letterFrequency"] = letterFreq;
+    j["analysis"]["swaraFrequency"] = swaraFreq;
 
     return j;
 }
