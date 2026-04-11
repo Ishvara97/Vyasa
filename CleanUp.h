@@ -12,6 +12,9 @@ std::vector<std::string> splitLines(const std::string& text);
 //For Grapheme/Unicode Normalization
 std::vector<std::string> splitUTF8(const std::string& s);
 
+//For IAST
+std::vector<std::string> splitIAST(const std::string& s);
+
 //splitWords
 std::vector<std::string> splitWords(const std::string& line);
 
@@ -34,5 +37,9 @@ std::string join(const std::vector<std::string>& vec, const std::string& delim);
 std::string lettersToString(const std::vector<Letter>& letters);
 //ExportCSV
 void exportFullCSV(const Hymn& h, const std::string& filename);
+
+//ViramaCheck
+
+bool isVirama(const std::string& ch);
 
 #endif

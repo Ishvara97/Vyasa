@@ -1,19 +1,23 @@
 #include "Parser.h"
 #include "CleanUp.h"
 #include <fstream>
+#include <iostream>
 #include <regex>
 #include <vector>
 
-const std::string DEV_SVARITA   = u8"॑";
-const std::string DEV_ANUDATTA  = u8"॒";
-const std::string COMB_SVARITA  = u8"\u030D";
+const std::string DEV_SVARITA = u8"\u0951";
+const std::string DEV_ANUDATTA = u8"\u0952";
+const std::string COMB_SVARITA = u8"\u030D";
 const std::string COMB_ANUDATTA = u8"\u0331";
+
+Word buildWordIAST(const std::string& raw);
+void alignWord(Word& devWord, Word& iastWord);
 
 namespace {
 bool isDevDependentVowel(const std::string& ch) {
     static const std::vector<std::string> vowels = {
-        u8"ा", u8"ि", u8"ी", u8"ु", u8"ू", u8"ृ", u8"ॄ",
-        u8"ॢ", u8"ॣ", u8"े", u8"ै", u8"ो", u8"ौ"
+        u8"\u093e", u8"\u093f", u8"\u0940", u8"\u0941", u8"\u0942", u8"\u0943", u8"\u0944",
+        u8"\u0962", u8"\u0963", u8"\u0947", u8"\u0948", u8"\u094b", u8"\u094c"
     };
 
     for (const auto& v : vowels) {
@@ -25,7 +29,7 @@ bool isDevDependentVowel(const std::string& ch) {
 
 bool isDevLongDependentVowel(const std::string& ch) {
     static const std::vector<std::string> longVowels = {
-        u8"ा", u8"ी", u8"ू", u8"ॄ", u8"ॣ", u8"े", u8"ै", u8"ो", u8"ौ"
+        u8"\u093e", u8"\u0940", u8"\u0942", u8"\u0944", u8"\u0963", u8"\u0947", u8"\u0948", u8"\u094b", u8"\u094c"
     };
 
     for (const auto& v : longVowels) {
@@ -35,28 +39,51 @@ bool isDevLongDependentVowel(const std::string& ch) {
     return false;
 }
 
-bool isVirama(const std::string& ch) {
-    return ch == u8"्";
-}
-
 bool isDevCodaMark(const std::string& ch) {
-    return ch == u8"ं" || ch == u8"ः" || ch == u8"ँ";
+    return ch == u8"\u0902" || ch == u8"\u0903" || ch == u8"\u0901";
 }
 
-bool isIASTDiphthongStart(const std::vector<Letter>& letters, size_t index) {
-    if (index + 1 >= letters.size()) return false;
+bool isIASTCombiningMark(const std::string& ch) {
+    return ch == COMB_SVARITA || ch == COMB_ANUDATTA;
+}
 
-    const std::string current = letters[index].getValue();
-    const std::string next = letters[index + 1].getValue();
+bool isIASTCodaMark(const std::string& ch) {
+    return ch == u8"ṃ" || ch == u8"ṁ" || ch == u8"ḥ";
+}
 
-    return current == "a" && (next == "i" || next == "u");
+bool isDevConsonant(const std::string& ch) {
+    return !ch.empty() &&
+           !isVowel(ch) &&
+           !isDevDependentVowel(ch) &&
+           !isVirama(ch) &&
+           !isDevCodaMark(ch) &&
+           !isIgnorableSymbol(ch);
+}
+
+bool isIASTLongVowelValue(const std::string& ch) {
+    return ch == u8"ā" || ch == u8"ī" || ch == u8"ū" ||
+           ch == u8"e" || ch == u8"o" || ch == "ai" || ch == "au";
+}
+
+bool isIASTConsonant(const std::string& ch) {
+    return !ch.empty() &&
+           !isIASTVowel(ch) &&
+           !isIASTCodaMark(ch) &&
+           !isIASTCombiningMark(ch) &&
+           !isIgnorableSymbol(ch);
+}
+
+void addSwaraIfPresent(Syllable& syllable, const Letter& letter) {
+    if (letter.getSwaraType().has_value()) {
+        syllable.addSwara(letter.getSwaraType().value());
+    }
 }
 
 std::string cleanTokenForParsing(const std::string& token) {
     std::string cleaned = cleanWord(token);
 
     while (!cleaned.empty()) {
-        auto chars = splitUTF8(cleaned);
+        auto chars = splitIAST(cleaned);
         if (chars.empty()) break;
 
         const std::string& tail = chars.back();
@@ -67,85 +94,149 @@ std::string cleanTokenForParsing(const std::string& token) {
 
     return cleaned;
 }
+
+Word mergeIASTWords(const std::vector<Word>& words, size_t start, size_t end) {
+    std::string combined;
+    for (size_t i = start; i < end; ++i) {
+        combined += words[i].getText();
+    }
+    return buildWordIAST(combined);
 }
 
-//Syllable Parser
+void finalizeVerseAlignment(Verse& verse, Hymn& hymn) {
+    auto& devWords = verse.getDevWordsMutable();
+    auto& iastWords = verse.getIASTWordsMutable();
+
+    if (devWords.size() != iastWords.size()) {
+        std::cout << "Sandhi mismatch detected\n";
+    }
+
+    size_t devIndex = 0;
+    size_t iastIndex = 0;
+
+    while (devIndex < devWords.size() && iastIndex < iastWords.size()) {
+        const size_t start = iastIndex;
+        const size_t devSyllableCount = devWords[devIndex].getSyllables().size();
+
+        Word mergedIAST = mergeIASTWords(iastWords, start, iastIndex + 1);
+        ++iastIndex;
+
+        while (iastIndex < iastWords.size() &&
+               mergedIAST.getIASTSyllables().size() < devSyllableCount) {
+            mergedIAST = mergeIASTWords(iastWords, start, iastIndex + 1);
+            ++iastIndex;
+        }
+
+        alignWord(devWords[devIndex], mergedIAST);
+        devWords[devIndex].setAlignedIAST(mergedIAST.getText());
+        ++devIndex;
+    }
+
+    hymn.addVerse(verse);
+}
+}
+
 std::vector<Syllable> buildSyllables(const Word& word) {
     std::vector<Syllable> syllables;
     const auto& letters = word.getLetters();
 
-    Syllable current;
-    bool hasNucleus = false;
-
     for (size_t i = 0; i < letters.size(); ++i) {
-        const Letter& l = letters[i];
-        const std::string val = l.getValue();
-        const std::string next = (i + 1 < letters.size()) ? letters[i + 1].getValue() : "";
-        const bool nextIsVirama = isVirama(next);
-        const bool nextIsDependentVowel = isDevDependentVowel(next);
+        const std::string value = letters[i].getValue();
 
-        if (isVowel(val) || isDevDependentVowel(val)) {
-            if (hasNucleus) {
-                syllables.push_back(current);
-                current = Syllable();
-            }
+        if (isIgnorableSymbol(value)) {
+            continue;
+        }
 
-            current.setNucleus(l);
-            hasNucleus = true;
-            current.setWeight((isLongVowel(val) || isDevLongDependentVowel(val)) ? "heavy" : "light");
-
-            if (l.getSwaraType().has_value()) {
-                current.addSwara(l.getSwaraType().value());
+        if (isDevCodaMark(value)) {
+            if (!syllables.empty()) {
+                syllables.back().addCoda(letters[i]);
+                syllables.back().setWeight("heavy");
+                addSwaraIfPresent(syllables.back(), letters[i]);
             }
             continue;
         }
 
-        if (isVirama(val)) {
-            if (!hasNucleus) {
-                current.addOnset(l);
+        if (isVowel(value)) {
+            Syllable syllable;
+            syllable.setNucleus(letters[i]);
+            syllable.setWeight(isLongVowel(value) ? "heavy" : "light");
+            addSwaraIfPresent(syllable, letters[i]);
+
+            while (i + 1 < letters.size() && isDevCodaMark(letters[i + 1].getValue())) {
+                ++i;
+                syllable.addCoda(letters[i]);
+                syllable.setWeight("heavy");
+                addSwaraIfPresent(syllable, letters[i]);
             }
+
+            syllables.push_back(syllable);
             continue;
         }
 
-        if (isDevCodaMark(val)) {
-            if (!hasNucleus) {
-                current.setNucleus(l);
-                hasNucleus = true;
+        if (!isDevConsonant(value)) {
+            continue;
+        }
+
+        std::vector<Letter> onsetCluster;
+        bool formedSyllable = false;
+
+        while (i < letters.size() && isDevConsonant(letters[i].getValue())) {
+            const Letter& consonant = letters[i];
+            const std::string next = (i + 1 < letters.size()) ? letters[i + 1].getValue() : "";
+
+            if (isVirama(next)) {
+                onsetCluster.push_back(consonant);
+                onsetCluster.push_back(letters[i + 1]);
+                i += 2;
+                continue;
+            }
+
+            Syllable syllable;
+            for (const auto& onsetLetter : onsetCluster) {
+                syllable.addOnset(onsetLetter);
+                addSwaraIfPresent(syllable, onsetLetter);
+            }
+
+            if (isDevDependentVowel(next)) {
+                syllable.addOnset(consonant);
+                addSwaraIfPresent(syllable, consonant);
+                syllable.setNucleus(letters[i + 1]);
+                syllable.setWeight(isDevLongDependentVowel(next) ? "heavy" : "light");
+                addSwaraIfPresent(syllable, letters[i + 1]);
+                i += 2;
             } else {
-                current.addCoda(l);
+                syllable.setNucleus(consonant);
+                syllable.setWeight("light");
+                addSwaraIfPresent(syllable, consonant);
+                ++i;
             }
-            current.setWeight("heavy");
-            continue;
+
+            while (i < letters.size() && isDevCodaMark(letters[i].getValue())) {
+                syllable.addCoda(letters[i]);
+                syllable.setWeight("heavy");
+                addSwaraIfPresent(syllable, letters[i]);
+                ++i;
+            }
+
+            syllables.push_back(syllable);
+            formedSyllable = true;
+            --i;
+            break;
         }
 
-        if (!hasNucleus) {
-            if (!nextIsVirama && !nextIsDependentVowel) {
-                current.setNucleus(l);
-                hasNucleus = true;
-                current.setWeight("light");
-                if (l.getSwaraType().has_value()) {
-                    current.addSwara(l.getSwaraType().value());
-                }
-            } else {
-                current.addOnset(l);
+        if (!formedSyllable && !onsetCluster.empty() && !syllables.empty()) {
+            for (const auto& trailing : onsetCluster) {
+                syllables.back().addCoda(trailing);
+                addSwaraIfPresent(syllables.back(), trailing);
             }
-        } else {
-            current.addCoda(l);
-            current.setWeight("heavy");
+            syllables.back().setWeight("heavy");
+            --i;
         }
-    }
-
-    if (hasNucleus) {
-        if (!current.getCoda().empty()) {
-            current.setWeight("heavy");
-        }
-        syllables.push_back(current);
     }
 
     return syllables;
 }
 
-//Dev WordBuilder w/ Swaras
 Word buildWordDEV(const std::string& raw) {
     Word w(raw);
     auto chars = splitUTF8(raw);
@@ -191,53 +282,71 @@ Word buildWordDEV(const std::string& raw) {
     return w;
 }
 
-//Build IAST Syllables
 std::vector<Syllable> buildSyllablesIAST(const Word& word) {
     std::vector<Syllable> syllables;
     const auto& letters = word.getLetters();
-
-    Syllable current;
-    bool hasNucleus = false;
+    std::vector<Letter> pendingOnset;
 
     for (size_t i = 0; i < letters.size(); ++i) {
-        const Letter& l = letters[i];
-        std::string val = l.getValue();
+        const Letter& letter = letters[i];
+        const std::string value = letter.getValue();
 
-        if (isIASTDiphthongStart(letters, i)) {
-            val += letters[i + 1].getValue();
-            ++i;
+        if (isIgnorableSymbol(value) || isIASTCombiningMark(value)) {
+            continue;
         }
 
-        if (isIASTVowel(val)) {
-            if (hasNucleus) {
-                syllables.push_back(current);
-                current = Syllable();
+        if (isIASTCodaMark(value)) {
+            if (!syllables.empty()) {
+                syllables.back().addCoda(letter);
+                syllables.back().setWeight("heavy");
+            }
+            continue;
+        }
+
+        if (isIASTConsonant(value)) {
+            pendingOnset.push_back(letter);
+            continue;
+        }
+
+        if (isIASTVowel(value)) {
+            Syllable syllable;
+            for (const auto& onset : pendingOnset) {
+                syllable.addOnset(onset);
+            }
+            pendingOnset.clear();
+
+            syllable.setNucleus(letter);
+            syllable.setWeight(isIASTLongVowelValue(value) ? "heavy" : "light");
+
+            while (i + 1 < letters.size() && isIASTCodaMark(letters[i + 1].getValue())) {
+                ++i;
+                syllable.addCoda(letters[i]);
+                syllable.setWeight("heavy");
             }
 
-            current.setNucleus(Letter(val));
-            hasNucleus = true;
-        } else {
-            if (!hasNucleus) {
-                current.addOnset(l);
-            } else {
-                current.addCoda(l);
-            }
+            syllables.push_back(syllable);
         }
     }
 
-    if (hasNucleus) {
-        syllables.push_back(current);
+    if (!pendingOnset.empty() && !syllables.empty()) {
+        for (const auto& trailing : pendingOnset) {
+            syllables.back().addCoda(trailing);
+        }
+        syllables.back().setWeight("heavy");
     }
 
     return syllables;
 }
 
-//WordBuilder IAST (No SwaraChecks)
 Word buildWordIAST(const std::string& raw) {
     Word w(raw);
-    auto chars = splitUTF8(raw);
+    auto chars = splitIAST(raw);
 
     for (const auto& ch : chars) {
+        if (isIASTCombiningMark(ch)) {
+            continue;
+        }
+
         Letter l(ch);
         l.setSwara(false, std::nullopt);
         w.addLetter(l);
@@ -251,7 +360,6 @@ Word buildWordIAST(const std::string& raw) {
     return w;
 }
 
-//AlignWords
 void alignWord(Word& devWord, Word& iastWord) {
     devWord.clearAlignment();
 
@@ -267,7 +375,6 @@ void alignWord(Word& devWord, Word& iastWord) {
     }
 }
 
-//Hymn Parse
 Hymn parseHymn(const std::string& filename) {
     Hymn hymn;
 
@@ -288,37 +395,22 @@ Hymn parseHymn(const std::string& filename) {
     for (const auto& line : lines) {
         if (std::regex_search(line, match, mandala_re)) {
             hymn.setMandala(std::stoi(match[1]));
-        }
-        else if (std::regex_search(line, match, sukta_re)) {
+        } else if (std::regex_search(line, match, sukta_re)) {
             hymn.setSukta(std::stoi(match[1]));
-        }
-        else if (std::regex_search(line, match, rishi_re)) {
+        } else if (std::regex_search(line, match, rishi_re)) {
             hymn.addRishi(match[1]);
-        }
-        else if (std::regex_search(line, match, devata_re)) {
+        } else if (std::regex_search(line, match, devata_re)) {
             hymn.addDevata(match[1]);
-        }
-        else if (std::regex_search(line, match, category_re)) {
+        } else if (std::regex_search(line, match, category_re)) {
             hymn.addCategory(match[1]);
-        }
-        else if (std::regex_search(line, match, verse_re)) {
+        } else if (std::regex_search(line, match, verse_re)) {
             if (currentVerse.getVerseNumber() != 0) {
-                auto& devWords = currentVerse.getDevWordsMutable();
-                auto& iastWords = currentVerse.getIASTWordsMutable();
-                const size_t n = std::min(devWords.size(), iastWords.size());
-
-                for (size_t i = 0; i < n; ++i) {
-                    alignWord(devWords[i], iastWords[i]);
-                    devWords[i].setAlignedIAST(iastWords[i].getText());
-                }
-
-                hymn.addVerse(currentVerse);
+                finalizeVerseAlignment(currentVerse, hymn);
                 currentVerse = Verse();
             }
 
             currentVerse.setVerseNumber(std::stoi(match[1]));
-        }
-        else if (line.rfind("DEV:", 0) == 0) {
+        } else if (line.rfind("DEV:", 0) == 0) {
             std::string devLine = line.substr(4);
             currentVerse.setDev(devLine);
 
@@ -328,8 +420,7 @@ Hymn parseHymn(const std::string& filename) {
                 if (cleaned.empty()) continue;
                 currentVerse.addDevWord(buildWordDEV(cleaned));
             }
-        }
-        else if (line.rfind("IAST:", 0) == 0) {
+        } else if (line.rfind("IAST:", 0) == 0) {
             std::string iastLine = line.substr(5);
             currentVerse.setIAST(iastLine);
 
@@ -339,23 +430,13 @@ Hymn parseHymn(const std::string& filename) {
                 if (cleaned.empty()) continue;
                 currentVerse.addIASTWord(buildWordIAST(cleaned));
             }
-        }
-        else if (line.rfind("ENG:", 0) == 0) {
+        } else if (line.rfind("ENG:", 0) == 0) {
             currentVerse.setENG(line.substr(4));
         }
     }
 
     if (currentVerse.getVerseNumber() != 0) {
-        auto& devWords = currentVerse.getDevWordsMutable();
-        auto& iastWords = currentVerse.getIASTWordsMutable();
-        const size_t n = std::min(devWords.size(), iastWords.size());
-
-        for (size_t i = 0; i < n; ++i) {
-            alignWord(devWords[i], iastWords[i]);
-            devWords[i].setAlignedIAST(iastWords[i].getText());
-        }
-
-        hymn.addVerse(currentVerse);
+        finalizeVerseAlignment(currentVerse, hymn);
     }
 
     return hymn;
