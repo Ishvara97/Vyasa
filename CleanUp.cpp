@@ -56,6 +56,15 @@ std::string csvEscape(const std::string& value) {
 std::string boolToCsv(bool value) {
     return value ? "true" : "false";
 }
+
+void writeEmptyCsvFields(std::ostream& out, size_t count) {
+    for (size_t i = 0; i < count; ++i) {
+        if (i > 0) {
+            out << ",";
+        }
+        out << "\"\"";
+    }
+}
 }
 
 std::vector<std::string> splitUTF8(const std::string& s) {
@@ -266,7 +275,8 @@ void exportFullCSV(const Hymn& h, const std::string& filename) {
                             << csvEscape(phonemeClassToString(phoneme)) << ","
                             << csvEscape(vowelLengthToString(phoneme.vowelLength)) << ",";
                     } else {
-                        file << ",\"\",\"\",\"\",\"\",";
+                        writeEmptyCsvFields(file, 6);
+                        file << ",";
                     }
 
                     if (iastLetter) {
