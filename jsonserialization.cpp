@@ -1,179 +1,200 @@
 #include "jsonserialization.h"
 
-//Letter
+namespace {
+json mapToJson(const std::map<std::string, int>& values) {
+    json result = json::object();
+    for (const auto& [key, value] : values) {
+        result[key] = value;
+    }
+    return result;
+}
+}
+
 json letterToJson(const Letter& l) {
     json j;
+    const PhonemeFeatures phoneme = l.getPhoneme();
+
     j["value"] = l.getValue();
     j["hasSwara"] = l.getHasSwara();
+    j["swaraType"] = l.getSwaraType().has_value() ? json(l.getSwaraType().value()) : json(nullptr);
+    j["phonemeClass"] = phonemeClassToString(phoneme);
+    j["vowelLength"] = vowelLengthToString(phoneme.vowelLength);
 
-    if (l.getSwaraType().has_value())
-        j["swaraType"] = l.getSwaraType().value();
-    else
-        j["swaraType"] = nullptr;
+    j["phoneme"] = {
+        {"type", phonemeTypeToString(phoneme.type)},
+        {"class", phonemeClassToString(phoneme)},
+        {"consonantClass", consonantClassToString(phoneme.consonantClass)},
+        {"vowelLength", vowelLengthToString(phoneme.vowelLength)},
+        {"base", phoneme.base}
+    };
 
     return j;
 }
 
-//Reverse
 Letter jsonToLetter(const json& j) {
-    Letter l(j["value"]);
+    Letter l(j.at("value").get<std::string>());
 
-    if (!j["swaraType"].is_null()) {
-        l.setSwara(true, j["swaraType"]);
+    if (j.contains("swaraType") && !j["swaraType"].is_null()) {
+        l.setSwara(true, j["swaraType"].get<std::string>());
     }
 
     return l;
 }
 
-//Syllable
 json syllableToJson(const Syllable& s) {
     json j;
+    j["onset"] = json::array();
+    j["coda"] = json::array();
 
-    for (const auto& l : s.getOnset())
+    for (const auto& l : s.getOnset()) {
         j["onset"].push_back(letterToJson(l));
+    }
 
     j["nucleus"] = letterToJson(s.getNucleus());
 
-    for (const auto& l : s.getCoda())
+    for (const auto& l : s.getCoda()) {
         j["coda"].push_back(letterToJson(l));
+    }
 
     j["weight"] = s.getWeight();
     j["swaras"] = s.getSwaras();
-
     return j;
 }
 
-
-//Reverse
 Syllable jsonToSyllable(const json& j) {
     Syllable s;
 
-    for (const auto& l : j["onset"])
+    for (const auto& l : j.at("onset")) {
         s.addOnset(jsonToLetter(l));
+    }
 
-    s.setNucleus(jsonToLetter(j["nucleus"]));
+    s.setNucleus(jsonToLetter(j.at("nucleus")));
 
-    for (const auto& l : j["coda"])
+    for (const auto& l : j.at("coda")) {
         s.addCoda(jsonToLetter(l));
+    }
 
-    s.setWeight(j["weight"]);
+    s.setWeight(j.at("weight").get<std::string>());
 
-    for (const auto& sw : j["swaras"])
-        s.addSwara(sw);
+    for (const auto& sw : j.at("swaras")) {
+        s.addSwara(sw.get<std::string>());
+    }
 
     return s;
 }
 
-//Word
 json wordToJson(const Word& w) {
     json j;
-
     j["text"] = w.getText();
+    j["alignedIAST"] = w.getAlignedIAST();
+    j["letters"] = json::array();
+    j["devSyllables"] = json::array();
+    j["iastSyllables"] = json::array();
+    j["alignment"] = json::array();
 
-    for (const auto& l : w.getLetters())
+    for (const auto& l : w.getLetters()) {
         j["letters"].push_back(letterToJson(l));
+    }
 
-    for (const auto& s : w.getSyllables())
+    for (const auto& s : w.getSyllables()) {
         j["devSyllables"].push_back(syllableToJson(s));
+    }
 
-    for (const auto& s : w.getIASTSyllables())
+    for (const auto& s : w.getIASTSyllables()) {
         j["iastSyllables"].push_back(syllableToJson(s));
+    }
+
+    for (const auto& alignment : w.getAlignment()) {
+        j["alignment"].push_back({
+            {"dev", syllableToJson(alignment.dev)},
+            {"iast", syllableToJson(alignment.iast)}
+        });
+    }
 
     return j;
 }
 
-//Reverse
 Word jsonToWord(const json& j) {
-    return Word(j["text"]);
+    return Word(j.at("text").get<std::string>());
 }
-//Verse
+
 json verseToJson(const Verse& v) {
     json j;
-
     j["verseNumber"] = v.getVerseNumber();
     j["dev"] = v.getDev();
     j["iast"] = v.getIAST();
     j["eng"] = v.getENG();
+    j["devWords"] = json::array();
+    j["iastWords"] = json::array();
 
-    // Words
-    for (const auto& w : v.getDevWords())
+    for (const auto& w : v.getDevWords()) {
         j["devWords"].push_back(wordToJson(w));
+    }
 
-    for (const auto& w : v.getIASTWords())
+    for (const auto& w : v.getIASTWords()) {
         j["iastWords"].push_back(wordToJson(w));
-
-    auto lf = getLetterFrequency(v);
-    auto sf = getSwaraFrequency(v);
-
-    json lf_json = json::object();
-    for (const auto& [key, value] : lf) {
-        lf_json[key] = value;
     }
 
-    json sf_json = json::object();
-    for (const auto& [key, value] : sf) {
-        sf_json[key] = value;
-    }
-
-    j["analysis"]["letterFrequency"] = lf_json;
-    j["analysis"]["swaraFrequency"] = sf_json;
+    j["analysis"] = {
+        {"letterFrequency", mapToJson(getLetterFrequency(v))},
+        {"swaraFrequency", mapToJson(getSwaraFrequency(v))},
+        {"phonemeClassFrequency", mapToJson(getPhonemeClassFrequency(v))}
+    };
 
     return j;
 }
 
-//Reverse
 Verse jsonToVerse(const json& j) {
     Verse v;
-
-    v.setVerseNumber(j["verseNumber"]);
-    v.setDev(j["dev"]);
-    v.setIAST(j["iast"]);
-    v.setENG(j["eng"]);
-
-   
+    v.setVerseNumber(j.at("verseNumber").get<int>());
+    v.setDev(j.at("dev").get<std::string>());
+    v.setIAST(j.at("iast").get<std::string>());
+    v.setENG(j.at("eng").get<std::string>());
     return v;
-
 }
 
-//Hymn
 json hymnToJson(const Hymn& h) {
     json j;
-    auto letterFreq = getHymnLetterFrequency(h);
-    auto swaraFreq = getHymnSwaraFrequency(h);
-
     j["mandala"] = h.getMandala();
     j["sukta"] = h.getSukta();
     j["rishis"] = h.getRishis();
     j["devatas"] = h.getDevatas();
     j["categories"] = h.getCategories();
+    j["verses"] = json::array();
 
-    for (const auto& v : h.getVerses())
+    for (const auto& v : h.getVerses()) {
         j["verses"].push_back(verseToJson(v));
+    }
 
-    j["analysis"]["letterFrequency"] = letterFreq;
-    j["analysis"]["swaraFrequency"] = swaraFreq;
+    j["analysis"] = {
+        {"totalLetterFrequency", mapToJson(getHymnLetterFrequency(h))},
+        {"totalSwaraFrequency", mapToJson(getHymnSwaraFrequency(h))},
+        {"totalPhonemeClassFrequency", mapToJson(getHymnPhonemeClassFrequency(h))}
+    };
 
     return j;
 }
 
-//Reverse
 Hymn jsonToHymn(const json& j) {
     Hymn h;
+    h.setMandala(j.at("mandala").get<int>());
+    h.setSukta(j.at("sukta").get<int>());
 
-    h.setMandala(j["mandala"]);
-    h.setSukta(j["sukta"]);
+    for (const auto& r : j.at("rishis")) {
+        h.addRishi(r.get<std::string>());
+    }
 
-    for (const auto& r : j["rishis"])
-        h.addRishi(r);
+    for (const auto& d : j.at("devatas")) {
+        h.addDevata(d.get<std::string>());
+    }
 
-    for (const auto& d : j["devatas"])
-        h.addDevata(d);
+    for (const auto& c : j.at("categories")) {
+        h.addCategory(c.get<std::string>());
+    }
 
-    for (const auto& c : j["categories"])
-        h.addCategory(c);
-
-    for (const auto& vj : j["verses"])
+    for (const auto& vj : j.at("verses")) {
         h.addVerse(jsonToVerse(vj));
+    }
 
     return h;
 }

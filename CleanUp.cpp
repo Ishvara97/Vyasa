@@ -1,6 +1,7 @@
 #include "CleanUp.h"
 #include <algorithm>
 #include <fstream>
+#include <iterator>
 #include <sstream>
 #include <unordered_set>
 
@@ -32,6 +33,28 @@ std::string syllableToText(const Syllable& syllable) {
     text += syllable.getNucleus().getValue();
     text += lettersToString(syllable.getCoda());
     return text;
+}
+
+std::vector<Letter> flattenSyllableLetters(const Syllable& syllable) {
+    std::vector<Letter> letters = syllable.getOnset();
+    letters.push_back(syllable.getNucleus());
+    const auto& codaLetters = syllable.getCoda();
+    letters.insert(letters.end(), codaLetters.begin(), codaLetters.end());
+    return letters;
+}
+
+std::string csvEscape(const std::string& value) {
+    std::string escaped = value;
+    size_t pos = 0;
+    while ((pos = escaped.find('"', pos)) != std::string::npos) {
+        escaped.insert(pos, 1, '"');
+        pos += 2;
+    }
+    return "\"" + escaped + "\"";
+}
+
+std::string boolToCsv(bool value) {
+    return value ? "true" : "false";
 }
 }
 
@@ -171,8 +194,9 @@ void exportFullCSV(const Hymn& h, const std::string& filename) {
         "Verse,Verse_DEV,Verse_IAST,"
         "Word_Index,Word_DEV,Word_IAST,"
         "Syllable_Index,Syllable_DEV,Syllable_IAST,Syllable_Onset,Syllable_Nucleus,Syllable_Coda,"
-        "Syllable_Weight,Syllable_Swaras,"
-        "Letter_Index,Letter_Value,Letter_HasSwara,Letter_SwaraType\n";
+        "Syllable_Weight,Syllable_Swaras,Syllable_IAST_Letters,"
+        "Letter_Index,Letter_Value,Letter_HasSwara,Letter_SwaraType,Letter_PhonemeClass,Letter_VowelLength,"
+        "Letter_IAST_Index,Letter_IAST_Value,Letter_IAST_PhonemeClass,Letter_IAST_VowelLength\n";
 
     const std::string rishis = join(h.getRishis(), "|");
     const std::string devatas = join(h.getDevatas(), "|");
@@ -200,41 +224,60 @@ void exportFullCSV(const Hymn& h, const std::string& filename) {
                 const std::string nucleus = syllable.getNucleus().getValue();
                 const std::string coda = lettersToString(syllable.getCoda());
                 const std::string swaras = join(syllable.getSwaras(), "|");
+                const std::vector<Letter> devLetters = flattenSyllableLetters(syllable);
+                const std::vector<Letter> iastLetters =
+                    (si < alignments.size()) ? flattenSyllableLetters(alignments[si].iast) : std::vector<Letter>{};
+                const std::string iastLetterSequence = lettersToString(iastLetters);
+                const size_t rowCount = std::max(devLetters.size(), iastLetters.size());
 
-                std::vector<Letter> allLetters = syllable.getOnset();
-                allLetters.push_back(syllable.getNucleus());
-                const auto& codaLetters = syllable.getCoda();
-                allLetters.insert(allLetters.end(), codaLetters.begin(), codaLetters.end());
-
-                for (size_t li = 0; li < allLetters.size(); ++li) {
-                    const auto& letter = allLetters[li];
+                for (size_t li = 0; li < rowCount; ++li) {
+                    const Letter* devLetter = (li < devLetters.size()) ? &devLetters[li] : nullptr;
+                    const Letter* iastLetter = (li < iastLetters.size()) ? &iastLetters[li] : nullptr;
 
                     file
                         << h.getMandala() << ","
                         << h.getSukta() << ","
-                        << "\"" << rishis << "\","
-                        << "\"" << devatas << "\","
-                        << "\"" << categories << "\","
+                        << csvEscape(rishis) << ","
+                        << csvEscape(devatas) << ","
+                        << csvEscape(categories) << ","
                         << v.getVerseNumber() << ","
-                        << "\"" << v.getDev() << "\","
-                        << "\"" << v.getIAST() << "\","
+                        << csvEscape(v.getDev()) << ","
+                        << csvEscape(v.getIAST()) << ","
                         << wi << ","
-                        << "\"" << wDev.getText() << "\","
-                        << "\"" << wIAST << "\","
+                        << csvEscape(wDev.getText()) << ","
+                        << csvEscape(wIAST) << ","
                         << si << ","
-                        << "\"" << devSyllable << "\","
-                        << "\"" << iastSyllable << "\","
-                        << "\"" << onset << "\","
-                        << "\"" << nucleus << "\","
-                        << "\"" << coda << "\","
-                        << syllable.getWeight() << ","
-                        << "\"" << swaras << "\","
-                        << li << ","
-                        << "\"" << letter.getValue() << "\","
-                        << (letter.getHasSwara() ? "true" : "false") << ",";
+                        << csvEscape(devSyllable) << ","
+                        << csvEscape(iastSyllable) << ","
+                        << csvEscape(onset) << ","
+                        << csvEscape(nucleus) << ","
+                        << csvEscape(coda) << ","
+                        << csvEscape(syllable.getWeight()) << ","
+                        << csvEscape(swaras) << ","
+                        << csvEscape(iastLetterSequence) << ",";
 
-                    if (letter.getSwaraType().has_value()) {
-                        file << letter.getSwaraType().value();
+                    if (devLetter) {
+                        const PhonemeFeatures phoneme = devLetter->getPhoneme();
+                        file
+                            << li << ","
+                            << csvEscape(devLetter->getValue()) << ","
+                            << boolToCsv(devLetter->getHasSwara()) << ","
+                            << csvEscape(devLetter->getSwaraType().value_or("")) << ","
+                            << csvEscape(phonemeClassToString(phoneme)) << ","
+                            << csvEscape(vowelLengthToString(phoneme.vowelLength)) << ",";
+                    } else {
+                        file << ",\"\",\"\",\"\",\"\",";
+                    }
+
+                    if (iastLetter) {
+                        const PhonemeFeatures phoneme = iastLetter->getPhoneme();
+                        file
+                            << li << ","
+                            << csvEscape(iastLetter->getValue()) << ","
+                            << csvEscape(phonemeClassToString(phoneme)) << ","
+                            << csvEscape(vowelLengthToString(phoneme.vowelLength));
+                    } else {
+                        file << ",\"\",\"\",\"\"";
                     }
 
                     file << "\n";

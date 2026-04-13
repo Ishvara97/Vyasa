@@ -1,34 +1,178 @@
-//Poem Structures
+// Poem Structures
 
 #ifndef PSTRUCTS_H
 #define PSTRUCTS_H
 
-#include <string>
-#include <vector>
 #include <map>
 #include <optional>
+#include <string>
+#include <vector>
 #include "json.hpp"
+
 using json = nlohmann::json;
 
-//Letter
+enum class PhonemeType {
+    Vowel,
+    Consonant,
+    Other
+};
+
+enum class VowelLength {
+    Short,
+    Long,
+    Diphthong,
+    None
+};
+
+enum class ConsonantClass {
+    Velar,
+    Palatal,
+    Retroflex,
+    Dental,
+    Labial,
+    Nasal,
+    Semivowel,
+    Liquid,
+    Sibilant,
+    Aspirate,
+    None
+};
+
+struct PhonemeFeatures {
+    PhonemeType type = PhonemeType::Other;
+    VowelLength vowelLength = VowelLength::None;
+    ConsonantClass consonantClass = ConsonantClass::None;
+    std::string base;
+};
+
+inline std::string phonemeTypeToString(PhonemeType type) {
+    switch (type) {
+        case PhonemeType::Vowel: return "Vowel";
+        case PhonemeType::Consonant: return "Consonant";
+        default: return "Other";
+    }
+}
+
+inline std::string vowelLengthToString(VowelLength length) {
+    switch (length) {
+        case VowelLength::Short: return "Short";
+        case VowelLength::Long: return "Long";
+        case VowelLength::Diphthong: return "Diphthong";
+        default: return "None";
+    }
+}
+
+inline std::string consonantClassToString(ConsonantClass consonantClass) {
+    switch (consonantClass) {
+        case ConsonantClass::Velar: return "Velar";
+        case ConsonantClass::Palatal: return "Palatal";
+        case ConsonantClass::Retroflex: return "Retroflex";
+        case ConsonantClass::Dental: return "Dental";
+        case ConsonantClass::Labial: return "Labial";
+        case ConsonantClass::Nasal: return "Nasal";
+        case ConsonantClass::Semivowel: return "Semivowel";
+        case ConsonantClass::Liquid: return "Liquid";
+        case ConsonantClass::Sibilant: return "Sibilant";
+        case ConsonantClass::Aspirate: return "Aspirate";
+        default: return "None";
+    }
+}
+
+inline std::string phonemeClassToString(const PhonemeFeatures& phoneme) {
+    if (phoneme.type == PhonemeType::Vowel) {
+        return "Vowel";
+    }
+
+    if (phoneme.type == PhonemeType::Consonant) {
+        return consonantClassToString(phoneme.consonantClass);
+    }
+
+    return "Other";
+}
+
+inline PhonemeFeatures classifyPhoneme(const std::string& ch) {
+    PhonemeFeatures phoneme;
+    phoneme.base = ch;
+
+    auto setVowel = [&](VowelLength length, const std::string& base) {
+        phoneme.type = PhonemeType::Vowel;
+        phoneme.vowelLength = length;
+        phoneme.consonantClass = ConsonantClass::None;
+        phoneme.base = base;
+    };
+
+    auto setConsonant = [&](ConsonantClass consonantClass, const std::string& base) {
+        phoneme.type = PhonemeType::Consonant;
+        phoneme.vowelLength = VowelLength::None;
+        phoneme.consonantClass = consonantClass;
+        phoneme.base = base;
+    };
+
+    if (ch == u8"\u0905" || ch == "a") setVowel(VowelLength::Short, "a");
+    else if (ch == u8"\u0906" || ch == u8"\u093e" || ch == u8"\u0101") setVowel(VowelLength::Long, "a");
+    else if (ch == u8"\u0907" || ch == u8"\u093f" || ch == "i") setVowel(VowelLength::Short, "i");
+    else if (ch == u8"\u0908" || ch == u8"\u0940" || ch == u8"\u012b") setVowel(VowelLength::Long, "i");
+    else if (ch == u8"\u0909" || ch == u8"\u0941" || ch == "u") setVowel(VowelLength::Short, "u");
+    else if (ch == u8"\u090a" || ch == u8"\u0942" || ch == u8"\u016b") setVowel(VowelLength::Long, "u");
+    else if (ch == u8"\u090b" || ch == u8"\u0943" || ch == u8"\u1e5b") setVowel(VowelLength::Short, "r");
+    else if (ch == u8"\u0960" || ch == u8"\u0944" || ch == u8"\u1e5d") setVowel(VowelLength::Long, "r");
+    else if (ch == u8"\u090c" || ch == u8"\u0962" || ch == u8"\u1e37") setVowel(VowelLength::Short, "l");
+    else if (ch == u8"\u0961" || ch == u8"\u0963" || ch == u8"\u1e39") setVowel(VowelLength::Long, "l");
+    else if (ch == u8"\u090f" || ch == u8"\u0947" || ch == "e") setVowel(VowelLength::Long, "e");
+    else if (ch == u8"\u0913" || ch == u8"\u094b" || ch == "o") setVowel(VowelLength::Long, "o");
+    else if (ch == u8"\u0910" || ch == u8"\u0948" || ch == "ai") setVowel(VowelLength::Diphthong, "ai");
+    else if (ch == u8"\u0914" || ch == u8"\u094c" || ch == "au") setVowel(VowelLength::Diphthong, "au");
+    else if (ch == u8"\u0915" || ch == u8"\u0916" || ch == u8"\u0917" || ch == u8"\u0918" ||
+             ch == u8"\u0919" || ch == "k" || ch == "g" || ch == u8"\u1e45") {
+        setConsonant(ch == u8"\u0919" || ch == u8"\u1e45" ? ConsonantClass::Nasal : ConsonantClass::Velar, "k");
+    } else if (ch == u8"\u091a" || ch == u8"\u091b" || ch == u8"\u091c" || ch == u8"\u091d" ||
+               ch == u8"\u091e" || ch == "c" || ch == "j" || ch == u8"\u00f1") {
+        setConsonant(ch == u8"\u091e" || ch == u8"\u00f1" ? ConsonantClass::Nasal : ConsonantClass::Palatal, "c");
+    } else if (ch == u8"\u091f" || ch == u8"\u0920" || ch == u8"\u0921" || ch == u8"\u0922" ||
+               ch == u8"\u0923" || ch == u8"\u1e6d" || ch == u8"\u1e0d" || ch == u8"\u1e47") {
+        setConsonant(ch == u8"\u0923" || ch == u8"\u1e47" ? ConsonantClass::Nasal : ConsonantClass::Retroflex, "t");
+    } else if (ch == u8"\u0924" || ch == u8"\u0925" || ch == u8"\u0926" || ch == u8"\u0927" ||
+               ch == u8"\u0928" || ch == "t" || ch == "d" || ch == "n") {
+        setConsonant(ch == u8"\u0928" || ch == "n" ? ConsonantClass::Nasal : ConsonantClass::Dental, "t");
+    } else if (ch == u8"\u092a" || ch == u8"\u092b" || ch == u8"\u092c" || ch == u8"\u092d" ||
+               ch == u8"\u092e" || ch == "p" || ch == "b" || ch == "m") {
+        setConsonant(ch == u8"\u092e" || ch == "m" ? ConsonantClass::Nasal : ConsonantClass::Labial, "p");
+    } else if (ch == u8"\u092f" || ch == u8"\u0935" || ch == "y" || ch == "v") {
+        setConsonant(ConsonantClass::Semivowel, ch == u8"\u092f" || ch == "y" ? "y" : "v");
+    } else if (ch == u8"\u0930" || ch == u8"\u0932" || ch == "r" || ch == "l") {
+        setConsonant(ConsonantClass::Liquid, ch == u8"\u0930" || ch == "r" ? "r" : "l");
+    } else if (ch == u8"\u0936" || ch == u8"\u0937" || ch == u8"\u0938" || ch == u8"\u015b" || ch == u8"\u1e63" || ch == "s") {
+        setConsonant(ConsonantClass::Sibilant, "s");
+    } else if (ch == u8"\u0939" || ch == "h" || ch == u8"\u0903" || ch == u8"\u1e25") {
+        setConsonant(ConsonantClass::Aspirate, "h");
+    } else if (ch == u8"\u0902" || ch == u8"\u0901" || ch == u8"\u1e43" || ch == u8"\u1e41") {
+        setConsonant(ConsonantClass::Nasal, "m");
+    }
+
+    return phoneme;
+}
+
 class Letter {
 private:
     std::string value;
-
-    bool hasSwara; //SwaraCheck
-    std::optional<std::string> swaraType; //Vector for swaraType (udatta anudatta svarita)
+    bool hasSwara;
+    std::optional<std::string> swaraType;
+    PhonemeFeatures phoneme;
 
 public:
-    Letter(const std::string& v) : value(v), hasSwara(false), swaraType(std::nullopt) {}
+    Letter(const std::string& v)
+        : value(v), hasSwara(false), swaraType(std::nullopt), phoneme(classifyPhoneme(v)) {}
 
     void setSwara(bool has, const std::optional<std::string>& type) {
         hasSwara = has;
-        swaraType = type; }
-    std::string getValue() const { return value; }
+        swaraType = type;
+    }
 
+    std::string getValue() const { return value; }
     bool getHasSwara() const { return hasSwara; }
     std::optional<std::string> getSwaraType() const { return swaraType; }
-
+    void setPhoneme(const PhonemeFeatures& p) { phoneme = p; }
+    PhonemeFeatures getPhoneme() const { return phoneme; }
 };
 
 //Syllable

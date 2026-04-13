@@ -30,12 +30,16 @@ _yo asyādhyakṣaḥ parame vyoman **[so aṅgha veda yadi vā na veda]** ||_
 
 "Line 7b _yadi vā dadhe yadi vā na_, has only nine syllables, two syllables shy of the normal eleven syllable line... The line stops short,as if the poet had suddenly stepped on his own metrical shoe-laces. The rhythmic incompleteness of the line stands out particularly strongly because it could so easily be corrected... Whether created by accident or intention, this metrically unresolved cadence is a verbal image of the unresolved cosmogony. Moreover, the metrically incomplete line anticipates the hymn's syntactically incomplete conclusion, 7d _so aṅgha veda yadi vā na veda_. This line ends with a subordinate clause, for which there is no main clause: "he surely knows. Or if he does not know ... ?" Thus, the metrical and then the syntactic incompleteness of the two lines act as metaphors for the unconcluded cosmogony."[^2]
 
-## Planned Functionalities
+## Current Functionalities
 <sup><sub>Listed In No Particular Order</sub></sup>
-- JSON Conversion
++ JSON and CSV Exports
++ Swara Frequency and Weight Analysis
++ Letter Frequency
+
+# In Progress Functionalities
 - Verse Meter Identification
 - N-Gram Phonetic Analysis
-- Swara Frequency and Weight Analysis
+- Phoneme Class Identification
 - Sandhi Evaluation
 
 Attributions:

@@ -46,3 +46,14 @@ Letter,्,75
 Swara,anudatta,78
 Swara,svarita,49
 Swara,udatta,602
+PhonemeClass,Aspirate,26
+PhonemeClass,Dental,71
+PhonemeClass,Labial,36
+PhonemeClass,Liquid,42
+PhonemeClass,Nasal,124
+PhonemeClass,Palatal,6
+PhonemeClass,Retroflex,4
+PhonemeClass,Semivowel,74
+PhonemeClass,Sibilant,44
+PhonemeClass,Velar,10
+PhonemeClass,Vowel,216

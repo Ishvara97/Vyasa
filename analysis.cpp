@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include "analysis.h"
 #include "PoemStructures.h"
 
 //LetterFreq
@@ -115,6 +116,78 @@ std::map<std::string, int> getNGrams(const Verse& v, int n) {
     return freq;
 }
 
+//PhonemeClassFrequency
+std::map<std::string, int> getPhonemeClassFrequency(const Verse& v) {
+    std::map<std::string, int> freq;
+
+    for (const auto& w : v.getDevWords()) {
+        for (const auto& l : w.getLetters()) {
+            const std::string phonemeClass = phonemeClassToString(l.getPhoneme());
+            if (phonemeClass != "Other") {
+                freq[phonemeClass]++;
+            }
+        }
+    }
+
+    return freq;
+}
+
+std::map<std::string, int> getHymnPhonemeClassFrequency(const Hymn& h) {
+    std::map<std::string, int> freq;
+
+    for (const auto& verse : h.getVerses()) {
+        const auto verseFreq = getPhonemeClassFrequency(verse);
+        for (const auto& [key, value] : verseFreq) {
+            freq[key] += value;
+        }
+    }
+
+    return freq;
+}
+//SearchClass
+std::vector<std::string> findWordsWithClass(const Verse& v, ConsonantClass cls) {
+    std::vector<std::string> result;
+
+    for (const auto& w : v.getDevWords()) {
+
+        for (const auto& l : w.getLetters()) {
+            if (l.getPhoneme().consonantClass == cls) {
+                result.push_back(w.getText());
+                break;
+            }
+        }
+    }
+
+    return result;
+}
+
+//ClassPatternDetection
+std::vector<std::string> getConsonantClassSequence(const Verse& v) {
+    std::vector<std::string> seq;
+
+    for (const auto& w : v.getDevWords()) {
+        for (const auto& l : w.getLetters()) {
+
+            auto cls = l.getPhoneme().consonantClass;
+
+            switch (cls) {
+                case ConsonantClass::Velar: seq.push_back("V"); break;
+                case ConsonantClass::Palatal: seq.push_back("P"); break;
+                case ConsonantClass::Retroflex: seq.push_back("R"); break;
+                case ConsonantClass::Dental: seq.push_back("D"); break;
+                case ConsonantClass::Labial: seq.push_back("L"); break;
+                case ConsonantClass::Nasal: seq.push_back("N"); break;
+                case ConsonantClass::Semivowel: seq.push_back("S"); break;
+                case ConsonantClass::Liquid: seq.push_back("Q"); break;
+                case ConsonantClass::Sibilant: seq.push_back("X"); break;
+                case ConsonantClass::Aspirate: seq.push_back("H"); break;
+                default: break;
+            }
+        }
+    }
+
+    return seq;
+}
 //ExportAnalysis
 void exportHymnAnalysisCSV(const Hymn& h, const std::string& filename) {
     std::ofstream file(filename);
@@ -129,5 +202,10 @@ void exportHymnAnalysisCSV(const Hymn& h, const std::string& filename) {
     auto sf = getHymnSwaraFrequency(h);
     for (auto& [k,v] : sf) {
         file << "Swara," << k << "," << v << "\n";
+    }
+
+    auto pf = getHymnPhonemeClassFrequency(h);
+    for (auto& [k, v] : pf) {
+        file << "PhonemeClass," << k << "," << v << "\n";
     }
 }
