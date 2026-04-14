@@ -33,7 +33,14 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    Hymn hymn = parseHymn("Hymns/[Hymn 10.125 Svaras].txt");
+    std::string filename;
+    std::cout << "Enter path to hymn file: ";
+    std::getline(std::cin, filename);
+
+    Hymn hymn = parseHymn(filename);
+    //Hymn hymntwo = parsehymn();
+
+    
 
     std::cout << "\nMandala: " << hymn.getMandala() << "\n";
     std::cout << "Sukta: " << hymn.getSukta() << "\n\n";
