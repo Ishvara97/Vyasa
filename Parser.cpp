@@ -14,6 +14,7 @@ Word buildWordIAST(const std::string& raw);
 void alignWord(Word& devWord, Word& iastWord);
 
 namespace {
+// Identify Devanagari vowel signs that attach to a consonant nucleus.
 bool isDevDependentVowel(const std::string& ch) {
     static const std::vector<std::string> vowels = {
         u8"\u093e", u8"\u093f", u8"\u0940", u8"\u0941", u8"\u0942", u8"\u0943", u8"\u0944",
@@ -79,6 +80,7 @@ void addSwaraIfPresent(Syllable& syllable, const Letter& letter) {
     }
 }
 
+// Normalize tokens before parsing so trailing punctuation does not become a letter.
 std::string cleanTokenForParsing(const std::string& token) {
     std::string cleaned = cleanWord(token);
 
@@ -95,6 +97,7 @@ std::string cleanTokenForParsing(const std::string& token) {
     return cleaned;
 }
 
+// When sandhi changes word boundaries, merge adjacent IAST words until the syllable counts line up.
 Word mergeIASTWords(const std::vector<Word>& words, size_t start, size_t end) {
     std::string combined;
     for (size_t i = start; i < end; ++i) {
@@ -108,7 +111,7 @@ void finalizeVerseAlignment(Verse& verse, Hymn& hymn) {
     auto& iastWords = verse.getIASTWordsMutable();
 
     if (devWords.size() != iastWords.size()) {
-        std::cout << "Sandhi mismatch detected\n";
+        std::cout << std::to_string(devWords.size() - iastWords.size()) <<" Sandhi mismatches detected\n";
     }
 
     size_t devIndex = 0;
@@ -118,6 +121,7 @@ void finalizeVerseAlignment(Verse& verse, Hymn& hymn) {
         const size_t start = iastIndex;
         const size_t devSyllableCount = devWords[devIndex].getSyllables().size();
 
+        // Grow the IAST span until it can be aligned against the current DEV word.
         Word mergedIAST = mergeIASTWords(iastWords, start, iastIndex + 1);
         ++iastIndex;
 
@@ -177,6 +181,7 @@ std::vector<Syllable> buildSyllables(const Word& word) {
             continue;
         }
 
+        // Build consonant clusters into the onset until a vowel sign or standalone consonantal nucleus appears.
         std::vector<Letter> onsetCluster;
         bool formedSyllable = false;
 
@@ -245,6 +250,7 @@ Word buildWordDEV(const std::string& raw) {
     bool hasPending = false;
 
     for (const auto& ch : chars) {
+        // Accent marks modify the previously seen letter instead of starting a new one.
         if (ch == DEV_SVARITA || ch == COMB_SVARITA || ch == DEV_ANUDATTA || ch == COMB_ANUDATTA) {
             if (hasPending) {
                 if (ch == DEV_SVARITA || ch == COMB_SVARITA) {
@@ -369,6 +375,7 @@ void alignWord(Word& devWord, Word& iastWord) {
     const auto& iastSylls = iastWord.getIASTSyllables();
     const size_t n = std::min(devSylls.size(), iastSylls.size());
 
+    // Preserve only the aligned syllable pairs that exist on both sides.
     for (size_t i = 0; i < n; ++i) {
         SyllableAlignment a;
         a.dev = devSylls[i];
@@ -394,6 +401,7 @@ Hymn parseHymn(const std::string& filename) {
     std::regex verse_re("\\[Verse\\s*(\\d+)\\]");
 
     std::smatch match;
+    // Parse the hymn file as a simple tagged text format.
     for (const auto& line : lines) {
         if (std::regex_search(line, match, mandala_re)) {
             hymn.setMandala(std::stoi(match[1]));

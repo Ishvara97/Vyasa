@@ -1,6 +1,12 @@
 #include <fstream>
+#include <filesystem>
 #include <iostream>
+#include <limits>
+#include <sstream>
 #include <string>
+#include <unordered_set>
+#include <utility>
+#include <vector>
 #include <windows.h>
 #include "CleanUp.h"
 #include "Parser.h"
@@ -12,6 +18,7 @@
 using json = nlohmann::json;
 
 namespace {
+// Reconstruct a syllable as plain text for console output.
 std::string syllableToText(const Syllable& syllable) {
     std::string text;
 
@@ -27,20 +34,114 @@ std::string syllableToText(const Syllable& syllable) {
 
     return text;
 }
+
+// Replace characters that are invalid in Windows file names.
+std::string sanitizeFilename(std::string value) {
+    for (char& ch : value) {
+        switch (ch) {
+            case '<':
+            case '>':
+            case ':':
+            case '"':
+            case '/':
+            case '\\':
+            case '|':
+            case '?':
+            case '*':
+                ch = '_';
+                break;
+            default:
+                break;
+        }
+    }
+
+    return value;
+}
+
+// Use the input file stem as the export base so variants like "Svaras" stay distinct.
+std::string getExportBaseName(const std::string& sourcePath) {
+    return sanitizeFilename(std::filesystem::path(sourcePath).stem().string());
+}
+
+// Prevent collisions when multiple input files would otherwise export to the same base name.
+std::string makeUniqueExportBaseName(
+    const std::string& sourcePath,
+    std::unordered_set<std::string>& usedNames) {
+    std::string baseName = getExportBaseName(sourcePath);
+
+    if (baseName.empty()) {
+        baseName = "Hymn";
+    }
+
+    std::string candidate = baseName;
+    int suffix = 2;
+    while (usedNames.find(candidate) != usedNames.end()) {
+        candidate = baseName + "_" + std::to_string(suffix);
+        ++suffix;
+    }
+
+    usedNames.insert(candidate);
+    return candidate;
+}
+
+struct ParsedHymn {
+    std::string sourcePath;
+    Hymn hymn;
+    std::string exportBaseName;
+};
+
+void printExportMessage(
+    const std::string& sourcePath,
+    const std::string& jsonPath,
+    const std::string& csvPath,
+    const std::string& analysisPath) {
+    std::cout << "\nExports for " << sourcePath << ":\n";
+    std::cout << "  JSON: " << jsonPath << "\n";
+    std::cout << "  CSV: " << csvPath << "\n";
+    std::cout << "  Analysis CSV: " << analysisPath << "\n";
+}
 }
 
 int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    std::string filename;
-    std::cout << "Enter path to hymn file: ";
-    std::getline(std::cin, filename);
+    std::vector<ParsedHymn> hymns;
+    std::unordered_set<std::string> usedExportBaseNames;
+    int filenumbers = 0;
 
-    Hymn hymn = parseHymn(filename);
-    //Hymn hymntwo = parsehymn();
+    std::cout << "Enter number of hymn files to input\n";
+    std::cin >> filenumbers;
 
-    
+    if (!std::cin || filenumbers <= 0) {
+        std::cerr << "Invalid number of hymn files.\n";
+        return 1;
+    }
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::filesystem::create_directories("HymnExports");
+
+    for (int i = 0; i < filenumbers; i++) {
+        std::string filename;
+        std::cout << "Enter path to hymn file: ";
+        std::getline(std::cin, filename);
+
+        if (filename.empty()) {
+            std::cerr << "Empty file path provided.\n";
+            return 1;
+        }
+
+        Hymn hymn = parseHymn(filename);
+        hymns.push_back({filename, hymn, makeUniqueExportBaseName(filename, usedExportBaseNames)});
+    }
+
+    for (const auto& parsed : hymns) {
+    const Hymn& hymn = parsed.hymn;
+
+    std::cout << "\n========================================\n";
+    std::cout << "Source: " << parsed.sourcePath << "\n";
+    std::cout << "Export Base: " << parsed.exportBaseName << "\n";
+    std::cout << "========================================\n";
 
     std::cout << "\nMandala: " << hymn.getMandala() << "\n";
     std::cout << "Sukta: " << hymn.getSukta() << "\n\n";
@@ -164,12 +265,18 @@ int main() {
         std::cout << key << ": " << value << "\n";
     }
 
+    // Export the full structured hymn plus two CSV views for spreadsheet work.
+    const std::string jsonPath = "HymnExports/" + parsed.exportBaseName + ".json";
+    const std::string csvPath = "HymnExports/" + parsed.exportBaseName + ".csv";
+    const std::string analysisPath = "HymnExports/" + parsed.exportBaseName + "_Analysis.csv";
     const json jHymn = hymnToJson(hymn);
-    std::ofstream out("HymnExports/Hymn_10_125.json");
+    std::ofstream out(jsonPath);
     out << jHymn.dump(2);
 
-    exportFullCSV(hymn, "HymnExports/Hymn_10_125_CSV.csv");
-    exportHymnAnalysisCSV(hymn, "HymnExports/Hymn_10_125_Analysis.csv");
+    exportFullCSV(hymn, csvPath);
+    exportHymnAnalysisCSV(hymn, analysisPath);
+    printExportMessage(parsed.sourcePath, jsonPath, csvPath, analysisPath);
+    }
 
     return 0;
 }

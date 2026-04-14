@@ -5,7 +5,7 @@
 #include "analysis.h"
 #include "PoemStructures.h"
 
-//LetterFreq
+// Count raw Devanagari letters per verse.
 std::map<std::string, int> getLetterFrequency(const Verse& v) {
     std::map<std::string, int> freq;
 
@@ -23,7 +23,7 @@ std::map<std::string, int> getLetterFrequency(const Verse& v) {
     return freq;
 }
 
-//HymnLetterFreq
+// Aggregate verse-level letter counts across the whole hymn.
 std::map<std::string, int> getHymnLetterFrequency(const Hymn& h) {
     std::map<std::string, int> freq;
 
@@ -44,7 +44,7 @@ std::map<std::string, int> getHymnLetterFrequency(const Hymn& h) {
     return freq;
 }
 
-//SwaraFreq
+// Count named swara annotations on DEV letters.
 std::map<std::string, int> getSwaraFrequency(const Verse& v) {
     std::map<std::string, int> freq;
 
@@ -60,7 +60,7 @@ std::map<std::string, int> getSwaraFrequency(const Verse& v) {
     return freq;
 }
 
-//HymnSwaraFreq
+// Aggregate swara counts across the hymn.
 std::map<std::string, int> getHymnSwaraFrequency(const Hymn& h) {
     std::map<std::string, int> freq;
 
@@ -77,7 +77,7 @@ std::map<std::string, int> getHymnSwaraFrequency(const Hymn& h) {
 
     return freq;
 }
-//SyllablePattern
+// Preserve the verse meter shape as a sequence of light/heavy values.
 std::vector<std::string> getSyllablePattern(const Verse& v) {
     std::vector<std::string> pattern;
 
@@ -90,7 +90,7 @@ std::vector<std::string> getSyllablePattern(const Verse& v) {
     return pattern;
 }
 
-//BaseNGram
+// Build n-grams over the flattened DEV letter stream.
 std::map<std::string, int> getNGrams(const Verse& v, int n) {
     std::map<std::string, int> freq;
 
@@ -116,7 +116,7 @@ std::map<std::string, int> getNGrams(const Verse& v, int n) {
     return freq;
 }
 
-//PhonemeClassFrequency
+// Count letters by high-level phoneme class.
 std::map<std::string, int> getPhonemeClassFrequency(const Verse& v) {
     std::map<std::string, int> freq;
 
@@ -144,7 +144,7 @@ std::map<std::string, int> getHymnPhonemeClassFrequency(const Hymn& h) {
 
     return freq;
 }
-//SearchClass
+// Return the words that contain at least one consonant from the requested class.
 std::vector<std::string> findWordsWithClass(const Verse& v, ConsonantClass cls) {
     std::vector<std::string> result;
 
@@ -161,7 +161,7 @@ std::vector<std::string> findWordsWithClass(const Verse& v, ConsonantClass cls) 
     return result;
 }
 
-//ClassPatternDetection
+// Convert consonant classes into a compact symbolic sequence for later pattern work.
 std::vector<std::string> getConsonantClassSequence(const Verse& v) {
     std::vector<std::string> seq;
 
@@ -188,7 +188,7 @@ std::vector<std::string> getConsonantClassSequence(const Verse& v) {
 
     return seq;
 }
-//ExportAnalysis
+// Export hymn-level summaries as a flat CSV for spreadsheet analysis.
 void exportHymnAnalysisCSV(const Hymn& h, const std::string& filename) {
     std::ofstream file(filename);
     file << "\xEF\xBB\xBF";
