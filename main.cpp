@@ -135,8 +135,12 @@ int main() {
         hymns.push_back({filename, hymn, makeUniqueExportBaseName(filename, usedExportBaseNames)});
     }
 
-    for (const auto& parsed : hymns) {
-    const Hymn& hymn = parsed.hymn;
+    for (auto& parsed : hymns) {
+        Hymn& hymn = parsed.hymn;
+        //Set Verse Meters
+        for (auto& verse : hymn.getVersesMutable()) {
+            verse.setMeter(detectVerseMeter(verse)); 
+        }
 
     std::cout << "\n========================================\n";
     std::cout << "Source: " << parsed.sourcePath << "\n";
@@ -161,11 +165,20 @@ int main() {
     }
     std::cout << "\n\n";
 
+    
+
     for (const auto& verse : hymn.getVerses()) {
+        //verse.setMeter(detectVerseMeter(verse));
         std::cout << "[Verse " << verse.getVerseNumber() << "]\n";
         std::cout << "DEV: " << verse.getDev() << "\n";
         std::cout << "IAST: " << verse.getIAST() << "\n";
-        std::cout << "ENG: " << verse.getENG() << "\n\n";
+        std::cout << "ENG: " << verse.getENG() << "\n";
+        std::cout << "Verse " << verse.getVerseNumber()
+          << " pada counts: "
+          << formatPadaCounts(getPadaSyllableCounts(verse))
+          << "\n";
+        std::cout << "Meter: " << verse.getMeter() <<"\n\n";
+
 
         std::cout << "DEV Words:\n";
         for (const auto& word : verse.getDevWords()) {

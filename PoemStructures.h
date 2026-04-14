@@ -269,9 +269,10 @@ private:
     //Store devWords and iastWords for split pipeline
     std::vector<Word> devWords;
     std::vector<Word> iastWords;
+    std::string meter;
 
 public:
-    Verse() : verseNumber(0){}
+    Verse() : verseNumber(0), meter("No meter detected") {}
 
     void setVerseNumber(int n) { verseNumber = n; }
     int getVerseNumber() const { return verseNumber; }
@@ -290,11 +291,12 @@ public:
     const std::vector<Word>& getDevWords() const { return devWords; }
     const std::vector<Word>& getIASTWords() const { return iastWords; }
 
-    std::vector<Word>& getDevWordsMutable() {
-        return devWords; }
+    void setMeter(const std::string& m) { meter = m; }
+    std::string getMeter() const { return meter; }
 
-    std::vector<Word>& getIASTWordsMutable() {
-    return iastWords; }
+    std::vector<Word>& getDevWordsMutable() { return devWords; }
+
+    std::vector<Word>& getIASTWordsMutable() { return iastWords; }
 
 };
 
@@ -323,7 +325,7 @@ public:
 
     void addVerse(const Verse& v) { verses.push_back(v); }
     const std::vector<Verse>& getVerses() const { return verses; }
-    const std::vector<Verse>& getVersesMutable() const { return verses; }
+    std::vector<Verse>& getVersesMutable() { return verses; }
 
 };
 

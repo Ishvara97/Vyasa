@@ -1,8 +1,11 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <sstream>
 #include <fstream>
 #include "analysis.h"
+#include "CleanUp.h"
+#include "Parser.h"
 #include "PoemStructures.h"
 
 // Count raw Devanagari letters per verse.
@@ -208,4 +211,116 @@ void exportHymnAnalysisCSV(const Hymn& h, const std::string& filename) {
     for (auto& [k, v] : pf) {
         file << "PhonemeClass," << k << "," << v << "\n";
     }
+}
+
+//Split Verse into Padas
+std::vector<std::string> splitVerseIntoPadas(const std::string& text) {
+    std::vector<std::string> padas;
+    std::string current;
+
+    auto chars = splitUTF8(text);
+
+    for (const auto& ch : chars) {
+        if (ch == "|" || ch == u8"।" || ch == u8"॥") {
+            if (!current.empty()) {
+                padas.push_back(current);
+                current.clear();
+            }
+        } else {
+            current += ch;
+        }
+    }
+
+    if (!current.empty()) {
+        padas.push_back(current);
+    }
+
+    return padas;
+}
+
+//Count Syllables in a Pada
+int countSyllablesInPada(const std::string& pada) {
+    int count = 0;
+
+    auto words = splitWords(pada);
+
+    for (const auto& w : words) {
+        Word tempWord = buildWordDEV(w);
+        count += static_cast<int>(tempWord.getSyllables().size());
+    }
+
+    return count;
+}
+
+//Syllable Counts Per Pada
+std::vector<int> getPadaSyllableCounts(const Verse& v) {
+    std::vector<int> counts;
+
+    auto padas = splitVerseIntoPadas(v.getDev());
+
+    for (const auto& pada : padas) {
+        counts.push_back(countSyllablesInPada(pada));
+    }
+
+    return counts;
+}
+//Format Counts
+std::string formatPadaCounts(const std::vector<int>& counts) {
+    std::ostringstream oss;
+
+    for (size_t i = 0; i < counts.size(); ++i) {
+        if (i > 0) oss << "-";
+        oss << counts[i];
+    }
+
+    return oss.str();
+}
+
+//Meter Detection
+std::string detectVerseMeter(const Verse& v) {
+    auto counts = getPadaSyllableCounts(v);
+
+    if (counts.empty()) {
+        return "No meter detected";
+    }
+
+    // Common Vedic meters by pada syllable counts
+
+    if (counts.size() == 3 &&
+        counts[0] == 8 && counts[1] == 8 && counts[2] == 8) {
+        return "Gayatri";
+    }
+
+    if (counts.size() == 4 &&
+        counts[0] == 8 && counts[1] == 8 && counts[2] == 8 && counts[3] == 8) {
+        return "Anustubh";
+    }
+
+    if (counts.size() == 4 &&
+        counts[0] == 8 && counts[1] == 8 && counts[2] == 8 && counts[3] == 12) {
+        return "Brhati";
+    }
+
+    if (counts.size() == 5 &&
+        counts[0] == 8 && counts[1] == 8 && counts[2] == 8 &&
+        counts[3] == 8 && counts[4] == 8) {
+        return "Pankti";
+    }
+
+    if (counts.size() == 4 &&
+        counts[0] == 11 && counts[1] == 11 && counts[2] == 11 && counts[3] == 11) {
+        return "Tristubh";
+    }
+
+    if (counts.size() == 4 &&
+        counts[0] == 12 && counts[1] == 12 && counts[2] == 12 && counts[3] == 12) {
+        return "Jagati";
+    }
+
+    if (counts.size() == 4 &&
+        counts[0] == 8 && counts[1] == 8 && counts[2] == 12 && counts[3] == 8) {
+        return "Ushnih-like";
+    }
+
+    return "No meter detected";
 }

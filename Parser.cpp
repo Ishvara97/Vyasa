@@ -241,6 +241,106 @@ std::vector<Syllable> buildSyllables(const Word& word) {
 
     return syllables;
 }
+//
+std::vector<Syllable> buildSyllablesPada(const Word& word) {
+    std::vector<Syllable> syllables;
+    const auto& letters = word.getLetters();
+
+    Syllable current;
+    bool hasNucleus = false;
+
+    for (size_t i = 0; i < letters.size(); ++i) {
+        const Letter& l = letters[i];
+        std::string val = l.getValue();
+
+        // Case 1: independent vowel
+        if (isVowel(val)) {
+            if (hasNucleus) {
+                syllables.push_back(current);
+                current = Syllable();
+            }
+
+            current.setNucleus(l);
+            hasNucleus = true;
+
+            if (l.getSwaraType().has_value()) {
+                current.addSwara(l.getSwaraType().value());
+            }
+
+            if (isLongVowel(val)) {
+                current.setWeight("heavy");
+            } else {
+                current.setWeight("light");
+            }
+
+            continue;
+        }
+
+        // Case 2: vowel sign belongs to previous consonant nucleus
+        if (isVowelSign(val)) {
+            if (!hasNucleus) {
+                current.setNucleus(l);
+                hasNucleus = true;
+            }
+
+            if (isLongVowel(val)) {
+                current.setWeight("heavy");
+            } else {
+                current.setWeight("light");
+            }
+
+            continue;
+        }
+
+        // Case 3: virama suppresses inherent vowel
+        if (isVirama(val)) {
+            continue;
+        }
+
+        // Case 4: consonant
+        bool nextIsVirama = (i + 1 < letters.size() && isVirama(letters[i + 1]));
+        bool nextIsVowelSign = (i + 1 < letters.size() && isVowelSign(letters[i + 1]));
+
+        // standalone consonant before nucleus
+        if (!hasNucleus) {
+            // consonant with explicit vowel sign or inherent vowel starts a syllable
+            if (nextIsVowelSign || !nextIsVirama) {
+                current.addOnset(l);
+
+                // if no virama and no prior nucleus, this consonant carries inherent 'a'
+                current.setNucleus(l);
+                hasNucleus = true;
+                current.setWeight("light");
+
+                if (l.getSwaraType().has_value()) {
+                    current.addSwara(l.getSwaraType().value());
+                }
+            } else {
+                current.addOnset(l);
+            }
+        } else {
+            // after nucleus, consonants tend to go to coda until next syllable
+            current.addCoda(l);
+
+            if (!current.getCoda().empty()) {
+                current.setWeight("heavy");
+            }
+
+            // if this consonant is not virama-joined, next syllable may start soon
+            if (!nextIsVirama && !nextIsVowelSign) {
+                syllables.push_back(current);
+                current = Syllable();
+                hasNucleus = false;
+            }
+        }
+    }
+
+    if (hasNucleus) {
+        syllables.push_back(current);
+    }
+
+    return syllables;
+}
 
 Word buildWordDEV(const std::string& raw) {
     Word w(raw);
