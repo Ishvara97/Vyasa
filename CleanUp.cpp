@@ -43,6 +43,7 @@ std::vector<Letter> flattenSyllableLetters(const Syllable& syllable) {
     return letters;
 }
 
+// Escape double quotes and always quote fields so spreadsheet imports stay stable.
 std::string csvEscape(const std::string& value) {
     std::string escaped = value;
     size_t pos = 0;
@@ -239,6 +240,7 @@ void exportFullCSV(const Hymn& h, const std::string& filename) {
                 const std::string iastLetterSequence = lettersToString(iastLetters);
                 const size_t rowCount = std::max(devLetters.size(), iastLetters.size());
 
+                // Emit one CSV row per aligned letter position so the sheet can be filtered at any granularity.
                 for (size_t li = 0; li < rowCount; ++li) {
                     const Letter* devLetter = (li < devLetters.size()) ? &devLetters[li] : nullptr;
                     const Letter* iastLetter = (li < iastLetters.size()) ? &iastLetters[li] : nullptr;

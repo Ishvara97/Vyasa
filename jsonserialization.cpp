@@ -1,6 +1,7 @@
 #include "jsonserialization.h"
 
 namespace {
+// Convert map-based analyses into stable JSON objects.
 json mapToJson(const std::map<std::string, int>& values) {
     json result = json::object();
     for (const auto& [key, value] : values) {
@@ -20,6 +21,7 @@ json letterToJson(const Letter& l) {
     j["phonemeClass"] = phonemeClassToString(phoneme);
     j["vowelLength"] = vowelLengthToString(phoneme.vowelLength);
 
+    // Include both the simple string labels and the structured phoneme payload.
     j["phoneme"] = {
         {"type", phonemeTypeToString(phoneme.type)},
         {"class", phonemeClassToString(phoneme)},
@@ -104,6 +106,7 @@ json wordToJson(const Word& w) {
         j["iastSyllables"].push_back(syllableToJson(s));
     }
 
+    // Preserve the DEV<->IAST syllable correspondence used by the CSV exports and console output.
     for (const auto& alignment : w.getAlignment()) {
         j["alignment"].push_back({
             {"dev", syllableToJson(alignment.dev)},
@@ -135,6 +138,7 @@ json verseToJson(const Verse& v) {
         j["iastWords"].push_back(wordToJson(w));
     }
 
+    // Bundle verse-level analysis alongside the raw text and tokenization results.
     j["analysis"] = {
         {"letterFrequency", mapToJson(getLetterFrequency(v))},
         {"swaraFrequency", mapToJson(getSwaraFrequency(v))},
@@ -166,6 +170,7 @@ json hymnToJson(const Hymn& h) {
         j["verses"].push_back(verseToJson(v));
     }
 
+    // Add hymn-level rollups so JSON consumers do not need to recompute them.
     j["analysis"] = {
         {"totalLetterFrequency", mapToJson(getHymnLetterFrequency(h))},
         {"totalSwaraFrequency", mapToJson(getHymnSwaraFrequency(h))},
