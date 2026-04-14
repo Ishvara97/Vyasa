@@ -37,6 +37,7 @@ std::string join(const std::vector<std::string>& vec, const std::string& delim);
 std::string lettersToString(const std::vector<Letter>& letters);
 //ExportCSV
 void exportFullCSV(const Hymn& h, const std::string& filename);
+void exportSandhiCSV(const Hymn& h, const std::string& filename);
 
 //ViramaCheck
 

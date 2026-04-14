@@ -15,8 +15,6 @@
 #include "json.hpp"
 #include "jsonserialization.h"
 
-using json = nlohmann::json;
-
 namespace {
 // Reconstruct a syllable as plain text for console output.
 std::string syllableToText(const Syllable& syllable) {
@@ -94,11 +92,13 @@ void printExportMessage(
     const std::string& sourcePath,
     const std::string& jsonPath,
     const std::string& csvPath,
-    const std::string& analysisPath) {
+    const std::string& analysisPath,
+    const std::string& sandhiPath) {
     std::cout << "\nExports for " << sourcePath << ":\n";
     std::cout << "  JSON: " << jsonPath << "\n";
     std::cout << "  CSV: " << csvPath << "\n";
     std::cout << "  Analysis CSV: " << analysisPath << "\n";
+    std::cout << "  Sandhi CSV: " << sandhiPath << "\n";
 }
 }
 
@@ -282,13 +282,14 @@ int main() {
     const std::string jsonPath = "HymnExports/" + parsed.exportBaseName + ".json";
     const std::string csvPath = "HymnExports/" + parsed.exportBaseName + ".csv";
     const std::string analysisPath = "HymnExports/" + parsed.exportBaseName + "_Analysis.csv";
-    const json jHymn = hymnToJson(hymn);
+    const std::string sandhiPath = "HymnExports/" + parsed.exportBaseName + "_Sandhi.csv";
     std::ofstream out(jsonPath);
-    out << jHymn.dump(2);
+    out << hymnToJsonString(hymn);
 
     exportFullCSV(hymn, csvPath);
     exportHymnAnalysisCSV(hymn, analysisPath);
-    printExportMessage(parsed.sourcePath, jsonPath, csvPath, analysisPath);
+    exportSandhiCSV(hymn, sandhiPath);
+    printExportMessage(parsed.sourcePath, jsonPath, csvPath, analysisPath, sandhiPath);
     }
 
     return 0;

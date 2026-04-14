@@ -1,5 +1,6 @@
 #include "Parser.h"
 #include "CleanUp.h"
+#include "Sandhi.h"
 #include <fstream>
 #include <iostream>
 #include <regex>
@@ -103,15 +104,30 @@ Word mergeIASTWords(const std::vector<Word>& words, size_t start, size_t end) {
     for (size_t i = start; i < end; ++i) {
         combined += words[i].getText();
     }
-    return buildWordIAST(combined);
+    Word merged = buildWordIAST(combined);
+    std::string combinedUnderlying;
+    std::string combinedUnderlyingDev;
+    for (size_t i = start; i < end; ++i) {
+        if (i > start) {
+            combinedUnderlying += " ";
+            combinedUnderlyingDev += " ";
+        }
+        combinedUnderlying += words[i].getUnderlyingText();
+        combinedUnderlyingDev += words[i].getUnderlyingDevText();
+    }
+    merged.setUnderlyingText(combinedUnderlying);
+    merged.setUnderlyingDevText(combinedUnderlyingDev);
+    return merged;
 }
 
 void finalizeVerseAlignment(Verse& verse, Hymn& hymn) {
     auto& devWords = verse.getDevWordsMutable();
     auto& iastWords = verse.getIASTWordsMutable();
+    verse.clearSandhiBoundaries();
 
     if (devWords.size() != iastWords.size()) {
-        std::cout << std::to_string(devWords.size() - iastWords.size()) <<" Sandhi mismatches detected\n";
+        const auto mismatchCount = static_cast<long long>(devWords.size()) - static_cast<long long>(iastWords.size());
+        std::cout << mismatchCount << " Sandhi mismatches detected\n";
     }
 
     size_t devIndex = 0;
@@ -133,6 +149,19 @@ void finalizeVerseAlignment(Verse& verse, Hymn& hymn) {
 
         alignWord(devWords[devIndex], mergedIAST);
         devWords[devIndex].setAlignedIAST(mergedIAST.getText());
+        devWords[devIndex].setAlignedIASTUnderlying(mergedIAST.getUnderlyingText());
+        devWords[devIndex].setUnderlyingDevText(mergedIAST.getUnderlyingDevText());
+
+        if (iastIndex - start > 1) {
+            for (size_t boundaryIndex = start; boundaryIndex + 1 < iastIndex; ++boundaryIndex) {
+                verse.addSandhiBoundary(buildSandhiBoundary(
+                    devWords[devIndex],
+                    iastWords,
+                    devIndex,
+                    boundaryIndex,
+                    boundaryIndex + 1));
+            }
+        }
         ++devIndex;
     }
 
@@ -144,114 +173,16 @@ std::vector<Syllable> buildSyllables(const Word& word) {
     std::vector<Syllable> syllables;
     const auto& letters = word.getLetters();
 
-    for (size_t i = 0; i < letters.size(); ++i) {
-        const std::string value = letters[i].getValue();
-
-        if (isIgnorableSymbol(value)) {
-            continue;
-        }
-
-        if (isDevCodaMark(value)) {
-            if (!syllables.empty()) {
-                syllables.back().addCoda(letters[i]);
-                syllables.back().setWeight("heavy");
-                addSwaraIfPresent(syllables.back(), letters[i]);
-            }
-            continue;
-        }
-
-        if (isVowel(value)) {
-            Syllable syllable;
-            syllable.setNucleus(letters[i]);
-            syllable.setWeight(isLongVowel(value) ? "heavy" : "light");
-            addSwaraIfPresent(syllable, letters[i]);
-
-            while (i + 1 < letters.size() && isDevCodaMark(letters[i + 1].getValue())) {
-                ++i;
-                syllable.addCoda(letters[i]);
-                syllable.setWeight("heavy");
-                addSwaraIfPresent(syllable, letters[i]);
-            }
-
-            syllables.push_back(syllable);
-            continue;
-        }
-
-        if (!isDevConsonant(value)) {
-            continue;
-        }
-
-        // Build consonant clusters into the onset until a vowel sign or standalone consonantal nucleus appears.
-        std::vector<Letter> onsetCluster;
-        bool formedSyllable = false;
-
-        while (i < letters.size() && isDevConsonant(letters[i].getValue())) {
-            const Letter& consonant = letters[i];
-            const std::string next = (i + 1 < letters.size()) ? letters[i + 1].getValue() : "";
-
-            if (isVirama(next)) {
-                onsetCluster.push_back(consonant);
-                onsetCluster.push_back(letters[i + 1]);
-                i += 2;
-                continue;
-            }
-
-            Syllable syllable;
-            for (const auto& onsetLetter : onsetCluster) {
-                syllable.addOnset(onsetLetter);
-                addSwaraIfPresent(syllable, onsetLetter);
-            }
-
-            if (isDevDependentVowel(next)) {
-                syllable.addOnset(consonant);
-                addSwaraIfPresent(syllable, consonant);
-                syllable.setNucleus(letters[i + 1]);
-                syllable.setWeight(isDevLongDependentVowel(next) ? "heavy" : "light");
-                addSwaraIfPresent(syllable, letters[i + 1]);
-                i += 2;
-            } else {
-                syllable.setNucleus(consonant);
-                syllable.setWeight("light");
-                addSwaraIfPresent(syllable, consonant);
-                ++i;
-            }
-
-            while (i < letters.size() && isDevCodaMark(letters[i].getValue())) {
-                syllable.addCoda(letters[i]);
-                syllable.setWeight("heavy");
-                addSwaraIfPresent(syllable, letters[i]);
-                ++i;
-            }
-
-            syllables.push_back(syllable);
-            formedSyllable = true;
-            --i;
-            break;
-        }
-
-        if (!formedSyllable && !onsetCluster.empty() && !syllables.empty()) {
-            for (const auto& trailing : onsetCluster) {
-                syllables.back().addCoda(trailing);
-                addSwaraIfPresent(syllables.back(), trailing);
-            }
-            syllables.back().setWeight("heavy");
-            --i;
-        }
-    }
-
-    return syllables;
-}
-//
-std::vector<Syllable> buildSyllablesPada(const Word& word) {
-    std::vector<Syllable> syllables;
-    const auto& letters = word.getLetters();
-
     Syllable current;
     bool hasNucleus = false;
 
     for (size_t i = 0; i < letters.size(); ++i) {
         const Letter& l = letters[i];
         std::string val = l.getValue();
+
+        if (isIgnorableSymbol(val)) {
+            continue;
+        }
 
         // Case 1: independent vowel
         if (isVowel(val)) {
@@ -277,13 +208,13 @@ std::vector<Syllable> buildSyllablesPada(const Word& word) {
         }
 
         // Case 2: vowel sign belongs to previous consonant nucleus
-        if (isVowelSign(val)) {
+        if (isDevDependentVowel(val)) {
             if (!hasNucleus) {
                 current.setNucleus(l);
                 hasNucleus = true;
             }
 
-            if (isLongVowel(val)) {
+            if (isDevLongDependentVowel(val)) {
                 current.setWeight("heavy");
             } else {
                 current.setWeight("light");
@@ -292,14 +223,27 @@ std::vector<Syllable> buildSyllablesPada(const Word& word) {
             continue;
         }
 
-        // Case 3: virama suppresses inherent vowel
+        // Case 3: coda marks close the current syllable and make it heavy.
+        if (isDevCodaMark(val)) {
+            if (hasNucleus) {
+                current.addCoda(l);
+                current.setWeight("heavy");
+            }
+            continue;
+        }
+
+        // Case 4: virama suppresses inherent vowel
         if (isVirama(val)) {
             continue;
         }
 
-        // Case 4: consonant
-        bool nextIsVirama = (i + 1 < letters.size() && isVirama(letters[i + 1]));
-        bool nextIsVowelSign = (i + 1 < letters.size() && isVowelSign(letters[i + 1]));
+        // Case 5: consonant
+        if (!isDevConsonant(val)) {
+            continue;
+        }
+
+        bool nextIsVirama = (i + 1 < letters.size() && isVirama(letters[i + 1].getValue()));
+        bool nextIsVowelSign = (i + 1 < letters.size() && isDevDependentVowel(letters[i + 1].getValue()));
 
         // standalone consonant before nucleus
         if (!hasNucleus) {
@@ -341,9 +285,14 @@ std::vector<Syllable> buildSyllablesPada(const Word& word) {
 
     return syllables;
 }
+//
+std::vector<Syllable> buildSyllablesPada(const Word& word) {
+    return buildSyllables(word);
+}
 
 Word buildWordDEV(const std::string& raw) {
     Word w(raw);
+    w.setUnderlyingDevText(raw);
     auto chars = splitUTF8(raw);
 
     Letter currentLetter("");
@@ -448,6 +397,8 @@ std::vector<Syllable> buildSyllablesIAST(const Word& word) {
 
 Word buildWordIAST(const std::string& raw) {
     Word w(raw);
+    w.setUnderlyingText(raw);
+    w.setUnderlyingDevText(transliterateIASTToDEV(raw));
     auto chars = splitIAST(raw);
 
     for (const auto& ch : chars) {

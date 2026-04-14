@@ -1,12 +1,256 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <functional>
 #include <sstream>
 #include <fstream>
 #include "analysis.h"
 #include "CleanUp.h"
 #include "Parser.h"
+#include "Sandhi.h"
 #include "PoemStructures.h"
+
+namespace {
+struct NamedMeterPattern {
+    const char* name;
+    std::vector<int> counts;
+};
+
+bool isDevDependentVowelForMeter(const std::string& ch) {
+    static const std::vector<std::string> vowels = {
+        u8"\u093e", u8"\u093f", u8"\u0940", u8"\u0941", u8"\u0942", u8"\u0943", u8"\u0944",
+        u8"\u0962", u8"\u0963", u8"\u0947", u8"\u0948", u8"\u094b", u8"\u094c"
+    };
+
+    for (const auto& vowel : vowels) {
+        if (ch == vowel) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool isDevCodaMarkForMeter(const std::string& ch) {
+    return ch == u8"\u0902" || ch == u8"\u0903" || ch == u8"\u0901";
+}
+
+bool isCountableDevConsonantForMeter(const std::string& ch) {
+    return !ch.empty() &&
+           !isVowel(ch) &&
+           !isDevDependentVowelForMeter(ch) &&
+           !isVirama(ch) &&
+           !isDevCodaMarkForMeter(ch) &&
+           !isIgnorableSymbol(ch) &&
+           ch != u8"\u093d";
+}
+
+std::vector<std::string> splitVerseIntoPadasNormalized(const std::string& text) {
+    std::vector<std::string> padas;
+    std::string current;
+
+    for (const auto& ch : splitUTF8(text)) {
+        if (isIgnorableSymbol(ch)) {
+            const std::string cleaned = cleanWord(current);
+            if (!cleaned.empty()) {
+                padas.push_back(cleaned);
+            }
+            current.clear();
+            continue;
+        }
+
+        current += ch;
+    }
+
+    const std::string cleaned = cleanWord(current);
+    if (!cleaned.empty()) {
+        padas.push_back(cleaned);
+    }
+
+    return padas;
+}
+
+int countSyllablesInPadaNormalized(const std::string& pada) {
+    int count = 0;
+
+    for (const auto& token : splitWords(pada)) {
+        const std::string cleaned = cleanWord(token);
+        if (cleaned.empty()) {
+            continue;
+        }
+
+        const auto letters = splitUTF8(cleaned);
+        for (size_t i = 0; i < letters.size(); ++i) {
+            const std::string& ch = letters[i];
+            if (isVowel(ch)) {
+                ++count;
+                continue;
+            }
+
+            if (!isCountableDevConsonantForMeter(ch)) {
+                continue;
+            }
+
+            const bool nextIsVirama =
+                (i + 1 < letters.size()) && isVirama(letters[i + 1]);
+
+            if (!nextIsVirama) {
+                ++count;
+            }
+        }
+    }
+
+    return count;
+}
+
+std::vector<std::string> splitTextIntoPadasNormalized(const std::string& text) {
+    return splitVerseIntoPadasNormalized(text);
+}
+
+int countIASTSyllablesInPadaNormalized(const std::string& pada) {
+    int count = 0;
+
+    for (const auto& token : splitWords(pada)) {
+        const std::string cleaned = cleanWord(token);
+        if (cleaned.empty()) {
+            continue;
+        }
+
+        count += static_cast<int>(buildWordIAST(cleaned).getIASTSyllables().size());
+    }
+
+    return count;
+}
+
+std::vector<int> getExplicitIASTPadaCounts(const Verse& v) {
+    std::vector<int> counts;
+
+    for (const auto& pada : splitTextIntoPadasNormalized(v.getIAST())) {
+        counts.push_back(countIASTSyllablesInPadaNormalized(pada));
+    }
+
+    return counts;
+}
+
+const std::vector<NamedMeterPattern>& standardMeterPatterns() {
+    static const std::vector<NamedMeterPattern> patterns = {
+        {"Gayatri", {8, 8, 8}},
+        {"Anustubh", {8, 8, 8, 8}},
+        {"Brhati", {8, 8, 8, 12}},
+        {"Pankti", {8, 8, 8, 8, 8}},
+        {"Tristubh", {11, 11, 11, 11}},
+        {"Jagati", {12, 12, 12, 12}},
+        {"Ushnih-like", {8, 8, 12, 8}}
+    };
+
+    return patterns;
+}
+
+std::optional<std::vector<int>> inferStandardPadaCountsFromIASTWords(const Verse& v) {
+    std::vector<int> wordCounts;
+    std::vector<bool> reducibleWordCounts;
+
+    for (const auto& token : getNormalizedIASTWords(v)) {
+        if (token.empty()) {
+            continue;
+        }
+
+        const auto syllableCount = static_cast<int>(buildWordIAST(token).getIASTSyllables().size());
+        if (syllableCount > 0) {
+            wordCounts.push_back(syllableCount);
+            reducibleWordCounts.push_back(token.back() == 'a' &&
+                                          syllableCount > 1);
+        }
+    }
+
+    if (wordCounts.empty()) {
+        return std::nullopt;
+    }
+
+    int total = 0;
+    for (int count : wordCounts) {
+        total += count;
+    }
+
+    for (const auto& pattern : standardMeterPatterns()) {
+        int targetTotal = 0;
+        for (int count : pattern.counts) {
+            targetTotal += count;
+        }
+
+        int reducibleCount = 0;
+        for (bool reducible : reducibleWordCounts) {
+            if (reducible) {
+                ++reducibleCount;
+            }
+        }
+
+        if (targetTotal > total || targetTotal < total - reducibleCount) {
+            continue;
+        }
+
+        std::function<bool(size_t, size_t, int)> matchesPattern =
+            [&](size_t wordIndex, size_t padaIndex, int running) -> bool {
+                if (padaIndex == pattern.counts.size()) {
+                    return wordIndex == wordCounts.size();
+                }
+
+                if (running == pattern.counts[padaIndex]) {
+                    return matchesPattern(wordIndex, padaIndex + 1, 0);
+                }
+
+                if (wordIndex >= wordCounts.size() || running > pattern.counts[padaIndex]) {
+                    return false;
+                }
+
+                if (matchesPattern(wordIndex + 1, padaIndex, running + wordCounts[wordIndex])) {
+                    return true;
+                }
+
+                if (reducibleWordCounts[wordIndex] &&
+                    matchesPattern(wordIndex + 1, padaIndex, running + wordCounts[wordIndex] - 1)) {
+                    return true;
+                }
+
+                return false;
+            };
+
+        if (matchesPattern(0, 0, 0)) {
+            return pattern.counts;
+        }
+    }
+
+    return std::nullopt;
+}
+
+bool allCountsInSet(const std::vector<int>& counts, const std::vector<int>& allowed) {
+    for (int count : counts) {
+        bool present = false;
+        for (int allowedValue : allowed) {
+            if (count == allowedValue) {
+                present = true;
+                break;
+            }
+        }
+
+        if (!present) {
+            return false;
+        }
+    }
+
+    return !counts.empty();
+}
+
+bool containsCount(const std::vector<int>& counts, int target) {
+    for (int count : counts) {
+        if (count == target) {
+            return true;
+        }
+    }
+
+    return false;
+}
+}
 
 // Count raw Devanagari letters per verse.
 std::map<std::string, int> getLetterFrequency(const Verse& v) {
@@ -240,26 +484,29 @@ std::vector<std::string> splitVerseIntoPadas(const std::string& text) {
 
 //Count Syllables in a Pada
 int countSyllablesInPada(const std::string& pada) {
-    int count = 0;
-
-    auto words = splitWords(pada);
-
-    for (const auto& w : words) {
-        Word tempWord = buildWordDEV(w);
-        count += static_cast<int>(tempWord.getSyllables().size());
-    }
-
-    return count;
+    return countSyllablesInPadaNormalized(pada);
 }
 
 //Syllable Counts Per Pada
 std::vector<int> getPadaSyllableCounts(const Verse& v) {
-    std::vector<int> counts;
+    const auto explicitIASTCounts = getExplicitIASTPadaCounts(v);
+    if (explicitIASTCounts.size() >= 3) {
+        return explicitIASTCounts;
+    }
 
-    auto padas = splitVerseIntoPadas(v.getDev());
+    if (auto inferredCounts = inferStandardPadaCountsFromIASTWords(v); inferredCounts.has_value()) {
+        return inferredCounts.value();
+    }
+
+    if (!explicitIASTCounts.empty()) {
+        return explicitIASTCounts;
+    }
+
+    std::vector<int> counts;
+    auto padas = splitVerseIntoPadasNormalized(v.getDev());
 
     for (const auto& pada : padas) {
-        counts.push_back(countSyllablesInPada(pada));
+        counts.push_back(countSyllablesInPadaNormalized(pada));
     }
 
     return counts;
@@ -281,46 +528,31 @@ std::string detectVerseMeter(const Verse& v) {
     auto counts = getPadaSyllableCounts(v);
 
     if (counts.empty()) {
-        return "No meter detected";
+        return "No Meter Detected";
     }
 
-    // Common Vedic meters by pada syllable counts
-
-    if (counts.size() == 3 &&
-        counts[0] == 8 && counts[1] == 8 && counts[2] == 8) {
-        return "Gayatri";
+    for (const auto& pattern : standardMeterPatterns()) {
+        if (counts == pattern.counts) {
+            return pattern.name;
+        }
     }
 
-    if (counts.size() == 4 &&
-        counts[0] == 8 && counts[1] == 8 && counts[2] == 8 && counts[3] == 8) {
-        return "Anustubh";
+    if (counts.size() == 4 && allCountsInSet(counts, {10, 11}) && containsCount(counts, 10)) {
+        return "Nicrd Tristubh";
     }
 
-    if (counts.size() == 4 &&
-        counts[0] == 8 && counts[1] == 8 && counts[2] == 8 && counts[3] == 12) {
-        return "Brhati";
+    if (counts.size() == 4 && allCountsInSet(counts, {11, 12}) &&
+        containsCount(counts, 11) && containsCount(counts, 12)) {
+        return "Tristubh-Jagati Mixed";
     }
 
-    if (counts.size() == 5 &&
-        counts[0] == 8 && counts[1] == 8 && counts[2] == 8 &&
-        counts[3] == 8 && counts[4] == 8) {
-        return "Pankti";
+    if (counts.size() == 3 && allCountsInSet(counts, {7, 8}) && containsCount(counts, 7)) {
+        return "Nicrd Gayatri";
     }
 
-    if (counts.size() == 4 &&
-        counts[0] == 11 && counts[1] == 11 && counts[2] == 11 && counts[3] == 11) {
-        return "Tristubh";
+    if (counts.size() == 4 && allCountsInSet(counts, {7, 8}) && containsCount(counts, 7)) {
+        return "Nicrd Anustubh";
     }
 
-    if (counts.size() == 4 &&
-        counts[0] == 12 && counts[1] == 12 && counts[2] == 12 && counts[3] == 12) {
-        return "Jagati";
-    }
-
-    if (counts.size() == 4 &&
-        counts[0] == 8 && counts[1] == 8 && counts[2] == 12 && counts[3] == 8) {
-        return "Ushnih-like";
-    }
-
-    return "No meter detected";
+    return "No Meter Detected";
 }

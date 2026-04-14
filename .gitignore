@@ -1,2 +1,4 @@
 repro_input.txt
 smoke_input.txt
+*.exe
+_debug_iast.cpp

@@ -6,5 +6,6 @@
 
 Hymn parseHymn(const std::string& filename);
 Word buildWordDEV(const std::string& raw);
+Word buildWordIAST(const std::string& raw);
 void enrichVerse(Verse& v);
 #endif

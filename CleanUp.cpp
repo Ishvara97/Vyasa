@@ -201,7 +201,7 @@ void exportFullCSV(const Hymn& h, const std::string& filename) {
     file << "\xEF\xBB\xBF";
     file <<
         "Mandala,Sukta,Rishis,Devatas,Categories,"
-        "Verse,Verse_DEV,Verse_IAST,"
+        "Verse,Meter,Verse_DEV,Verse_IAST,"
         "Word_Index,Word_DEV,Word_IAST,"
         "Syllable_Index,Syllable_DEV,Syllable_IAST,Syllable_Onset,Syllable_Nucleus,Syllable_Coda,"
         "Syllable_Weight,Syllable_Swaras,Syllable_IAST_Letters,"
@@ -252,6 +252,7 @@ void exportFullCSV(const Hymn& h, const std::string& filename) {
                         << csvEscape(devatas) << ","
                         << csvEscape(categories) << ","
                         << v.getVerseNumber() << ","
+                        << csvEscape(v.getMeter()) << ","
                         << csvEscape(v.getDev()) << ","
                         << csvEscape(v.getIAST()) << ","
                         << wi << ","
@@ -295,6 +296,43 @@ void exportFullCSV(const Hymn& h, const std::string& filename) {
                     file << "\n";
                 }
             }
+        }
+    }
+}
+
+void exportSandhiCSV(const Hymn& h, const std::string& filename) {
+    std::ofstream file(filename);
+    file << "\xEF\xBB\xBF";
+    file <<
+        "Mandala,Sukta,Verse,Meter,Surface_Word_Index,Surface_DEV,Surface_IAST,"
+        "Segmented_DEV,Segmented_IAST,Left_Underlying_Word_Index,Left_Underlying_DEV,Left_Underlying_IAST,"
+        "Right_Underlying_Word_Index,Right_Underlying_DEV,Right_Underlying_IAST,"
+        "Category,Subtype,Confidence,Normalization_Status,Detected,Notes\n";
+
+    for (const auto& verse : h.getVerses()) {
+        for (const auto& boundary : verse.getSandhiBoundaries()) {
+            file
+                << h.getMandala() << ","
+                << h.getSukta() << ","
+                << verse.getVerseNumber() << ","
+                << csvEscape(verse.getMeter()) << ","
+                << boundary.surfaceWordIndex << ","
+                << csvEscape(boundary.surfaceDev) << ","
+                << csvEscape(boundary.surfaceIAST) << ","
+                << csvEscape(boundary.segmentedDev) << ","
+                << csvEscape(boundary.segmentedIAST) << ","
+                << boundary.leftUnderlyingWordIndex << ","
+                << csvEscape(boundary.leftUnderlyingDev) << ","
+                << csvEscape(boundary.leftUnderlyingIAST) << ","
+                << boundary.rightUnderlyingWordIndex << ","
+                << csvEscape(boundary.rightUnderlyingDev) << ","
+                << csvEscape(boundary.rightUnderlyingIAST) << ","
+                << csvEscape(boundary.category) << ","
+                << csvEscape(boundary.subtype) << ","
+                << csvEscape(boundary.confidence) << ","
+                << csvEscape(boundary.normalizationStatus) << ","
+                << boolToCsv(boundary.detected) << ","
+                << csvEscape(boundary.notes) << "\n";
         }
     }
 }

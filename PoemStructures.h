@@ -209,6 +209,26 @@ struct SyllableAlignment {
     Syllable iast;
 };
 
+struct SandhiBoundary {
+    int surfaceWordIndex = -1;
+    int leftUnderlyingWordIndex = -1;
+    int rightUnderlyingWordIndex = -1;
+    std::string surfaceDev;
+    std::string surfaceIAST;
+    std::string segmentedDev;
+    std::string segmentedIAST;
+    std::string leftUnderlyingDev;
+    std::string leftUnderlyingIAST;
+    std::string rightUnderlyingDev;
+    std::string rightUnderlyingIAST;
+    std::string category;
+    std::string subtype;
+    std::string confidence;
+    std::string notes;
+    std::string normalizationStatus;
+    bool detected = false;
+};
+
 //Word
 
 class Word {
@@ -219,10 +239,13 @@ private:
     std::vector<Letter> letters; //Letters in Word
     std::vector<SyllableAlignment> alignment;//Align Syllables per Word
     std::string alignedIAST;
+    std::string underlyingText;
+    std::string alignedIASTUnderlying;
+    std::string underlyingDevText;
 
 
 public:
-    Word(const std::string& t) : text(t) {}
+    Word(const std::string& t) : text(t), underlyingText(t), underlyingDevText(t) {}
 
     std::string getText() const { return text; }
 
@@ -254,8 +277,13 @@ public:
     return alignment; }
 
     void setAlignedIAST(const std::string& s) { alignedIAST = s; }
-
+    void setUnderlyingText(const std::string& s) { underlyingText = s; }
+    void setAlignedIASTUnderlying(const std::string& s) { alignedIASTUnderlying = s; }
+    void setUnderlyingDevText(const std::string& s) { underlyingDevText = s; }
     std::string getAlignedIAST() const { return alignedIAST;}
+    std::string getUnderlyingText() const { return underlyingText; }
+    std::string getAlignedIASTUnderlying() const { return alignedIASTUnderlying; }
+    std::string getUnderlyingDevText() const { return underlyingDevText; }
 
 };
 
@@ -270,6 +298,7 @@ private:
     std::vector<Word> devWords;
     std::vector<Word> iastWords;
     std::string meter;
+    std::vector<SandhiBoundary> sandhiBoundaries;
 
 public:
     Verse() : verseNumber(0), meter("No meter detected") {}
@@ -293,6 +322,9 @@ public:
 
     void setMeter(const std::string& m) { meter = m; }
     std::string getMeter() const { return meter; }
+    void addSandhiBoundary(const SandhiBoundary& boundary) { sandhiBoundaries.push_back(boundary); }
+    void clearSandhiBoundaries() { sandhiBoundaries.clear(); }
+    const std::vector<SandhiBoundary>& getSandhiBoundaries() const { return sandhiBoundaries; }
 
     std::vector<Word>& getDevWordsMutable() { return devWords; }
 

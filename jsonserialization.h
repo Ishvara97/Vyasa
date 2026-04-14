@@ -14,6 +14,7 @@ json syllableToJson(const Syllable& s);
 json wordToJson(const Word& w);
 json verseToJson(const Verse& v);
 json hymnToJson(const Hymn& h);
+std::string hymnToJsonString(const Hymn& h);
 
 
 
