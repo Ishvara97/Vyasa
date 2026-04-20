@@ -45221,8 +45221,8 @@
     "underlyingText": "अहं"
   },
   {
-    "alignedIAST": "dyā̱vā",
-    "alignedIASTUnderlying": "dyā̱vā",
+    "alignedIAST": "dyā̱vāpṛ̍thi̱vī",
+    "alignedIASTUnderlying": "dyā̱vā pṛ̍thi̱vī",
     "alignment": [
       {
         "dev": {
@@ -45666,12 +45666,12 @@
       }
     ],
     "text": "द्या॒वापृ॑थि॒वी",
-    "underlyingDevText": "द्यावा",
+    "underlyingDevText": "द्यावा पृथिवी",
     "underlyingText": "द्या॒वापृ॑थि॒वी"
   },
   {
-    "alignedIAST": "pṛ̍thi̱vī",
-    "alignedIASTUnderlying": "pṛ̍thi̱vī",
+    "alignedIAST": "ā",
+    "alignedIASTUnderlying": "ā",
     "alignment": [
       {
         "dev": {
@@ -45701,35 +45701,20 @@
           "nucleus": {
             "hasSwara": false,
             "phoneme": {
-              "base": "r",
+              "base": "a",
               "class": "Vowel",
               "consonantClass": "None",
               "type": "Vowel",
-              "vowelLength": "Short"
+              "vowelLength": "Long"
             },
             "phonemeClass": "Vowel",
             "swaraType": null,
-            "value": "ṛ",
-            "vowelLength": "Short"
+            "value": "ā",
+            "vowelLength": "Long"
           },
-          "onset": [
-            {
-              "hasSwara": false,
-              "phoneme": {
-                "base": "p",
-                "class": "Labial",
-                "consonantClass": "Labial",
-                "type": "Consonant",
-                "vowelLength": "None"
-              },
-              "phonemeClass": "Labial",
-              "swaraType": null,
-              "value": "p",
-              "vowelLength": "None"
-            }
-          ],
+          "onset": [],
           "swaras": [],
-          "weight": "light"
+          "weight": "heavy"
         }
       }
     ],
@@ -45775,12 +45760,12 @@
       }
     ],
     "text": "आ",
-    "underlyingDevText": "पृथिवी",
+    "underlyingDevText": "आ",
     "underlyingText": "आ"
   },
   {
-    "alignedIAST": "ā",
-    "alignedIASTUnderlying": "ā",
+    "alignedIAST": "vi̍veśa",
+    "alignedIASTUnderlying": "vi̍veśa",
     "alignment": [
       {
         "dev": {
@@ -45854,20 +45839,35 @@
           "nucleus": {
             "hasSwara": false,
             "phoneme": {
-              "base": "a",
+              "base": "i",
               "class": "Vowel",
               "consonantClass": "None",
               "type": "Vowel",
-              "vowelLength": "Long"
+              "vowelLength": "Short"
             },
             "phonemeClass": "Vowel",
             "swaraType": null,
-            "value": "ā",
-            "vowelLength": "Long"
+            "value": "i",
+            "vowelLength": "Short"
           },
-          "onset": [],
+          "onset": [
+            {
+              "hasSwara": false,
+              "phoneme": {
+                "base": "v",
+                "class": "Semivowel",
+                "consonantClass": "Semivowel",
+                "type": "Consonant",
+                "vowelLength": "None"
+              },
+              "phonemeClass": "Semivowel",
+              "swaraType": null,
+              "value": "v",
+              "vowelLength": "None"
+            }
+          ],
           "swaras": [],
-          "weight": "heavy"
+          "weight": "light"
         }
       }
     ],
@@ -46013,7 +46013,7 @@
       }
     ],
     "text": "वि॑वेश",
-    "underlyingDevText": "आ",
+    "underlyingDevText": "विवेश",
     "underlyingText": "वि॑वेश"
   }
 ],
@@ -49194,7 +49194,27 @@
     "underlyingText": "vi̍veśa"
   }
 ],
-      "sandhi": [],
+      "sandhi": [
+  {
+    "category": "sandhi candidate",
+    "confidence": "medium",
+    "detected": true,
+    "leftUnderlyingDev": "द्यावा",
+    "leftUnderlyingIAST": "dyā̱vā",
+    "leftUnderlyingWordIndex": 12,
+    "normalizationStatus": "generated",
+    "notes": "Surface token aligns with multiple underlying words.",
+    "rightUnderlyingDev": "पृथिवी",
+    "rightUnderlyingIAST": "pṛ̍thi̱vī",
+    "rightUnderlyingWordIndex": 13,
+    "segmentedDev": "द्यावा पृथिवी",
+    "segmentedIAST": "dyā̱vā pṛ̍thi̱vī",
+    "subtype": "boundary assimilation",
+    "surfaceDev": "द्या॒वापृ॑थि॒वी",
+    "surfaceIAST": "dyā̱vāpṛ̍thi̱vī",
+    "surfaceWordIndex": 12
+  }
+],
       "analysis": {
   "letterFrequency": {
     "ं": 4,

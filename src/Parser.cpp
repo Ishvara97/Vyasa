@@ -75,6 +75,30 @@ bool isIASTConsonant(const std::string& ch) {
            !isIgnorableSymbol(ch);
 }
 
+std::string normalizeDevSurfaceForComparison(const std::string& text) {
+    std::string normalized;
+
+    for (const auto& ch : splitUTF8(text)) {
+        if (ch == DEV_SVARITA || ch == DEV_ANUDATTA ||
+            ch == COMB_SVARITA || ch == COMB_ANUDATTA ||
+            isIgnorableSymbol(ch)) {
+            continue;
+        }
+
+        normalized += ch;
+    }
+
+    return normalized;
+}
+
+bool matchesMergedSurface(const Word& devWord, const Word& mergedIAST) {
+    const std::string normalizedDev = normalizeDevSurfaceForComparison(devWord.getText());
+    const std::string normalizedIASTDev =
+        normalizeDevSurfaceForComparison(mergedIAST.getUnderlyingDevText());
+
+    return !normalizedDev.empty() && normalizedDev == normalizedIASTDev;
+}
+
 void addSwaraIfPresent(Syllable& syllable, const Letter& letter) {
     if (letter.getSwaraType().has_value()) {
         syllable.addSwara(letter.getSwaraType().value());
@@ -141,8 +165,23 @@ void finalizeVerseAlignment(Verse& verse, Hymn& hymn) {
         Word mergedIAST = mergeIASTWords(iastWords, start, iastIndex + 1);
         ++iastIndex;
 
-        while (iastIndex < iastWords.size() &&
-               mergedIAST.getIASTSyllables().size() < devSyllableCount) {
+        while (iastIndex < iastWords.size()) {
+            const bool surfaceMatches = matchesMergedSurface(devWords[devIndex], mergedIAST);
+            const size_t remainingIASTWords = iastWords.size() - iastIndex;
+            const size_t remainingDevWords = devWords.size() - (devIndex + 1);
+            const bool needsMoreWordsForCountBalance =
+                !surfaceMatches && remainingIASTWords > remainingDevWords;
+            const bool needsMoreWordsForSyllables =
+                !surfaceMatches && mergedIAST.getIASTSyllables().size() < devSyllableCount;
+
+            if (surfaceMatches && !needsMoreWordsForCountBalance) {
+                break;
+            }
+
+            if (!needsMoreWordsForCountBalance && !needsMoreWordsForSyllables) {
+                break;
+            }
+
             mergedIAST = mergeIASTWords(iastWords, start, iastIndex + 1);
             ++iastIndex;
         }

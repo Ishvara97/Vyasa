@@ -1,1 +1,2 @@
 ﻿Mandala,Sukta,Verse,Meter,Surface_Word_Index,Surface_DEV,Surface_IAST,Segmented_DEV,Segmented_IAST,Left_Underlying_Word_Index,Left_Underlying_DEV,Left_Underlying_IAST,Right_Underlying_Word_Index,Right_Underlying_DEV,Right_Underlying_IAST,Category,Subtype,Confidence,Normalization_Status,Detected,Notes
+10,125,6,"Tristubh",12,"द्या॒वापृ॑थि॒वी","dyā̱vāpṛ̍thi̱vī","द्यावा पृथिवी","dyā̱vā pṛ̍thi̱vī",12,"द्यावा","dyā̱vā",13,"पृथिवी","pṛ̍thi̱vī","sandhi candidate","boundary assimilation","medium","generated",true,"Surface token aligns with multiple underlying words."
