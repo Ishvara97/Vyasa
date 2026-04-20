@@ -623,19 +623,27 @@ std::string buildInteractiveActionPrompt() {
     return out.str();
 }
 
+std::string buildSearchHelpPrompt() {
+    std::ostringstream out;
+    out << "Search query examples:\n";
+    out << "  find all verses containing " << u8"अग्नि" << "\n";
+    out << "  find all occurrences of indra\n";
+    out << "  find words beginning with " << u8"प्र" << "\n";
+    out << "  find words ending with -" << u8"त्व" << "\n";
+    out << "  find vowel span patterns śr[aā]ddh\n";
+    out << "  find verse/words containing particular phoneme class Dental\n";
+    out << "  find verse/words containing particular manner of articulation nasals\n";
+    out << "  find words containing kṣ\n";
+    out << "  find consonant clusters of length >= 3\n";
+    out << "  indra\n";
+    out << "Inside search: enter `help` to show these examples again, or `back` to leave search.\n";
+    return out.str();
+}
+
 std::string runSearchQuery(const std::vector<LoadedHymnRecord>& hymns, const std::string& query) {
     const auto request = parseSearchRequest(query);
     if (!request.has_value() || (request->value.empty() && request->kind != SearchKind::ClusterLength)) {
-        return std::string("Could not understand the search request. Try examples like:\n") +
-               "  find all verses containing " + u8"अग्नि" + "\n" +
-               "  find all occurrences of indra\n" +
-               "  find words beginning with " + u8"प्र" + "\n" +
-               "  find words ending with -" + u8"त्व" + "\n" +
-               "  find vowel span patterns śr[aā]ddh\n" +
-               "  find verse/words containing particular phoneme class Dental\n" +
-               "  find verse/words containing particular manner of articulation nasals\n" +
-               "  find words containing kṣ\n" +
-               "  find consonant clusters of length >= 3\n";
+        return std::string("Could not understand the search request.\n") + buildSearchHelpPrompt();
     }
 
     std::string errorMessage;

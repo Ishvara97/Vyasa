@@ -14,6 +14,7 @@ struct LoadedHymnRecord {
 
 std::string buildLoadedHymnSummary(const std::vector<LoadedHymnRecord>& hymns);
 std::string buildInteractiveActionPrompt();
+std::string buildSearchHelpPrompt();
 std::string runSearchQuery(const std::vector<LoadedHymnRecord>& hymns, const std::string& query);
 std::string compareSelectedVerses(
     const std::vector<LoadedHymnRecord>& hymns,

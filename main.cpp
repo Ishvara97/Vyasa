@@ -351,10 +351,35 @@ int main() {
         }
 
         if (lowered == "search") {
-            std::string query;
-            std::cout << "Search query: ";
-            std::getline(std::cin, query);
-            std::cout << "\n" << runSearchQuery(loadedHymns, query);
+            std::cout << "\n" << buildSearchHelpPrompt();
+
+            while (true) {
+                std::string query;
+                std::cout << "Search query: ";
+                std::getline(std::cin, query);
+
+                if (query.empty()) {
+                    continue;
+                }
+
+                std::string loweredQuery = query;
+                for (char& ch : loweredQuery) {
+                    ch = static_cast<char>(std::tolower(static_cast<unsigned char>(ch)));
+                }
+
+                if (loweredQuery == "help") {
+                    std::cout << "\n" << buildSearchHelpPrompt();
+                    continue;
+                }
+
+                if (loweredQuery == "back" || loweredQuery == "cancel") {
+                    std::cout << "Leaving search.\n";
+                    break;
+                }
+
+                std::cout << "\n" << runSearchQuery(loadedHymns, query);
+                break;
+            }
             continue;
         }
 
