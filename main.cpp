@@ -12,6 +12,7 @@
 #include "src/Parser.h"
 #include "PoemStructures.h"
 #include "src/analysis.h"
+#include "src/query.h"
 #include "json.hpp"
 #include "src/jsonserialization.h"
 
@@ -101,6 +102,10 @@ void printExportMessage(
     std::cout << "  Analysis CSV: " << analysisPath << "\n";
     std::cout << "  Sandhi CSV: " << sandhiPath << "\n";
     std::cout << "  Similarity CSV: " << similarityPath << "\n";
+}
+
+void printInteractiveHelp() {
+    std::cout << "\n" << buildInteractiveActionPrompt();
 }
 }
 
@@ -294,6 +299,90 @@ int main() {
     exportSandhiCSV(hymn, sandhiPath);
     exportVerseSimilarityCSV(hymn, similarityPath);
     printExportMessage(parsed.sourcePath, jsonPath, csvPath, analysisPath, sandhiPath, similarityPath);
+    }
+
+    std::vector<LoadedHymnRecord> loadedHymns;
+    loadedHymns.reserve(hymns.size());
+    for (size_t i = 0; i < hymns.size(); ++i) {
+        loadedHymns.push_back({
+            static_cast<int>(i + 1),
+            hymns[i].sourcePath,
+            hymns[i].exportBaseName,
+            &hymns[i].hymn
+        });
+    }
+
+    std::cout << "\n" << buildLoadedHymnSummary(loadedHymns);
+    std::cout << "\nUploads, parsing, and exports are complete.\n";
+    std::cout << "Request whether you want to search hymn information, compare verses, compare hymns overall, or compare a query across hymns.\n";
+    std::cout << "The program will keep running until you request termination with `exit`, `quit`, or `stop`.\n";
+    printInteractiveHelp();
+
+    while (true) {
+        std::string command;
+        std::cout << "\nEnter command: ";
+        std::getline(std::cin, command);
+
+        if (command.empty()) {
+            continue;
+        }
+
+        const std::string lowered = [&]() {
+            std::string value = command;
+            for (char& ch : value) {
+                ch = static_cast<char>(std::tolower(static_cast<unsigned char>(ch)));
+            }
+            return value;
+        }();
+
+        if (lowered == "exit" || lowered == "quit" || lowered == "stop") {
+            std::cout << "Session terminated.\n";
+            break;
+        }
+
+        if (lowered == "help") {
+            printInteractiveHelp();
+            continue;
+        }
+
+        if (lowered == "list") {
+            std::cout << buildLoadedHymnSummary(loadedHymns);
+            continue;
+        }
+
+        if (lowered == "search") {
+            std::string query;
+            std::cout << "Search query: ";
+            std::getline(std::cin, query);
+            std::cout << "\n" << runSearchQuery(loadedHymns, query);
+            continue;
+        }
+
+        if (lowered == "compare verses") {
+            std::string references;
+            std::cout << "Verse references (hymnIndex:verseNumber, comma-separated): ";
+            std::getline(std::cin, references);
+            std::cout << "\n" << compareSelectedVerses(loadedHymns, references);
+            continue;
+        }
+
+        if (lowered == "compare hymns") {
+            std::string references;
+            std::cout << "Hymn indices (comma-separated): ";
+            std::getline(std::cin, references);
+            std::cout << "\n" << compareSelectedHymns(loadedHymns, references);
+            continue;
+        }
+
+        if (lowered == "compare query") {
+            std::string query;
+            std::cout << "Comparison query: ";
+            std::getline(std::cin, query);
+            std::cout << "\n" << compareSearchQueryAcrossHymns(loadedHymns, query);
+            continue;
+        }
+
+        std::cout << "Unknown command. Type `help` for available commands.\n";
     }
 
     return 0;
