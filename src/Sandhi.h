@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "PoemStructures.h"
+#include "../PoemStructures.h"
 
 std::string transliterateIASTToDEV(const std::string& text);
 SandhiBoundary buildSandhiBoundary(

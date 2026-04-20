@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "PoemStructures.h"
+#include "../PoemStructures.h"
 
 std::vector<std::string> splitLines(const std::string& text);
 

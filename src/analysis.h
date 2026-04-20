@@ -1,7 +1,7 @@
 #ifndef ANALYSIS_H
 #define ANALYSIS_H
 
-#include "PoemStructures.h"
+#include "../PoemStructures.h"
 #include <map>
 #include <string>
 

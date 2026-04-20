@@ -2,8 +2,8 @@
 #define SERIALIZATION_H
 
 #include <map>
-#include "PoemStructures.h"
-#include "json.hpp"
+#include "../PoemStructures.h"
+#include "../json.hpp"
 #include "analysis.h"
 
 using json = nlohmann::json;

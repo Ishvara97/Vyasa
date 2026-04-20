@@ -8,7 +8,7 @@
 #include "CleanUp.h"
 #include "Parser.h"
 #include "Sandhi.h"
-#include "PoemStructures.h"
+#include "../PoemStructures.h"
 
 namespace {
 struct NamedMeterPattern {

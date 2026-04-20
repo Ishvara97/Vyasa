@@ -8,12 +8,12 @@
 #include <utility>
 #include <vector>
 #include <windows.h>
-#include "CleanUp.h"
-#include "Parser.h"
+#include "src/CleanUp.h"
+#include "src/Parser.h"
 #include "PoemStructures.h"
-#include "analysis.h"
+#include "src/analysis.h"
 #include "json.hpp"
-#include "jsonserialization.h"
+#include "src/jsonserialization.h"
 
 namespace {
 // Reconstruct a syllable as plain text for console output.
