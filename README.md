@@ -12,7 +12,7 @@ Sanskritists and Academics alike take note of linguistic patterns within Indian 
 
 _amantavo māṃ ta upa kṣiyanti **śrudhiśruta śraddhivaṃ te vadāmi** ||_
 
-Within the bolded hemistich is contained "the hidden message of the goddess Speech to the poet, the extreme phonetic figure, is an exhaustive classification of the speech sounds of the Vedic language, with one example of each class: the vowels _a_, _i_, _u_ and a single icon each of the oppositions of quantity (_a_ : _ā_) and nasalization (_a_ :_aṃ_); a single sibilant _ś_; a single liquid _r_; a single semi-vowel (glide) _v_; a single nasal _m_; and a single order of stops, _t_ _d_ _dh_ as tokens of the oppositions of voicing (_t_ : _d_) and aspiration or murmur (_d_ : _dh_)."[^1]
+Within the bolded hemistich is contained "the hidden message of the goddess Speech to the poet, the extreme phonetic figure, is an exhaustive classification of the speech sounds of the Vedic language, with one example of each class: the vowels _a_, _i_, _u_ and a single icon each of the oppositions of quantity (_a_ : _ā_) and nasalization (_a_ : _aṃ_); a single sibilant _ś_; a single liquid _r_; a single semi-vowel (glide) _v_; a single nasal _m_; and a single order of stops, _t_ _d_ _dh_ as tokens of the oppositions of voicing (_t_ : _d_) and aspiration or murmur (_d_ : _dh_)."[^1]
 
 ### [R.V. 10.129.7]
 
