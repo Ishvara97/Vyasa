@@ -93,12 +93,14 @@ void printExportMessage(
     const std::string& jsonPath,
     const std::string& csvPath,
     const std::string& analysisPath,
-    const std::string& sandhiPath) {
+    const std::string& sandhiPath,
+    const std::string& similarityPath) {
     std::cout << "\nExports for " << sourcePath << ":\n";
     std::cout << "  JSON: " << jsonPath << "\n";
     std::cout << "  CSV: " << csvPath << "\n";
     std::cout << "  Analysis CSV: " << analysisPath << "\n";
     std::cout << "  Sandhi CSV: " << sandhiPath << "\n";
+    std::cout << "  Similarity CSV: " << similarityPath << "\n";
 }
 }
 
@@ -283,13 +285,15 @@ int main() {
     const std::string csvPath = "HymnExports/" + parsed.exportBaseName + ".csv";
     const std::string analysisPath = "HymnExports/" + parsed.exportBaseName + "_Analysis.csv";
     const std::string sandhiPath = "HymnExports/" + parsed.exportBaseName + "_Sandhi.csv";
+    const std::string similarityPath = "HymnExports/" + parsed.exportBaseName + "_Similarity.csv";
     std::ofstream out(jsonPath);
     out << hymnToJsonString(hymn);
 
     exportFullCSV(hymn, csvPath);
     exportHymnAnalysisCSV(hymn, analysisPath);
     exportSandhiCSV(hymn, sandhiPath);
-    printExportMessage(parsed.sourcePath, jsonPath, csvPath, analysisPath, sandhiPath);
+    exportVerseSimilarityCSV(hymn, similarityPath);
+    printExportMessage(parsed.sourcePath, jsonPath, csvPath, analysisPath, sandhiPath, similarityPath);
     }
 
     return 0;

@@ -36,6 +36,26 @@ json sandhiBoundaryToJson(const SandhiBoundary& boundary) {
         {"detected", boundary.detected}
     };
 }
+
+json similarityScoreToJson(const SimilarityScore& score) {
+    return {
+        {"dotProduct", score.dotProduct},
+        {"magnitudeA", score.magnitudeA},
+        {"magnitudeB", score.magnitudeB},
+        {"cosineSimilarity", score.cosineSimilarity},
+        {"confidence", score.confidence}
+    };
+}
+
+json verseSimilarityToJson(const VerseSimilarityComparison& comparison) {
+    return {
+        {"leftVerseNumber", comparison.leftVerseNumber},
+        {"rightVerseNumber", comparison.rightVerseNumber},
+        {"phonemeClass", similarityScoreToJson(comparison.phonemeClass)},
+        {"swara", similarityScoreToJson(comparison.swara)},
+        {"meterPattern", similarityScoreToJson(comparison.meterPattern)}
+    };
+}
 }
 
 json letterToJson(const Letter& l) {
@@ -178,7 +198,8 @@ json verseToJson(const Verse& v) {
     j["analysis"] = {
         {"letterFrequency", mapToJson(getLetterFrequency(v))},
         {"swaraFrequency", mapToJson(getSwaraFrequency(v))},
-        {"phonemeClassFrequency", mapToJson(getPhonemeClassFrequency(v))}
+        {"phonemeClassFrequency", mapToJson(getPhonemeClassFrequency(v))},
+        {"meterPattern", getSyllablePattern(v)}
     };
 
     return j;
@@ -207,6 +228,11 @@ json hymnToJson(const Hymn& h) {
 
     for (const auto& v : h.getVerses()) {
         j["verses"].push_back(verseToJson(v));
+    }
+
+    j["verseSimilarities"] = json::array();
+    for (const auto& comparison : getVerseSimilarityComparisons(h)) {
+        j["verseSimilarities"].push_back(verseSimilarityToJson(comparison));
     }
 
     // Add hymn-level rollups so JSON consumers do not need to recompute them.
@@ -244,78 +270,5 @@ Hymn jsonToHymn(const json& j) {
 }
 
 std::string hymnToJsonString(const Hymn& h) {
-    std::ostringstream out;
-    out << "{\n";
-    out << "  \"mandala\": " << json(h.getMandala()).dump() << ",\n";
-    out << "  \"sukta\": " << json(h.getSukta()).dump() << ",\n";
-    out << "  \"rishis\": " << json(h.getRishis()).dump(2) << ",\n";
-    out << "  \"devatas\": " << json(h.getDevatas()).dump(2) << ",\n";
-    out << "  \"categories\": " << json(h.getCategories()).dump(2) << ",\n";
-    out << "  \"verses\": [\n";
-
-    const auto& verses = h.getVerses();
-    for (size_t i = 0; i < verses.size(); ++i) {
-        const Verse& v = verses[i];
-        out << "    {\n";
-        out << "      \"verseNumber\": " << json(v.getVerseNumber()).dump() << ",\n";
-        out << "      \"meter\": " << json(v.getMeter()).dump() << ",\n";
-        out << "      \"dev\": " << json(v.getDev()).dump() << ",\n";
-        out << "      \"iast\": " << json(v.getIAST()).dump() << ",\n";
-        out << "      \"eng\": " << json(v.getENG()).dump() << ",\n";
-        out << "      \"devWords\": " << dumpJsonValue(json::array()) << ",\n";
-        out << "      \"iastWords\": " << dumpJsonValue(json::array()) << ",\n";
-        json sandhi = json::array();
-        for (const auto& boundary : v.getSandhiBoundaries()) {
-            sandhi.push_back(sandhiBoundaryToJson(boundary));
-        }
-        out << "      \"sandhi\": " << dumpJsonValue(sandhi) << ",\n";
-        out << "      \"analysis\": " << dumpJsonValue(json{
-            {"letterFrequency", mapToJson(getLetterFrequency(v))},
-            {"swaraFrequency", mapToJson(getSwaraFrequency(v))},
-            {"phonemeClassFrequency", mapToJson(getPhonemeClassFrequency(v))}
-        });
-
-        json devWords = json::array();
-        for (const auto& w : v.getDevWords()) {
-            devWords.push_back(wordToJson(w));
-        }
-
-        json iastWords = json::array();
-        for (const auto& w : v.getIASTWords()) {
-            iastWords.push_back(wordToJson(w));
-        }
-
-        std::string verseBlock = out.str();
-        const std::string devPlaceholder = dumpJsonValue(json::array());
-        const std::string iastPlaceholder = dumpJsonValue(json::array());
-        const std::string devReplacement = dumpJsonValue(devWords);
-        const std::string iastReplacement = dumpJsonValue(iastWords);
-
-        const size_t devPos = verseBlock.rfind("\"devWords\": " + devPlaceholder);
-        const size_t iastPos = verseBlock.rfind("\"iastWords\": " + iastPlaceholder);
-
-        if (devPos != std::string::npos && iastPos != std::string::npos) {
-            verseBlock.replace(iastPos + 13, iastPlaceholder.size(), iastReplacement);
-            verseBlock.replace(devPos + 12, devPlaceholder.size(), devReplacement);
-            out.str("");
-            out.clear();
-            out << verseBlock;
-        }
-
-        out << "\n    }";
-        if (i + 1 < verses.size()) {
-            out << ",";
-        }
-        out << "\n";
-    }
-
-    out << "  ],\n";
-    out << "  \"analysis\": " << dumpJsonValue(json{
-        {"totalLetterFrequency", mapToJson(getHymnLetterFrequency(h))},
-        {"totalSwaraFrequency", mapToJson(getHymnSwaraFrequency(h))},
-        {"totalPhonemeClassFrequency", mapToJson(getHymnPhonemeClassFrequency(h))}
-    }) << "\n";
-    out << "}";
-
-    return out.str();
+    return hymnToJson(h).dump(2);
 }
