@@ -1,4 +1,2 @@
-repro_input.txt
-smoke_input.txt
-*.exe
-_debug_iast.cpp
+interactive_check.exe
+similarity_check.exe

@@ -4,6 +4,7 @@
 #include <functional>
 #include <sstream>
 #include <fstream>
+#include <iomanip>
 #include "analysis.h"
 #include "CleanUp.h"
 #include "Parser.h"
@@ -250,6 +251,31 @@ bool containsCount(const std::vector<int>& counts, int target) {
 
     return false;
 }
+
+std::map<std::string, double> buildMeterPatternProfile(const Verse& v) {
+    std::map<std::string, double> profile;
+    const auto pattern = getSyllablePattern(v);
+
+    for (size_t i = 0; i < pattern.size(); ++i) {
+        profile[std::to_string(i + 1) + ":" + pattern[i]] = 1.0;
+    }
+
+    return profile;
+}
+
+SimilarityScore compareIntFeatureMaps(
+    const std::map<std::string, int>& left,
+    const std::map<std::string, int>& right) {
+    const auto [leftVector, rightVector] = alignFeatureVectors(left, right);
+    return buildSimilarityScore(leftVector, rightVector);
+}
+
+SimilarityScore compareDoubleFeatureMaps(
+    const std::map<std::string, double>& left,
+    const std::map<std::string, double>& right) {
+    const auto [leftVector, rightVector] = alignFeatureVectors(left, right);
+    return buildSimilarityScore(leftVector, rightVector);
+}
 }
 
 // Count raw Devanagari letters per verse.
@@ -457,6 +483,40 @@ void exportHymnAnalysisCSV(const Hymn& h, const std::string& filename) {
     }
 }
 
+void exportVerseSimilarityCSV(const Hymn& h, const std::string& filename) {
+    std::ofstream file(filename);
+    file << "\xEF\xBB\xBF";
+    file << std::fixed << std::setprecision(6);
+    file <<
+        "Mandala,Sukta,Verse_A,Verse_B,"
+        "Phoneme_Dot_Product,Phoneme_Magnitude_A,Phoneme_Magnitude_B,Phoneme_Cosine_Similarity,Phoneme_Confidence,"
+        "Swara_Dot_Product,Swara_Magnitude_A,Swara_Magnitude_B,Swara_Cosine_Similarity,Swara_Confidence,"
+        "Meter_Dot_Product,Meter_Magnitude_A,Meter_Magnitude_B,Meter_Cosine_Similarity,Meter_Confidence\n";
+
+    for (const auto& comparison : getVerseSimilarityComparisons(h)) {
+        file
+            << h.getMandala() << ","
+            << h.getSukta() << ","
+            << comparison.leftVerseNumber << ","
+            << comparison.rightVerseNumber << ","
+            << comparison.phonemeClass.dotProduct << ","
+            << comparison.phonemeClass.magnitudeA << ","
+            << comparison.phonemeClass.magnitudeB << ","
+            << comparison.phonemeClass.cosineSimilarity << ","
+            << comparison.phonemeClass.confidence << ","
+            << comparison.swara.dotProduct << ","
+            << comparison.swara.magnitudeA << ","
+            << comparison.swara.magnitudeB << ","
+            << comparison.swara.cosineSimilarity << ","
+            << comparison.swara.confidence << ","
+            << comparison.meterPattern.dotProduct << ","
+            << comparison.meterPattern.magnitudeA << ","
+            << comparison.meterPattern.magnitudeB << ","
+            << comparison.meterPattern.cosineSimilarity << ","
+            << comparison.meterPattern.confidence << "\n";
+    }
+}
+
 //Split Verse into Padas
 std::vector<std::string> splitVerseIntoPadas(const std::string& text) {
     std::vector<std::string> padas;
@@ -521,6 +581,31 @@ std::string formatPadaCounts(const std::vector<int>& counts) {
     }
 
     return oss.str();
+}
+
+std::vector<VerseSimilarityComparison> getVerseSimilarityComparisons(const Hymn& h) {
+    std::vector<VerseSimilarityComparison> comparisons;
+    const auto& verses = h.getVerses();
+
+    for (size_t i = 0; i < verses.size(); ++i) {
+        for (size_t j = i + 1; j < verses.size(); ++j) {
+            VerseSimilarityComparison comparison;
+            comparison.leftVerseNumber = verses[i].getVerseNumber();
+            comparison.rightVerseNumber = verses[j].getVerseNumber();
+            comparison.phonemeClass = compareIntFeatureMaps(
+                getPhonemeClassFrequency(verses[i]),
+                getPhonemeClassFrequency(verses[j]));
+            comparison.swara = compareIntFeatureMaps(
+                getSwaraFrequency(verses[i]),
+                getSwaraFrequency(verses[j]));
+            comparison.meterPattern = compareDoubleFeatureMaps(
+                buildMeterPatternProfile(verses[i]),
+                buildMeterPatternProfile(verses[j]));
+            comparisons.push_back(comparison);
+        }
+    }
+
+    return comparisons;
 }
 
 //Meter Detection
