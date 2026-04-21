@@ -612,14 +612,14 @@ std::string buildLoadedHymnSummary(const std::vector<LoadedHymnRecord>& hymns) {
 
 std::string buildInteractiveActionPrompt() {
     std::ostringstream out;
-    out << "Request one of these actions next:\n";
-    out << "  search         Search for information in a hymn or across loaded hymns\n";
-    out << "  compare verses Compare two or more verses across hymns using hymnIndex:verseNumber\n";
-    out << "  compare hymns  Compare two or more hymns overall using hymn indices\n";
-    out << "  compare query  Compare how one search pattern behaves across loaded hymns\n";
-    out << "  list           Show loaded hymns again\n";
-    out << "  help           Show command help\n";
-    out << "  exit           Terminate the program when requested\n";
+    out << "Available actions:\n";
+    out << "  Search       Find information in loaded hymns step by step\n";
+    out << "  Compare      Compare verses, hymns, or one search pattern across hymns\n";
+    out << "  List         Show the currently loaded hymn index\n";
+    out << "  Add hymn     Load one more hymn from /Hymns into the current index\n";
+    out << "  Remove hymn  Remove one or more loaded hymn indices from the current index\n";
+    out << "  Help         Show command help\n";
+    out << "  Exit         Terminate the program when requested\n";
     return out.str();
 }
 

@@ -37,24 +37,54 @@ _yo asyādhyakṣaḥ parame vyoman **[so aṅgha veda yadi vā na veda]** ||_
 + Sandhi Analysis (Known Bugs, Planned Improvements)
 + Phoneme Class Identification
 + Baseline Verse Meter and Irregularity Identification (Known Bugs)
++ Confidence Value
++ Dot Product & Vector Magnitude -> Cosine Similarity
++ Phoneme, Varna, Swara Searching
++ Cross Hymn/Verse Comparison
 
 ## In Progress Functionalities
 - N-Gram Phonetic Analysis
-- Cross Hymn/Verse Comparison
 
 ## Planned Functionalities and Enhancements
 - Character-Level Matrix Analysis
 - Meter-Sandhi Proportionality Detection
 - Metadata Improvements
-- Phoneme, Varna, Swara Searching
 - Light/Heavy Syllable Pattern Finding
-- Confidence Value
-- Dot Product & Vector Magnitude -> Cosine Similarity, and Levenshtein Distance
+- Levenshtein Distance
 
 ## Structure
 
 `Hymn -> Verse -> Word -> [Syllable -> Onset/Nucleus/Coda] | [Letter -> Svara/Phoneme_Class]`
 
+# Usage
+
+## Initializatiion
+Any `.txt` will be referred to as a _Hymn_. Sample Hymns are provided in `/Hymns`. Sample `Hymn.txt` is provided as a template for your inputs.
+
+Running the program will need to be in a directory with `/Hymns` and `/HymnExports`.
+
+The program will require an integer of Hymns to be inputted selection of each Hymn. Afterwards they will be parsed and exported into HymnExports with the following:
+
++ `Hymn.json` (JSON Export)
++ `Hymn.csv` (Hymn Metadata, Verses (Meter), Words, Syllables (Onset | Nucleus | Coda), Letters (Svara | Phoneme Class))
++ `Hymn_Analysis.csv` (Letter Frequency, Svara Frequency, Phoneme Class Frequency)
++ `Hymn_Sandhi.csv` (Potential Sandhi Instances)
++ `Hymn_Similarty.csv` (Hymn Phoneme, Svara, and Metrical similarities with other indexed Hymns)
+
+## Search and Compare
+Following will be a prompt with the following commands enumerated:
+
++ `search` 
++ `compare verse`
++ `compare hymns`
++ `compare query`
++ `list`
++ `help` 
++ `back`
++ `exit`
+
+
+Type `help` anywhere for further instructions. Contact with any issues.
 
 ### Attributions:
 
