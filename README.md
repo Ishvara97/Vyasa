@@ -63,12 +63,12 @@ _yo asyādhyakṣaḥ parame vyoman **[so aṅgha veda yadi vā na veda]** ||_
 
 Extract `Vyasa.zip` into the directory you want and run `Vyasa.exe`
 
-## Initializatiion
+## Initialization
 Any `.txt` will be referred to as a _Hymn_. Sample Hymns are provided in `/Hymns`. Sample `Hymn.txt` is provided as a template for your inputs.
 
 Running the program will need to be in a directory with `/Hymns` and `/HymnExports`.
 
-The program will require an integer of Hymns to be inputted selection of each Hymn. Afterwards they will be parsed and exported into HymnExports with the following:
+The program will require an integer of Hymns to be inputted followed by selection of each Hymn. Afterwards they will be parsed and exported into HymnExports with the following:
 
 + `Hymn.json` (JSON Export)
 + `Hymn.csv` (Hymn Metadata, Verses (Meter), Words, Syllables (Onset | Nucleus | Coda), Letters (Svara | Phoneme Class))
