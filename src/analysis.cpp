@@ -1,10 +1,12 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <cmath>
 #include <functional>
 #include <sstream>
 #include <fstream>
 #include <iomanip>
+#include <set>
 #include "analysis.h"
 #include "CleanUp.h"
 #include "Parser.h"
@@ -276,6 +278,113 @@ SimilarityScore compareDoubleFeatureMaps(
     const auto [leftVector, rightVector] = alignFeatureVectors(left, right);
     return buildSimilarityScore(leftVector, rightVector);
 }
+
+std::vector<std::string> getCleanIASTUnits(const std::string& text) {
+    std::vector<std::string> units;
+
+    for (const auto& unit : splitIAST(text)) {
+        if (unit.empty() || isIgnorableSymbol(unit)) {
+            continue;
+        }
+        units.push_back(unit);
+    }
+
+    return units;
+}
+
+std::vector<std::string> buildPhoneticNGramsFromUnits(const std::vector<std::string>& units, int n) {
+    std::vector<std::string> grams;
+    if (n <= 0 || units.size() < static_cast<size_t>(n)) {
+        return grams;
+    }
+
+    for (size_t i = 0; i + static_cast<size_t>(n) <= units.size(); ++i) {
+        std::string gram;
+        for (int j = 0; j < n; ++j) {
+            gram += units[i + static_cast<size_t>(j)];
+        }
+        grams.push_back(gram);
+    }
+
+    return grams;
+}
+
+std::map<std::string, int> buildFrequencyMap(const std::vector<std::string>& values) {
+    std::map<std::string, int> freq;
+    for (const auto& value : values) {
+        freq[value]++;
+    }
+    return freq;
+}
+
+std::string getPositionBucket(size_t index, size_t total) {
+    if (total <= 1) {
+        return "Onset";
+    }
+
+    const double ratio = static_cast<double>(index) / static_cast<double>(total - 1);
+    if (ratio < (1.0 / 3.0)) {
+        return "Onset";
+    }
+    if (ratio < (2.0 / 3.0)) {
+        return "Middle";
+    }
+    return "Cadence";
+}
+
+std::map<std::string, double> buildRareWeightedProfile(
+    const std::map<std::string, int>& left,
+    const std::map<std::string, int>& right,
+    bool useLeft) {
+    std::map<std::string, double> weighted;
+    std::set<std::string> keys;
+    for (const auto& [key, value] : left) {
+        (void)value;
+        keys.insert(key);
+    }
+    for (const auto& [key, value] : right) {
+        (void)value;
+        keys.insert(key);
+    }
+
+    for (const auto& key : keys) {
+        const int leftCount = left.count(key) > 0 ? left.at(key) : 0;
+        const int rightCount = right.count(key) > 0 ? right.at(key) : 0;
+        const int totalCount = leftCount + rightCount;
+        if (totalCount <= 0) {
+            continue;
+        }
+
+        const double rarityWeight = 1.0 / static_cast<double>(totalCount);
+        const double selectedCount = static_cast<double>(useLeft ? leftCount : rightCount);
+        weighted[key] = selectedCount * rarityWeight;
+    }
+
+    return weighted;
+}
+
+double computeEntropyFromFrequencyMap(const std::map<std::string, int>& freq) {
+    double total = 0.0;
+    for (const auto& [key, value] : freq) {
+        (void)key;
+        total += static_cast<double>(value);
+    }
+
+    if (total <= 0.0) {
+        return 0.0;
+    }
+
+    double entropy = 0.0;
+    for (const auto& [key, value] : freq) {
+        (void)key;
+        const double probability = static_cast<double>(value) / total;
+        if (probability > 0.0) {
+            entropy -= probability * std::log2(probability);
+        }
+    }
+
+    return entropy;
+}
 }
 
 // Count raw Devanagari letters per verse.
@@ -389,6 +498,95 @@ std::map<std::string, int> getNGrams(const Verse& v, int n) {
     return freq;
 }
 
+std::map<std::string, int> getPhoneticNGrams(const Verse& v, int n) {
+    return buildFrequencyMap(buildPhoneticNGramsFromUnits(getCleanIASTUnits(v.getIAST()), n));
+}
+
+std::map<std::string, int> getHymnPhoneticNGrams(const Hymn& h, int n) {
+    std::map<std::string, int> freq;
+
+    for (const auto& verse : h.getVerses()) {
+        const auto verseFreq = getPhoneticNGrams(verse, n);
+        for (const auto& [key, value] : verseFreq) {
+            freq[key] += value;
+        }
+    }
+
+    return freq;
+}
+
+std::map<std::string, int> getPhoneticNGramPositionProfile(const Verse& v, int n) {
+    std::map<std::string, int> profile;
+    const auto padas = splitTextIntoPadasNormalized(v.getIAST());
+
+    for (size_t padaIndex = 0; padaIndex < padas.size(); ++padaIndex) {
+        const auto units = getCleanIASTUnits(padas[padaIndex]);
+        const auto grams = buildPhoneticNGramsFromUnits(units, n);
+        for (size_t i = 0; i < grams.size(); ++i) {
+            const std::string key =
+                "Pada" + std::to_string(padaIndex + 1) + ":" + getPositionBucket(i, grams.size()) + ":" + grams[i];
+            profile[key]++;
+        }
+    }
+
+    return profile;
+}
+
+std::map<std::string, int> getHymnPhoneticNGramPositionProfile(const Hymn& h, int n) {
+    std::map<std::string, int> profile;
+
+    for (const auto& verse : h.getVerses()) {
+        const auto verseProfile = getPhoneticNGramPositionProfile(verse, n);
+        for (const auto& [key, value] : verseProfile) {
+            profile[key] += value;
+        }
+    }
+
+    return profile;
+}
+
+double getPhoneticNGramEntropy(const Verse& v, int n) {
+    return computeEntropyFromFrequencyMap(getPhoneticNGrams(v, n));
+}
+
+double getHymnPhoneticNGramEntropy(const Hymn& h, int n) {
+    return computeEntropyFromFrequencyMap(getHymnPhoneticNGrams(h, n));
+}
+
+double computeNGramJaccardSimilarity(
+    const std::map<std::string, int>& left,
+    const std::map<std::string, int>& right) {
+    std::set<std::string> unionKeys;
+    size_t intersectionCount = 0;
+
+    for (const auto& [key, value] : left) {
+        (void)value;
+        unionKeys.insert(key);
+    }
+
+    for (const auto& [key, value] : right) {
+        (void)value;
+        if (left.find(key) != left.end()) {
+            ++intersectionCount;
+        }
+        unionKeys.insert(key);
+    }
+
+    if (unionKeys.empty()) {
+        return 0.0;
+    }
+
+    return static_cast<double>(intersectionCount) / static_cast<double>(unionKeys.size());
+}
+
+SimilarityScore compareRareWeightedNGramProfiles(
+    const std::map<std::string, int>& left,
+    const std::map<std::string, int>& right) {
+    const auto weightedLeft = buildRareWeightedProfile(left, right, true);
+    const auto weightedRight = buildRareWeightedProfile(left, right, false);
+    return compareDoubleFeatureMaps(weightedLeft, weightedRight);
+}
+
 // Count letters by high-level phoneme class.
 std::map<std::string, int> getPhonemeClassFrequency(const Verse& v) {
     std::map<std::string, int> freq;
@@ -481,6 +679,29 @@ void exportHymnAnalysisCSV(const Hymn& h, const std::string& filename) {
     for (auto& [k, v] : pf) {
         file << "PhonemeClass," << k << "," << v << "\n";
     }
+
+    file << "NGramEntropy,PhoneticBigram," << getHymnPhoneticNGramEntropy(h, 2) << "\n";
+    file << "NGramEntropy,PhoneticTrigram," << getHymnPhoneticNGramEntropy(h, 3) << "\n";
+
+    auto bigrams = getHymnPhoneticNGrams(h, 2);
+    for (const auto& [k, v] : bigrams) {
+        file << "PhoneticBigram," << k << "," << v << "\n";
+    }
+
+    auto trigrams = getHymnPhoneticNGrams(h, 3);
+    for (const auto& [k, v] : trigrams) {
+        file << "PhoneticTrigram," << k << "," << v << "\n";
+    }
+
+    auto bigramPositions = getHymnPhoneticNGramPositionProfile(h, 2);
+    for (const auto& [k, v] : bigramPositions) {
+        file << "BigramPosition," << k << "," << v << "\n";
+    }
+
+    auto trigramPositions = getHymnPhoneticNGramPositionProfile(h, 3);
+    for (const auto& [k, v] : trigramPositions) {
+        file << "TrigramPosition," << k << "," << v << "\n";
+    }
 }
 
 void exportVerseSimilarityCSV(const Hymn& h, const std::string& filename) {
@@ -491,7 +712,14 @@ void exportVerseSimilarityCSV(const Hymn& h, const std::string& filename) {
         "Mandala,Sukta,Verse_A,Verse_B,"
         "Phoneme_Dot_Product,Phoneme_Magnitude_A,Phoneme_Magnitude_B,Phoneme_Cosine_Similarity,Phoneme_Confidence,"
         "Swara_Dot_Product,Swara_Magnitude_A,Swara_Magnitude_B,Swara_Cosine_Similarity,Swara_Confidence,"
-        "Meter_Dot_Product,Meter_Magnitude_A,Meter_Magnitude_B,Meter_Cosine_Similarity,Meter_Confidence\n";
+        "Meter_Dot_Product,Meter_Magnitude_A,Meter_Magnitude_B,Meter_Cosine_Similarity,Meter_Confidence,"
+        "Bigram_Jaccard,Trigram_Jaccard,"
+        "Rare_Bigram_Dot_Product,Rare_Bigram_Magnitude_A,Rare_Bigram_Magnitude_B,Rare_Bigram_Cosine_Similarity,Rare_Bigram_Confidence,"
+        "Rare_Trigram_Dot_Product,Rare_Trigram_Magnitude_A,Rare_Trigram_Magnitude_B,Rare_Trigram_Cosine_Similarity,Rare_Trigram_Confidence,"
+        "Bigram_Position_Dot_Product,Bigram_Position_Magnitude_A,Bigram_Position_Magnitude_B,Bigram_Position_Cosine_Similarity,Bigram_Position_Confidence,"
+        "Trigram_Position_Dot_Product,Trigram_Position_Magnitude_A,Trigram_Position_Magnitude_B,Trigram_Position_Cosine_Similarity,Trigram_Position_Confidence,"
+        "Verse_A_Bigram_Entropy,Verse_B_Bigram_Entropy,Bigram_Entropy_Delta,"
+        "Verse_A_Trigram_Entropy,Verse_B_Trigram_Entropy,Trigram_Entropy_Delta\n";
 
     for (const auto& comparison : getVerseSimilarityComparisons(h)) {
         file
@@ -513,7 +741,35 @@ void exportVerseSimilarityCSV(const Hymn& h, const std::string& filename) {
             << comparison.meterPattern.magnitudeA << ","
             << comparison.meterPattern.magnitudeB << ","
             << comparison.meterPattern.cosineSimilarity << ","
-            << comparison.meterPattern.confidence << "\n";
+            << comparison.meterPattern.confidence << ","
+            << comparison.bigramJaccard << ","
+            << comparison.trigramJaccard << ","
+            << comparison.rareWeightedBigram.dotProduct << ","
+            << comparison.rareWeightedBigram.magnitudeA << ","
+            << comparison.rareWeightedBigram.magnitudeB << ","
+            << comparison.rareWeightedBigram.cosineSimilarity << ","
+            << comparison.rareWeightedBigram.confidence << ","
+            << comparison.rareWeightedTrigram.dotProduct << ","
+            << comparison.rareWeightedTrigram.magnitudeA << ","
+            << comparison.rareWeightedTrigram.magnitudeB << ","
+            << comparison.rareWeightedTrigram.cosineSimilarity << ","
+            << comparison.rareWeightedTrigram.confidence << ","
+            << comparison.bigramPosition.dotProduct << ","
+            << comparison.bigramPosition.magnitudeA << ","
+            << comparison.bigramPosition.magnitudeB << ","
+            << comparison.bigramPosition.cosineSimilarity << ","
+            << comparison.bigramPosition.confidence << ","
+            << comparison.trigramPosition.dotProduct << ","
+            << comparison.trigramPosition.magnitudeA << ","
+            << comparison.trigramPosition.magnitudeB << ","
+            << comparison.trigramPosition.cosineSimilarity << ","
+            << comparison.trigramPosition.confidence << ","
+            << comparison.leftBigramEntropy << ","
+            << comparison.rightBigramEntropy << ","
+            << std::abs(comparison.leftBigramEntropy - comparison.rightBigramEntropy) << ","
+            << comparison.leftTrigramEntropy << ","
+            << comparison.rightTrigramEntropy << ","
+            << std::abs(comparison.leftTrigramEntropy - comparison.rightTrigramEntropy) << "\n";
     }
 }
 
@@ -601,6 +857,28 @@ std::vector<VerseSimilarityComparison> getVerseSimilarityComparisons(const Hymn&
             comparison.meterPattern = compareDoubleFeatureMaps(
                 buildMeterPatternProfile(verses[i]),
                 buildMeterPatternProfile(verses[j]));
+            comparison.bigramJaccard = computeNGramJaccardSimilarity(
+                getPhoneticNGrams(verses[i], 2),
+                getPhoneticNGrams(verses[j], 2));
+            comparison.trigramJaccard = computeNGramJaccardSimilarity(
+                getPhoneticNGrams(verses[i], 3),
+                getPhoneticNGrams(verses[j], 3));
+            comparison.rareWeightedBigram = compareRareWeightedNGramProfiles(
+                getPhoneticNGrams(verses[i], 2),
+                getPhoneticNGrams(verses[j], 2));
+            comparison.rareWeightedTrigram = compareRareWeightedNGramProfiles(
+                getPhoneticNGrams(verses[i], 3),
+                getPhoneticNGrams(verses[j], 3));
+            comparison.bigramPosition = compareIntFeatureMaps(
+                getPhoneticNGramPositionProfile(verses[i], 2),
+                getPhoneticNGramPositionProfile(verses[j], 2));
+            comparison.trigramPosition = compareIntFeatureMaps(
+                getPhoneticNGramPositionProfile(verses[i], 3),
+                getPhoneticNGramPositionProfile(verses[j], 3));
+            comparison.leftBigramEntropy = getPhoneticNGramEntropy(verses[i], 2);
+            comparison.rightBigramEntropy = getPhoneticNGramEntropy(verses[j], 2);
+            comparison.leftTrigramEntropy = getPhoneticNGramEntropy(verses[i], 3);
+            comparison.rightTrigramEntropy = getPhoneticNGramEntropy(verses[j], 3);
             comparisons.push_back(comparison);
         }
     }

@@ -11,6 +11,14 @@ json mapToJson(const std::map<std::string, int>& values) {
     return result;
 }
 
+json mapToJson(const std::map<std::string, double>& values) {
+    json result = json::object();
+    for (const auto& [key, value] : values) {
+        result[key] = value;
+    }
+    return result;
+}
+
 std::string dumpJsonValue(const json& value) {
     return value.dump(2);
 }
@@ -53,7 +61,17 @@ json verseSimilarityToJson(const VerseSimilarityComparison& comparison) {
         {"rightVerseNumber", comparison.rightVerseNumber},
         {"phonemeClass", similarityScoreToJson(comparison.phonemeClass)},
         {"swara", similarityScoreToJson(comparison.swara)},
-        {"meterPattern", similarityScoreToJson(comparison.meterPattern)}
+        {"meterPattern", similarityScoreToJson(comparison.meterPattern)},
+        {"bigramJaccard", comparison.bigramJaccard},
+        {"trigramJaccard", comparison.trigramJaccard},
+        {"rareWeightedBigram", similarityScoreToJson(comparison.rareWeightedBigram)},
+        {"rareWeightedTrigram", similarityScoreToJson(comparison.rareWeightedTrigram)},
+        {"bigramPosition", similarityScoreToJson(comparison.bigramPosition)},
+        {"trigramPosition", similarityScoreToJson(comparison.trigramPosition)},
+        {"leftBigramEntropy", comparison.leftBigramEntropy},
+        {"rightBigramEntropy", comparison.rightBigramEntropy},
+        {"leftTrigramEntropy", comparison.leftTrigramEntropy},
+        {"rightTrigramEntropy", comparison.rightTrigramEntropy}
     };
 }
 }
@@ -199,7 +217,13 @@ json verseToJson(const Verse& v) {
         {"letterFrequency", mapToJson(getLetterFrequency(v))},
         {"swaraFrequency", mapToJson(getSwaraFrequency(v))},
         {"phonemeClassFrequency", mapToJson(getPhonemeClassFrequency(v))},
-        {"meterPattern", getSyllablePattern(v)}
+        {"meterPattern", getSyllablePattern(v)},
+        {"phoneticBigrams", mapToJson(getPhoneticNGrams(v, 2))},
+        {"phoneticTrigrams", mapToJson(getPhoneticNGrams(v, 3))},
+        {"bigramEntropy", getPhoneticNGramEntropy(v, 2)},
+        {"trigramEntropy", getPhoneticNGramEntropy(v, 3)},
+        {"bigramPositionProfile", mapToJson(getPhoneticNGramPositionProfile(v, 2))},
+        {"trigramPositionProfile", mapToJson(getPhoneticNGramPositionProfile(v, 3))}
     };
 
     return j;
@@ -239,7 +263,13 @@ json hymnToJson(const Hymn& h) {
     j["analysis"] = {
         {"totalLetterFrequency", mapToJson(getHymnLetterFrequency(h))},
         {"totalSwaraFrequency", mapToJson(getHymnSwaraFrequency(h))},
-        {"totalPhonemeClassFrequency", mapToJson(getHymnPhonemeClassFrequency(h))}
+        {"totalPhonemeClassFrequency", mapToJson(getHymnPhonemeClassFrequency(h))},
+        {"phoneticBigrams", mapToJson(getHymnPhoneticNGrams(h, 2))},
+        {"phoneticTrigrams", mapToJson(getHymnPhoneticNGrams(h, 3))},
+        {"bigramEntropy", getHymnPhoneticNGramEntropy(h, 2)},
+        {"trigramEntropy", getHymnPhoneticNGramEntropy(h, 3)},
+        {"bigramPositionProfile", mapToJson(getHymnPhoneticNGramPositionProfile(h, 2))},
+        {"trigramPositionProfile", mapToJson(getHymnPhoneticNGramPositionProfile(h, 3))}
     };
 
     return j;

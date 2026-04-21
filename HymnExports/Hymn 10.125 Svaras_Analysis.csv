@@ -57,3 +57,2619 @@ PhonemeClass,Semivowel,74
 PhonemeClass,Sibilant,44
 PhonemeClass,Velar,10
 PhonemeClass,Vowel,216
+NGramEntropy,PhoneticBigram,7.35107
+NGramEntropy,PhoneticTrigram,9.01689
+PhoneticBigram,  ,24
+PhoneticBigram, a,16
+PhoneticBigram, b,10
+PhoneticBigram, c,2
+PhoneticBigram, d,8
+PhoneticBigram, e,2
+PhoneticBigram, h,2
+PhoneticBigram, i,1
+PhoneticBigram, j,2
+PhoneticBigram, k,4
+PhoneticBigram, m,8
+PhoneticBigram, p,10
+PhoneticBigram, r,3
+PhoneticBigram, s,12
+PhoneticBigram, t,11
+PhoneticBigram, u,3
+PhoneticBigram, v,13
+PhoneticBigram, y,7
+PhoneticBigram, ā,2
+PhoneticBigram, ī,1
+PhoneticBigram, ś,5
+PhoneticBigram, ṛ,1
+PhoneticBigram,a ,15
+PhoneticBigram,ab,1
+PhoneticBigram,ad,6
+PhoneticBigram,ag,1
+PhoneticBigram,ah,16
+PhoneticBigram,air,1
+PhoneticBigram,aiḥ,1
+PhoneticBigram,aj,2
+PhoneticBigram,am,12
+PhoneticBigram,an,6
+PhoneticBigram,ap,1
+PhoneticBigram,ar,9
+PhoneticBigram,as,3
+PhoneticBigram,at,5
+PhoneticBigram,av,2
+PhoneticBigram,ay,3
+PhoneticBigram,aś,2
+PhoneticBigram,a̍,20
+PhoneticBigram,a̱,18
+PhoneticBigram,aḥ,2
+PhoneticBigram,aṃ,24
+PhoneticBigram,aṇ,1
+PhoneticBigram,aṣ,1
+PhoneticBigram,ba,1
+PhoneticBigram,bh,15
+PhoneticBigram,bi,2
+PhoneticBigram,br,2
+PhoneticBigram,ca,1
+PhoneticBigram,ci,1
+PhoneticBigram,da,4
+PhoneticBigram,dd,1
+PhoneticBigram,de,3
+PhoneticBigram,dh,6
+PhoneticBigram,di,3
+PhoneticBigram,dr,5
+PhoneticBigram,dv,1
+PhoneticBigram,dy,2
+PhoneticBigram,dā,2
+PhoneticBigram,e ,6
+PhoneticBigram,eb,3
+PhoneticBigram,ed,1
+PhoneticBigram,en,2
+PhoneticBigram,et,1
+PhoneticBigram,eś,1
+PhoneticBigram,e̍,3
+PhoneticBigram,e̱,7
+PhoneticBigram,ga,2
+PhoneticBigram,gn,1
+PhoneticBigram,gr,1
+PhoneticBigram,ha,25
+PhoneticBigram,he,1
+PhoneticBigram,hi,8
+PhoneticBigram,hm,2
+PhoneticBigram,hu,3
+PhoneticBigram,hā,5
+PhoneticBigram,hū,3
+PhoneticBigram,i ,15
+PhoneticBigram,id,1
+PhoneticBigram,ik,1
+PhoneticBigram,ir,1
+PhoneticBigram,is,1
+PhoneticBigram,it,3
+PhoneticBigram,iv,1
+PhoneticBigram,iy,1
+PhoneticBigram,iś,4
+PhoneticBigram,i̍,8
+PhoneticBigram,i̱,12
+PhoneticBigram,iḥ,1
+PhoneticBigram,iṃ,1
+PhoneticBigram,iṣ,2
+PhoneticBigram,ja,2
+PhoneticBigram,ju,1
+PhoneticBigram,jñ,1
+PhoneticBigram,ki,1
+PhoneticBigram,kt,1
+PhoneticBigram,kā,1
+PhoneticBigram,kṛ,2
+PhoneticBigram,kṣ,1
+PhoneticBigram,m ,6
+PhoneticBigram,ma,15
+PhoneticBigram,me,4
+PhoneticBigram,mi,13
+PhoneticBigram,mu,3
+PhoneticBigram,mā,9
+PhoneticBigram,mū,2
+PhoneticBigram,n ,1
+PhoneticBigram,na,2
+PhoneticBigram,nd,1
+PhoneticBigram,ni,2
+PhoneticBigram,nn,1
+PhoneticBigram,no,2
+PhoneticBigram,nt,5
+PhoneticBigram,nu,3
+PhoneticBigram,nv,1
+PhoneticBigram,nā,8
+PhoneticBigram,nī,2
+PhoneticBigram,o ,2
+PhoneticBigram,om,4
+PhoneticBigram,on,1
+PhoneticBigram,ot,1
+PhoneticBigram,o̱,5
+PhoneticBigram,o’,1
+PhoneticBigram,pa,5
+PhoneticBigram,pi,1
+PhoneticBigram,pr,4
+PhoneticBigram,ps,1
+PhoneticBigram,pu,1
+PhoneticBigram,pū,1
+PhoneticBigram,pṛ,3
+PhoneticBigram,r ,1
+PhoneticBigram,ra,13
+PhoneticBigram,rd,1
+PhoneticBigram,re,2
+PhoneticBigram,ri,1
+PhoneticBigram,rm,2
+PhoneticBigram,ro,1
+PhoneticBigram,ru,8
+PhoneticBigram,ry,1
+PhoneticBigram,rā,10
+PhoneticBigram,rī,1
+PhoneticBigram,rṣ,1
+PhoneticBigram,sa,5
+PhoneticBigram,so,2
+PhoneticBigram,sp,1
+PhoneticBigram,st,1
+PhoneticBigram,su,5
+PhoneticBigram,sv,2
+PhoneticBigram,sy,1
+PhoneticBigram,sū,1
+PhoneticBigram,ta,18
+PhoneticBigram,te,3
+PhoneticBigram,th,4
+PhoneticBigram,ti,5
+PhoneticBigram,to,1
+PhoneticBigram,tr,3
+PhoneticBigram,tt,1
+PhoneticBigram,tu,1
+PhoneticBigram,tv,1
+PhoneticBigram,ty,2
+PhoneticBigram,tā,3
+PhoneticBigram,tī,2
+PhoneticBigram,u ,1
+PhoneticBigram,ub,1
+PhoneticBigram,ud,1
+PhoneticBigram,up,2
+PhoneticBigram,ut,2
+PhoneticBigram,uv,2
+PhoneticBigram,u̍,5
+PhoneticBigram,u̱,13
+PhoneticBigram,uḥ,1
+PhoneticBigram,uṇ,1
+PhoneticBigram,va,19
+PhoneticBigram,vai,1
+PhoneticBigram,ve,5
+PhoneticBigram,vi,10
+PhoneticBigram,vo,1
+PhoneticBigram,vy,3
+PhoneticBigram,vā,8
+PhoneticBigram,vī,1
+PhoneticBigram,ya,14
+PhoneticBigram,yai,1
+PhoneticBigram,ye,2
+PhoneticBigram,yo,2
+PhoneticBigram,yu,1
+PhoneticBigram,yā,6
+PhoneticBigram,ñi,1
+PhoneticBigram,ā ,14
+PhoneticBigram,āh,1
+PhoneticBigram,ām,7
+PhoneticBigram,ān,5
+PhoneticBigram,ār,1
+PhoneticBigram,āt,1
+PhoneticBigram,āv,2
+PhoneticBigram,āy,2
+PhoneticBigram,ā̍,5
+PhoneticBigram,ā̱,13
+PhoneticBigram,āṃ,4
+PhoneticBigram,āṇ,2
+PhoneticBigram,ī ,6
+PhoneticBigram,īm,1
+PhoneticBigram,ī̍,1
+PhoneticBigram,ś ,1
+PhoneticBigram,śa,3
+PhoneticBigram,śr,3
+PhoneticBigram,śv,4
+PhoneticBigram,śy,1
+PhoneticBigram,śā,1
+PhoneticBigram,śṛ,1
+PhoneticBigram,ūn,1
+PhoneticBigram,ūv,1
+PhoneticBigram,ū̱,4
+PhoneticBigram,ūṃ,1
+PhoneticBigram,̍ ,4
+PhoneticBigram,̍b,3
+PhoneticBigram,̍d,3
+PhoneticBigram,̍m,8
+PhoneticBigram,̍n,6
+PhoneticBigram,̍r,2
+PhoneticBigram,̍t,4
+PhoneticBigram,̍v,7
+PhoneticBigram,̍y,1
+PhoneticBigram,̍ś,2
+PhoneticBigram,̍ṃ,1
+PhoneticBigram,̍ṇ,2
+PhoneticBigram,̍ṣ,4
+PhoneticBigram,̱ ,18
+PhoneticBigram,̱b,2
+PhoneticBigram,̱d,4
+PhoneticBigram,̱g,2
+PhoneticBigram,̱h,2
+PhoneticBigram,̱k,1
+PhoneticBigram,̱m,6
+PhoneticBigram,̱n,4
+PhoneticBigram,̱p,2
+PhoneticBigram,̱r,6
+PhoneticBigram,̱s,1
+PhoneticBigram,̱t,7
+PhoneticBigram,̱v,11
+PhoneticBigram,̱y,2
+PhoneticBigram,̱ṃ,2
+PhoneticBigram,̱ṇ,3
+PhoneticBigram,̱ṣ,3
+PhoneticBigram,ḥ ,5
+PhoneticBigram,ṃ ,28
+PhoneticBigram,ṃg,1
+PhoneticBigram,ṃ̍,1
+PhoneticBigram,ṃ̱,3
+PhoneticBigram,ṇa,3
+PhoneticBigram,ṇi,1
+PhoneticBigram,ṇo,5
+PhoneticBigram,ṇā,1
+PhoneticBigram,ṛt,1
+PhoneticBigram,ṛ̍,4
+PhoneticBigram,ṛ̱,1
+PhoneticBigram,ṛṇ,1
+PhoneticBigram,ṣa,1
+PhoneticBigram,ṣe,2
+PhoneticBigram,ṣi,2
+PhoneticBigram,ṣm,2
+PhoneticBigram,ṣī,1
+PhoneticBigram,ṣṭ,4
+PhoneticBigram,ṭa,1
+PhoneticBigram,ṭh,1
+PhoneticBigram,ṭr,1
+PhoneticBigram,ṭā,1
+PhoneticBigram,’n,1
+PhoneticTrigram,  a,8
+PhoneticTrigram,  b,2
+PhoneticTrigram,  c,1
+PhoneticTrigram,  e,1
+PhoneticTrigram,  j,1
+PhoneticTrigram,  m,1
+PhoneticTrigram,  p,1
+PhoneticTrigram,  s,1
+PhoneticTrigram,  t,3
+PhoneticTrigram,  u,1
+PhoneticTrigram,  y,2
+PhoneticTrigram,  ā,1
+PhoneticTrigram,  ś,1
+PhoneticTrigram, ah,14
+PhoneticTrigram, a̱,2
+PhoneticTrigram, ba,1
+PhoneticTrigram, bh,5
+PhoneticTrigram, bi,2
+PhoneticTrigram, br,2
+PhoneticTrigram, ca,1
+PhoneticTrigram, ci,1
+PhoneticTrigram, da,1
+PhoneticTrigram, de,2
+PhoneticTrigram, dh,1
+PhoneticTrigram, di,1
+PhoneticTrigram, dr,1
+PhoneticTrigram, dy,2
+PhoneticTrigram, en,1
+PhoneticTrigram, et,1
+PhoneticTrigram, ha,2
+PhoneticTrigram, i̍,1
+PhoneticTrigram, ja,1
+PhoneticTrigram, ju,1
+PhoneticTrigram, kā,1
+PhoneticTrigram, kṛ,2
+PhoneticTrigram, kṣ,1
+PhoneticTrigram, ma,3
+PhoneticTrigram, mi,1
+PhoneticTrigram, mā,3
+PhoneticTrigram, mū,1
+PhoneticTrigram, pa,2
+PhoneticTrigram, pi,1
+PhoneticTrigram, pr,3
+PhoneticTrigram, pu,1
+PhoneticTrigram, pū,1
+PhoneticTrigram, pṛ,2
+PhoneticTrigram, ru,2
+PhoneticTrigram, rā,1
+PhoneticTrigram, sa,4
+PhoneticTrigram, so,2
+PhoneticTrigram, sp,1
+PhoneticTrigram, su,4
+PhoneticTrigram, sv,1
+PhoneticTrigram, ta,7
+PhoneticTrigram, te,1
+PhoneticTrigram, ti,1
+PhoneticTrigram, tv,1
+PhoneticTrigram, tā,1
+PhoneticTrigram, u ,1
+PhoneticTrigram, up,1
+PhoneticTrigram, ut,1
+PhoneticTrigram, va,5
+PhoneticTrigram, vi,6
+PhoneticTrigram, vy,1
+PhoneticTrigram, vā,1
+PhoneticTrigram, ya,5
+PhoneticTrigram, yo,2
+PhoneticTrigram, ā ,1
+PhoneticTrigram, ār,1
+PhoneticTrigram, ī̍,1
+PhoneticTrigram, śa,1
+PhoneticTrigram, śr,3
+PhoneticTrigram, śṛ,1
+PhoneticTrigram, ṛ̍,1
+PhoneticTrigram,a i,1
+PhoneticTrigram,a m,2
+PhoneticTrigram,a p,2
+PhoneticTrigram,a s,3
+PhoneticTrigram,a u,1
+PhoneticTrigram,a v,2
+PhoneticTrigram,a ī,1
+PhoneticTrigram,a ś,1
+PhoneticTrigram,abh,1
+PhoneticTrigram,add,1
+PhoneticTrigram,ade,1
+PhoneticTrigram,adh,2
+PhoneticTrigram,adā,2
+PhoneticTrigram,aga,1
+PhoneticTrigram,aha,14
+PhoneticTrigram,ahi,1
+PhoneticTrigram,ahm,1
+PhoneticTrigram,airu,1
+PhoneticTrigram,aiḥ ,1
+PhoneticTrigram,aja,1
+PhoneticTrigram,ajñ,1
+PhoneticTrigram,am ,1
+PhoneticTrigram,ama,4
+PhoneticTrigram,ame,3
+PhoneticTrigram,ami,1
+PhoneticTrigram,amu,2
+PhoneticTrigram,amā,1
+PhoneticTrigram,an ,1
+PhoneticTrigram,ana,1
+PhoneticTrigram,ant,3
+PhoneticTrigram,anu,1
+PhoneticTrigram,aps,1
+PhoneticTrigram,ara,3
+PhoneticTrigram,arm,2
+PhoneticTrigram,aro,1
+PhoneticTrigram,aru,1
+PhoneticTrigram,arā,1
+PhoneticTrigram,arṣ,1
+PhoneticTrigram,asa,1
+PhoneticTrigram,asu,1
+PhoneticTrigram,asy,1
+PhoneticTrigram,ate,1
+PhoneticTrigram,ath,1
+PhoneticTrigram,ato,1
+PhoneticTrigram,att,1
+PhoneticTrigram,atī,1
+PhoneticTrigram,avi,1
+PhoneticTrigram,avā,1
+PhoneticTrigram,aya,1
+PhoneticTrigram,aye,1
+PhoneticTrigram,ayā,1
+PhoneticTrigram,aśv,1
+PhoneticTrigram,aśy,1
+PhoneticTrigram,a̍ ,1
+PhoneticTrigram,a̍b,1
+PhoneticTrigram,a̍d,2
+PhoneticTrigram,a̍m,6
+PhoneticTrigram,a̍n,4
+PhoneticTrigram,a̍t,1
+PhoneticTrigram,a̍v,4
+PhoneticTrigram,a̍ṇ,1
+PhoneticTrigram,a̱ ,4
+PhoneticTrigram,a̱d,1
+PhoneticTrigram,a̱h,2
+PhoneticTrigram,a̱m,3
+PhoneticTrigram,a̱n,3
+PhoneticTrigram,a̱s,1
+PhoneticTrigram,a̱t,1
+PhoneticTrigram,a̱y,1
+PhoneticTrigram,a̱ṃ,2
+PhoneticTrigram,aḥ ,2
+PhoneticTrigram,aṃ ,22
+PhoneticTrigram,aṃ̍,1
+PhoneticTrigram,aṃ̱,1
+PhoneticTrigram,aṇa,1
+PhoneticTrigram,aṣṭ,1
+PhoneticTrigram,ba̍,1
+PhoneticTrigram,bha,4
+PhoneticTrigram,bhi,4
+PhoneticTrigram,bhu,2
+PhoneticTrigram,bhā,2
+PhoneticTrigram,bhū,3
+PhoneticTrigram,bi̍,2
+PhoneticTrigram,bra,2
+PhoneticTrigram,car,1
+PhoneticTrigram,cik,1
+PhoneticTrigram,dad,2
+PhoneticTrigram,daṃ,2
+PhoneticTrigram,ddi,1
+PhoneticTrigram,de̍,1
+PhoneticTrigram,de̱,2
+PhoneticTrigram,dha,2
+PhoneticTrigram,dhi,1
+PhoneticTrigram,dhu,1
+PhoneticTrigram,dhā,2
+PhoneticTrigram,dit,1
+PhoneticTrigram,div,1
+PhoneticTrigram,di̱,1
+PhoneticTrigram,dra,1
+PhoneticTrigram,dre,2
+PhoneticTrigram,drā,2
+PhoneticTrigram,dvi,1
+PhoneticTrigram,dyā,2
+PhoneticTrigram,dām,2
+PhoneticTrigram,e  ,2
+PhoneticTrigram,e b,1
+PhoneticTrigram,e p,1
+PhoneticTrigram,e y,1
+PhoneticTrigram,ebh,3
+PhoneticTrigram,edh,1
+PhoneticTrigram,end,1
+PhoneticTrigram,enā,1
+PhoneticTrigram,etā,1
+PhoneticTrigram,eśa,1
+PhoneticTrigram,e̍ ,1
+PhoneticTrigram,e̍v,1
+PhoneticTrigram,e̍ś,1
+PhoneticTrigram,e̱ ,3
+PhoneticTrigram,e̱v,4
+PhoneticTrigram,gam,1
+PhoneticTrigram,ga̍,1
+PhoneticTrigram,gnī,1
+PhoneticTrigram,gra,1
+PhoneticTrigram,hag,1
+PhoneticTrigram,ham,5
+PhoneticTrigram,han,4
+PhoneticTrigram,har,2
+PhoneticTrigram,ha̍,1
+PhoneticTrigram,ha̱,2
+PhoneticTrigram,haṃ,10
+PhoneticTrigram,he ,1
+PhoneticTrigram,hi ,1
+PhoneticTrigram,hir,1
+PhoneticTrigram,hiś,1
+PhoneticTrigram,hi̍,1
+PhoneticTrigram,hi̱,3
+PhoneticTrigram,hiḥ,1
+PhoneticTrigram,hma,1
+PhoneticTrigram,hmā,1
+PhoneticTrigram,huv,2
+PhoneticTrigram,huḥ,1
+PhoneticTrigram,hā ,2
+PhoneticTrigram,hām,1
+PhoneticTrigram,hā̍,2
+PhoneticTrigram,hūv,1
+PhoneticTrigram,hū̱,2
+PhoneticTrigram,i  ,10
+PhoneticTrigram,i d,1
+PhoneticTrigram,i t,1
+PhoneticTrigram,i ś,1
+PhoneticTrigram,ida,1
+PhoneticTrigram,iki,1
+PhoneticTrigram,ir ,1
+PhoneticTrigram,ist,1
+PhoneticTrigram,iti,1
+PhoneticTrigram,itr,1
+PhoneticTrigram,ity,1
+PhoneticTrigram,ivā,1
+PhoneticTrigram,iya,1
+PhoneticTrigram,iś ,1
+PhoneticTrigram,iśv,3
+PhoneticTrigram,i̍b,2
+PhoneticTrigram,i̍n,1
+PhoneticTrigram,i̍r,1
+PhoneticTrigram,i̍v,2
+PhoneticTrigram,i̍y,1
+PhoneticTrigram,i̍ṣ,1
+PhoneticTrigram,i̱ ,3
+PhoneticTrigram,i̱n,1
+PhoneticTrigram,i̱p,1
+PhoneticTrigram,i̱r,1
+PhoneticTrigram,i̱t,2
+PhoneticTrigram,i̱v,3
+PhoneticTrigram,i̱ṇ,1
+PhoneticTrigram,iḥ ,1
+PhoneticTrigram,iṃ̱,1
+PhoneticTrigram,iṣe,1
+PhoneticTrigram,iṣm,1
+PhoneticTrigram,ja̍,1
+PhoneticTrigram,ja̱,1
+PhoneticTrigram,ju̱,1
+PhoneticTrigram,jñi,1
+PhoneticTrigram,ki̱,1
+PhoneticTrigram,kta,1
+PhoneticTrigram,kā̱,1
+PhoneticTrigram,kṛ̍,1
+PhoneticTrigram,kṛṇ,1
+PhoneticTrigram,kṣi,1
+PhoneticTrigram,m  ,4
+PhoneticTrigram,mah,1
+PhoneticTrigram,mam,1
+PhoneticTrigram,man,1
+PhoneticTrigram,mas,1
+PhoneticTrigram,mat,2
+PhoneticTrigram,may,2
+PhoneticTrigram,maś,1
+PhoneticTrigram,ma̍,4
+PhoneticTrigram,ma̱,2
+PhoneticTrigram,med,1
+PhoneticTrigram,men,1
+PhoneticTrigram,me̱,2
+PhoneticTrigram,mi ,11
+PhoneticTrigram,mid,1
+PhoneticTrigram,mit,1
+PhoneticTrigram,mu̱,3
+PhoneticTrigram,mā ,1
+PhoneticTrigram,māh,1
+PhoneticTrigram,mān,2
+PhoneticTrigram,mā̍,2
+PhoneticTrigram,māṃ,1
+PhoneticTrigram,māṇ,2
+PhoneticTrigram,mū̱,1
+PhoneticTrigram,mūṃ,1
+PhoneticTrigram,n  ,1
+PhoneticTrigram,nas,1
+PhoneticTrigram,na̍,1
+PhoneticTrigram,ndr,1
+PhoneticTrigram,ni̱,2
+PhoneticTrigram,nna,1
+PhoneticTrigram,nom,1
+PhoneticTrigram,no̱,1
+PhoneticTrigram,nta,3
+PhoneticTrigram,nti,1
+PhoneticTrigram,ntī,1
+PhoneticTrigram,nu̍,1
+PhoneticTrigram,nu̱,2
+PhoneticTrigram,nva,1
+PhoneticTrigram,nā ,2
+PhoneticTrigram,nām,2
+PhoneticTrigram,nān,2
+PhoneticTrigram,nāy,1
+PhoneticTrigram,nā̱,1
+PhoneticTrigram,nī ,2
+PhoneticTrigram,o m,1
+PhoneticTrigram,o v,1
+PhoneticTrigram,oma,1
+PhoneticTrigram,omi,3
+PhoneticTrigram,oni,1
+PhoneticTrigram,oty,1
+PhoneticTrigram,o̱ ,2
+PhoneticTrigram,o̱b,2
+PhoneticTrigram,o̱p,1
+PhoneticTrigram,o’n,1
+PhoneticTrigram,pa ,1
+PhoneticTrigram,par,2
+PhoneticTrigram,paś,1
+PhoneticTrigram,pa̱,1
+PhoneticTrigram,pi̱,1
+PhoneticTrigram,pra,2
+PhoneticTrigram,prā,2
+PhoneticTrigram,psv,1
+PhoneticTrigram,pu̱,1
+PhoneticTrigram,pū̱,1
+PhoneticTrigram,pṛt,1
+PhoneticTrigram,pṛ̍,2
+PhoneticTrigram,r v,1
+PhoneticTrigram,rab,1
+PhoneticTrigram,rad,1
+PhoneticTrigram,rah,1
+PhoneticTrigram,ram,1
+PhoneticTrigram,rap,1
+PhoneticTrigram,rat,1
+PhoneticTrigram,rav,2
+PhoneticTrigram,ra̍,3
+PhoneticTrigram,ra̱,1
+PhoneticTrigram,raṃ,1
+PhoneticTrigram,rdh,1
+PhoneticTrigram,re ,1
+PhoneticTrigram,reb,1
+PhoneticTrigram,ris,1
+PhoneticTrigram,rmi,2
+PhoneticTrigram,ro̱,1
+PhoneticTrigram,rud,1
+PhoneticTrigram,rut,1
+PhoneticTrigram,ru̍,1
+PhoneticTrigram,ru̱,4
+PhoneticTrigram,ruṇ,1
+PhoneticTrigram,ryā,1
+PhoneticTrigram,rā ,1
+PhoneticTrigram,rām,1
+PhoneticTrigram,rāt,1
+PhoneticTrigram,rāv,1
+PhoneticTrigram,rāy,1
+PhoneticTrigram,rā̱,4
+PhoneticTrigram,rāṃ,1
+PhoneticTrigram,rī ,1
+PhoneticTrigram,rṣm,1
+PhoneticTrigram,sam,2
+PhoneticTrigram,sa̱,2
+PhoneticTrigram,saṃ,1
+PhoneticTrigram,som,1
+PhoneticTrigram,so’,1
+PhoneticTrigram,spṛ,1
+PhoneticTrigram,sth,1
+PhoneticTrigram,sub,1
+PhoneticTrigram,sup,1
+PhoneticTrigram,su̍,2
+PhoneticTrigram,su̱,1
+PhoneticTrigram,sva,2
+PhoneticTrigram,sya,1
+PhoneticTrigram,sūn,1
+PhoneticTrigram,ta ,6
+PhoneticTrigram,tam,1
+PhoneticTrigram,tar,1
+PhoneticTrigram,tat,1
+PhoneticTrigram,ta̍,4
+PhoneticTrigram,taḥ,1
+PhoneticTrigram,taṃ,4
+PhoneticTrigram,te ,2
+PhoneticTrigram,te̍,1
+PhoneticTrigram,tha,1
+PhoneticTrigram,thi,2
+PhoneticTrigram,thā,1
+PhoneticTrigram,ti ,2
+PhoneticTrigram,ti̍,1
+PhoneticTrigram,ti̱,2
+PhoneticTrigram,to̱,1
+PhoneticTrigram,trā,3
+PhoneticTrigram,tti,1
+PhoneticTrigram,tu̍,1
+PhoneticTrigram,tva,1
+PhoneticTrigram,tyai,1
+PhoneticTrigram,tyu,1
+PhoneticTrigram,tā̱,2
+PhoneticTrigram,tāṃ,1
+PhoneticTrigram,tī ,1
+PhoneticTrigram,tīm,1
+PhoneticTrigram,u  ,1
+PhoneticTrigram,ubh,1
+PhoneticTrigram,udr,1
+PhoneticTrigram,upa,1
+PhoneticTrigram,upr,1
+PhoneticTrigram,utr,1
+PhoneticTrigram,utā,1
+PhoneticTrigram,uva,2
+PhoneticTrigram,u̍m,1
+PhoneticTrigram,u̍n,1
+PhoneticTrigram,u̍t,1
+PhoneticTrigram,u̍ṣ,2
+PhoneticTrigram,u̱ ,1
+PhoneticTrigram,u̱d,3
+PhoneticTrigram,u̱g,1
+PhoneticTrigram,u̱k,1
+PhoneticTrigram,u̱r,2
+PhoneticTrigram,u̱t,3
+PhoneticTrigram,u̱v,1
+PhoneticTrigram,u̱ṣ,1
+PhoneticTrigram,uḥ ,1
+PhoneticTrigram,uṇo,1
+PhoneticTrigram,va ,4
+PhoneticTrigram,vad,3
+PhoneticTrigram,vaiḥ,1
+PhoneticTrigram,var,2
+PhoneticTrigram,vas,1
+PhoneticTrigram,vat,1
+PhoneticTrigram,va̍,1
+PhoneticTrigram,va̱,5
+PhoneticTrigram,vaṃ,1
+PhoneticTrigram,vaṣ,1
+PhoneticTrigram,ve ,1
+PhoneticTrigram,veb,1
+PhoneticTrigram,veś,1
+PhoneticTrigram,ve̍,1
+PhoneticTrigram,ve̱,1
+PhoneticTrigram,vi ,1
+PhoneticTrigram,viś,3
+PhoneticTrigram,vi̍,2
+PhoneticTrigram,vi̱,2
+PhoneticTrigram,viṣ,2
+PhoneticTrigram,vo ,1
+PhoneticTrigram,vya,1
+PhoneticTrigram,vye,1
+PhoneticTrigram,vyā,1
+PhoneticTrigram,vā ,5
+PhoneticTrigram,vā̱,3
+PhoneticTrigram,vī ,1
+PhoneticTrigram,ya ,3
+PhoneticTrigram,yair,1
+PhoneticTrigram,yaj,2
+PhoneticTrigram,yam,1
+PhoneticTrigram,yan,1
+PhoneticTrigram,ya̍,3
+PhoneticTrigram,ya̱,2
+PhoneticTrigram,yaḥ,1
+PhoneticTrigram,yaṃ,1
+PhoneticTrigram,ye ,1
+PhoneticTrigram,ye̱,1
+PhoneticTrigram,yo ,1
+PhoneticTrigram,yon,1
+PhoneticTrigram,yu̱,1
+PhoneticTrigram,yā ,1
+PhoneticTrigram,yān,1
+PhoneticTrigram,yāv,1
+PhoneticTrigram,yā̱,2
+PhoneticTrigram,yāṃ,1
+PhoneticTrigram,ñi̍,1
+PhoneticTrigram,ā  ,4
+PhoneticTrigram,ā b,2
+PhoneticTrigram,ā p,2
+PhoneticTrigram,ā s,1
+PhoneticTrigram,ā u,1
+PhoneticTrigram,ā v,2
+PhoneticTrigram,ā y,1
+PhoneticTrigram,āha,1
+PhoneticTrigram,ām ,3
+PhoneticTrigram,āmi,4
+PhoneticTrigram,āni,1
+PhoneticTrigram,ānu,2
+PhoneticTrigram,ānā,2
+PhoneticTrigram,āra,1
+PhoneticTrigram,āta,1
+PhoneticTrigram,āva,1
+PhoneticTrigram,āve,1
+PhoneticTrigram,āya,2
+PhoneticTrigram,ā̍ ,1
+PhoneticTrigram,ā̍d,1
+PhoneticTrigram,ā̍m,1
+PhoneticTrigram,ā̍r,1
+PhoneticTrigram,ā̍t,1
+PhoneticTrigram,ā̱ ,2
+PhoneticTrigram,ā̱g,1
+PhoneticTrigram,ā̱m,3
+PhoneticTrigram,ā̱t,1
+PhoneticTrigram,ā̱v,3
+PhoneticTrigram,ā̱y,1
+PhoneticTrigram,ā̱ṇ,1
+PhoneticTrigram,ā̱ṣ,1
+PhoneticTrigram,āṃ ,3
+PhoneticTrigram,āṃ̱,1
+PhoneticTrigram,āṇa,1
+PhoneticTrigram,āṇā,1
+PhoneticTrigram,ī a,1
+PhoneticTrigram,ī m,1
+PhoneticTrigram,ī p,1
+PhoneticTrigram,ī s,1
+PhoneticTrigram,ī v,1
+PhoneticTrigram,ī ā,1
+PhoneticTrigram,īm ,1
+PhoneticTrigram,ī̍ṃ,1
+PhoneticTrigram,ś c,1
+PhoneticTrigram,śa ,1
+PhoneticTrigram,śar,1
+PhoneticTrigram,śay,1
+PhoneticTrigram,śra,1
+PhoneticTrigram,śru,2
+PhoneticTrigram,śva,1
+PhoneticTrigram,śvi,1
+PhoneticTrigram,śvā,2
+PhoneticTrigram,śya,1
+PhoneticTrigram,śām,1
+PhoneticTrigram,śṛ̱,1
+PhoneticTrigram,ūnā,1
+PhoneticTrigram,ūva,1
+PhoneticTrigram,ū̱r,3
+PhoneticTrigram,ū̱ṣ,1
+PhoneticTrigram,ūṃ ,1
+PhoneticTrigram,̍ d,1
+PhoneticTrigram,̍ e,1
+PhoneticTrigram,̍ v,2
+PhoneticTrigram,̍bh,3
+PhoneticTrigram,̍da,2
+PhoneticTrigram,̍di,1
+PhoneticTrigram,̍m ,1
+PhoneticTrigram,̍ma,2
+PhoneticTrigram,̍me,1
+PhoneticTrigram,̍mi,1
+PhoneticTrigram,̍mu,1
+PhoneticTrigram,̍mā,2
+PhoneticTrigram,̍no,2
+PhoneticTrigram,̍nt,2
+PhoneticTrigram,̍nv,1
+PhoneticTrigram,̍nī,1
+PhoneticTrigram,̍ra,1
+PhoneticTrigram,̍ru,1
+PhoneticTrigram,̍ta,1
+PhoneticTrigram,̍th,1
+PhoneticTrigram,̍ti,1
+PhoneticTrigram,̍tr,1
+PhoneticTrigram,̍va,1
+PhoneticTrigram,̍vai,1
+PhoneticTrigram,̍ve,2
+PhoneticTrigram,̍vi,1
+PhoneticTrigram,̍vo,1
+PhoneticTrigram,̍vā,1
+PhoneticTrigram,̍yā,1
+PhoneticTrigram,̍śa,1
+PhoneticTrigram,̍śā,1
+PhoneticTrigram,̍ṃ ,1
+PhoneticTrigram,̍ṇo,2
+PhoneticTrigram,̍ṣe,1
+PhoneticTrigram,̍ṣi,1
+PhoneticTrigram,̍ṣī,1
+PhoneticTrigram,̍ṣṭ,1
+PhoneticTrigram,̱ d,2
+PhoneticTrigram,̱ h,1
+PhoneticTrigram,̱ k,1
+PhoneticTrigram,̱ p,1
+PhoneticTrigram,̱ s,2
+PhoneticTrigram,̱ t,3
+PhoneticTrigram,̱ v,4
+PhoneticTrigram,̱ y,3
+PhoneticTrigram,̱ ś,1
+PhoneticTrigram,̱bh,2
+PhoneticTrigram,̱dh,1
+PhoneticTrigram,̱dr,2
+PhoneticTrigram,̱dv,1
+PhoneticTrigram,̱gn,1
+PhoneticTrigram,̱gr,1
+PhoneticTrigram,̱ha,1
+PhoneticTrigram,̱hm,1
+PhoneticTrigram,̱kt,1
+PhoneticTrigram,̱ma,2
+PhoneticTrigram,̱mi,1
+PhoneticTrigram,̱mā,2
+PhoneticTrigram,̱mū,1
+PhoneticTrigram,̱nā,4
+PhoneticTrigram,̱pa,2
+PhoneticTrigram,̱ra,1
+PhoneticTrigram,̱rd,1
+PhoneticTrigram,̱ri,1
+PhoneticTrigram,̱ru,1
+PhoneticTrigram,̱ry,1
+PhoneticTrigram,̱rā,1
+PhoneticTrigram,̱sū,1
+PhoneticTrigram,̱ta,5
+PhoneticTrigram,̱te,1
+PhoneticTrigram,̱tu,1
+PhoneticTrigram,̱va,4
+PhoneticTrigram,̱ve,2
+PhoneticTrigram,̱vy,2
+PhoneticTrigram,̱vā,2
+PhoneticTrigram,̱vī,1
+PhoneticTrigram,̱ya,2
+PhoneticTrigram,̱ṃ ,1
+PhoneticTrigram,̱ṃg,1
+PhoneticTrigram,̱ṇa,1
+PhoneticTrigram,̱ṇi,1
+PhoneticTrigram,̱ṇo,1
+PhoneticTrigram,̱ṣa,1
+PhoneticTrigram,̱ṣṭ,2
+PhoneticTrigram,ḥ  ,2
+PhoneticTrigram,ḥ p,2
+PhoneticTrigram,ḥ s,1
+PhoneticTrigram,ṃ b,5
+PhoneticTrigram,ṃ d,4
+PhoneticTrigram,ṃ h,1
+PhoneticTrigram,ṃ j,1
+PhoneticTrigram,ṃ k,3
+PhoneticTrigram,ṃ m,2
+PhoneticTrigram,ṃ r,3
+PhoneticTrigram,ṃ s,3
+PhoneticTrigram,ṃ t,4
+PhoneticTrigram,ṃ ś,1
+PhoneticTrigram,ṃ ṛ,1
+PhoneticTrigram,ṃga,1
+PhoneticTrigram,ṃ̍ ,1
+PhoneticTrigram,ṃ̱ ,3
+PhoneticTrigram,ṇaṃ,3
+PhoneticTrigram,ṇit,1
+PhoneticTrigram,ṇom,2
+PhoneticTrigram,ṇot,1
+PhoneticTrigram,ṇo̱,2
+PhoneticTrigram,ṇā ,1
+PhoneticTrigram,ṛth,1
+PhoneticTrigram,ṛ̍t,1
+PhoneticTrigram,ṛ̍ś,1
+PhoneticTrigram,ṛ̍ṇ,1
+PhoneticTrigram,ṛ̍ṣ,1
+PhoneticTrigram,ṛ̱ṇ,1
+PhoneticTrigram,ṛṇo,1
+PhoneticTrigram,ṣaṇ,1
+PhoneticTrigram,ṣeb,1
+PhoneticTrigram,ṣe̱,1
+PhoneticTrigram,ṣiy,1
+PhoneticTrigram,ṣiṃ,1
+PhoneticTrigram,ṣma,2
+PhoneticTrigram,ṣī ,1
+PhoneticTrigram,ṣṭa,1
+PhoneticTrigram,ṣṭh,1
+PhoneticTrigram,ṣṭr,1
+PhoneticTrigram,ṣṭā,1
+PhoneticTrigram,ṭaṃ,1
+PhoneticTrigram,ṭhe,1
+PhoneticTrigram,ṭrī,1
+PhoneticTrigram,ṭā̍,1
+PhoneticTrigram,’nn,1
+BigramPosition,Pada1:Cadence: b,1
+BigramPosition,Pada1:Cadence: c,1
+BigramPosition,Pada1:Cadence: m,1
+BigramPosition,Pada1:Cadence: p,1
+BigramPosition,Pada1:Cadence: v,3
+BigramPosition,Pada1:Cadence:a ,2
+BigramPosition,Pada1:Cadence:ad,1
+BigramPosition,Pada1:Cadence:an,1
+BigramPosition,Pada1:Cadence:ar,2
+BigramPosition,Pada1:Cadence:av,1
+BigramPosition,Pada1:Cadence:aś,1
+BigramPosition,Pada1:Cadence:a̍,2
+BigramPosition,Pada1:Cadence:a̱,1
+BigramPosition,Pada1:Cadence:aṃ,1
+BigramPosition,Pada1:Cadence:bh,2
+BigramPosition,Pada1:Cadence:bi,1
+BigramPosition,Pada1:Cadence:ca,1
+BigramPosition,Pada1:Cadence:dh,1
+BigramPosition,Pada1:Cadence:dā,1
+BigramPosition,Pada1:Cadence:ha,2
+BigramPosition,Pada1:Cadence:hi,1
+BigramPosition,Pada1:Cadence:i ,6
+BigramPosition,Pada1:Cadence:iś,1
+BigramPosition,Pada1:Cadence:i̍,1
+BigramPosition,Pada1:Cadence:i̱,1
+BigramPosition,Pada1:Cadence:m ,1
+BigramPosition,Pada1:Cadence:mi,5
+BigramPosition,Pada1:Cadence:mū,1
+BigramPosition,Pada1:Cadence:n ,1
+BigramPosition,Pada1:Cadence:no,1
+BigramPosition,Pada1:Cadence:nā,1
+BigramPosition,Pada1:Cadence:nī,1
+BigramPosition,Pada1:Cadence:om,1
+BigramPosition,Pada1:Cadence:pa,1
+BigramPosition,Pada1:Cadence:pr,1
+BigramPosition,Pada1:Cadence:ra,1
+BigramPosition,Pada1:Cadence:rd,1
+BigramPosition,Pada1:Cadence:rm,1
+BigramPosition,Pada1:Cadence:rā,2
+BigramPosition,Pada1:Cadence:sy,1
+BigramPosition,Pada1:Cadence:sū,1
+BigramPosition,Pada1:Cadence:ta,1
+BigramPosition,Pada1:Cadence:ti,1
+BigramPosition,Pada1:Cadence:u̱,1
+BigramPosition,Pada1:Cadence:va,2
+BigramPosition,Pada1:Cadence:vi,1
+BigramPosition,Pada1:Cadence:vā,1
+BigramPosition,Pada1:Cadence:ya,2
+BigramPosition,Pada1:Cadence:ām,3
+BigramPosition,Pada1:Cadence:āt,1
+BigramPosition,Pada1:Cadence:ā̱,1
+BigramPosition,Pada1:Cadence:ī ,1
+BigramPosition,Pada1:Cadence:ś ,1
+BigramPosition,Pada1:Cadence:śy,1
+BigramPosition,Pada1:Cadence:ūn,1
+BigramPosition,Pada1:Cadence:ū̱,1
+BigramPosition,Pada1:Cadence:̍ ,1
+BigramPosition,Pada1:Cadence:̍b,1
+BigramPosition,Pada1:Cadence:̍n,2
+BigramPosition,Pada1:Cadence:̍t,1
+BigramPosition,Pada1:Cadence:̱m,1
+BigramPosition,Pada1:Cadence:̱p,1
+BigramPosition,Pada1:Cadence:̱r,2
+BigramPosition,Pada1:Cadence:̱s,1
+BigramPosition,Pada1:Cadence:ṃ ,1
+BigramPosition,Pada1:Cadence:ṃ̍,1
+BigramPosition,Pada1:Middle: d,1
+BigramPosition,Pada1:Middle: i,1
+BigramPosition,Pada1:Middle: p,1
+BigramPosition,Pada1:Middle: s,1
+BigramPosition,Pada1:Middle: v,1
+BigramPosition,Pada1:Middle: y,1
+BigramPosition,Pada1:Middle:a ,1
+BigramPosition,Pada1:Middle:am,2
+BigramPosition,Pada1:Middle:an,2
+BigramPosition,Pada1:Middle:ar,1
+BigramPosition,Pada1:Middle:as,3
+BigramPosition,Pada1:Middle:at,1
+BigramPosition,Pada1:Middle:a̍,3
+BigramPosition,Pada1:Middle:a̱,4
+BigramPosition,Pada1:Middle:bh,1
+BigramPosition,Pada1:Middle:da,1
+BigramPosition,Pada1:Middle:dh,1
+BigramPosition,Pada1:Middle:eb,1
+BigramPosition,Pada1:Middle:ga,1
+BigramPosition,Pada1:Middle:ha,2
+BigramPosition,Pada1:Middle:hi,1
+BigramPosition,Pada1:Middle:id,1
+BigramPosition,Pada1:Middle:ir,1
+BigramPosition,Pada1:Middle:i̍,1
+BigramPosition,Pada1:Middle:i̱,2
+BigramPosition,Pada1:Middle:ma,3
+BigramPosition,Pada1:Middle:mi,1
+BigramPosition,Pada1:Middle:mā,1
+BigramPosition,Pada1:Middle:na,1
+BigramPosition,Pada1:Middle:nu,1
+BigramPosition,Pada1:Middle:o ,1
+BigramPosition,Pada1:Middle:pi,1
+BigramPosition,Pada1:Middle:r ,1
+BigramPosition,Pada1:Middle:ra,1
+BigramPosition,Pada1:Middle:rā,1
+BigramPosition,Pada1:Middle:rī,1
+BigramPosition,Pada1:Middle:sa,2
+BigramPosition,Pada1:Middle:su,1
+BigramPosition,Pada1:Middle:sv,1
+BigramPosition,Pada1:Middle:ta,2
+BigramPosition,Pada1:Middle:ti,1
+BigramPosition,Pada1:Middle:tt,1
+BigramPosition,Pada1:Middle:ub,1
+BigramPosition,Pada1:Middle:va,3
+BigramPosition,Pada1:Middle:vā,1
+BigramPosition,Pada1:Middle:ya,2
+BigramPosition,Pada1:Middle:yo,1
+BigramPosition,Pada1:Middle:āh,1
+BigramPosition,Pada1:Middle:āy,1
+BigramPosition,Pada1:Middle:ā̱,1
+BigramPosition,Pada1:Middle:ī ,1
+BigramPosition,Pada1:Middle:̍m,3
+BigramPosition,Pada1:Middle:̍v,1
+BigramPosition,Pada1:Middle:̱ ,2
+BigramPosition,Pada1:Middle:̱t,2
+BigramPosition,Pada1:Middle:̱y,1
+BigramPosition,Pada1:Middle:̱ṃ,2
+BigramPosition,Pada1:Middle:ṃg,1
+BigramPosition,Pada1:Onset: a,7
+BigramPosition,Pada1:Onset: m,1
+BigramPosition,Pada1:Onset: r,3
+BigramPosition,Pada1:Onset: s,4
+BigramPosition,Pada1:Onset: v,1
+BigramPosition,Pada1:Onset:a ,2
+BigramPosition,Pada1:Onset:ah,7
+BigramPosition,Pada1:Onset:am,2
+BigramPosition,Pada1:Onset:ay,1
+BigramPosition,Pada1:Onset:a̍,1
+BigramPosition,Pada1:Onset:aṃ,5
+BigramPosition,Pada1:Onset:dr,2
+BigramPosition,Pada1:Onset:e ,1
+BigramPosition,Pada1:Onset:e̱,2
+BigramPosition,Pada1:Onset:ha,7
+BigramPosition,Pada1:Onset:ma,2
+BigramPosition,Pada1:Onset:me,2
+BigramPosition,Pada1:Onset:na,1
+BigramPosition,Pada1:Onset:nn,1
+BigramPosition,Pada1:Onset:om,1
+BigramPosition,Pada1:Onset:o’,1
+BigramPosition,Pada1:Onset:re,1
+BigramPosition,Pada1:Onset:ru,2
+BigramPosition,Pada1:Onset:rā,1
+BigramPosition,Pada1:Onset:so,2
+BigramPosition,Pada1:Onset:su,1
+BigramPosition,Pada1:Onset:ud,1
+BigramPosition,Pada1:Onset:u̱,2
+BigramPosition,Pada1:Onset:va,2
+BigramPosition,Pada1:Onset:ve,1
+BigramPosition,Pada1:Onset:yā,1
+BigramPosition,Pada1:Onset:ā̱,2
+BigramPosition,Pada1:Onset:̱ ,1
+BigramPosition,Pada1:Onset:̱d,1
+BigramPosition,Pada1:Onset:̱v,3
+BigramPosition,Pada1:Onset:̱ṣ,1
+BigramPosition,Pada1:Onset:ṃ ,5
+BigramPosition,Pada1:Onset:ṣṭ,1
+BigramPosition,Pada1:Onset:ṭr,1
+BigramPosition,Pada1:Onset:’n,1
+BigramPosition,Pada2:Cadence: b,1
+BigramPosition,Pada2:Cadence: h,1
+BigramPosition,Pada2:Cadence: m,1
+BigramPosition,Pada2:Cadence: s,1
+BigramPosition,Pada2:Cadence: u,1
+BigramPosition,Pada2:Cadence: v,1
+BigramPosition,Pada2:Cadence:ad,1
+BigramPosition,Pada2:Cadence:ag,1
+BigramPosition,Pada2:Cadence:aiḥ,1
+BigramPosition,Pada2:Cadence:aj,1
+BigramPosition,Pada2:Cadence:am,2
+BigramPosition,Pada2:Cadence:an,1
+BigramPosition,Pada2:Cadence:a̍,2
+BigramPosition,Pada2:Cadence:aḥ,1
+BigramPosition,Pada2:Cadence:aṃ,1
+BigramPosition,Pada2:Cadence:aṇ,1
+BigramPosition,Pada2:Cadence:bh,2
+BigramPosition,Pada2:Cadence:de,1
+BigramPosition,Pada2:Cadence:dr,1
+BigramPosition,Pada2:Cadence:e ,1
+BigramPosition,Pada2:Cadence:eb,1
+BigramPosition,Pada2:Cadence:e̍,1
+BigramPosition,Pada2:Cadence:ga,1
+BigramPosition,Pada2:Cadence:ha,2
+BigramPosition,Pada2:Cadence:hi,1
+BigramPosition,Pada2:Cadence:iś,2
+BigramPosition,Pada2:Cadence:i̍,1
+BigramPosition,Pada2:Cadence:i̱,1
+BigramPosition,Pada2:Cadence:iḥ,1
+BigramPosition,Pada2:Cadence:jñ,1
+BigramPosition,Pada2:Cadence:kt,1
+BigramPosition,Pada2:Cadence:m ,3
+BigramPosition,Pada2:Cadence:mu,1
+BigramPosition,Pada2:Cadence:mā,1
+BigramPosition,Pada2:Cadence:ni,1
+BigramPosition,Pada2:Cadence:nt,1
+BigramPosition,Pada2:Cadence:nu,1
+BigramPosition,Pada2:Cadence:nā,1
+BigramPosition,Pada2:Cadence:ot,1
+BigramPosition,Pada2:Cadence:re,1
+BigramPosition,Pada2:Cadence:sa,1
+BigramPosition,Pada2:Cadence:ta,2
+BigramPosition,Pada2:Cadence:ty,1
+BigramPosition,Pada2:Cadence:u ,1
+BigramPosition,Pada2:Cadence:u̍,1
+BigramPosition,Pada2:Cadence:u̱,2
+BigramPosition,Pada2:Cadence:va,1
+BigramPosition,Pada2:Cadence:vai,1
+BigramPosition,Pada2:Cadence:vi,1
+BigramPosition,Pada2:Cadence:vā,2
+BigramPosition,Pada2:Cadence:ya,1
+BigramPosition,Pada2:Cadence:yu,1
+BigramPosition,Pada2:Cadence:yā,1
+BigramPosition,Pada2:Cadence:ñi,1
+BigramPosition,Pada2:Cadence:ā ,2
+BigramPosition,Pada2:Cadence:ām,1
+BigramPosition,Pada2:Cadence:ān,3
+BigramPosition,Pada2:Cadence:śv,2
+BigramPosition,Pada2:Cadence:̍m,1
+BigramPosition,Pada2:Cadence:̍v,2
+BigramPosition,Pada2:Cadence:̍y,1
+BigramPosition,Pada2:Cadence:̍ṣ,1
+BigramPosition,Pada2:Cadence:̱ ,2
+BigramPosition,Pada2:Cadence:̱d,1
+BigramPosition,Pada2:Cadence:̱k,1
+BigramPosition,Pada2:Cadence:̱ṇ,1
+BigramPosition,Pada2:Cadence:ḥ ,3
+BigramPosition,Pada2:Cadence:ṃ ,1
+BigramPosition,Pada2:Cadence:ṇa,1
+BigramPosition,Pada2:Cadence:ṇo,1
+BigramPosition,Pada2:Cadence:ṛ̱,1
+BigramPosition,Pada2:Cadence:ṣa,1
+BigramPosition,Pada2:Cadence:ṣe,1
+BigramPosition,Pada2:Middle: b,1
+BigramPosition,Pada2:Middle: p,2
+BigramPosition,Pada2:Middle: v,1
+BigramPosition,Pada2:Middle: y,2
+BigramPosition,Pada2:Middle: ī,1
+BigramPosition,Pada2:Middle: ś,2
+BigramPosition,Pada2:Middle:a ,4
+BigramPosition,Pada2:Middle:air,1
+BigramPosition,Pada2:Middle:am,1
+BigramPosition,Pada2:Middle:ap,1
+BigramPosition,Pada2:Middle:ar,1
+BigramPosition,Pada2:Middle:at,1
+BigramPosition,Pada2:Middle:a̍,2
+BigramPosition,Pada2:Middle:a̱,2
+BigramPosition,Pada2:Middle:bh,2
+BigramPosition,Pada2:Middle:eb,1
+BigramPosition,Pada2:Middle:e̱,2
+BigramPosition,Pada2:Middle:ha,1
+BigramPosition,Pada2:Middle:hi,1
+BigramPosition,Pada2:Middle:hu,1
+BigramPosition,Pada2:Middle:i̍,1
+BigramPosition,Pada2:Middle:i̱,1
+BigramPosition,Pada2:Middle:mu,1
+BigramPosition,Pada2:Middle:mā,1
+BigramPosition,Pada2:Middle:nt,1
+BigramPosition,Pada2:Middle:nā,1
+BigramPosition,Pada2:Middle:pr,1
+BigramPosition,Pada2:Middle:ps,1
+BigramPosition,Pada2:Middle:pū,1
+BigramPosition,Pada2:Middle:ra,4
+BigramPosition,Pada2:Middle:ru,2
+BigramPosition,Pada2:Middle:sv,1
+BigramPosition,Pada2:Middle:ta,4
+BigramPosition,Pada2:Middle:th,1
+BigramPosition,Pada2:Middle:uv,1
+BigramPosition,Pada2:Middle:u̱,3
+BigramPosition,Pada2:Middle:va,2
+BigramPosition,Pada2:Middle:ve,2
+BigramPosition,Pada2:Middle:vi,1
+BigramPosition,Pada2:Middle:ya,1
+BigramPosition,Pada2:Middle:yai,1
+BigramPosition,Pada2:Middle:ā ,2
+BigramPosition,Pada2:Middle:ī̍,1
+BigramPosition,Pada2:Middle:śa,1
+BigramPosition,Pada2:Middle:śṛ,1
+BigramPosition,Pada2:Middle:ū̱,1
+BigramPosition,Pada2:Middle:̍n,1
+BigramPosition,Pada2:Middle:̍r,2
+BigramPosition,Pada2:Middle:̍v,1
+BigramPosition,Pada2:Middle:̍ṃ,1
+BigramPosition,Pada2:Middle:̱ ,2
+BigramPosition,Pada2:Middle:̱m,1
+BigramPosition,Pada2:Middle:̱n,1
+BigramPosition,Pada2:Middle:̱r,1
+BigramPosition,Pada2:Middle:̱t,3
+BigramPosition,Pada2:Middle:̱ṣ,1
+BigramPosition,Pada2:Middle:ṃ ,1
+BigramPosition,Pada2:Middle:ṇā,1
+BigramPosition,Pada2:Middle:ṣe,1
+BigramPosition,Pada2:Onset: a,2
+BigramPosition,Pada2:Onset: b,1
+BigramPosition,Pada2:Onset: c,1
+BigramPosition,Pada2:Onset: d,1
+BigramPosition,Pada2:Onset: j,1
+BigramPosition,Pada2:Onset: m,1
+BigramPosition,Pada2:Onset: p,1
+BigramPosition,Pada2:Onset: t,1
+BigramPosition,Pada2:Onset: y,2
+BigramPosition,Pada2:Onset: ā,1
+BigramPosition,Pada2:Onset:ab,1
+BigramPosition,Pada2:Onset:ah,3
+BigramPosition,Pada2:Onset:am,2
+BigramPosition,Pada2:Onset:a̱,3
+BigramPosition,Pada2:Onset:aḥ,1
+BigramPosition,Pada2:Onset:aṃ,2
+BigramPosition,Pada2:Onset:aṣ,1
+BigramPosition,Pada2:Onset:bh,1
+BigramPosition,Pada2:Onset:br,1
+BigramPosition,Pada2:Onset:ci,1
+BigramPosition,Pada2:Onset:de,1
+BigramPosition,Pada2:Onset:di,1
+BigramPosition,Pada2:Onset:dv,1
+BigramPosition,Pada2:Onset:e̱,1
+BigramPosition,Pada2:Onset:ha,3
+BigramPosition,Pada2:Onset:hm,1
+BigramPosition,Pada2:Onset:ik,1
+BigramPosition,Pada2:Onset:it,2
+BigramPosition,Pada2:Onset:i̱,2
+BigramPosition,Pada2:Onset:iṣ,1
+BigramPosition,Pada2:Onset:ju,1
+BigramPosition,Pada2:Onset:ki,1
+BigramPosition,Pada2:Onset:ma,3
+BigramPosition,Pada2:Onset:mā,2
+BigramPosition,Pada2:Onset:ni,1
+BigramPosition,Pada2:Onset:on,1
+BigramPosition,Pada2:Onset:pr,1
+BigramPosition,Pada2:Onset:ra,2
+BigramPosition,Pada2:Onset:rā,1
+BigramPosition,Pada2:Onset:ti,1
+BigramPosition,Pada2:Onset:tu,1
+BigramPosition,Pada2:Onset:tv,1
+BigramPosition,Pada2:Onset:ty,1
+BigramPosition,Pada2:Onset:u̍,1
+BigramPosition,Pada2:Onset:u̱,1
+BigramPosition,Pada2:Onset:va,1
+BigramPosition,Pada2:Onset:vi,1
+BigramPosition,Pada2:Onset:ya,1
+BigramPosition,Pada2:Onset:yo,1
+BigramPosition,Pada2:Onset:ār,1
+BigramPosition,Pada2:Onset:ā̍,2
+BigramPosition,Pada2:Onset:ā̱,1
+BigramPosition,Pada2:Onset:āṇ,1
+BigramPosition,Pada2:Onset:ī ,1
+BigramPosition,Pada2:Onset:̍d,1
+BigramPosition,Pada2:Onset:̍ṣ,1
+BigramPosition,Pada2:Onset:̱ ,1
+BigramPosition,Pada2:Onset:̱d,1
+BigramPosition,Pada2:Onset:̱m,1
+BigramPosition,Pada2:Onset:̱t,1
+BigramPosition,Pada2:Onset:̱v,1
+BigramPosition,Pada2:Onset:̱ṇ,1
+BigramPosition,Pada2:Onset:̱ṣ,1
+BigramPosition,Pada2:Onset:ḥ ,1
+BigramPosition,Pada2:Onset:ṃ ,2
+BigramPosition,Pada2:Onset:ṇi,1
+BigramPosition,Pada2:Onset:ṣī,1
+BigramPosition,Pada2:Onset:ṣṭ,2
+BigramPosition,Pada2:Onset:ṭa,1
+BigramPosition,Pada2:Onset:ṭā,1
+BigramPosition,Pada3:Cadence: b,1
+BigramPosition,Pada3:Cadence: h,1
+BigramPosition,Pada3:Cadence: k,3
+BigramPosition,Pada3:Cadence: p,2
+BigramPosition,Pada3:Cadence: v,1
+BigramPosition,Pada3:Cadence:ar,1
+BigramPosition,Pada3:Cadence:at,1
+BigramPosition,Pada3:Cadence:a̍,2
+BigramPosition,Pada3:Cadence:aṃ,2
+BigramPosition,Pada3:Cadence:bh,1
+BigramPosition,Pada3:Cadence:bi,1
+BigramPosition,Pada3:Cadence:da,1
+BigramPosition,Pada3:Cadence:e ,1
+BigramPosition,Pada3:Cadence:gr,1
+BigramPosition,Pada3:Cadence:ha,2
+BigramPosition,Pada3:Cadence:hi,1
+BigramPosition,Pada3:Cadence:hu,1
+BigramPosition,Pada3:Cadence:i ,4
+BigramPosition,Pada3:Cadence:iy,1
+BigramPosition,Pada3:Cadence:iś,1
+BigramPosition,Pada3:Cadence:i̍,1
+BigramPosition,Pada3:Cadence:i̱,1
+BigramPosition,Pada3:Cadence:iṣ,1
+BigramPosition,Pada3:Cadence:kṛ,2
+BigramPosition,Pada3:Cadence:kṣ,1
+BigramPosition,Pada3:Cadence:ma,1
+BigramPosition,Pada3:Cadence:mi,3
+BigramPosition,Pada3:Cadence:nt,1
+BigramPosition,Pada3:Cadence:nu,1
+BigramPosition,Pada3:Cadence:nā,1
+BigramPosition,Pada3:Cadence:om,2
+BigramPosition,Pada3:Cadence:pu,1
+BigramPosition,Pada3:Cadence:pṛ,1
+BigramPosition,Pada3:Cadence:ra,1
+BigramPosition,Pada3:Cadence:rm,1
+BigramPosition,Pada3:Cadence:ru,1
+BigramPosition,Pada3:Cadence:rā,1
+BigramPosition,Pada3:Cadence:te,1
+BigramPosition,Pada3:Cadence:th,1
+BigramPosition,Pada3:Cadence:ti,1
+BigramPosition,Pada3:Cadence:tr,1
+BigramPosition,Pada3:Cadence:ut,1
+BigramPosition,Pada3:Cadence:u̱,2
+BigramPosition,Pada3:Cadence:uḥ,1
+BigramPosition,Pada3:Cadence:vi,2
+BigramPosition,Pada3:Cadence:vy,1
+BigramPosition,Pada3:Cadence:vā,1
+BigramPosition,Pada3:Cadence:ya,1
+BigramPosition,Pada3:Cadence:yā,1
+BigramPosition,Pada3:Cadence:ā ,5
+BigramPosition,Pada3:Cadence:ān,1
+BigramPosition,Pada3:Cadence:śv,1
+BigramPosition,Pada3:Cadence:̍b,1
+BigramPosition,Pada3:Cadence:̍n,1
+BigramPosition,Pada3:Cadence:̍v,1
+BigramPosition,Pada3:Cadence:̍ṇ,1
+BigramPosition,Pada3:Cadence:̱ ,2
+BigramPosition,Pada3:Cadence:̱n,1
+BigramPosition,Pada3:Cadence:̱r,1
+BigramPosition,Pada3:Cadence:̱v,1
+BigramPosition,Pada3:Cadence:ḥ ,1
+BigramPosition,Pada3:Cadence:ṃ ,3
+BigramPosition,Pada3:Cadence:ṇo,2
+BigramPosition,Pada3:Cadence:ṛt,1
+BigramPosition,Pada3:Cadence:ṛ̍,1
+BigramPosition,Pada3:Cadence:ṛṇ,1
+BigramPosition,Pada3:Cadence:ṣi,1
+BigramPosition,Pada3:Cadence:ṣm,1
+BigramPosition,Pada3:Middle: b,1
+BigramPosition,Pada3:Middle: d,1
+BigramPosition,Pada3:Middle: e,1
+BigramPosition,Pada3:Middle: m,1
+BigramPosition,Pada3:Middle: p,1
+BigramPosition,Pada3:Middle: s,1
+BigramPosition,Pada3:Middle: t,3
+BigramPosition,Pada3:Middle: u,1
+BigramPosition,Pada3:Middle: v,1
+BigramPosition,Pada3:Middle:a ,1
+BigramPosition,Pada3:Middle:ad,1
+BigramPosition,Pada3:Middle:am,1
+BigramPosition,Pada3:Middle:ar,2
+BigramPosition,Pada3:Middle:av,1
+BigramPosition,Pada3:Middle:a̍,4
+BigramPosition,Pada3:Middle:a̱,3
+BigramPosition,Pada3:Middle:aṃ,2
+BigramPosition,Pada3:Middle:bh,2
+BigramPosition,Pada3:Middle:da,1
+BigramPosition,Pada3:Middle:dh,1
+BigramPosition,Pada3:Middle:dr,1
+BigramPosition,Pada3:Middle:e ,1
+BigramPosition,Pada3:Middle:en,1
+BigramPosition,Pada3:Middle:he,1
+BigramPosition,Pada3:Middle:hu,1
+BigramPosition,Pada3:Middle:hā,1
+BigramPosition,Pada3:Middle:i ,1
+BigramPosition,Pada3:Middle:i̱,1
+BigramPosition,Pada3:Middle:ma,1
+BigramPosition,Pada3:Middle:mi,1
+BigramPosition,Pada3:Middle:mu,1
+BigramPosition,Pada3:Middle:mā,1
+BigramPosition,Pada3:Middle:nā,1
+BigramPosition,Pada3:Middle:o̱,1
+BigramPosition,Pada3:Middle:pa,2
+BigramPosition,Pada3:Middle:ra,2
+BigramPosition,Pada3:Middle:ru,1
+BigramPosition,Pada3:Middle:sa,1
+BigramPosition,Pada3:Middle:ta,3
+BigramPosition,Pada3:Middle:up,1
+BigramPosition,Pada3:Middle:uv,1
+BigramPosition,Pada3:Middle:u̱,1
+BigramPosition,Pada3:Middle:uṇ,1
+BigramPosition,Pada3:Middle:va,2
+BigramPosition,Pada3:Middle:vi,1
+BigramPosition,Pada3:Middle:vy,1
+BigramPosition,Pada3:Middle:vā,1
+BigramPosition,Pada3:Middle:ya,2
+BigramPosition,Pada3:Middle:ā ,1
+BigramPosition,Pada3:Middle:āv,1
+BigramPosition,Pada3:Middle:āy,1
+BigramPosition,Pada3:Middle:āṃ,1
+BigramPosition,Pada3:Middle:̍ ,1
+BigramPosition,Pada3:Middle:̍d,2
+BigramPosition,Pada3:Middle:̍m,1
+BigramPosition,Pada3:Middle:̍ṣ,1
+BigramPosition,Pada3:Middle:̱ ,3
+BigramPosition,Pada3:Middle:̱b,1
+BigramPosition,Pada3:Middle:̱g,1
+BigramPosition,Pada3:Middle:̱v,1
+BigramPosition,Pada3:Middle:̱ṇ,1
+BigramPosition,Pada3:Middle:ṃ ,2
+BigramPosition,Pada3:Middle:ṇa,1
+BigramPosition,Pada3:Middle:ṇo,1
+BigramPosition,Pada3:Middle:ṣṭ,1
+BigramPosition,Pada3:Middle:ṭh,1
+BigramPosition,Pada3:Onset: a,4
+BigramPosition,Pada3:Onset: d,3
+BigramPosition,Pada3:Onset: j,1
+BigramPosition,Pada3:Onset: k,1
+BigramPosition,Pada3:Onset: m,2
+BigramPosition,Pada3:Onset: p,1
+BigramPosition,Pada3:Onset: t,3
+BigramPosition,Pada3:Onset: v,1
+BigramPosition,Pada3:Onset: y,1
+BigramPosition,Pada3:Onset:ad,1
+BigramPosition,Pada3:Onset:ah,3
+BigramPosition,Pada3:Onset:an,1
+BigramPosition,Pada3:Onset:ar,1
+BigramPosition,Pada3:Onset:at,1
+BigramPosition,Pada3:Onset:ay,1
+BigramPosition,Pada3:Onset:a̍,1
+BigramPosition,Pada3:Onset:a̱,2
+BigramPosition,Pada3:Onset:aṃ,4
+BigramPosition,Pada3:Onset:da,1
+BigramPosition,Pada3:Onset:de,1
+BigramPosition,Pada3:Onset:dh,1
+BigramPosition,Pada3:Onset:di,1
+BigramPosition,Pada3:Onset:e̱,2
+BigramPosition,Pada3:Onset:ha,3
+BigramPosition,Pada3:Onset:hā,1
+BigramPosition,Pada3:Onset:i ,1
+BigramPosition,Pada3:Onset:it,1
+BigramPosition,Pada3:Onset:iv,1
+BigramPosition,Pada3:Onset:i̍,1
+BigramPosition,Pada3:Onset:ja,1
+BigramPosition,Pada3:Onset:kā,1
+BigramPosition,Pada3:Onset:ma,2
+BigramPosition,Pada3:Onset:mi,1
+BigramPosition,Pada3:Onset:mā,1
+BigramPosition,Pada3:Onset:nt,1
+BigramPosition,Pada3:Onset:nā,1
+BigramPosition,Pada3:Onset:o ,1
+BigramPosition,Pada3:Onset:o̱,2
+BigramPosition,Pada3:Onset:pa,1
+BigramPosition,Pada3:Onset:ro,1
+BigramPosition,Pada3:Onset:rā,1
+BigramPosition,Pada3:Onset:ta,2
+BigramPosition,Pada3:Onset:ti,1
+BigramPosition,Pada3:Onset:to,1
+BigramPosition,Pada3:Onset:tr,1
+BigramPosition,Pada3:Onset:tā,1
+BigramPosition,Pada3:Onset:vi,1
+BigramPosition,Pada3:Onset:vo,1
+BigramPosition,Pada3:Onset:vā,1
+BigramPosition,Pada3:Onset:ya,1
+BigramPosition,Pada3:Onset:ye,1
+BigramPosition,Pada3:Onset:ā̍,2
+BigramPosition,Pada3:Onset:ā̱,2
+BigramPosition,Pada3:Onset:āṃ,1
+BigramPosition,Pada3:Onset:̍ ,1
+BigramPosition,Pada3:Onset:̍m,1
+BigramPosition,Pada3:Onset:̍v,1
+BigramPosition,Pada3:Onset:̱ ,2
+BigramPosition,Pada3:Onset:̱m,2
+BigramPosition,Pada3:Onset:̱n,1
+BigramPosition,Pada3:Onset:ṃ ,5
+BigramPosition,Pada4:Cadence: b,1
+BigramPosition,Pada4:Cadence: s,3
+BigramPosition,Pada4:Cadence: t,2
+BigramPosition,Pada4:Cadence: v,2
+BigramPosition,Pada4:Cadence: ā,1
+BigramPosition,Pada4:Cadence:a ,4
+BigramPosition,Pada4:Cadence:ad,1
+BigramPosition,Pada4:Cadence:an,1
+BigramPosition,Pada4:Cadence:ay,1
+BigramPosition,Pada4:Cadence:aś,1
+BigramPosition,Pada4:Cadence:a̍,1
+BigramPosition,Pada4:Cadence:a̱,1
+BigramPosition,Pada4:Cadence:aṃ,2
+BigramPosition,Pada4:Cadence:ba,1
+BigramPosition,Pada4:Cadence:bh,2
+BigramPosition,Pada4:Cadence:dh,1
+BigramPosition,Pada4:Cadence:dā,1
+BigramPosition,Pada4:Cadence:e ,1
+BigramPosition,Pada4:Cadence:ed,1
+BigramPosition,Pada4:Cadence:eś,1
+BigramPosition,Pada4:Cadence:e̍,2
+BigramPosition,Pada4:Cadence:hā,2
+BigramPosition,Pada4:Cadence:hū,1
+BigramPosition,Pada4:Cadence:i ,2
+BigramPosition,Pada4:Cadence:i̍,2
+BigramPosition,Pada4:Cadence:m ,2
+BigramPosition,Pada4:Cadence:me,1
+BigramPosition,Pada4:Cadence:mi,2
+BigramPosition,Pada4:Cadence:no,1
+BigramPosition,Pada4:Cadence:nt,1
+BigramPosition,Pada4:Cadence:nv,1
+BigramPosition,Pada4:Cadence:o̱,1
+BigramPosition,Pada4:Cadence:pa,1
+BigramPosition,Pada4:Cadence:pṛ,1
+BigramPosition,Pada4:Cadence:sp,1
+BigramPosition,Pada4:Cadence:su,2
+BigramPosition,Pada4:Cadence:ta,1
+BigramPosition,Pada4:Cadence:te,2
+BigramPosition,Pada4:Cadence:tī,1
+BigramPosition,Pada4:Cadence:u̍,2
+BigramPosition,Pada4:Cadence:va,3
+BigramPosition,Pada4:Cadence:ve,2
+BigramPosition,Pada4:Cadence:vi,2
+BigramPosition,Pada4:Cadence:ya,1
+BigramPosition,Pada4:Cadence:ā ,2
+BigramPosition,Pada4:Cadence:ām,3
+BigramPosition,Pada4:Cadence:āv,1
+BigramPosition,Pada4:Cadence:ī ,1
+BigramPosition,Pada4:Cadence:īm,1
+BigramPosition,Pada4:Cadence:śa,2
+BigramPosition,Pada4:Cadence:śv,1
+BigramPosition,Pada4:Cadence:śā,1
+BigramPosition,Pada4:Cadence:ūv,1
+BigramPosition,Pada4:Cadence:̍ ,1
+BigramPosition,Pada4:Cadence:̍b,1
+BigramPosition,Pada4:Cadence:̍m,1
+BigramPosition,Pada4:Cadence:̍n,2
+BigramPosition,Pada4:Cadence:̍v,1
+BigramPosition,Pada4:Cadence:̍ś,2
+BigramPosition,Pada4:Cadence:̱b,1
+BigramPosition,Pada4:Cadence:̱p,1
+BigramPosition,Pada4:Cadence:̱t,1
+BigramPosition,Pada4:Cadence:ṃ ,3
+BigramPosition,Pada4:Cadence:ṛ̍,1
+BigramPosition,Pada4:Middle: a,1
+BigramPosition,Pada4:Middle: b,1
+BigramPosition,Pada4:Middle: p,1
+BigramPosition,Pada4:Middle: s,1
+BigramPosition,Pada4:Middle: t,1
+BigramPosition,Pada4:Middle: v,1
+BigramPosition,Pada4:Middle: ś,1
+BigramPosition,Pada4:Middle: ṛ,1
+BigramPosition,Pada4:Middle:a ,1
+BigramPosition,Pada4:Middle:ad,1
+BigramPosition,Pada4:Middle:ah,1
+BigramPosition,Pada4:Middle:aj,1
+BigramPosition,Pada4:Middle:am,1
+BigramPosition,Pada4:Middle:ar,1
+BigramPosition,Pada4:Middle:a̍,2
+BigramPosition,Pada4:Middle:a̱,1
+BigramPosition,Pada4:Middle:aṃ,2
+BigramPosition,Pada4:Middle:bh,1
+BigramPosition,Pada4:Middle:dd,1
+BigramPosition,Pada4:Middle:di,1
+BigramPosition,Pada4:Middle:gn,1
+BigramPosition,Pada4:Middle:ha,1
+BigramPosition,Pada4:Middle:hi,2
+BigramPosition,Pada4:Middle:hū,1
+BigramPosition,Pada4:Middle:i̱,3
+BigramPosition,Pada4:Middle:iṃ,1
+BigramPosition,Pada4:Middle:ja,1
+BigramPosition,Pada4:Middle:ma,3
+BigramPosition,Pada4:Middle:mā,1
+BigramPosition,Pada4:Middle:nā,2
+BigramPosition,Pada4:Middle:nī,1
+BigramPosition,Pada4:Middle:o̱,1
+BigramPosition,Pada4:Middle:pṛ,1
+BigramPosition,Pada4:Middle:ra,1
+BigramPosition,Pada4:Middle:ry,1
+BigramPosition,Pada4:Middle:rā,1
+BigramPosition,Pada4:Middle:rṣ,1
+BigramPosition,Pada4:Middle:sa,1
+BigramPosition,Pada4:Middle:ta,2
+BigramPosition,Pada4:Middle:th,1
+BigramPosition,Pada4:Middle:tr,1
+BigramPosition,Pada4:Middle:va,2
+BigramPosition,Pada4:Middle:vī,1
+BigramPosition,Pada4:Middle:ya,2
+BigramPosition,Pada4:Middle:yā,1
+BigramPosition,Pada4:Middle:ā ,2
+BigramPosition,Pada4:Middle:ān,1
+BigramPosition,Pada4:Middle:ā̱,1
+BigramPosition,Pada4:Middle:āṃ,1
+BigramPosition,Pada4:Middle:ī ,1
+BigramPosition,Pada4:Middle:śr,1
+BigramPosition,Pada4:Middle:ū̱,1
+BigramPosition,Pada4:Middle:̍m,1
+BigramPosition,Pada4:Middle:̍t,2
+BigramPosition,Pada4:Middle:̍ṇ,1
+BigramPosition,Pada4:Middle:̍ṣ,1
+BigramPosition,Pada4:Middle:̱ ,3
+BigramPosition,Pada4:Middle:̱g,1
+BigramPosition,Pada4:Middle:̱h,1
+BigramPosition,Pada4:Middle:̱n,1
+BigramPosition,Pada4:Middle:̱r,1
+BigramPosition,Pada4:Middle:̱v,2
+BigramPosition,Pada4:Middle:̱y,1
+BigramPosition,Pada4:Middle:ṃ ,2
+BigramPosition,Pada4:Middle:ṃ̱,3
+BigramPosition,Pada4:Middle:ṇo,1
+BigramPosition,Pada4:Middle:ṛ̍,2
+BigramPosition,Pada4:Middle:ṣi,1
+BigramPosition,Pada4:Middle:ṣm,1
+BigramPosition,Pada4:Onset: a,2
+BigramPosition,Pada4:Onset: b,2
+BigramPosition,Pada4:Onset: d,2
+BigramPosition,Pada4:Onset: e,1
+BigramPosition,Pada4:Onset: m,1
+BigramPosition,Pada4:Onset: s,1
+BigramPosition,Pada4:Onset: t,1
+BigramPosition,Pada4:Onset: u,1
+BigramPosition,Pada4:Onset: y,1
+BigramPosition,Pada4:Onset: ś,2
+BigramPosition,Pada4:Onset:ah,2
+BigramPosition,Pada4:Onset:am,1
+BigramPosition,Pada4:Onset:at,1
+BigramPosition,Pada4:Onset:a̱,1
+BigramPosition,Pada4:Onset:aṃ,3
+BigramPosition,Pada4:Onset:bh,1
+BigramPosition,Pada4:Onset:br,1
+BigramPosition,Pada4:Onset:dh,1
+BigramPosition,Pada4:Onset:dr,1
+BigramPosition,Pada4:Onset:dy,2
+BigramPosition,Pada4:Onset:e ,1
+BigramPosition,Pada4:Onset:en,1
+BigramPosition,Pada4:Onset:et,1
+BigramPosition,Pada4:Onset:ha,2
+BigramPosition,Pada4:Onset:hi,1
+BigramPosition,Pada4:Onset:hm,1
+BigramPosition,Pada4:Onset:hā,1
+BigramPosition,Pada4:Onset:hū,1
+BigramPosition,Pada4:Onset:i ,1
+BigramPosition,Pada4:Onset:is,1
+BigramPosition,Pada4:Onset:me,1
+BigramPosition,Pada4:Onset:mā,1
+BigramPosition,Pada4:Onset:mū,1
+BigramPosition,Pada4:Onset:nd,1
+BigramPosition,Pada4:Onset:pr,1
+BigramPosition,Pada4:Onset:ra,1
+BigramPosition,Pada4:Onset:ri,1
+BigramPosition,Pada4:Onset:ru,2
+BigramPosition,Pada4:Onset:rā,2
+BigramPosition,Pada4:Onset:st,1
+BigramPosition,Pada4:Onset:su,1
+BigramPosition,Pada4:Onset:ta,1
+BigramPosition,Pada4:Onset:th,1
+BigramPosition,Pada4:Onset:tā,2
+BigramPosition,Pada4:Onset:tī,1
+BigramPosition,Pada4:Onset:up,1
+BigramPosition,Pada4:Onset:ut,1
+BigramPosition,Pada4:Onset:u̍,1
+BigramPosition,Pada4:Onset:u̱,1
+BigramPosition,Pada4:Onset:va,1
+BigramPosition,Pada4:Onset:vy,1
+BigramPosition,Pada4:Onset:vā,1
+BigramPosition,Pada4:Onset:ye,1
+BigramPosition,Pada4:Onset:yā,2
+BigramPosition,Pada4:Onset:ā̍,1
+BigramPosition,Pada4:Onset:ā̱,5
+BigramPosition,Pada4:Onset:āṃ,1
+BigramPosition,Pada4:Onset:āṇ,1
+BigramPosition,Pada4:Onset:ī ,1
+BigramPosition,Pada4:Onset:śr,2
+BigramPosition,Pada4:Onset:ū̱,1
+BigramPosition,Pada4:Onset:ūṃ,1
+BigramPosition,Pada4:Onset:̍t,1
+BigramPosition,Pada4:Onset:̱d,1
+BigramPosition,Pada4:Onset:̱h,1
+BigramPosition,Pada4:Onset:̱m,1
+BigramPosition,Pada4:Onset:̱r,1
+BigramPosition,Pada4:Onset:̱v,3
+BigramPosition,Pada4:Onset:ṃ ,3
+BigramPosition,Pada4:Onset:ṇa,1
+TrigramPosition,Pada1:Cadence: bi,1
+TrigramPosition,Pada1:Cadence: ca,1
+TrigramPosition,Pada1:Cadence: mū,1
+TrigramPosition,Pada1:Cadence: pr,1
+TrigramPosition,Pada1:Cadence: va,2
+TrigramPosition,Pada1:Cadence: vi,1
+TrigramPosition,Pada1:Cadence:a m,1
+TrigramPosition,Pada1:Cadence:a p,1
+TrigramPosition,Pada1:Cadence:adā,1
+TrigramPosition,Pada1:Cadence:an ,1
+TrigramPosition,Pada1:Cadence:arm,1
+TrigramPosition,Pada1:Cadence:arā,1
+TrigramPosition,Pada1:Cadence:avā,1
+TrigramPosition,Pada1:Cadence:aśy,1
+TrigramPosition,Pada1:Cadence:a̍n,1
+TrigramPosition,Pada1:Cadence:a̍t,1
+TrigramPosition,Pada1:Cadence:a̱s,1
+TrigramPosition,Pada1:Cadence:aṃ̍,1
+TrigramPosition,Pada1:Cadence:bha,1
+TrigramPosition,Pada1:Cadence:bhi,1
+TrigramPosition,Pada1:Cadence:bi̍,1
+TrigramPosition,Pada1:Cadence:car,1
+TrigramPosition,Pada1:Cadence:daṃ,1
+TrigramPosition,Pada1:Cadence:dha,1
+TrigramPosition,Pada1:Cadence:dām,1
+TrigramPosition,Pada1:Cadence:han,1
+TrigramPosition,Pada1:Cadence:har,1
+TrigramPosition,Pada1:Cadence:hiś,1
+TrigramPosition,Pada1:Cadence:iś ,1
+TrigramPosition,Pada1:Cadence:i̍b,1
+TrigramPosition,Pada1:Cadence:i̱p,1
+TrigramPosition,Pada1:Cadence:mi ,5
+TrigramPosition,Pada1:Cadence:mū̱,1
+TrigramPosition,Pada1:Cadence:nom,1
+TrigramPosition,Pada1:Cadence:nām,1
+TrigramPosition,Pada1:Cadence:nī ,1
+TrigramPosition,Pada1:Cadence:o v,1
+TrigramPosition,Pada1:Cadence:omi,1
+TrigramPosition,Pada1:Cadence:paś,1
+TrigramPosition,Pada1:Cadence:pra,1
+TrigramPosition,Pada1:Cadence:rav,1
+TrigramPosition,Pada1:Cadence:rdh,1
+TrigramPosition,Pada1:Cadence:rmi,1
+TrigramPosition,Pada1:Cadence:rām,1
+TrigramPosition,Pada1:Cadence:rāt,1
+TrigramPosition,Pada1:Cadence:sya,1
+TrigramPosition,Pada1:Cadence:sūn,1
+TrigramPosition,Pada1:Cadence:ta̍,1
+TrigramPosition,Pada1:Cadence:ti ,1
+TrigramPosition,Pada1:Cadence:u̱r,1
+TrigramPosition,Pada1:Cadence:va ,1
+TrigramPosition,Pada1:Cadence:vad,1
+TrigramPosition,Pada1:Cadence:va̱,1
+TrigramPosition,Pada1:Cadence:vi̱,1
+TrigramPosition,Pada1:Cadence:vā̱,1
+TrigramPosition,Pada1:Cadence:ya ,1
+TrigramPosition,Pada1:Cadence:ya̍,1
+TrigramPosition,Pada1:Cadence:ām ,1
+TrigramPosition,Pada1:Cadence:āmi,2
+TrigramPosition,Pada1:Cadence:āta,1
+TrigramPosition,Pada1:Cadence:ā̱m,1
+TrigramPosition,Pada1:Cadence:ī v,1
+TrigramPosition,Pada1:Cadence:ś c,1
+TrigramPosition,Pada1:Cadence:śya,1
+TrigramPosition,Pada1:Cadence:ūnā,1
+TrigramPosition,Pada1:Cadence:ū̱r,1
+TrigramPosition,Pada1:Cadence:̍ v,1
+TrigramPosition,Pada1:Cadence:̍bh,1
+TrigramPosition,Pada1:Cadence:̍no,1
+TrigramPosition,Pada1:Cadence:̍nī,1
+TrigramPosition,Pada1:Cadence:̍ti,1
+TrigramPosition,Pada1:Cadence:̱mi,1
+TrigramPosition,Pada1:Cadence:̱pa,1
+TrigramPosition,Pada1:Cadence:̱rd,1
+TrigramPosition,Pada1:Cadence:̱rā,1
+TrigramPosition,Pada1:Cadence:̱sū,1
+TrigramPosition,Pada1:Cadence:ṃ b,1
+TrigramPosition,Pada1:Cadence:ṃ̍ ,1
+TrigramPosition,Pada1:Middle: dh,1
+TrigramPosition,Pada1:Middle: i̍,1
+TrigramPosition,Pada1:Middle: pi,1
+TrigramPosition,Pada1:Middle: sa,1
+TrigramPosition,Pada1:Middle: sv,1
+TrigramPosition,Pada1:Middle: va,1
+TrigramPosition,Pada1:Middle: vā,1
+TrigramPosition,Pada1:Middle: yo,1
+TrigramPosition,Pada1:Middle:a i,1
+TrigramPosition,Pada1:Middle:ama,1
+TrigramPosition,Pada1:Middle:ami,1
+TrigramPosition,Pada1:Middle:ana,1
+TrigramPosition,Pada1:Middle:anu,1
+TrigramPosition,Pada1:Middle:ara,1
+TrigramPosition,Pada1:Middle:asa,1
+TrigramPosition,Pada1:Middle:asu,1
+TrigramPosition,Pada1:Middle:asy,1
+TrigramPosition,Pada1:Middle:att,1
+TrigramPosition,Pada1:Middle:a̍m,2
+TrigramPosition,Pada1:Middle:a̍n,1
+TrigramPosition,Pada1:Middle:a̱ ,1
+TrigramPosition,Pada1:Middle:a̱y,1
+TrigramPosition,Pada1:Middle:a̱ṃ,2
+TrigramPosition,Pada1:Middle:bhi,1
+TrigramPosition,Pada1:Middle:dha,1
+TrigramPosition,Pada1:Middle:ebh,1
+TrigramPosition,Pada1:Middle:gam,1
+TrigramPosition,Pada1:Middle:han,2
+TrigramPosition,Pada1:Middle:hir,1
+TrigramPosition,Pada1:Middle:ida,1
+TrigramPosition,Pada1:Middle:ir ,1
+TrigramPosition,Pada1:Middle:i̍v,1
+TrigramPosition,Pada1:Middle:i̱ ,1
+TrigramPosition,Pada1:Middle:i̱t,1
+TrigramPosition,Pada1:Middle:mas,1
+TrigramPosition,Pada1:Middle:mat,1
+TrigramPosition,Pada1:Middle:ma̍,1
+TrigramPosition,Pada1:Middle:mid,1
+TrigramPosition,Pada1:Middle:māh,1
+TrigramPosition,Pada1:Middle:nas,1
+TrigramPosition,Pada1:Middle:na̍,1
+TrigramPosition,Pada1:Middle:nu̱,1
+TrigramPosition,Pada1:Middle:pi̱,1
+TrigramPosition,Pada1:Middle:r v,1
+TrigramPosition,Pada1:Middle:ra̍,1
+TrigramPosition,Pada1:Middle:rāy,1
+TrigramPosition,Pada1:Middle:rī ,1
+TrigramPosition,Pada1:Middle:sa̱,2
+TrigramPosition,Pada1:Middle:sub,1
+TrigramPosition,Pada1:Middle:sva,1
+TrigramPosition,Pada1:Middle:ta ,1
+TrigramPosition,Pada1:Middle:tar,1
+TrigramPosition,Pada1:Middle:ti̱,1
+TrigramPosition,Pada1:Middle:tti,1
+TrigramPosition,Pada1:Middle:ubh,1
+TrigramPosition,Pada1:Middle:vas,1
+TrigramPosition,Pada1:Middle:va̱,1
+TrigramPosition,Pada1:Middle:vā̱,1
+TrigramPosition,Pada1:Middle:yam,1
+TrigramPosition,Pada1:Middle:ya̱,1
+TrigramPosition,Pada1:Middle:yo ,1
+TrigramPosition,Pada1:Middle:āha,1
+TrigramPosition,Pada1:Middle:āya,1
+TrigramPosition,Pada1:Middle:ā̱t,1
+TrigramPosition,Pada1:Middle:ī s,1
+TrigramPosition,Pada1:Middle:̍ma,2
+TrigramPosition,Pada1:Middle:̍mā,1
+TrigramPosition,Pada1:Middle:̍va,1
+TrigramPosition,Pada1:Middle:̱ d,1
+TrigramPosition,Pada1:Middle:̱ y,1
+TrigramPosition,Pada1:Middle:̱ta,2
+TrigramPosition,Pada1:Middle:̱ya,1
+TrigramPosition,Pada1:Middle:̱ṃ ,1
+TrigramPosition,Pada1:Middle:̱ṃg,1
+TrigramPosition,Pada1:Middle:ṃga,1
+TrigramPosition,Pada1:Onset: ah,7
+TrigramPosition,Pada1:Onset: ma,1
+TrigramPosition,Pada1:Onset: ru,2
+TrigramPosition,Pada1:Onset: rā,1
+TrigramPosition,Pada1:Onset: so,2
+TrigramPosition,Pada1:Onset: su,1
+TrigramPosition,Pada1:Onset:a s,1
+TrigramPosition,Pada1:Onset:a v,1
+TrigramPosition,Pada1:Onset:aha,7
+TrigramPosition,Pada1:Onset:ame,2
+TrigramPosition,Pada1:Onset:ayā,1
+TrigramPosition,Pada1:Onset:a̍m,1
+TrigramPosition,Pada1:Onset:aṃ ,5
+TrigramPosition,Pada1:Onset:dre,1
+TrigramPosition,Pada1:Onset:drā,1
+TrigramPosition,Pada1:Onset:e p,1
+TrigramPosition,Pada1:Onset:e̱v,2
+TrigramPosition,Pada1:Onset:ham,2
+TrigramPosition,Pada1:Onset:haṃ,5
+TrigramPosition,Pada1:Onset:may,1
+TrigramPosition,Pada1:Onset:ma̍,1
+TrigramPosition,Pada1:Onset:me̱,2
+TrigramPosition,Pada1:Onset:nna,1
+TrigramPosition,Pada1:Onset:oma,1
+TrigramPosition,Pada1:Onset:o’n,1
+TrigramPosition,Pada1:Onset:reb,1
+TrigramPosition,Pada1:Onset:rud,1
+TrigramPosition,Pada1:Onset:ru̱,1
+TrigramPosition,Pada1:Onset:rā̱,1
+TrigramPosition,Pada1:Onset:som,1
+TrigramPosition,Pada1:Onset:so’,1
+TrigramPosition,Pada1:Onset:su̱,1
+TrigramPosition,Pada1:Onset:udr,1
+TrigramPosition,Pada1:Onset:u̱d,1
+TrigramPosition,Pada1:Onset:u̱v,1
+TrigramPosition,Pada1:Onset:va ,2
+TrigramPosition,Pada1:Onset:ve ,1
+TrigramPosition,Pada1:Onset:yā̱,1
+TrigramPosition,Pada1:Onset:ā̱ ,1
+TrigramPosition,Pada1:Onset:ā̱ṣ,1
+TrigramPosition,Pada1:Onset:̱ s,1
+TrigramPosition,Pada1:Onset:̱dr,1
+TrigramPosition,Pada1:Onset:̱va,2
+TrigramPosition,Pada1:Onset:̱ve,1
+TrigramPosition,Pada1:Onset:̱ṣṭ,1
+TrigramPosition,Pada1:Onset:ṃ r,3
+TrigramPosition,Pada1:Onset:ṃ s,2
+TrigramPosition,Pada1:Onset:ṣṭr,1
+TrigramPosition,Pada1:Onset:ṭrī,1
+TrigramPosition,Pada1:Onset:’nn,1
+TrigramPosition,Pada2:Cadence: bh,1
+TrigramPosition,Pada2:Cadence: ha,1
+TrigramPosition,Pada2:Cadence: mā,1
+TrigramPosition,Pada2:Cadence: sa,1
+TrigramPosition,Pada2:Cadence: u ,1
+TrigramPosition,Pada2:Cadence: vi,1
+TrigramPosition,Pada2:Cadence: ya,1
+TrigramPosition,Pada2:Cadence:a m,1
+TrigramPosition,Pada2:Cadence:ade,1
+TrigramPosition,Pada2:Cadence:aga,1
+TrigramPosition,Pada2:Cadence:aiḥ ,1
+TrigramPosition,Pada2:Cadence:ajñ,1
+TrigramPosition,Pada2:Cadence:am ,1
+TrigramPosition,Pada2:Cadence:amu,1
+TrigramPosition,Pada2:Cadence:ant,1
+TrigramPosition,Pada2:Cadence:a̍m,1
+TrigramPosition,Pada2:Cadence:a̍v,1
+TrigramPosition,Pada2:Cadence:aḥ ,1
+TrigramPosition,Pada2:Cadence:aṃ ,1
+TrigramPosition,Pada2:Cadence:aṇa,1
+TrigramPosition,Pada2:Cadence:bha,1
+TrigramPosition,Pada2:Cadence:bhi,1
+TrigramPosition,Pada2:Cadence:de̍,1
+TrigramPosition,Pada2:Cadence:dre,1
+TrigramPosition,Pada2:Cadence:ebh,1
+TrigramPosition,Pada2:Cadence:e̍v,1
+TrigramPosition,Pada2:Cadence:ga̍,1
+TrigramPosition,Pada2:Cadence:hag,1
+TrigramPosition,Pada2:Cadence:han,1
+TrigramPosition,Pada2:Cadence:hiḥ,1
+TrigramPosition,Pada2:Cadence:iśv,2
+TrigramPosition,Pada2:Cadence:i̍y,1
+TrigramPosition,Pada2:Cadence:i̱ ,1
+TrigramPosition,Pada2:Cadence:iḥ ,1
+TrigramPosition,Pada2:Cadence:jñi,1
+TrigramPosition,Pada2:Cadence:kta,1
+TrigramPosition,Pada2:Cadence:mu̱,1
+TrigramPosition,Pada2:Cadence:mān,1
+TrigramPosition,Pada2:Cadence:ni̱,1
+TrigramPosition,Pada2:Cadence:nta,1
+TrigramPosition,Pada2:Cadence:nu̍,1
+TrigramPosition,Pada2:Cadence:nām,1
+TrigramPosition,Pada2:Cadence:nān,1
+TrigramPosition,Pada2:Cadence:oty,1
+TrigramPosition,Pada2:Cadence:re ,1
+TrigramPosition,Pada2:Cadence:sam,1
+TrigramPosition,Pada2:Cadence:tam,1
+TrigramPosition,Pada2:Cadence:ta̍,1
+TrigramPosition,Pada2:Cadence:taḥ,1
+TrigramPosition,Pada2:Cadence:tyu,1
+TrigramPosition,Pada2:Cadence:u̍ṣ,1
+TrigramPosition,Pada2:Cadence:u̱d,1
+TrigramPosition,Pada2:Cadence:u̱k,1
+TrigramPosition,Pada2:Cadence:vad,1
+TrigramPosition,Pada2:Cadence:vaiḥ,1
+TrigramPosition,Pada2:Cadence:viś,2
+TrigramPosition,Pada2:Cadence:vā ,2
+TrigramPosition,Pada2:Cadence:yaj,1
+TrigramPosition,Pada2:Cadence:yu̱,1
+TrigramPosition,Pada2:Cadence:yān,1
+TrigramPosition,Pada2:Cadence:ñi̍,1
+TrigramPosition,Pada2:Cadence:ā u,1
+TrigramPosition,Pada2:Cadence:ām ,1
+TrigramPosition,Pada2:Cadence:āni,1
+TrigramPosition,Pada2:Cadence:ānu,1
+TrigramPosition,Pada2:Cadence:ānā,1
+TrigramPosition,Pada2:Cadence:śva,1
+TrigramPosition,Pada2:Cadence:śvā,1
+TrigramPosition,Pada2:Cadence:śṛ̱,1
+TrigramPosition,Pada2:Cadence:̍m ,1
+TrigramPosition,Pada2:Cadence:̍vai,1
+TrigramPosition,Pada2:Cadence:̍vā,1
+TrigramPosition,Pada2:Cadence:̍yā,1
+TrigramPosition,Pada2:Cadence:̍ṣe,1
+TrigramPosition,Pada2:Cadence:̱ h,1
+TrigramPosition,Pada2:Cadence:̱ v,1
+TrigramPosition,Pada2:Cadence:̱dr,1
+TrigramPosition,Pada2:Cadence:̱kt,1
+TrigramPosition,Pada2:Cadence:̱ṇo,1
+TrigramPosition,Pada2:Cadence:ḥ s,1
+TrigramPosition,Pada2:Cadence:ṃ b,1
+TrigramPosition,Pada2:Cadence:ṇaṃ,1
+TrigramPosition,Pada2:Cadence:ṇot,1
+TrigramPosition,Pada2:Cadence:ṛ̱ṇ,1
+TrigramPosition,Pada2:Cadence:ṣaṇ,1
+TrigramPosition,Pada2:Cadence:ṣeb,1
+TrigramPosition,Pada2:Middle: bh,1
+TrigramPosition,Pada2:Middle: pr,1
+TrigramPosition,Pada2:Middle: pū,1
+TrigramPosition,Pada2:Middle: vi,1
+TrigramPosition,Pada2:Middle: ya,1
+TrigramPosition,Pada2:Middle: ī̍,1
+TrigramPosition,Pada2:Middle: śa,1
+TrigramPosition,Pada2:Middle: śṛ,1
+TrigramPosition,Pada2:Middle:a p,1
+TrigramPosition,Pada2:Middle:a v,1
+TrigramPosition,Pada2:Middle:a ī,1
+TrigramPosition,Pada2:Middle:airu,1
+TrigramPosition,Pada2:Middle:amu,1
+TrigramPosition,Pada2:Middle:aps,1
+TrigramPosition,Pada2:Middle:ara,1
+TrigramPosition,Pada2:Middle:ath,1
+TrigramPosition,Pada2:Middle:a̍n,1
+TrigramPosition,Pada2:Middle:a̍v,1
+TrigramPosition,Pada2:Middle:a̱m,1
+TrigramPosition,Pada2:Middle:a̱n,1
+TrigramPosition,Pada2:Middle:bhi,1
+TrigramPosition,Pada2:Middle:bhu,1
+TrigramPosition,Pada2:Middle:ebh,1
+TrigramPosition,Pada2:Middle:e̱ ,2
+TrigramPosition,Pada2:Middle:ha̱,1
+TrigramPosition,Pada2:Middle:hi̍,1
+TrigramPosition,Pada2:Middle:huv,1
+TrigramPosition,Pada2:Middle:i̍r,1
+TrigramPosition,Pada2:Middle:i̱ ,1
+TrigramPosition,Pada2:Middle:i̱r,1
+TrigramPosition,Pada2:Middle:mu̱,1
+TrigramPosition,Pada2:Middle:mā ,1
+TrigramPosition,Pada2:Middle:nta,1
+TrigramPosition,Pada2:Middle:pra,1
+TrigramPosition,Pada2:Middle:psv,1
+TrigramPosition,Pada2:Middle:pū̱,1
+TrigramPosition,Pada2:Middle:ram,1
+TrigramPosition,Pada2:Middle:rap,1
+TrigramPosition,Pada2:Middle:rat,1
+TrigramPosition,Pada2:Middle:ra̍,1
+TrigramPosition,Pada2:Middle:ru̱,2
+TrigramPosition,Pada2:Middle:sva,1
+TrigramPosition,Pada2:Middle:ta ,3
+TrigramPosition,Pada2:Middle:tha,1
+TrigramPosition,Pada2:Middle:ti̱,1
+TrigramPosition,Pada2:Middle:tyai,1
+TrigramPosition,Pada2:Middle:uva,1
+TrigramPosition,Pada2:Middle:u̱t,3
+TrigramPosition,Pada2:Middle:va̍,1
+TrigramPosition,Pada2:Middle:va̱,1
+TrigramPosition,Pada2:Middle:veb,1
+TrigramPosition,Pada2:Middle:ve̱,1
+TrigramPosition,Pada2:Middle:ya ,1
+TrigramPosition,Pada2:Middle:yair,1
+TrigramPosition,Pada2:Middle:ā b,1
+TrigramPosition,Pada2:Middle:ā y,1
+TrigramPosition,Pada2:Middle:ī̍ṃ,1
+TrigramPosition,Pada2:Middle:śar,1
+TrigramPosition,Pada2:Middle:ū̱ṣ,1
+TrigramPosition,Pada2:Middle:̍nt,1
+TrigramPosition,Pada2:Middle:̍ra,1
+TrigramPosition,Pada2:Middle:̍ru,1
+TrigramPosition,Pada2:Middle:̍ve,1
+TrigramPosition,Pada2:Middle:̍ṃ ,1
+TrigramPosition,Pada2:Middle:̱ y,1
+TrigramPosition,Pada2:Middle:̱ ś,1
+TrigramPosition,Pada2:Middle:̱mā,1
+TrigramPosition,Pada2:Middle:̱nā,1
+TrigramPosition,Pada2:Middle:̱ra,1
+TrigramPosition,Pada2:Middle:̱ta,3
+TrigramPosition,Pada2:Middle:̱ve,1
+TrigramPosition,Pada2:Middle:̱ṣa,1
+TrigramPosition,Pada2:Middle:ṃ ś,1
+TrigramPosition,Pada2:Middle:ṇā ,1
+TrigramPosition,Pada2:Middle:ṣe̱,1
+TrigramPosition,Pada2:Onset: ah,2
+TrigramPosition,Pada2:Onset: br,1
+TrigramPosition,Pada2:Onset: ci,1
+TrigramPosition,Pada2:Onset: de,1
+TrigramPosition,Pada2:Onset: ju,1
+TrigramPosition,Pada2:Onset: ma,1
+TrigramPosition,Pada2:Onset: pr,1
+TrigramPosition,Pada2:Onset: tv,1
+TrigramPosition,Pada2:Onset: ya,1
+TrigramPosition,Pada2:Onset: yo,1
+TrigramPosition,Pada2:Onset: ār,1
+TrigramPosition,Pada2:Onset:abh,1
+TrigramPosition,Pada2:Onset:aha,2
+TrigramPosition,Pada2:Onset:ahm,1
+TrigramPosition,Pada2:Onset:ama,1
+TrigramPosition,Pada2:Onset:amā,1
+TrigramPosition,Pada2:Onset:a̱ ,1
+TrigramPosition,Pada2:Onset:a̱d,1
+TrigramPosition,Pada2:Onset:a̱m,1
+TrigramPosition,Pada2:Onset:aḥ ,1
+TrigramPosition,Pada2:Onset:aṃ ,2
+TrigramPosition,Pada2:Onset:aṣṭ,1
+TrigramPosition,Pada2:Onset:bha,1
+TrigramPosition,Pada2:Onset:bra,1
+TrigramPosition,Pada2:Onset:cik,1
+TrigramPosition,Pada2:Onset:de̱,1
+TrigramPosition,Pada2:Onset:dit,1
+TrigramPosition,Pada2:Onset:dvi,1
+TrigramPosition,Pada2:Onset:e̱v,1
+TrigramPosition,Pada2:Onset:ham,1
+TrigramPosition,Pada2:Onset:ha̱,1
+TrigramPosition,Pada2:Onset:haṃ,1
+TrigramPosition,Pada2:Onset:hma,1
+TrigramPosition,Pada2:Onset:iki,1
+TrigramPosition,Pada2:Onset:iti,1
+TrigramPosition,Pada2:Onset:ity,1
+TrigramPosition,Pada2:Onset:i̱t,1
+TrigramPosition,Pada2:Onset:iṣe,1
+TrigramPosition,Pada2:Onset:ju̱,1
+TrigramPosition,Pada2:Onset:ki̱,1
+TrigramPosition,Pada2:Onset:mam,1
+TrigramPosition,Pada2:Onset:ma̱,2
+TrigramPosition,Pada2:Onset:mā̍,1
+TrigramPosition,Pada2:Onset:māṇ,1
+TrigramPosition,Pada2:Onset:ni̱,1
+TrigramPosition,Pada2:Onset:oni,1
+TrigramPosition,Pada2:Onset:prā,1
+TrigramPosition,Pada2:Onset:rab,1
+TrigramPosition,Pada2:Onset:rah,1
+TrigramPosition,Pada2:Onset:rā̱,1
+TrigramPosition,Pada2:Onset:tu̍,1
+TrigramPosition,Pada2:Onset:tva,1
+TrigramPosition,Pada2:Onset:u̍ṣ,1
+TrigramPosition,Pada2:Onset:u̱ṣ,1
+TrigramPosition,Pada2:Onset:vaṣ,1
+TrigramPosition,Pada2:Onset:viṣ,1
+TrigramPosition,Pada2:Onset:yaḥ,1
+TrigramPosition,Pada2:Onset:yon,1
+TrigramPosition,Pada2:Onset:āra,1
+TrigramPosition,Pada2:Onset:ā̍d,1
+TrigramPosition,Pada2:Onset:ā̍r,1
+TrigramPosition,Pada2:Onset:ā̱ṇ,1
+TrigramPosition,Pada2:Onset:āṇā,1
+TrigramPosition,Pada2:Onset:ī p,1
+TrigramPosition,Pada2:Onset:̍di,1
+TrigramPosition,Pada2:Onset:̍ṣī,1
+TrigramPosition,Pada2:Onset:̱ y,1
+TrigramPosition,Pada2:Onset:̱dv,1
+TrigramPosition,Pada2:Onset:̱mā,1
+TrigramPosition,Pada2:Onset:̱tu,1
+TrigramPosition,Pada2:Onset:̱ṇi,1
+TrigramPosition,Pada2:Onset:̱ṣṭ,1
+TrigramPosition,Pada2:Onset:ḥ p,1
+TrigramPosition,Pada2:Onset:ṃ d,1
+TrigramPosition,Pada2:Onset:ṃ t,1
+TrigramPosition,Pada2:Onset:ṇit,1
+TrigramPosition,Pada2:Onset:ṣī ,1
+TrigramPosition,Pada2:Onset:ṣṭa,1
+TrigramPosition,Pada2:Onset:ṣṭā,1
+TrigramPosition,Pada2:Onset:ṭaṃ,1
+TrigramPosition,Pada2:Onset:ṭā̍,1
+TrigramPosition,Pada3:Cadence: bi,1
+TrigramPosition,Pada3:Cadence: ha,1
+TrigramPosition,Pada3:Cadence: kṛ,2
+TrigramPosition,Pada3:Cadence: kṣ,1
+TrigramPosition,Pada3:Cadence: pu,1
+TrigramPosition,Pada3:Cadence: pṛ,1
+TrigramPosition,Pada3:Cadence: vi,1
+TrigramPosition,Pada3:Cadence:arm,1
+TrigramPosition,Pada3:Cadence:ate,1
+TrigramPosition,Pada3:Cadence:a̍n,1
+TrigramPosition,Pada3:Cadence:a̍v,1
+TrigramPosition,Pada3:Cadence:a̱ ,1
+TrigramPosition,Pada3:Cadence:a̱n,1
+TrigramPosition,Pada3:Cadence:aṃ ,3
+TrigramPosition,Pada3:Cadence:bha,1
+TrigramPosition,Pada3:Cadence:bi̍,1
+TrigramPosition,Pada3:Cadence:daṃ,1
+TrigramPosition,Pada3:Cadence:gra,1
+TrigramPosition,Pada3:Cadence:har,1
+TrigramPosition,Pada3:Cadence:ha̍,1
+TrigramPosition,Pada3:Cadence:hi̱,1
+TrigramPosition,Pada3:Cadence:huḥ,1
+TrigramPosition,Pada3:Cadence:iya,1
+TrigramPosition,Pada3:Cadence:iśv,1
+TrigramPosition,Pada3:Cadence:i̍b,1
+TrigramPosition,Pada3:Cadence:i̱v,1
+TrigramPosition,Pada3:Cadence:iṣm,1
+TrigramPosition,Pada3:Cadence:kṛ̍,1
+TrigramPosition,Pada3:Cadence:kṛṇ,1
+TrigramPosition,Pada3:Cadence:kṣi,1
+TrigramPosition,Pada3:Cadence:mat,1
+TrigramPosition,Pada3:Cadence:mi ,3
+TrigramPosition,Pada3:Cadence:nti,1
+TrigramPosition,Pada3:Cadence:nu̱,1
+TrigramPosition,Pada3:Cadence:nā ,1
+TrigramPosition,Pada3:Cadence:nān,1
+TrigramPosition,Pada3:Cadence:omi,2
+TrigramPosition,Pada3:Cadence:pu̱,1
+TrigramPosition,Pada3:Cadence:pṛt,1
+TrigramPosition,Pada3:Cadence:raṃ,1
+TrigramPosition,Pada3:Cadence:rmi,1
+TrigramPosition,Pada3:Cadence:rut,1
+TrigramPosition,Pada3:Cadence:rā ,1
+TrigramPosition,Pada3:Cadence:te ,1
+TrigramPosition,Pada3:Cadence:thi,1
+TrigramPosition,Pada3:Cadence:ti ,1
+TrigramPosition,Pada3:Cadence:trā,1
+TrigramPosition,Pada3:Cadence:utr,1
+TrigramPosition,Pada3:Cadence:u̱ ,1
+TrigramPosition,Pada3:Cadence:u̱r,1
+TrigramPosition,Pada3:Cadence:uḥ ,1
+TrigramPosition,Pada3:Cadence:viś,1
+TrigramPosition,Pada3:Cadence:viṣ,1
+TrigramPosition,Pada3:Cadence:vyā,1
+TrigramPosition,Pada3:Cadence:vā ,1
+TrigramPosition,Pada3:Cadence:ya̍,1
+TrigramPosition,Pada3:Cadence:yā ,1
+TrigramPosition,Pada3:Cadence:ā b,1
+TrigramPosition,Pada3:Cadence:ā p,1
+TrigramPosition,Pada3:Cadence:ānu,1
+TrigramPosition,Pada3:Cadence:śvā,1
+TrigramPosition,Pada3:Cadence:̍bh,1
+TrigramPosition,Pada3:Cadence:̍da,1
+TrigramPosition,Pada3:Cadence:̍nt,1
+TrigramPosition,Pada3:Cadence:̍vi,1
+TrigramPosition,Pada3:Cadence:̍ṇo,1
+TrigramPosition,Pada3:Cadence:̱ k,1
+TrigramPosition,Pada3:Cadence:̱ v,1
+TrigramPosition,Pada3:Cadence:̱gr,1
+TrigramPosition,Pada3:Cadence:̱nā,1
+TrigramPosition,Pada3:Cadence:̱ru,1
+TrigramPosition,Pada3:Cadence:̱vy,1
+TrigramPosition,Pada3:Cadence:ḥ p,1
+TrigramPosition,Pada3:Cadence:ṃ h,1
+TrigramPosition,Pada3:Cadence:ṃ k,2
+TrigramPosition,Pada3:Cadence:ṇom,2
+TrigramPosition,Pada3:Cadence:ṛth,1
+TrigramPosition,Pada3:Cadence:ṛ̍ṇ,1
+TrigramPosition,Pada3:Cadence:ṛṇo,1
+TrigramPosition,Pada3:Cadence:ṣiy,1
+TrigramPosition,Pada3:Cadence:ṣma,1
+TrigramPosition,Pada3:Middle: bh,1
+TrigramPosition,Pada3:Middle: dr,1
+TrigramPosition,Pada3:Middle: en,1
+TrigramPosition,Pada3:Middle: mā,1
+TrigramPosition,Pada3:Middle: pa,1
+TrigramPosition,Pada3:Middle: sa,1
+TrigramPosition,Pada3:Middle: ta,3
+TrigramPosition,Pada3:Middle: up,1
+TrigramPosition,Pada3:Middle: vy,1
+TrigramPosition,Pada3:Middle:a u,1
+TrigramPosition,Pada3:Middle:adh,1
+TrigramPosition,Pada3:Middle:ama,1
+TrigramPosition,Pada3:Middle:ara,1
+TrigramPosition,Pada3:Middle:aru,1
+TrigramPosition,Pada3:Middle:avi,1
+TrigramPosition,Pada3:Middle:a̍ ,1
+TrigramPosition,Pada3:Middle:a̍d,2
+TrigramPosition,Pada3:Middle:a̍m,1
+TrigramPosition,Pada3:Middle:a̱ ,1
+TrigramPosition,Pada3:Middle:aṃ ,1
+TrigramPosition,Pada3:Middle:bhu,1
+TrigramPosition,Pada3:Middle:bhā,1
+TrigramPosition,Pada3:Middle:dad,1
+TrigramPosition,Pada3:Middle:dhu,1
+TrigramPosition,Pada3:Middle:dra,1
+TrigramPosition,Pada3:Middle:e b,1
+TrigramPosition,Pada3:Middle:enā,1
+TrigramPosition,Pada3:Middle:he ,1
+TrigramPosition,Pada3:Middle:huv,1
+TrigramPosition,Pada3:Middle:hā ,1
+TrigramPosition,Pada3:Middle:i d,1
+TrigramPosition,Pada3:Middle:i̍ṣ,1
+TrigramPosition,Pada3:Middle:i̱ṇ,1
+TrigramPosition,Pada3:Middle:ma̍,1
+TrigramPosition,Pada3:Middle:mi ,1
+TrigramPosition,Pada3:Middle:mu̱,1
+TrigramPosition,Pada3:Middle:māṃ,1
+TrigramPosition,Pada3:Middle:o̱b,1
+TrigramPosition,Pada3:Middle:par,1
+TrigramPosition,Pada3:Middle:pa̱,1
+TrigramPosition,Pada3:Middle:rav,1
+TrigramPosition,Pada3:Middle:ra̍,1
+TrigramPosition,Pada3:Middle:ruṇ,1
+TrigramPosition,Pada3:Middle:sam,1
+TrigramPosition,Pada3:Middle:ta ,1
+TrigramPosition,Pada3:Middle:ta̍,1
+TrigramPosition,Pada3:Middle:taṃ,1
+TrigramPosition,Pada3:Middle:upa,1
+TrigramPosition,Pada3:Middle:uva,1
+TrigramPosition,Pada3:Middle:u̱g,1
+TrigramPosition,Pada3:Middle:uṇo,1
+TrigramPosition,Pada3:Middle:var,1
+TrigramPosition,Pada3:Middle:va̱,1
+TrigramPosition,Pada3:Middle:vi̱,1
+TrigramPosition,Pada3:Middle:vya,1
+TrigramPosition,Pada3:Middle:vā ,1
+TrigramPosition,Pada3:Middle:ya̍,1
+TrigramPosition,Pada3:Middle:ya̱,1
+TrigramPosition,Pada3:Middle:ā v,1
+TrigramPosition,Pada3:Middle:āva,1
+TrigramPosition,Pada3:Middle:āya,1
+TrigramPosition,Pada3:Middle:ā̱ ,1
+TrigramPosition,Pada3:Middle:āṃ ,1
+TrigramPosition,Pada3:Middle:̍ e,1
+TrigramPosition,Pada3:Middle:̍da,1
+TrigramPosition,Pada3:Middle:̍mi,1
+TrigramPosition,Pada3:Middle:̍mu,1
+TrigramPosition,Pada3:Middle:̍ṣṭ,1
+TrigramPosition,Pada3:Middle:̱ p,1
+TrigramPosition,Pada3:Middle:̱ s,1
+TrigramPosition,Pada3:Middle:̱ t,1
+TrigramPosition,Pada3:Middle:̱bh,1
+TrigramPosition,Pada3:Middle:̱vā,1
+TrigramPosition,Pada3:Middle:̱ṇa,1
+TrigramPosition,Pada3:Middle:ṃ t,2
+TrigramPosition,Pada3:Middle:ṇaṃ,1
+TrigramPosition,Pada3:Middle:ṇo̱,1
+TrigramPosition,Pada3:Middle:ṣṭh,1
+TrigramPosition,Pada3:Middle:ṭhe,1
+TrigramPosition,Pada3:Onset: ah,3
+TrigramPosition,Pada3:Onset: a̱,1
+TrigramPosition,Pada3:Onset: da,1
+TrigramPosition,Pada3:Onset: de,1
+TrigramPosition,Pada3:Onset: di,1
+TrigramPosition,Pada3:Onset: ja,1
+TrigramPosition,Pada3:Onset: kā,1
+TrigramPosition,Pada3:Onset: mi,1
+TrigramPosition,Pada3:Onset: mā,1
+TrigramPosition,Pada3:Onset: pa,1
+TrigramPosition,Pada3:Onset: ta,1
+TrigramPosition,Pada3:Onset: ti,1
+TrigramPosition,Pada3:Onset: tā,1
+TrigramPosition,Pada3:Onset: vi,1
+TrigramPosition,Pada3:Onset: ya,1
+TrigramPosition,Pada3:Onset:adh,1
+TrigramPosition,Pada3:Onset:aha,3
+TrigramPosition,Pada3:Onset:ant,1
+TrigramPosition,Pada3:Onset:aro,1
+TrigramPosition,Pada3:Onset:ato,1
+TrigramPosition,Pada3:Onset:aye,1
+TrigramPosition,Pada3:Onset:a̍v,1
+TrigramPosition,Pada3:Onset:a̱m,1
+TrigramPosition,Pada3:Onset:a̱n,1
+TrigramPosition,Pada3:Onset:aṃ ,4
+TrigramPosition,Pada3:Onset:dad,1
+TrigramPosition,Pada3:Onset:de̱,1
+TrigramPosition,Pada3:Onset:dhā,1
+TrigramPosition,Pada3:Onset:div,1
+TrigramPosition,Pada3:Onset:e̱ ,1
+TrigramPosition,Pada3:Onset:e̱v,1
+TrigramPosition,Pada3:Onset:haṃ,3
+TrigramPosition,Pada3:Onset:hā̍,1
+TrigramPosition,Pada3:Onset:i t,1
+TrigramPosition,Pada3:Onset:itr,1
+TrigramPosition,Pada3:Onset:ivā,1
+TrigramPosition,Pada3:Onset:ja̱,1
+TrigramPosition,Pada3:Onset:kā̱,1
+TrigramPosition,Pada3:Onset:man,1
+TrigramPosition,Pada3:Onset:may,1
+TrigramPosition,Pada3:Onset:mit,1
+TrigramPosition,Pada3:Onset:mā̍,1
+TrigramPosition,Pada3:Onset:nta,1
+TrigramPosition,Pada3:Onset:nāy,1
+TrigramPosition,Pada3:Onset:o m,1
+TrigramPosition,Pada3:Onset:o̱ ,2
+TrigramPosition,Pada3:Onset:par,1
+TrigramPosition,Pada3:Onset:ro̱,1
+TrigramPosition,Pada3:Onset:rāv,1
+TrigramPosition,Pada3:Onset:tat,1
+TrigramPosition,Pada3:Onset:ta̍,1
+TrigramPosition,Pada3:Onset:ti̍,1
+TrigramPosition,Pada3:Onset:to̱,1
+TrigramPosition,Pada3:Onset:trā,1
+TrigramPosition,Pada3:Onset:tāṃ,1
+TrigramPosition,Pada3:Onset:vi ,1
+TrigramPosition,Pada3:Onset:vo ,1
+TrigramPosition,Pada3:Onset:vā̱,1
+TrigramPosition,Pada3:Onset:yaṃ,1
+TrigramPosition,Pada3:Onset:ye̱,1
+TrigramPosition,Pada3:Onset:ā̍ ,1
+TrigramPosition,Pada3:Onset:ā̍m,1
+TrigramPosition,Pada3:Onset:ā̱m,1
+TrigramPosition,Pada3:Onset:āṃ ,1
+TrigramPosition,Pada3:Onset:̍ d,1
+TrigramPosition,Pada3:Onset:̍vo,1
+TrigramPosition,Pada3:Onset:̱ d,1
+TrigramPosition,Pada3:Onset:̱ v,1
+TrigramPosition,Pada3:Onset:̱ma,2
+TrigramPosition,Pada3:Onset:̱nā,1
+TrigramPosition,Pada3:Onset:ṃ d,1
+TrigramPosition,Pada3:Onset:ṃ j,1
+TrigramPosition,Pada3:Onset:ṃ k,1
+TrigramPosition,Pada3:Onset:ṃ m,2
+TrigramPosition,Pada4:Cadence: ba,1
+TrigramPosition,Pada4:Cadence: sp,1
+TrigramPosition,Pada4:Cadence: su,2
+TrigramPosition,Pada4:Cadence: ta,1
+TrigramPosition,Pada4:Cadence: te,1
+TrigramPosition,Pada4:Cadence: va,1
+TrigramPosition,Pada4:Cadence: vi,1
+TrigramPosition,Pada4:Cadence: ā ,1
+TrigramPosition,Pada4:Cadence:a s,2
+TrigramPosition,Pada4:Cadence:adā,1
+TrigramPosition,Pada4:Cadence:ant,1
+TrigramPosition,Pada4:Cadence:aya,1
+TrigramPosition,Pada4:Cadence:aśv,1
+TrigramPosition,Pada4:Cadence:a̍b,1
+TrigramPosition,Pada4:Cadence:a̱t,1
+TrigramPosition,Pada4:Cadence:aṃ ,3
+TrigramPosition,Pada4:Cadence:ba̍,1
+TrigramPosition,Pada4:Cadence:bhā,1
+TrigramPosition,Pada4:Cadence:bhū,1
+TrigramPosition,Pada4:Cadence:dhā,1
+TrigramPosition,Pada4:Cadence:dām,1
+TrigramPosition,Pada4:Cadence:edh,1
+TrigramPosition,Pada4:Cadence:eśa,1
+TrigramPosition,Pada4:Cadence:e̍ ,1
+TrigramPosition,Pada4:Cadence:e̍ś,1
+TrigramPosition,Pada4:Cadence:hā ,1
+TrigramPosition,Pada4:Cadence:hām,1
+TrigramPosition,Pada4:Cadence:hūv,1
+TrigramPosition,Pada4:Cadence:i̍n,1
+TrigramPosition,Pada4:Cadence:i̍v,1
+TrigramPosition,Pada4:Cadence:med,1
+TrigramPosition,Pada4:Cadence:mi ,2
+TrigramPosition,Pada4:Cadence:no̱,1
+TrigramPosition,Pada4:Cadence:ntī,1
+TrigramPosition,Pada4:Cadence:nva,1
+TrigramPosition,Pada4:Cadence:o̱b,1
+TrigramPosition,Pada4:Cadence:o̱p,1
+TrigramPosition,Pada4:Cadence:pa ,1
+TrigramPosition,Pada4:Cadence:pṛ̍,1
+TrigramPosition,Pada4:Cadence:spṛ,1
+TrigramPosition,Pada4:Cadence:su̍,2
+TrigramPosition,Pada4:Cadence:taṃ,1
+TrigramPosition,Pada4:Cadence:te ,1
+TrigramPosition,Pada4:Cadence:te̍,1
+TrigramPosition,Pada4:Cadence:tīm,1
+TrigramPosition,Pada4:Cadence:u̍m,1
+TrigramPosition,Pada4:Cadence:u̍n,1
+TrigramPosition,Pada4:Cadence:va ,1
+TrigramPosition,Pada4:Cadence:vad,1
+TrigramPosition,Pada4:Cadence:va̱,1
+TrigramPosition,Pada4:Cadence:veś,1
+TrigramPosition,Pada4:Cadence:ve̍,1
+TrigramPosition,Pada4:Cadence:vi̍,2
+TrigramPosition,Pada4:Cadence:vī ,1
+TrigramPosition,Pada4:Cadence:ya ,1
+TrigramPosition,Pada4:Cadence:yan,1
+TrigramPosition,Pada4:Cadence:yāv,1
+TrigramPosition,Pada4:Cadence:ā v,1
+TrigramPosition,Pada4:Cadence:ām ,1
+TrigramPosition,Pada4:Cadence:āmi,2
+TrigramPosition,Pada4:Cadence:āve,1
+TrigramPosition,Pada4:Cadence:ī ā,1
+TrigramPosition,Pada4:Cadence:īm ,1
+TrigramPosition,Pada4:Cadence:śa ,1
+TrigramPosition,Pada4:Cadence:śay,1
+TrigramPosition,Pada4:Cadence:śvi,1
+TrigramPosition,Pada4:Cadence:śām,1
+TrigramPosition,Pada4:Cadence:ūva,1
+TrigramPosition,Pada4:Cadence:̍ v,1
+TrigramPosition,Pada4:Cadence:̍bh,1
+TrigramPosition,Pada4:Cadence:̍me,1
+TrigramPosition,Pada4:Cadence:̍no,1
+TrigramPosition,Pada4:Cadence:̍nv,1
+TrigramPosition,Pada4:Cadence:̍ve,1
+TrigramPosition,Pada4:Cadence:̍śa,1
+TrigramPosition,Pada4:Cadence:̍śā,1
+TrigramPosition,Pada4:Cadence:̱ t,1
+TrigramPosition,Pada4:Cadence:̱bh,1
+TrigramPosition,Pada4:Cadence:̱pa,1
+TrigramPosition,Pada4:Cadence:̱te,1
+TrigramPosition,Pada4:Cadence:ṃ b,1
+TrigramPosition,Pada4:Cadence:ṃ s,1
+TrigramPosition,Pada4:Cadence:ṃ t,1
+TrigramPosition,Pada4:Cadence:ṛ̍ś,1
+TrigramPosition,Pada4:Middle: a̱,1
+TrigramPosition,Pada4:Middle: bh,1
+TrigramPosition,Pada4:Middle: pṛ,1
+TrigramPosition,Pada4:Middle: sa,1
+TrigramPosition,Pada4:Middle: ta,1
+TrigramPosition,Pada4:Middle: va,1
+TrigramPosition,Pada4:Middle: śr,1
+TrigramPosition,Pada4:Middle: ṛ̍,1
+TrigramPosition,Pada4:Middle:a ś,1
+TrigramPosition,Pada4:Middle:add,1
+TrigramPosition,Pada4:Middle:ahi,1
+TrigramPosition,Pada4:Middle:aja,1
+TrigramPosition,Pada4:Middle:ama,1
+TrigramPosition,Pada4:Middle:arṣ,1
+TrigramPosition,Pada4:Middle:a̍m,1
+TrigramPosition,Pada4:Middle:a̍ṇ,1
+TrigramPosition,Pada4:Middle:a̱h,1
+TrigramPosition,Pada4:Middle:aṃ ,1
+TrigramPosition,Pada4:Middle:aṃ̱,1
+TrigramPosition,Pada4:Middle:bhū,1
+TrigramPosition,Pada4:Middle:ddi,1
+TrigramPosition,Pada4:Middle:di̱,1
+TrigramPosition,Pada4:Middle:gnī,1
+TrigramPosition,Pada4:Middle:ham,1
+TrigramPosition,Pada4:Middle:hi̱,2
+TrigramPosition,Pada4:Middle:hū̱,1
+TrigramPosition,Pada4:Middle:i̱n,1
+TrigramPosition,Pada4:Middle:i̱v,2
+TrigramPosition,Pada4:Middle:iṃ̱,1
+TrigramPosition,Pada4:Middle:ja̍,1
+TrigramPosition,Pada4:Middle:mah,1
+TrigramPosition,Pada4:Middle:maś,1
+TrigramPosition,Pada4:Middle:ma̍,1
+TrigramPosition,Pada4:Middle:mān,1
+TrigramPosition,Pada4:Middle:nā ,1
+TrigramPosition,Pada4:Middle:nā̱,1
+TrigramPosition,Pada4:Middle:nī ,1
+TrigramPosition,Pada4:Middle:pṛ̍,1
+TrigramPosition,Pada4:Middle:rad,1
+TrigramPosition,Pada4:Middle:ryā,1
+TrigramPosition,Pada4:Middle:rāṃ,1
+TrigramPosition,Pada4:Middle:rṣm,1
+TrigramPosition,Pada4:Middle:saṃ,1
+TrigramPosition,Pada4:Middle:ta ,1
+TrigramPosition,Pada4:Middle:taṃ,1
+TrigramPosition,Pada4:Middle:thi,1
+TrigramPosition,Pada4:Middle:trā,1
+TrigramPosition,Pada4:Middle:var,1
+TrigramPosition,Pada4:Middle:vaṃ,1
+TrigramPosition,Pada4:Middle:vā ,1
+TrigramPosition,Pada4:Middle:yaj,1
+TrigramPosition,Pada4:Middle:ā p,1
+TrigramPosition,Pada4:Middle:ā s,1
+TrigramPosition,Pada4:Middle:ānā,1
+TrigramPosition,Pada4:Middle:ā̱y,1
+TrigramPosition,Pada4:Middle:āṃ ,1
+TrigramPosition,Pada4:Middle:ī a,1
+TrigramPosition,Pada4:Middle:śra,1
+TrigramPosition,Pada4:Middle:ū̱r,1
+TrigramPosition,Pada4:Middle:̍mā,1
+TrigramPosition,Pada4:Middle:̍ta,1
+TrigramPosition,Pada4:Middle:̍th,1
+TrigramPosition,Pada4:Middle:̍tr,1
+TrigramPosition,Pada4:Middle:̍ṇo,1
+TrigramPosition,Pada4:Middle:̍ṣi,1
+TrigramPosition,Pada4:Middle:̱ t,1
+TrigramPosition,Pada4:Middle:̱ v,1
+TrigramPosition,Pada4:Middle:̱gn,1
+TrigramPosition,Pada4:Middle:̱ha,1
+TrigramPosition,Pada4:Middle:̱nā,1
+TrigramPosition,Pada4:Middle:̱ry,1
+TrigramPosition,Pada4:Middle:̱va,1
+TrigramPosition,Pada4:Middle:̱vī,1
+TrigramPosition,Pada4:Middle:̱ya,1
+TrigramPosition,Pada4:Middle:ṃ b,1
+TrigramPosition,Pada4:Middle:ṃ ṛ,1
+TrigramPosition,Pada4:Middle:ṃ̱ ,3
+TrigramPosition,Pada4:Middle:ṇo̱,1
+TrigramPosition,Pada4:Middle:ṛ̍t,1
+TrigramPosition,Pada4:Middle:ṛ̍ṣ,1
+TrigramPosition,Pada4:Middle:ṣiṃ,1
+TrigramPosition,Pada4:Middle:ṣma,1
+TrigramPosition,Pada4:Onset: ah,2
+TrigramPosition,Pada4:Onset: bh,1
+TrigramPosition,Pada4:Onset: br,1
+TrigramPosition,Pada4:Onset: dy,2
+TrigramPosition,Pada4:Onset: et,1
+TrigramPosition,Pada4:Onset: ma,1
+TrigramPosition,Pada4:Onset: su,1
+TrigramPosition,Pada4:Onset: ta,1
+TrigramPosition,Pada4:Onset: ut,1
+TrigramPosition,Pada4:Onset: ya,1
+TrigramPosition,Pada4:Onset: śr,2
+TrigramPosition,Pada4:Onset:aha,2
+TrigramPosition,Pada4:Onset:ame,1
+TrigramPosition,Pada4:Onset:atī,1
+TrigramPosition,Pada4:Onset:a̱h,1
+TrigramPosition,Pada4:Onset:aṃ ,2
+TrigramPosition,Pada4:Onset:bhū,1
+TrigramPosition,Pada4:Onset:bra,1
+TrigramPosition,Pada4:Onset:dhi,1
+TrigramPosition,Pada4:Onset:drā,1
+TrigramPosition,Pada4:Onset:dyā,2
+TrigramPosition,Pada4:Onset:e y,1
+TrigramPosition,Pada4:Onset:end,1
+TrigramPosition,Pada4:Onset:etā,1
+TrigramPosition,Pada4:Onset:ham,1
+TrigramPosition,Pada4:Onset:haṃ,1
+TrigramPosition,Pada4:Onset:hi ,1
+TrigramPosition,Pada4:Onset:hmā,1
+TrigramPosition,Pada4:Onset:hā̍,1
+TrigramPosition,Pada4:Onset:hū̱,1
+TrigramPosition,Pada4:Onset:i ś,1
+TrigramPosition,Pada4:Onset:ist,1
+TrigramPosition,Pada4:Onset:men,1
+TrigramPosition,Pada4:Onset:māṇ,1
+TrigramPosition,Pada4:Onset:mūṃ,1
+TrigramPosition,Pada4:Onset:ndr,1
+TrigramPosition,Pada4:Onset:prā,1
+TrigramPosition,Pada4:Onset:ra̱,1
+TrigramPosition,Pada4:Onset:ris,1
+TrigramPosition,Pada4:Onset:ru̍,1
+TrigramPosition,Pada4:Onset:ru̱,1
+TrigramPosition,Pada4:Onset:rā̱,2
+TrigramPosition,Pada4:Onset:sth,1
+TrigramPosition,Pada4:Onset:sup,1
+TrigramPosition,Pada4:Onset:taṃ,1
+TrigramPosition,Pada4:Onset:thā,1
+TrigramPosition,Pada4:Onset:tā̱,2
+TrigramPosition,Pada4:Onset:tī ,1
+TrigramPosition,Pada4:Onset:upr,1
+TrigramPosition,Pada4:Onset:utā,1
+TrigramPosition,Pada4:Onset:u̍t,1
+TrigramPosition,Pada4:Onset:u̱d,1
+TrigramPosition,Pada4:Onset:vat,1
+TrigramPosition,Pada4:Onset:vye,1
+TrigramPosition,Pada4:Onset:ye ,1
+TrigramPosition,Pada4:Onset:yā̱,1
+TrigramPosition,Pada4:Onset:yāṃ,1
+TrigramPosition,Pada4:Onset:ā̍t,1
+TrigramPosition,Pada4:Onset:ā̱g,1
+TrigramPosition,Pada4:Onset:ā̱m,1
+TrigramPosition,Pada4:Onset:ā̱v,3
+TrigramPosition,Pada4:Onset:āṃ̱,1
+TrigramPosition,Pada4:Onset:āṇa,1
+TrigramPosition,Pada4:Onset:ī m,1
+TrigramPosition,Pada4:Onset:śru,2
+TrigramPosition,Pada4:Onset:ū̱r,1
+TrigramPosition,Pada4:Onset:ūṃ ,1
+TrigramPosition,Pada4:Onset:̱dh,1
+TrigramPosition,Pada4:Onset:̱hm,1
+TrigramPosition,Pada4:Onset:̱mū,1
+TrigramPosition,Pada4:Onset:̱ri,1
+TrigramPosition,Pada4:Onset:̱va,1
+TrigramPosition,Pada4:Onset:̱vy,1
+TrigramPosition,Pada4:Onset:̱vā,1
+TrigramPosition,Pada4:Onset:ṃ b,1
+TrigramPosition,Pada4:Onset:ṃ d,2
+TrigramPosition,Pada4:Onset:ṇaṃ,1

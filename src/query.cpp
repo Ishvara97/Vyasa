@@ -5,6 +5,7 @@
 
 #include <algorithm>
 #include <cctype>
+#include <cmath>
 #include <iomanip>
 #include <map>
 #include <optional>
@@ -726,6 +727,28 @@ std::string compareSelectedVerses(
             const auto meter = compareIntMaps(
                 buildMeterPatternProfileForVerse(*selected[i].verse),
                 buildMeterPatternProfileForVerse(*selected[j].verse));
+            const auto bigramJaccard = computeNGramJaccardSimilarity(
+                getPhoneticNGrams(*selected[i].verse, 2),
+                getPhoneticNGrams(*selected[j].verse, 2));
+            const auto trigramJaccard = computeNGramJaccardSimilarity(
+                getPhoneticNGrams(*selected[i].verse, 3),
+                getPhoneticNGrams(*selected[j].verse, 3));
+            const auto rareBigram = compareRareWeightedNGramProfiles(
+                getPhoneticNGrams(*selected[i].verse, 2),
+                getPhoneticNGrams(*selected[j].verse, 2));
+            const auto rareTrigram = compareRareWeightedNGramProfiles(
+                getPhoneticNGrams(*selected[i].verse, 3),
+                getPhoneticNGrams(*selected[j].verse, 3));
+            const auto bigramPosition = compareIntMaps(
+                getPhoneticNGramPositionProfile(*selected[i].verse, 2),
+                getPhoneticNGramPositionProfile(*selected[j].verse, 2));
+            const auto trigramPosition = compareIntMaps(
+                getPhoneticNGramPositionProfile(*selected[i].verse, 3),
+                getPhoneticNGramPositionProfile(*selected[j].verse, 3));
+            const auto leftBigramEntropy = getPhoneticNGramEntropy(*selected[i].verse, 2);
+            const auto rightBigramEntropy = getPhoneticNGramEntropy(*selected[j].verse, 2);
+            const auto leftTrigramEntropy = getPhoneticNGramEntropy(*selected[i].verse, 3);
+            const auto rightTrigramEntropy = getPhoneticNGramEntropy(*selected[j].verse, 3);
 
             out << "  " << selected[i].hymnRecord->exportBaseName << ":" << selected[i].verse->getVerseNumber()
                 << " vs "
@@ -737,6 +760,14 @@ std::string compareSelectedVerses(
                 << " confidence=" << swara.confidence << "\n";
             out << "    meter cosine=" << meter.cosineSimilarity
                 << " confidence=" << meter.confidence << "\n";
+            out << "    bigram jaccard=" << bigramJaccard
+                << " rare-weighted cosine=" << rareBigram.cosineSimilarity
+                << " position cosine=" << bigramPosition.cosineSimilarity
+                << " entropy delta=" << std::abs(leftBigramEntropy - rightBigramEntropy) << "\n";
+            out << "    trigram jaccard=" << trigramJaccard
+                << " rare-weighted cosine=" << rareTrigram.cosineSimilarity
+                << " position cosine=" << trigramPosition.cosineSimilarity
+                << " entropy delta=" << std::abs(leftTrigramEntropy - rightTrigramEntropy) << "\n";
         }
     }
 
@@ -774,6 +805,28 @@ std::string compareSelectedHymns(
             const auto meter = compareIntMaps(
                 buildMeterPatternProfileForHymn(*selected[i]->hymn),
                 buildMeterPatternProfileForHymn(*selected[j]->hymn));
+            const auto bigramJaccard = computeNGramJaccardSimilarity(
+                getHymnPhoneticNGrams(*selected[i]->hymn, 2),
+                getHymnPhoneticNGrams(*selected[j]->hymn, 2));
+            const auto trigramJaccard = computeNGramJaccardSimilarity(
+                getHymnPhoneticNGrams(*selected[i]->hymn, 3),
+                getHymnPhoneticNGrams(*selected[j]->hymn, 3));
+            const auto rareBigram = compareRareWeightedNGramProfiles(
+                getHymnPhoneticNGrams(*selected[i]->hymn, 2),
+                getHymnPhoneticNGrams(*selected[j]->hymn, 2));
+            const auto rareTrigram = compareRareWeightedNGramProfiles(
+                getHymnPhoneticNGrams(*selected[i]->hymn, 3),
+                getHymnPhoneticNGrams(*selected[j]->hymn, 3));
+            const auto bigramPosition = compareIntMaps(
+                getHymnPhoneticNGramPositionProfile(*selected[i]->hymn, 2),
+                getHymnPhoneticNGramPositionProfile(*selected[j]->hymn, 2));
+            const auto trigramPosition = compareIntMaps(
+                getHymnPhoneticNGramPositionProfile(*selected[i]->hymn, 3),
+                getHymnPhoneticNGramPositionProfile(*selected[j]->hymn, 3));
+            const auto leftBigramEntropy = getHymnPhoneticNGramEntropy(*selected[i]->hymn, 2);
+            const auto rightBigramEntropy = getHymnPhoneticNGramEntropy(*selected[j]->hymn, 2);
+            const auto leftTrigramEntropy = getHymnPhoneticNGramEntropy(*selected[i]->hymn, 3);
+            const auto rightTrigramEntropy = getHymnPhoneticNGramEntropy(*selected[j]->hymn, 3);
 
             out << "  [" << selected[i]->index << "] " << selected[i]->exportBaseName
                 << " vs "
@@ -787,6 +840,14 @@ std::string compareSelectedHymns(
                 << " confidence=" << swara.confidence << "\n";
             out << "    meter cosine=" << meter.cosineSimilarity
                 << " confidence=" << meter.confidence << "\n";
+            out << "    bigram jaccard=" << bigramJaccard
+                << " rare-weighted cosine=" << rareBigram.cosineSimilarity
+                << " position cosine=" << bigramPosition.cosineSimilarity
+                << " entropy delta=" << std::abs(leftBigramEntropy - rightBigramEntropy) << "\n";
+            out << "    trigram jaccard=" << trigramJaccard
+                << " rare-weighted cosine=" << rareTrigram.cosineSimilarity
+                << " position cosine=" << trigramPosition.cosineSimilarity
+                << " entropy delta=" << std::abs(leftTrigramEntropy - rightTrigramEntropy) << "\n";
         }
     }
 
