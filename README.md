@@ -57,6 +57,11 @@ _yo asyādhyakṣaḥ parame vyoman **[so aṅgha veda yadi vā na veda]** ||_
 `Hymn -> Verse -> Word -> [Syllable -> Onset/Nucleus/Coda] | [Letter -> Svara/Phoneme_Class]`
 
 # Usage
+## Setup
+
+[Current Release](https://github.com/Ishvara97/Vyasa/releases/tag/release)
+
+Extract `Vyasa.zip` into the directory you want and run `Vyasa.exe`
 
 ## Initializatiion
 Any `.txt` will be referred to as a _Hymn_. Sample Hymns are provided in `/Hymns`. Sample `Hymn.txt` is provided as a template for your inputs.
