@@ -1,5 +1,7 @@
 #include <fstream>
 #include <algorithm>
+#include <cctype>
+#include <cstdlib>
 #include <filesystem>
 #include <iostream>
 #include <limits>
@@ -14,6 +16,9 @@
 #include "src/Parser.h"
 #include "PoemStructures.h"
 #include "src/analysis.h"
+#include "src/export_paths.h"
+#include "src/levenshtein.h"
+#include "src/matrix_analysis.h"
 #include "src/query.h"
 #include "json.hpp"
 #include "src/jsonserialization.h"
@@ -97,6 +102,9 @@ void printAvailableHymnFiles();
 std::optional<std::string> promptSearchValue(
     const std::string& prompt,
     const std::string& helpText = "");
+std::optional<int> promptPositiveInteger(
+    const std::string& prompt,
+    const std::string& helpText = "");
 void printExportMessage(
     const std::string& sourcePath,
     const std::string& jsonPath,
@@ -104,6 +112,7 @@ void printExportMessage(
     const std::string& analysisPath,
     const std::string& sandhiPath,
     const std::string& similarityPath);
+std::optional<bool> runStepByStepAnalyze(const std::vector<LoadedHymnRecord>& loadedHymns);
 
 std::vector<std::string> splitCommaSeparated(const std::string& value) {
     std::vector<std::string> parts;
@@ -128,6 +137,21 @@ std::string trim(std::string value) {
 
     const auto end = value.find_last_not_of(" \t\r\n");
     return value.substr(begin, end - begin + 1);
+}
+
+std::optional<int> parsePositiveInt(const std::string& value) {
+    const std::string cleaned = trim(value);
+    if (cleaned.empty()) {
+        return std::nullopt;
+    }
+
+    for (char ch : cleaned) {
+        if (!std::isdigit(static_cast<unsigned char>(ch))) {
+            return std::nullopt;
+        }
+    }
+
+    return std::stoi(cleaned);
 }
 
 std::string toLowerAscii(std::string value) {
@@ -337,19 +361,21 @@ void printParsedHymnDetails(const ParsedHymn& parsed) {
 
 void exportParsedHymn(const ParsedHymn& parsed) {
     const Hymn& hymn = parsed.hymn;
-    const std::string jsonPath = "HymnExports/" + parsed.exportBaseName + ".json";
-    const std::string csvPath = "HymnExports/" + parsed.exportBaseName + ".csv";
-    const std::string analysisPath = "HymnExports/" + parsed.exportBaseName + "_Analysis.csv";
-    const std::string sandhiPath = "HymnExports/" + parsed.exportBaseName + "_Sandhi.csv";
-    const std::string similarityPath = "HymnExports/" + parsed.exportBaseName + "_Similarity.csv";
-    std::ofstream out(jsonPath);
+    const HymnExportPaths paths = buildHymnExportPaths(parsed.exportBaseName);
+    std::ofstream out(paths.jsonPath);
     out << hymnToJsonString(hymn);
 
-    exportFullCSV(hymn, csvPath);
-    exportHymnAnalysisCSV(hymn, analysisPath);
-    exportSandhiCSV(hymn, sandhiPath);
-    exportVerseSimilarityCSV(hymn, similarityPath);
-    printExportMessage(parsed.sourcePath, jsonPath, csvPath, analysisPath, sandhiPath, similarityPath);
+    exportFullCSV(hymn, paths.csvPath);
+    exportHymnAnalysisCSV(hymn, paths.analysisPath);
+    exportSandhiCSV(hymn, paths.sandhiPath);
+    exportVerseSimilarityCSV(hymn, paths.similarityPath);
+    printExportMessage(
+        parsed.sourcePath,
+        paths.jsonPath,
+        paths.csvPath,
+        paths.analysisPath,
+        paths.sandhiPath,
+        paths.similarityPath);
 }
 
 std::vector<LoadedHymnRecord> buildLoadedHymnRecords(std::vector<ParsedHymn>& hymns) {
@@ -561,6 +587,534 @@ std::optional<std::string> promptSearchValue(
         }
 
         std::cout << "Input cannot be empty.\n";
+    }
+}
+
+std::optional<int> promptPositiveInteger(
+    const std::string& prompt,
+    const std::string& helpText) {
+    while (true) {
+        const auto value = promptSearchValue(prompt, helpText);
+        if (!value.has_value()) {
+            return std::nullopt;
+        }
+        if (value.value() == "__BACK__") {
+            return -1;
+        }
+
+        const auto parsed = parsePositiveInt(value.value());
+        if (parsed.has_value() && parsed.value() > 0) {
+            return parsed.value();
+        }
+
+        std::cout << "Enter a positive integer.\n";
+    }
+}
+
+const LoadedHymnRecord* resolveLoadedHymnRecord(
+    const std::vector<LoadedHymnRecord>& loadedHymns,
+    int hymnIndex) {
+    for (const auto& record : loadedHymns) {
+        if (record.index == hymnIndex) {
+            return &record;
+        }
+    }
+    return nullptr;
+}
+
+const Verse* resolveVerseFromLoadedHymns(
+    const std::vector<LoadedHymnRecord>& loadedHymns,
+    int hymnIndex,
+    int verseNumber,
+    const LoadedHymnRecord** outRecord = nullptr) {
+    const LoadedHymnRecord* record = resolveLoadedHymnRecord(loadedHymns, hymnIndex);
+    if (record == nullptr || record->hymn == nullptr) {
+        return nullptr;
+    }
+
+    for (const auto& verse : record->hymn->getVerses()) {
+        if (verse.getVerseNumber() == verseNumber) {
+            if (outRecord != nullptr) {
+                *outRecord = record;
+            }
+            return &verse;
+        }
+    }
+
+    return nullptr;
+}
+
+std::optional<bool> exportLevenshteinAnalysis(const std::vector<LoadedHymnRecord>& loadedHymns) {
+    while (true) {
+        const auto choice = promptMenuSelection(
+            "Levenshtein Distance",
+            {
+                "Compare verses",
+                "Compare hymns"
+            });
+        if (!choice.has_value()) {
+            return std::nullopt;
+        }
+        if (choice.value() == -1) {
+            return false;
+        }
+
+        if (choice.value() == 1) {
+            std::cout << buildLoadedHymnSummary(loadedHymns);
+            const auto value = promptSearchValue(
+                "Two verse references as hymnIndex:verseNumber,hymnIndex:verseNumber (`back` to return): ",
+                "Example: 1:4,2:6\n");
+            if (!value.has_value()) {
+                return std::nullopt;
+            }
+            if (value.value() == "__BACK__") {
+                continue;
+            }
+
+            const auto refs = splitCommaSeparated(value.value());
+            if (refs.size() != 2) {
+                std::cout << "Provide exactly two verse references.\n";
+                continue;
+            }
+
+            auto parseRef = [&](const std::string& ref, int& hymnIndex, int& verseNumber) -> bool {
+                const size_t colonPos = ref.find(':');
+                if (colonPos == std::string::npos) {
+                    return false;
+                }
+
+                const auto hymnValue = parsePositiveInt(ref.substr(0, colonPos));
+                const auto verseValue = parsePositiveInt(ref.substr(colonPos + 1));
+                if (!hymnValue.has_value() || !verseValue.has_value()) {
+                    return false;
+                }
+
+                hymnIndex = hymnValue.value();
+                verseNumber = verseValue.value();
+                return true;
+            };
+
+            int leftHymnIndex = 0;
+            int leftVerseNumber = 0;
+            int rightHymnIndex = 0;
+            int rightVerseNumber = 0;
+            if (!parseRef(refs[0], leftHymnIndex, leftVerseNumber) ||
+                !parseRef(refs[1], rightHymnIndex, rightVerseNumber)) {
+                std::cout << "Invalid verse references.\n";
+                continue;
+            }
+
+            const LoadedHymnRecord* leftRecord = nullptr;
+            const LoadedHymnRecord* rightRecord = nullptr;
+            const Verse* leftVerse =
+                resolveVerseFromLoadedHymns(loadedHymns, leftHymnIndex, leftVerseNumber, &leftRecord);
+            const Verse* rightVerse =
+                resolveVerseFromLoadedHymns(loadedHymns, rightHymnIndex, rightVerseNumber, &rightRecord);
+            if (leftVerse == nullptr || rightVerse == nullptr || leftRecord == nullptr || rightRecord == nullptr) {
+                std::cout << "Could not resolve one or both verse references.\n";
+                continue;
+            }
+
+            const auto dev = computeDevLevenshteinMetrics(*leftVerse, *rightVerse);
+            const auto iast = computeIASTLevenshteinMetrics(*leftVerse, *rightVerse);
+            std::cout << "\nLevenshtein distance results\n";
+            std::cout << "  " << leftRecord->exportBaseName << ":" << leftVerseNumber
+                      << " vs " << rightRecord->exportBaseName << ":" << rightVerseNumber << "\n";
+            std::cout << "  DEV distance=" << dev.distance
+                      << " normalizedDistance=" << dev.normalizedDistance
+                      << " similarity=" << dev.similarity << "\n";
+            std::cout << "  IAST distance=" << iast.distance
+                      << " normalizedDistance=" << iast.normalizedDistance
+                      << " similarity=" << iast.similarity << "\n";
+            return true;
+        }
+
+        std::cout << buildLoadedHymnSummary(loadedHymns);
+        const auto value = promptSearchValue(
+            "Two hymn indices, comma-separated (`back` to return): ",
+            "Example: 1,2\n");
+        if (!value.has_value()) {
+            return std::nullopt;
+        }
+        if (value.value() == "__BACK__") {
+            continue;
+        }
+
+        const auto refs = splitCommaSeparated(value.value());
+        if (refs.size() != 2) {
+            std::cout << "Provide exactly two hymn indices.\n";
+            continue;
+        }
+
+        const auto leftIndex = parsePositiveInt(refs[0]);
+        const auto rightIndex = parsePositiveInt(refs[1]);
+        if (!leftIndex.has_value() || !rightIndex.has_value()) {
+            std::cout << "Invalid hymn indices.\n";
+            continue;
+        }
+
+        const LoadedHymnRecord* leftRecord = resolveLoadedHymnRecord(loadedHymns, leftIndex.value());
+        const LoadedHymnRecord* rightRecord = resolveLoadedHymnRecord(loadedHymns, rightIndex.value());
+        if (leftRecord == nullptr || rightRecord == nullptr ||
+            leftRecord->hymn == nullptr || rightRecord->hymn == nullptr) {
+            std::cout << "Could not resolve one or both hymn indices.\n";
+            continue;
+        }
+
+        const auto dev = computeDevLevenshteinMetrics(*leftRecord->hymn, *rightRecord->hymn);
+        const auto iast = computeIASTLevenshteinMetrics(*leftRecord->hymn, *rightRecord->hymn);
+        std::cout << "\nLevenshtein distance results\n";
+        std::cout << "  [" << leftRecord->index << "] " << leftRecord->exportBaseName
+                  << " vs "
+                  << "[" << rightRecord->index << "] " << rightRecord->exportBaseName << "\n";
+        std::cout << "  DEV distance=" << dev.distance
+                  << " normalizedDistance=" << dev.normalizedDistance
+                  << " similarity=" << dev.similarity << "\n";
+        std::cout << "  IAST distance=" << iast.distance
+                  << " normalizedDistance=" << iast.normalizedDistance
+                  << " similarity=" << iast.similarity << "\n";
+        return true;
+    }
+}
+
+std::optional<bool> exportScopedCooccurrenceMatrix(
+    const std::vector<LoadedHymnRecord>& loadedHymns,
+    MatrixTokenMode tokenMode,
+    const std::string& tokenLabel,
+    const std::string& title) {
+    while (true) {
+        const auto scopeChoice = promptMenuSelection(
+            title + " Scope",
+            {
+                "Hymn",
+                "Verse"
+            });
+        if (!scopeChoice.has_value()) {
+            return std::nullopt;
+        }
+        if (scopeChoice.value() == -1) {
+            return false;
+        }
+
+        const auto windowRadius = promptPositiveInteger(
+            "Window radius (`back` to return): ",
+            "Example: 2 counts tokens within two positions on either side.\n");
+        if (!windowRadius.has_value()) {
+            return std::nullopt;
+        }
+        if (windowRadius.value() == -1) {
+            continue;
+        }
+
+        if (scopeChoice.value() == 1) {
+            std::cout << buildLoadedHymnSummary(loadedHymns);
+            const auto hymnIndex = promptPositiveInteger(
+                "Hymn index (`back` to return): ",
+                "Use one loaded hymn index such as 1.\n");
+            if (!hymnIndex.has_value()) {
+                return std::nullopt;
+            }
+            if (hymnIndex.value() == -1) {
+                continue;
+            }
+
+            const LoadedHymnRecord* record = resolveLoadedHymnRecord(loadedHymns, hymnIndex.value());
+            if (record == nullptr || record->hymn == nullptr) {
+                std::cout << "Invalid hymn index.\n";
+                continue;
+            }
+
+            const auto matrix = buildCooccurrenceMatrix(*record->hymn, tokenMode, windowRadius.value());
+            const std::string path = buildMatrixExportPath(
+                record->exportBaseName,
+                tokenLabel + "_Cooccurrence_Window" + std::to_string(windowRadius.value()) + "_Hymn");
+            exportCountMatrixCSV(matrix, path, tokenLabel, tokenLabel, true);
+            std::cout << "Co-occurrence matrix exported to " << path << "\n";
+            return true;
+        }
+
+        std::cout << buildLoadedHymnSummary(loadedHymns);
+        const auto verseRef = promptSearchValue(
+            "Verse reference as hymnIndex:verseNumber (`back` to return): ",
+            "Example: 1:4\n");
+        if (!verseRef.has_value()) {
+            return std::nullopt;
+        }
+        if (verseRef.value() == "__BACK__") {
+            continue;
+        }
+
+        const size_t colonPos = verseRef->find(':');
+        if (colonPos == std::string::npos) {
+            std::cout << "Invalid verse reference.\n";
+            continue;
+        }
+
+        const auto hymnIndex = parsePositiveInt(verseRef->substr(0, colonPos));
+        const auto verseNumber = parsePositiveInt(verseRef->substr(colonPos + 1));
+        if (!hymnIndex.has_value() || !verseNumber.has_value()) {
+            std::cout << "Invalid verse reference.\n";
+            continue;
+        }
+
+        const LoadedHymnRecord* record = nullptr;
+        const Verse* verse =
+            resolveVerseFromLoadedHymns(loadedHymns, hymnIndex.value(), verseNumber.value(), &record);
+        if (verse == nullptr || record == nullptr) {
+            std::cout << "Could not resolve the verse reference.\n";
+            continue;
+        }
+
+        const auto matrix = buildCooccurrenceMatrix(*verse, tokenMode, windowRadius.value());
+        const std::string path = buildMatrixExportPath(
+            record->exportBaseName,
+            tokenLabel + "_Cooccurrence_Window" + std::to_string(windowRadius.value()) +
+                "_Verse" + std::to_string(verseNumber.value()));
+        exportCountMatrixCSV(matrix, path, tokenLabel, tokenLabel, true);
+        std::cout << "Co-occurrence matrix exported to " << path << "\n";
+        return true;
+    }
+}
+
+std::optional<bool> exportCharacterLevelMatrix(const std::vector<LoadedHymnRecord>& loadedHymns) {
+    return exportScopedCooccurrenceMatrix(
+        loadedHymns,
+        MatrixTokenMode::Character,
+        "Character",
+        "Character-Level Matrix");
+}
+
+std::optional<bool> exportCooccurrenceMatrix(const std::vector<LoadedHymnRecord>& loadedHymns) {
+    while (true) {
+        const auto tokenChoice = promptMenuSelection(
+            "Co-Occurrence Matrix Token Mode",
+            {
+                "Character",
+                "Phoneme class"
+            });
+        if (!tokenChoice.has_value()) {
+            return std::nullopt;
+        }
+        if (tokenChoice.value() == -1) {
+            return false;
+        }
+
+        const MatrixTokenMode tokenMode =
+            tokenChoice.value() == 1 ? MatrixTokenMode::Character : MatrixTokenMode::PhonemeClass;
+        const std::string tokenLabel =
+            tokenChoice.value() == 1 ? "Character" : "PhonemeClass";
+
+        return exportScopedCooccurrenceMatrix(
+            loadedHymns,
+            tokenMode,
+            tokenLabel,
+            "Co-Occurrence Matrix");
+    }
+}
+
+std::optional<bool> exportTransitionMatrix(const std::vector<LoadedHymnRecord>& loadedHymns) {
+    while (true) {
+        const auto scopeChoice = promptMenuSelection(
+            "Transition Matrix Scope",
+            {
+                "Hymn",
+                "Verse"
+            });
+        if (!scopeChoice.has_value()) {
+            return std::nullopt;
+        }
+        if (scopeChoice.value() == -1) {
+            return false;
+        }
+
+        if (scopeChoice.value() == 1) {
+            std::cout << buildLoadedHymnSummary(loadedHymns);
+            const auto hymnIndex = promptPositiveInteger(
+                "Hymn index (`back` to return): ",
+                "Use one loaded hymn index such as 1.\n");
+            if (!hymnIndex.has_value()) {
+                return std::nullopt;
+            }
+            if (hymnIndex.value() == -1) {
+                continue;
+            }
+
+            const LoadedHymnRecord* record = resolveLoadedHymnRecord(loadedHymns, hymnIndex.value());
+            if (record == nullptr || record->hymn == nullptr) {
+                std::cout << "Invalid hymn index.\n";
+                continue;
+            }
+
+            const auto matrix = buildPhonemeClassTransitionMatrix(*record->hymn);
+            const std::string path =
+                buildMatrixExportPath(record->exportBaseName, "PhonemeClass_Transition_Hymn");
+            exportTransitionMatrixCSV(matrix, path);
+            std::cout << "Transition matrix exported to " << path << "\n";
+            return true;
+        }
+
+        std::cout << buildLoadedHymnSummary(loadedHymns);
+        const auto verseRef = promptSearchValue(
+            "Verse reference as hymnIndex:verseNumber (`back` to return): ",
+            "Example: 1:4\n");
+        if (!verseRef.has_value()) {
+            return std::nullopt;
+        }
+        if (verseRef.value() == "__BACK__") {
+            continue;
+        }
+
+        const size_t colonPos = verseRef->find(':');
+        if (colonPos == std::string::npos) {
+            std::cout << "Invalid verse reference.\n";
+            continue;
+        }
+
+        const auto hymnIndex = parsePositiveInt(verseRef->substr(0, colonPos));
+        const auto verseNumber = parsePositiveInt(verseRef->substr(colonPos + 1));
+        if (!hymnIndex.has_value() || !verseNumber.has_value()) {
+            std::cout << "Invalid verse reference.\n";
+            continue;
+        }
+
+        const LoadedHymnRecord* record = nullptr;
+        const Verse* verse =
+            resolveVerseFromLoadedHymns(loadedHymns, hymnIndex.value(), verseNumber.value(), &record);
+        if (verse == nullptr || record == nullptr) {
+            std::cout << "Could not resolve the verse reference.\n";
+            continue;
+        }
+
+        const auto matrix = buildPhonemeClassTransitionMatrix(*verse);
+        const std::string path = buildMatrixExportPath(
+            record->exportBaseName,
+            "PhonemeClass_Transition_Verse" + std::to_string(verseNumber.value()));
+        exportTransitionMatrixCSV(matrix, path);
+        std::cout << "Transition matrix exported to " << path << "\n";
+        return true;
+    }
+}
+
+std::optional<bool> exportSyllableFeatureMatrix(const std::vector<LoadedHymnRecord>& loadedHymns) {
+    while (true) {
+        const auto scopeChoice = promptMenuSelection(
+            "Syllable Feature Matrix Scope",
+            {
+                "Hymn",
+                "Verse"
+            });
+        if (!scopeChoice.has_value()) {
+            return std::nullopt;
+        }
+        if (scopeChoice.value() == -1) {
+            return false;
+        }
+
+        if (scopeChoice.value() == 1) {
+            std::cout << buildLoadedHymnSummary(loadedHymns);
+            const auto hymnIndex = promptPositiveInteger(
+                "Hymn index (`back` to return): ",
+                "Use one loaded hymn index such as 1.\n");
+            if (!hymnIndex.has_value()) {
+                return std::nullopt;
+            }
+            if (hymnIndex.value() == -1) {
+                continue;
+            }
+
+            const LoadedHymnRecord* record = resolveLoadedHymnRecord(loadedHymns, hymnIndex.value());
+            if (record == nullptr || record->hymn == nullptr) {
+                std::cout << "Invalid hymn index.\n";
+                continue;
+            }
+
+            const auto rows = buildSyllableFeatureMatrix(*record->hymn);
+            const std::string path =
+                buildMatrixExportPath(record->exportBaseName, "SyllableFeatureMatrix_Hymn");
+            exportSyllableFeatureMatrixCSV(rows, path);
+            std::cout << "Syllable feature matrix exported to " << path << "\n";
+            return true;
+        }
+
+        std::cout << buildLoadedHymnSummary(loadedHymns);
+        const auto verseRef = promptSearchValue(
+            "Verse reference as hymnIndex:verseNumber (`back` to return): ",
+            "Example: 1:4\n");
+        if (!verseRef.has_value()) {
+            return std::nullopt;
+        }
+        if (verseRef.value() == "__BACK__") {
+            continue;
+        }
+
+        const size_t colonPos = verseRef->find(':');
+        if (colonPos == std::string::npos) {
+            std::cout << "Invalid verse reference.\n";
+            continue;
+        }
+
+        const auto hymnIndex = parsePositiveInt(verseRef->substr(0, colonPos));
+        const auto verseNumber = parsePositiveInt(verseRef->substr(colonPos + 1));
+        if (!hymnIndex.has_value() || !verseNumber.has_value()) {
+            std::cout << "Invalid verse reference.\n";
+            continue;
+        }
+
+        const LoadedHymnRecord* record = nullptr;
+        const Verse* verse =
+            resolveVerseFromLoadedHymns(loadedHymns, hymnIndex.value(), verseNumber.value(), &record);
+        if (verse == nullptr || record == nullptr) {
+            std::cout << "Could not resolve the verse reference.\n";
+            continue;
+        }
+
+        const auto rows = buildSyllableFeatureMatrix(*verse);
+        const std::string path = buildMatrixExportPath(
+            record->exportBaseName,
+            "SyllableFeatureMatrix_Verse" + std::to_string(verseNumber.value()));
+        exportSyllableFeatureMatrixCSV(rows, path);
+        std::cout << "Syllable feature matrix exported to " << path << "\n";
+        return true;
+    }
+}
+
+std::optional<bool> runStepByStepAnalyze(const std::vector<LoadedHymnRecord>& loadedHymns) {
+    while (true) {
+        const auto choice = promptMenuSelection(
+            "Analyze",
+            {
+                "Levenshtein distance",
+                "Character-level matrix",
+                "Co-occurrence matrix",
+                "Phoneme class transition matrix",
+                "Syllable feature matrix"
+            });
+        if (!choice.has_value()) {
+            return std::nullopt;
+        }
+        if (choice.value() == -1) {
+            return false;
+        }
+
+        std::optional<bool> result;
+        if (choice.value() == 1) {
+            result = exportLevenshteinAnalysis(loadedHymns);
+        } else if (choice.value() == 2) {
+            result = exportCharacterLevelMatrix(loadedHymns);
+        } else if (choice.value() == 3) {
+            result = exportCooccurrenceMatrix(loadedHymns);
+        } else if (choice.value() == 4) {
+            result = exportTransitionMatrix(loadedHymns);
+        } else {
+            result = exportSyllableFeatureMatrix(loadedHymns);
+        }
+
+        if (!result.has_value()) {
+            return std::nullopt;
+        }
+        if (result.value()) {
+            return true;
+        }
     }
 }
 
@@ -813,6 +1367,8 @@ void printInteractiveHelp() {
 }
 
 int main() {
+    _putenv_s("RUST_BACKTRACE", "1");
+
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
@@ -829,7 +1385,7 @@ int main() {
     }
 
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::filesystem::create_directories("HymnExports");
+    ensureExportDirectories();
     const auto availableHymnFiles = getAvailableHymnFiles();
     printAvailableHymnFiles();
 
@@ -873,7 +1429,7 @@ int main() {
 
     std::cout << "\n" << buildLoadedHymnSummary(loadedHymns);
     std::cout << "\nUploads, parsing, and exports are complete.\n";
-    std::cout << "Choose an action step by step to search or compare the loaded hymns.\n";
+    std::cout << "Choose an action step by step to search, compare, or analyze the loaded hymns.\n";
     std::cout << "The program will keep running until you request termination with `exit`, `quit`, or `stop`.\n";
     printInteractiveHelp();
 
@@ -883,6 +1439,7 @@ int main() {
             {
                 "Search",
                 "Compare",
+                "Analyze",
                 "List loaded hymns",
                 "Add hymn",
                 "Remove hymn",
@@ -896,17 +1453,17 @@ int main() {
             break;
         }
 
-        if (selection.value() == 7) {
+        if (selection.value() == 8) {
             std::cout << "Session terminated.\n";
             break;
         }
 
-        if (selection.value() == 6) {
+        if (selection.value() == 7) {
             printInteractiveHelp();
             continue;
         }
 
-        if (selection.value() == 5) {
+        if (selection.value() == 6) {
             const auto removed = removeHymnsFromIndex(hymns);
             if (!removed.has_value()) {
                 std::cout << "Session terminated.\n";
@@ -919,7 +1476,7 @@ int main() {
             continue;
         }
 
-        if (selection.value() == 4) {
+        if (selection.value() == 5) {
             const auto added = addHymnToIndex(hymns, usedExportBaseNames);
             if (!added.has_value()) {
                 std::cout << "Session terminated.\n";
@@ -932,8 +1489,17 @@ int main() {
             continue;
         }
 
-        if (selection.value() == 3) {
+        if (selection.value() == 4) {
             std::cout << buildLoadedHymnSummary(loadedHymns);
+            continue;
+        }
+
+        if (selection.value() == 3) {
+            const auto result = runStepByStepAnalyze(loadedHymns);
+            if (!result.has_value()) {
+                std::cout << "Session terminated.\n";
+                break;
+            }
             continue;
         }
 

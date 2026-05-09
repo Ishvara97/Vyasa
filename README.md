@@ -41,16 +41,16 @@ _yo asyādhyakṣaḥ parame vyoman **[so aṅgha veda yadi vā na veda]** ||_
 + Dot Product & Vector Magnitude -> Cosine Similarity
 + Phoneme, Varna, Swara Searching
 + Cross Hymn/Verse Comparison
++ Levenshtein Distance
++ Character-Level Matrix Analysis
 
 ## In Progress Functionalities
 - N-Gram Phonetic Analysis
 
 ## Planned Functionalities and Enhancements
-- Character-Level Matrix Analysis
 - Meter-Sandhi Proportionality Detection
 - Metadata Improvements
 - Light/Heavy Syllable Pattern Finding
-- Levenshtein Distance
 
 ## Structure
 
@@ -90,6 +90,10 @@ Following will be a prompt with the following commands enumerated:
 
 
 Type `help` anywhere for further instructions. Contact with any issues.
+
+## Analyze
+
+The interactive Analyze menu can run Levenshtein distance on indexed verses or hymns and can export character-level matrices for a whole hymn or a selected verse. Matrix exports are written under `HymnExports/matrices`.
 
 ### Attributions:
 

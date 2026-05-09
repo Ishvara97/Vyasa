@@ -9,6 +9,7 @@
 #include <set>
 #include "analysis.h"
 #include "CleanUp.h"
+#include "levenshtein.h"
 #include "Parser.h"
 #include "Sandhi.h"
 #include "../PoemStructures.h"
@@ -718,6 +719,8 @@ void exportVerseSimilarityCSV(const Hymn& h, const std::string& filename) {
         "Rare_Trigram_Dot_Product,Rare_Trigram_Magnitude_A,Rare_Trigram_Magnitude_B,Rare_Trigram_Cosine_Similarity,Rare_Trigram_Confidence,"
         "Bigram_Position_Dot_Product,Bigram_Position_Magnitude_A,Bigram_Position_Magnitude_B,Bigram_Position_Cosine_Similarity,Bigram_Position_Confidence,"
         "Trigram_Position_Dot_Product,Trigram_Position_Magnitude_A,Trigram_Position_Magnitude_B,Trigram_Position_Cosine_Similarity,Trigram_Position_Confidence,"
+        "DEV_Levenshtein_Distance,DEV_Levenshtein_Similarity,"
+        "IAST_Levenshtein_Distance,IAST_Levenshtein_Similarity,"
         "Verse_A_Bigram_Entropy,Verse_B_Bigram_Entropy,Bigram_Entropy_Delta,"
         "Verse_A_Trigram_Entropy,Verse_B_Trigram_Entropy,Trigram_Entropy_Delta\n";
 
@@ -764,6 +767,10 @@ void exportVerseSimilarityCSV(const Hymn& h, const std::string& filename) {
             << comparison.trigramPosition.magnitudeB << ","
             << comparison.trigramPosition.cosineSimilarity << ","
             << comparison.trigramPosition.confidence << ","
+            << comparison.devLevenshteinDistance << ","
+            << comparison.devLevenshteinSimilarity << ","
+            << comparison.iastLevenshteinDistance << ","
+            << comparison.iastLevenshteinSimilarity << ","
             << comparison.leftBigramEntropy << ","
             << comparison.rightBigramEntropy << ","
             << std::abs(comparison.leftBigramEntropy - comparison.rightBigramEntropy) << ","
@@ -875,6 +882,12 @@ std::vector<VerseSimilarityComparison> getVerseSimilarityComparisons(const Hymn&
             comparison.trigramPosition = compareIntFeatureMaps(
                 getPhoneticNGramPositionProfile(verses[i], 3),
                 getPhoneticNGramPositionProfile(verses[j], 3));
+            const auto devLevenshtein = computeDevLevenshteinMetrics(verses[i], verses[j]);
+            const auto iastLevenshtein = computeIASTLevenshteinMetrics(verses[i], verses[j]);
+            comparison.devLevenshteinDistance = devLevenshtein.distance;
+            comparison.devLevenshteinSimilarity = devLevenshtein.similarity;
+            comparison.iastLevenshteinDistance = iastLevenshtein.distance;
+            comparison.iastLevenshteinSimilarity = iastLevenshtein.similarity;
             comparison.leftBigramEntropy = getPhoneticNGramEntropy(verses[i], 2);
             comparison.rightBigramEntropy = getPhoneticNGramEntropy(verses[j], 2);
             comparison.leftTrigramEntropy = getPhoneticNGramEntropy(verses[i], 3);

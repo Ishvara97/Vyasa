@@ -2,6 +2,7 @@
 
 #include "CleanUp.h"
 #include "analysis.h"
+#include "levenshtein.h"
 
 #include <algorithm>
 #include <cctype>
@@ -616,6 +617,7 @@ std::string buildInteractiveActionPrompt() {
     out << "Available actions:\n";
     out << "  Search       Find information in loaded hymns step by step\n";
     out << "  Compare      Compare verses, hymns, or one search pattern across hymns\n";
+    out << "  Analyze      Run Levenshtein, character-level matrix, and matrix exports on indexed hymns\n";
     out << "  List         Show the currently loaded hymn index\n";
     out << "  Add hymn     Load one more hymn from /Hymns into the current index\n";
     out << "  Remove hymn  Remove one or more loaded hymn indices from the current index\n";
@@ -749,6 +751,8 @@ std::string compareSelectedVerses(
             const auto rightBigramEntropy = getPhoneticNGramEntropy(*selected[j].verse, 2);
             const auto leftTrigramEntropy = getPhoneticNGramEntropy(*selected[i].verse, 3);
             const auto rightTrigramEntropy = getPhoneticNGramEntropy(*selected[j].verse, 3);
+            const auto devLevenshtein = computeDevLevenshteinMetrics(*selected[i].verse, *selected[j].verse);
+            const auto iastLevenshtein = computeIASTLevenshteinMetrics(*selected[i].verse, *selected[j].verse);
 
             out << "  " << selected[i].hymnRecord->exportBaseName << ":" << selected[i].verse->getVerseNumber()
                 << " vs "
@@ -768,6 +772,10 @@ std::string compareSelectedVerses(
                 << " rare-weighted cosine=" << rareTrigram.cosineSimilarity
                 << " position cosine=" << trigramPosition.cosineSimilarity
                 << " entropy delta=" << std::abs(leftTrigramEntropy - rightTrigramEntropy) << "\n";
+            out << "    DEV Levenshtein distance=" << devLevenshtein.distance
+                << " similarity=" << devLevenshtein.similarity << "\n";
+            out << "    IAST Levenshtein distance=" << iastLevenshtein.distance
+                << " similarity=" << iastLevenshtein.similarity << "\n";
         }
     }
 
@@ -827,6 +835,8 @@ std::string compareSelectedHymns(
             const auto rightBigramEntropy = getHymnPhoneticNGramEntropy(*selected[j]->hymn, 2);
             const auto leftTrigramEntropy = getHymnPhoneticNGramEntropy(*selected[i]->hymn, 3);
             const auto rightTrigramEntropy = getHymnPhoneticNGramEntropy(*selected[j]->hymn, 3);
+            const auto devLevenshtein = computeDevLevenshteinMetrics(*selected[i]->hymn, *selected[j]->hymn);
+            const auto iastLevenshtein = computeIASTLevenshteinMetrics(*selected[i]->hymn, *selected[j]->hymn);
 
             out << "  [" << selected[i]->index << "] " << selected[i]->exportBaseName
                 << " vs "
@@ -848,6 +858,10 @@ std::string compareSelectedHymns(
                 << " rare-weighted cosine=" << rareTrigram.cosineSimilarity
                 << " position cosine=" << trigramPosition.cosineSimilarity
                 << " entropy delta=" << std::abs(leftTrigramEntropy - rightTrigramEntropy) << "\n";
+            out << "    DEV Levenshtein distance=" << devLevenshtein.distance
+                << " similarity=" << devLevenshtein.similarity << "\n";
+            out << "    IAST Levenshtein distance=" << iastLevenshtein.distance
+                << " similarity=" << iastLevenshtein.similarity << "\n";
         }
     }
 

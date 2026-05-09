@@ -18,6 +18,10 @@ struct VerseSimilarityComparison {
     SimilarityScore trigramPosition;
     double bigramJaccard = 0.0;
     double trigramJaccard = 0.0;
+    int devLevenshteinDistance = 0;
+    double devLevenshteinSimilarity = 0.0;
+    int iastLevenshteinDistance = 0;
+    double iastLevenshteinSimilarity = 0.0;
     double leftBigramEntropy = 0.0;
     double rightBigramEntropy = 0.0;
     double leftTrigramEntropy = 0.0;
